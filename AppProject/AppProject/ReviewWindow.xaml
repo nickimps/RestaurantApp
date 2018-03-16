@@ -5,4 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppProject"
         mc:Ignorable="d"
-        Title="ReviewWindow" Height="1080" Width="1720"/>
+        Title="ReviewWindow" Height="1080" Width="1720">
+    <Window.Resources>
+        <ControlTemplate x:Key="HelpButton" TargetType="{x:Type Button}">
+            <Grid x:Name="ButtonGrid" Height="46" Margin="0" Width="46">
+                <Ellipse x:Name="Circle" Fill="Blue" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="46" Margin="0"/>
+                <Ellipse x:Name="InnerCircle" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="38" Margin="4,4,0,0"/>
+                <TextBlock x:Name="QuestionMark" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="36" Width="46" TextAlignment="Center" Text="?" FontSize="36" FontFamily="Franklin Gothic Book" RenderTransformOrigin="0.522,0.978" Margin="0,3,0,7" Foreground="Blue"/>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="RectangleButton" TargetType="{x:Type Button}">
+            <Grid x:Name="ButtonGrid">
+                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="410" Stroke="Black" Fill="#FF00A80F"/>
+                <ContentPresenter x:Name="ContentBox" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="Auto" Margin="106,10"/>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid x:Name="ReviewWindow1" Margin="0,0,-8,-31" Height="1080" Width="1720">
+        <Grid x:Name="SideGrid" Margin="1282,0,0,0" Background="#FFAAA5A5" Width="430">
+            <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="374,10,0,0" Height="46"/>
+            <Button x:Name="CheckoutButton" Content="Checkout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="410" Template="{DynamicResource RectangleButton}" Height="76" Margin="10,993,0,0" FontSize="36" FontWeight="Bold"/>
+            <Button x:Name="SendButton" Content="Edit Bill" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="410" Template="{DynamicResource RectangleButton}" Margin="10,0,0,192" FontSize="36" FontWeight="Bold" Height="76"/>
+            <Button x:Name="EditButton" Content="Send Order" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="410" Template="{DynamicResource RectangleButton}" Margin="10,0,0,101" FontWeight="Bold" FontSize="36"/>
+            <Grid x:Name="SideInfoGrid" HorizontalAlignment="Left" Height="733" VerticalAlignment="Bottom" Width="410" Margin="10,0,0,283" Background="#FF24247A">
+                <Grid x:Name="TotalGrid" Margin="10,677,10,10">
+                    <TextBlock x:Name="TotalText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="136" FontWeight="Bold" FontSize="30"><Run Text="Total"/></TextBlock>
+                    <TextBlock x:Name="TotalValue" TextWrapping="Wrap" Margin="141,0,0,0" TextAlignment="Right" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" Width="249"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="BillListGrid" Background="#FF8D1A1A" Margin="10,10,435,10"/>
+
+    </Grid>
+</Window>
