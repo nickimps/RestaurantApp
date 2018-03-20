@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace AppProject
 {
     /// <summary>
-    /// Interaction logic for SplitMenu.xaml
+    /// Interaction logic for BillSplitingScreen.xaml
     /// </summary>
-    public partial class SplitMenu : Window
+    public partial class BillSplitingScreen2 : Window
     {
-        public SplitMenu()
+        public BillSplitingScreen2()
         {
             InitializeComponent();
         }
