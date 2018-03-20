@@ -57,8 +57,8 @@
     <Compile Include="BillItem.xaml.cs">
       <DependentUpon>BillItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BillSplitingScreen2.xaml.cs">
-      <DependentUpon>BillSplitingScreen2.xaml</DependentUpon>
+    <Compile Include="BillOptions.xaml.cs">
+      <DependentUpon>BillOptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="BillSplitingScreen.xaml.cs">
       <DependentUpon>BillSplitingScreen.xaml</DependentUpon>
@@ -72,11 +72,8 @@
     <Compile Include="ReviewWindow.xaml.cs">
       <DependentUpon>ReviewWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BillOptions.xaml.cs">
-      <DependentUpon>BillOptions.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Window2.xaml.cs">
-      <DependentUpon>Window2.xaml</DependentUpon>
+    <Compile Include="TitleWindow.xaml.cs">
+      <DependentUpon>TitleWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Bill.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,9 +83,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BillSplitingScreen2.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="BillOptions.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BillSplitingScreen.xaml">
       <SubType>Designer</SubType>
@@ -121,11 +118,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BillOptions.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window2.xaml">
+    <Page Include="TitleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
