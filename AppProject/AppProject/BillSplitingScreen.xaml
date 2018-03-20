@@ -1,0 +1,30 @@
+﻿<Window x:Class="AppProject.BillSplitingScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppProject"
+        mc:Ignorable="d"
+        Title="BillSplitingScreen" Height="1080" Width="1720" WindowStyle="None">
+    <Window.Resources>
+        <ControlTemplate x:Key="RectangleButton" TargetType="{x:Type Button}">
+            <Grid x:Name="ButtonGrid">
+                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="410" Stroke="Black" Fill="#FF00A80F"/>
+                <ContentPresenter x:Name="ContentBox" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="Auto" Margin="106,10"/>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid x:Name="MainSplitGrid" Width="1720" Height="1080" Background="#FFB0A2A2">
+        <Grid x:Name="SideGrid" Height="1040" VerticalAlignment="Top" Margin="1280,10,10,0" Width="430">
+            <Button x:Name="SplitItemButton" Content="Done" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton}" Margin="10,0,10,10" FontSize="36" FontWeight="Bold" Height="76"/>
+            <TextBlock x:Name="InstructionText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Select items to split then click &quot;Split items&quot;" VerticalAlignment="Top" Margin="10,10,0,0" Height="30" Width="410" FontSize="20"/>
+        </Grid>
+        <ScrollViewer HorizontalAlignment="Left" Height="1030" VerticalAlignment="Top" Width="1255" Margin="20,20,0,0" Background="#FF5B5353">
+            <UniformGrid x:Name="BillUnicormGrid" HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Columns="2" Width="1245">
+                <local:Bill/>
+                <local:Bill/>
+                <local:Bill/>
+            </UniformGrid>
+        </ScrollViewer>
+    </Grid>
+</Window>
