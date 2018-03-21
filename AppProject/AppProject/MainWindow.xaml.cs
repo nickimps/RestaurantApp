@@ -103,10 +103,5 @@ namespace AppProject
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
             this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;
         }
-
-        private void W_StartButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.WelcomeScreen.Visibility = Visibility.Hidden;
-        }
     }
 }
