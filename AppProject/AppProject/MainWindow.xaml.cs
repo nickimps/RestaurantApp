@@ -43,5 +43,11 @@ namespace AppProject
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.MenuGrid.Visibility = Visibility.Hidden;
+            this.ReviewWindow.Visibility = Visibility.Visible;
+        }
     }
 }
