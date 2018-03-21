@@ -209,6 +209,11 @@
                 <ContentPresenter x:Name="ButtonPresenter" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" HorizontalAlignment="Center" Height="40" VerticalAlignment="Stretch" Width="Auto" Margin="17.5,18" Grid.ColumnSpan="2"/>
             </Grid>
         </ControlTemplate>
+        <ControlTemplate x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Grid x:Name="CloseGrid" Width="16" Height="16">
+                <TextBlock x:Name="X" HorizontalAlignment="Left" Margin="0,0,0,-63.8" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="16" Height="17" Foreground="Red"/>
+            </Grid>
+        </ControlTemplate>
         <ControlTemplate x:Key="RectangleButton4" TargetType="{x:Type Button}">
             <Grid x:Name="ButtonGrid" Margin="0" Width="385" Height="76">
                 <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="385" Stroke="White" Fill="#FF388E3C"/>
@@ -310,7 +315,7 @@
                     <Button x:Name="R_ReturnButton" Content="Return To Menu" HorizontalAlignment="Left" Height="94" Margin="18.286,162,0,-8" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="R_ReturnButton_Click"/>
                 </Grid>
                 <Grid x:Name="R_EditButtonsGrid" Height="195" VerticalAlignment="Top" Margin="0,453.5,0,0" Grid.RowSpan="2">
-                    <Button x:Name="R_EditButton" Content="Split Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-40,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
+                    <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-40,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
                     <Button x:Name="R_MoveButton" Content="Move Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-160,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_MoveButton_Click"/>
                 </Grid>
                 <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0" Height="261.75" Grid.Row="1" d:IsHidden="True">

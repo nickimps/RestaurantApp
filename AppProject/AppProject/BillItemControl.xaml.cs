@@ -20,11 +20,22 @@ namespace AppProject
     /// </summary>
     public partial class BillItem : UserControl
     {
-        public BillItem(string itemName, int itemPrice)
+        public BillItem(string itemName, string itemPrice)
         {
             InitializeComponent();
             this.ItemName.Text = itemName;
-            this.ItemPrice.Text = ItemPrice.ToString();
+            this.ItemPrice.Text = itemPrice;
+        }
+        
+        public void ToggleCheckBoxVisibility()
+        {
+            if (this.ItemCheckBox.Visibility == Visibility.Visible)
+            {
+                this.ItemCheckBox.Visibility = Visibility.Hidden;
+            } else
+            {
+                this.ItemCheckBox.Visibility = Visibility.Visible;
+            }
         }
     }
 }
