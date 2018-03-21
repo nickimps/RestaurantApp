@@ -32,6 +32,7 @@ namespace AppProject
             this.Food_Image.EndInit();
         }
 
+
         private string readDescription(string itemName)
         {
             string text = "Didn't find a descripion";
@@ -49,6 +50,7 @@ namespace AppProject
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+            
         }
     }
 }

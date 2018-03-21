@@ -13,7 +13,7 @@
                 <TextBlock x:Name="Description" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="0,105,29.037,230" Width="275.963" FontSize="18" Text="Description"/>
                 <Image x:Name="Food_Image" Margin="45,105,325,140" Stretch="UniformToFill"/>
                 <Button x:Name="MI_Add" Content="Add Item" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="235" Margin="200,0,0,45" Height="65" Background="#FF313F54" FontSize="24"/>
-                <Button x:Name="MI_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60" Height="60" FontSize="24" Background="#FFF23131" Click="Close_Click"/>
+                <Button x:Name="MI_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="50.4" Height="44.8" FontSize="24" Background="#FFF23131" Click="Close_Click"/>
                 <TextBox x:Name="UserNotes" HorizontalAlignment="Right" Height="105" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="275.963" Margin="0,0,29.037,105"/>
                 <TextBlock x:Name="Notes" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,29.037,215" Height="30" HorizontalAlignment="Right" Width="275.963" FontSize="22" FontWeight="Bold"><Run Text="Add "/><Run Text="n"/><Run Text="otes"/><Run Text=" to order"/><Run Text=":"/></TextBlock>
             </Grid>
