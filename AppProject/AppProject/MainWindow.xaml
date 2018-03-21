@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppProject"
         mc:Ignorable="d"
+
         Title="MainWindow" Height="980" Width="1620" WindowStyle="None" ResizeMode="NoResize" Icon="LogoIcon.png" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ControlTemplate x:Key="HelpButton" TargetType="{x:Type Button}">
@@ -269,7 +270,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561" d:IsHidden="True">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -354,4 +355,5 @@
             <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
         </Grid>
     </Grid> 
+
 </Window>
