@@ -20,9 +20,11 @@ namespace AppProject
     /// </summary>
     public partial class BillItem : UserControl
     {
-        public BillItem()
+        public BillItem(string itemName, int itemPrice)
         {
             InitializeComponent();
+            this.ItemName.Text = itemName;
+            this.ItemPrice.Text = ItemPrice.ToString();
         }
     }
 }

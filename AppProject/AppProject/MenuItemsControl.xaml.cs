@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace AppProject
 {
     /// <summary>
-    /// Interaction logic for Bill.xaml
+    /// Interaction logic for MenuItemsControl.xaml
     /// </summary>
-    public partial class Bill : UserControl
+    public partial class MenuItemsControl : UserControl
     {
-        public Bill()
+        public MenuItemsControl()
         {
             InitializeComponent();
-        }
-
-
-        public void AddItem(BillItem item)
-        {
-            this.ItemListGrid.Children.Add(item);
         }
     }
 }

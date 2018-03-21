@@ -20,6 +20,9 @@ namespace AppProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        //List<Bill> bills;
+        //int numbers = 1;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,8 +35,10 @@ namespace AppProject
                 string itemName = fileName.Replace(".jpg", "").Split('.').Last();
                 MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
                 this.DisplayMoreInfoGrid.Children.Add(moreInfo);
+                moreInfo.Visibility = Visibility.Hidden;
             }
             W_StartButton.Opacity = 0.25;
+            W_StartButton.IsEnabled = false;
         }
 
         private void W_numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -41,17 +46,44 @@ namespace AppProject
             if (W_numberOfPeopleSlider.Value > 0)
             {
                 W_StartButton.Opacity = 1;
+                W_StartButton.IsEnabled = true;
             }
             else
             {
                 W_StartButton.Opacity = 0.25;
+                W_StartButton.IsEnabled = false;
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void W_StartButton_Click(object sender, RoutedEventArgs e)
         {
-            this.MenuGrid.Visibility = Visibility.Hidden;
-            this.ReviewWindow.Visibility = Visibility.Visible;
+            MenuGrid.Visibility = Visibility.Visible;
+            WelcomeScreen.Visibility = Visibility.Hidden;
+
+            //Need to actually get the number of people in this loop
+            for (int i=0; i<2; i++)
+            {
+                this.R_BillUnicormGrid.Children.Add(new Bill());
+            }
+
+        }
+
+        private void R_ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuGrid.Visibility = Visibility.Visible;
+            ReviewGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void M_ReviewOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuGrid.Visibility = Visibility.Hidden;
+            ReviewGrid.Visibility = Visibility.Visible;
+        }
+
+        private void R_MoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            //ReviewGrid.Visibility = Visibility.Hidden;
+           // ReviewGrid_Move1.Visibility = Visibility.Visible;
         }
     }
 }
