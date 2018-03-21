@@ -5,19 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppProject"
              mc:Ignorable="d" Width="340" MinHeight="30">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Grid x:Name="CloseGrid" Width="16" Height="16">
+                <TextBlock x:Name="X" HorizontalAlignment="Left" Margin="0,0,0,-63.8" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="16" Height="17" Foreground="Red"/>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
     <Grid x:Name="BillItemGrid" Width="340" MinWidth="340" MinHeight="28" Background="#FF52A2A2" Margin="0,1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" Grid.Column="1" Margin="0,28,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom">
-            <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock"/>
-            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="TextBlock"/>
-        </UniformGrid>
+        <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" Grid.Column="1" Margin="0,28,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
         <Grid x:Name="ItemTitleGrid" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Top">
-            <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="28,0,87.355,0" Height="28"><Run FontSize="20" Text="Sample Item "/><LineBreak/><Run FontSize="20"/><LineBreak/><Run/></TextBlock>
-            <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Margin="252.645,0,0,0" Text="9.99" FontSize="20" TextAlignment="Right" Height="28" VerticalAlignment="Top"/>
-            <CheckBox x:Name="ItemCheckBox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False"/>
+            <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="28,0,64.677,0" Height="28" HorizontalAlignment="Left"><Run FontSize="20" Text=""/><LineBreak/><Run FontSize="20"/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Margin="252.645,0,28,0" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right"/>
+            <CheckBox x:Name="ItemCheckBox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False" Visibility="Hidden"/>
+            <Button x:Name="CancelButton" Content="Button" HorizontalAlignment="Right" Width="16" Height="16" Margin="319.641,6,6,0" VerticalAlignment="Top" Template="{DynamicResource CloseButton}" Visibility="Hidden"/>
         </Grid>
     </Grid>
 </UserControl>

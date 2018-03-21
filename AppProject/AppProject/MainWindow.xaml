@@ -27,9 +27,9 @@
             </Grid>
         </ControlTemplate>
         <ControlTemplate x:Key="RectangleButton3" TargetType="{x:Type Button}">
-            <Grid x:Name="ButtonGrid">
-                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="372" Stroke="Black" Fill="#FF00A80F"/>
-                <ContentPresenter x:Name="ContentBox" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="Auto" Margin="106,10"/>
+            <Grid x:Name="ButtonGrid" Margin="0" Width="385" Height="76">
+                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="385" Stroke="Black" Fill="#FF00A80F"/>
+                <ContentPresenter x:Name="ContentBox" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="112.82,18.048"/>
             </Grid>
         </ControlTemplate>
         <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
@@ -199,6 +199,16 @@
             <Setter Property="FontFamily" Value="Century Gothic"/>
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
+        <ControlTemplate x:Key="ReturnButton" TargetType="{x:Type Button}">
+            <Grid x:Name="ReturnGrid" Width="385" Height="76">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="26*"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="ButtonBorder" Fill="#FF00A80F" HorizontalAlignment="Left" Height="76" Stroke="Black" VerticalAlignment="Top" Width="385" Grid.ColumnSpan="2"/>
+                <ContentPresenter x:Name="ButtonPresenter" HorizontalAlignment="Center" Height="40" VerticalAlignment="Stretch" Width="Auto" Margin="17.5,18" Grid.ColumnSpan="2"/>
+            </Grid>
+        </ControlTemplate>
     </Window.Resources>
     <Grid x:Name="MainWindowGrid" Margin="0,0,-5.714,-5.714" Width="1620" Height="980">
         <Grid.ColumnDefinitions>
@@ -206,25 +216,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-
-        <Grid x:Name="ReviewWindow" Margin="0,0,8,8" Grid.ColumnSpan="2">
-            <Grid x:Name="R_SideGrid" Background="#FFAAA5A5" HorizontalAlignment="Right" Width="405">
-                <Button x:Name="R_CheckoutButton" Content="Checkout&#xA;" Template="{DynamicResource RectangleButton3}" Margin="10,894,10,10" FontSize="30" FontWeight="Bold"/>
-                <Button x:Name="R_SendButton" Content="Send Orders" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,181" FontSize="30" FontWeight="Bold" Height="76"/>
-                <Button x:Name="R_EditButton" Content="Edit Orders" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,91" FontWeight="Bold" FontSize="30"/>
-                <Grid x:Name="R_SideInfoGrid" Margin="10,10,10,341" Background="#FF24247A">
-                    <Grid x:Name="R_TotalGrid" Margin="10,0,10,10" Height="59" VerticalAlignment="Bottom">
-                        <TextBlock x:Name="R_TotalText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="136" FontWeight="Bold" FontSize="30"><Run Text="Total"/></TextBlock>
-                        <TextBlock x:Name="R_TotalValue" TextWrapping="Wrap" Margin="141,0,0,0" TextAlignment="Right" FontSize="30" FontWeight="Bold"/>
-                    </Grid>
-                </Grid>
-                <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,10,10,0" Height="46"/>
-            </Grid>
-            <Grid x:Name="BillListGrid" Background="#FF8D1A1A" Margin="10,10,405,10"/>
-
-        </Grid>
-
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -241,20 +233,7 @@
                 </Grid>
                 <Grid x:Name="M_MenuItemsGrid" HorizontalAlignment="Left" Canvas.Left="270" Height="982" Width="946">
                     <Rectangle x:Name="M_Background" Fill="#FFE05A00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
-                    <Canvas x:Name="MenuItems" Margin="44,128,621.574,572.632">
-                        <Rectangle Fill="#FFEFEFEF" HorizontalAlignment="Left" Height="276" Stroke="#FF363636" VerticalAlignment="Top" Width="276" StrokeThickness="3" RadiusX="4" RadiusY="4" Canvas.Left="-10"/>
-                        <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Food Title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Foreground="#FF363636" FontFamily="Century Gothic" Canvas.Left="-10" Canvas.Top="5"/>
-                        <Rectangle HorizontalAlignment="Left" Height="171.857" Stroke="#FF363636" VerticalAlignment="Top" Width="245.714" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="4.857" Canvas.Top="37"/>
-                        <Rectangle Fill="#FFDC2F2F" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="4.857" Canvas.Top="218"/>
-                        <Rectangle Fill="#FF68C3D4" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="135.571" Canvas.Top="218"/>
-                        <Rectangle Fill="#FFEFEFEF" HorizontalAlignment="Left" Height="276" Stroke="#FF363636" VerticalAlignment="Top" Width="276" StrokeThickness="3" RadiusX="4" RadiusY="4" Canvas.Left="-10"/>
-                        <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Food Title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Foreground="#FF363636" FontFamily="Century Gothic" Canvas.Left="-10" Canvas.Top="5"/>
-                        <Rectangle HorizontalAlignment="Left" Height="171.857" Stroke="#FF363636" VerticalAlignment="Top" Width="245.714" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="4.857" Canvas.Top="37"/>
-                        <Rectangle Fill="#FFDC2F2F" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="4.857" Canvas.Top="218"/>
-                        <Rectangle Fill="#FF568EA3" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="135.571" Canvas.Top="218"/>
-                        <TextBlock TextWrapping="Wrap" Text="Add To Bill" Canvas.Left="4.857" Canvas.Top="229.429" FontFamily="Century Gothic" FontSize="20" Width="115" Height="25.048" TextAlignment="Center" FontWeight="Bold" Foreground="#FFEFEFEF"/>
-                        <TextBlock TextWrapping="Wrap" Text="More Info" Canvas.Left="135.571" Canvas.Top="229.429" FontFamily="Century Gothic" FontSize="20" Width="115" Height="25.048" TextAlignment="Center" FontWeight="Bold" Foreground="#FFEFEFEF"/>
-                    </Canvas>
+                    <local:MenuItemsControl Margin="44,128,621.574,572.632"/>
                     <TextBlock x:Name="M_MenuTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Appetizers" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
                     <Rectangle x:Name="M_AppetizerCover" Fill="#FFE05A00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,125.428,0,0"/>
                     <Rectangle x:Name="M_EntreesCover" Fill="#FFFF6C00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,269.44,0,0" d:IsHidden="True"/>
@@ -263,26 +242,30 @@
                     <Rectangle x:Name="M_DrinksCover" Fill="#FFDC4712" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,701.535,0,0" d:IsHidden="True"/>
                 </Grid>
                 <Grid x:Name="M_BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FFEFEFEF" Height="982" Canvas.Left="1216">
-                    <Button x:Name="M_ReviewOrderButton" Content="Review Order" HorizontalAlignment="Left" Height="94" Margin="27.428,860.143,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
+                    <Button x:Name="M_ReviewOrderButton" Content="Review Order" HorizontalAlignment="Left" Height="94" Margin="27.428,860.143,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="M_ReviewOrderButton_Click"/>
                 </Grid>
             </Canvas>
 
         </Grid>
-        <Grid x:Name="SplitGrid" Background="#FFB0A2A2" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
-            <Grid x:Name="S_SideGrid" Height="960" VerticalAlignment="Top" Margin="1205,10,10,0" Width="405" d:IsHidden="True">
+        <Grid x:Name="ReviewGrid" Background="#FFB0A2A2" Margin="0,0,10,10" Grid.ColumnSpan="2">
+            <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
                     <RowDefinition Height="243*"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="SplitItemButton" Content="Split Items" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton2}" Margin="10,0,10,10" FontSize="36" FontWeight="Bold" Height="76" Grid.Row="1"/>
+                <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,10,10,0" Height="46"/>
+                <Grid x:Name="R_TransitionButtonGrid_" Margin="10,178.442,10,10" Grid.Row="1" Width="385" Height="248">
+                    <Button x:Name="R_CheckoutButton" Content="Checkout&#xA;" Template="{DynamicResource RectangleButton3}" Margin="0,0,0,86" FontSize="30" FontWeight="Bold" Height="76" Width="385" VerticalAlignment="Bottom"/>
+                    <Button x:Name="R_SendButton" Content="Send Order" Template="{DynamicResource RectangleButton3}" Margin="0,0,0,172" FontSize="30" FontWeight="Bold" Height="76" Width="385" VerticalAlignment="Bottom"/>
+                    <Button x:Name="R_ReturnButton" Content=" Return to Menu" HorizontalAlignment="Left" Width="385" Margin="0,172,0,0" FontSize="30" Template="{DynamicResource ReturnButton}" FontWeight="Bold" Click="R_ReturnButton_Click"/>
+                </Grid>
+                <Grid x:Name="R_EditButtons" Height="195" VerticalAlignment="Top" Margin="0,453.5,0,0" Grid.RowSpan="2">
+                    <Button x:Name="R_EditButton" Content="Split Items" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,10" FontWeight="Bold" FontSize="30" Width="385" Height="80"/>
+                    <Button x:Name="R_MoveButton" Content="Move Item" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,95" FontWeight="Bold" FontSize="30" Width="385" Height="80"/>
+                </Grid>
             </Grid>
-            <ScrollViewer HorizontalAlignment="Left" Width="1195" Margin="10,10,0,10" Background="#FF5B5353">
-                <UniformGrid x:Name="BillUnicormGrid" ScrollViewer.CanContentScroll="True" Columns="2" Width="1185" VerticalAlignment="Top">
-                    <local:Bill Width="Auto"/>
-                    <local:Bill Width="Auto"/>
-                    <local:Bill Width="Auto"/>
-                    <local:Bill Width="Auto"/>
-                </UniformGrid>
+            <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Width="1195" Margin="10,10,0,10" Background="#FF5B5353">
+                <UniformGrid x:Name="R_BillUnicormGrid" ScrollViewer.CanContentScroll="True" Columns="2" Width="1185" VerticalAlignment="Top"/>
             </ScrollViewer>
         </Grid>
         <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" Margin="0,0,10,10">
@@ -303,7 +286,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="DisplayMoreInfoGrid" Grid.ColumnSpan="2" Margin="240,155,515,205" d:IsHidden="True"/>
+        <Grid x:Name="DisplayMoreInfoGrid" Grid.ColumnSpan="2" Margin="392.382,188.863,362.618,171.137" d:IsHidden="True"/>
 
     </Grid>
 </Window>

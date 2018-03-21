@@ -16,8 +16,6 @@
                 <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right"/>
             </Grid>
             <UniformGrid x:Name="ItemListGrid" Margin="10,38,10,36" Columns="1" Width="340">
-                <local:BillItem/>
-                <local:BillItem/>
             </UniformGrid>
             <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50">
                 <TextBlock x:Name="BillText" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="Bill #" Height="28"/>

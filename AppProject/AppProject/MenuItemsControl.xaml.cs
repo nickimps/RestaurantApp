@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace AppProject
 {
     /// <summary>
-    /// Interaction logic for BillItem.xaml
+    /// Interaction logic for MenuItemsControl.xaml
     /// </summary>
-    public partial class BillItem : UserControl
+    public partial class MenuItemsControl : UserControl
     {
-        public BillItem(string itemName, int itemPrice)
+        public MenuItemsControl()
         {
             InitializeComponent();
-            this.ItemName.Text = itemName;
-            this.ItemPrice.Text = ItemPrice.ToString();
         }
     }
 }
