@@ -21,7 +21,7 @@ namespace AppProject
     public partial class MainWindow : Window
     {
         //List<Bill> bills;
-        //int numbers = 1;
+        int numDinners = 0;
 
         public MainWindow()
         {
@@ -59,11 +59,13 @@ namespace AppProject
         {
             MenuGrid.Visibility = Visibility.Visible;
             WelcomeScreen.Visibility = Visibility.Hidden;
+            Console.WriteLine(W_numberOfPeopleSlider.Value);
+            numDinners = (int) W_numberOfPeopleSlider.Value;
 
             //Need to actually get the number of people in this loop
-            for (int i=0; i<2; i++)
+            for (int i=0; i<numDinners; i++)
             {
-                this.R_BillUnicormGrid.Children.Add(new Bill());
+                this.R_BillUnicormGrid.Children.Add(new Bill(i+1));
             }
 
         }
