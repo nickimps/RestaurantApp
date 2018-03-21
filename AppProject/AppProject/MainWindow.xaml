@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1720" WindowStyle="None">
+        Title="MainWindow" Height="1080" Width="1620" WindowStyle="None">
     <Window.Resources>
         <ControlTemplate x:Key="HelpButton" TargetType="{x:Type Button}">
             <Grid x:Name="ButtonGrid" Height="46" Margin="0" Width="46">

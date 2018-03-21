@@ -155,5 +155,8 @@
     <Resource Include="logo.png" />
     <Resource Include="LogoIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="california_roll.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
