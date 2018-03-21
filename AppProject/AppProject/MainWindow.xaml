@@ -61,16 +61,16 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="MainSplitGrid" Background="#FFB0A2A2" Margin="0,0,10,10" Grid.ColumnSpan="2">
-            <Grid x:Name="SideGrid" Height="960" VerticalAlignment="Top" Margin="1205,10,10,0" Width="405">
+        <Grid x:Name="MainSplitGrid" Background="#FFB0A2A2" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
+            <Grid x:Name="SideGrid" Height="960" VerticalAlignment="Top" Margin="1205,10,10,0" Width="405" d:IsHidden="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
                     <RowDefinition Height="243*"/>
                 </Grid.RowDefinitions>
                 <Button x:Name="SplitItemButton" Content="Split Items" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton2}" Margin="10,0,10,10" FontSize="36" FontWeight="Bold" Height="76" Grid.Row="1"/>
             </Grid>
-            <ScrollViewer HorizontalAlignment="Left" Width="1195" Margin="10,10,0,10" Background="#FF5B5353">
-                <UniformGrid x:Name="BillUnicormGrid" ScrollViewer.CanContentScroll="True" Columns="2" Width="1185" VerticalAlignment="Top">
+            <ScrollViewer HorizontalAlignment="Left" Width="1195" Margin="10,10,0,10" Background="#FF5B5353" d:IsHidden="True">
+                <UniformGrid x:Name="BillUnicormGrid" ScrollViewer.CanContentScroll="True" Columns="2" Width="1185" VerticalAlignment="Top" d:IsHidden="True">
                     <local:Bill Width="Auto"/>
                     <local:Bill Width="Auto"/>
                     <local:Bill Width="Auto"/>
@@ -79,7 +79,7 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid x:Name="ReviewWindow" Margin="0,0,8,8" Grid.ColumnSpan="2">
+        <Grid x:Name="ReviewWindow" Margin="0,0,8,8" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid x:Name="R_SideGrid" Background="#FFAAA5A5" HorizontalAlignment="Right" Width="405">
                 <Button x:Name="R_CheckoutButton" Content="Checkout&#xA;" Template="{DynamicResource RectangleButton3}" Margin="10,894,10,10" FontSize="30" FontWeight="Bold"/>
                 <Button x:Name="R_SendButton" Content="Send Orders" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,181" FontSize="30" FontWeight="Bold" Height="76"/>
@@ -96,7 +96,7 @@
 
         </Grid>
 
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-21.583,0,21.583">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -128,13 +128,13 @@
                     <Button Content="Help&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Margin="36.858,885.622,0,0" FontSize="48" Height="70.571" Background="#FFA4BFE8" Foreground="#FFEF5411" FontFamily="Century Gothic" FontWeight="Bold"/>
                 </Grid>
                 <Grid x:Name="BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FF313F54" Height="982" Canvas.Left="1216">
-                    <Button Content="Review Order(s)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="385" Height="76" Margin="10,896,0,0" FontSize="36" Background="#FF6BB8EE" BorderBrush="Black"/>
+                    <Button Content="Review Order(s)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="385" Height="76" Margin="10,896,0,0" FontSize="36" Background="#FF6BB8EE" BorderBrush="Black" Click="Button_Click"/>
                 </Grid>
             </Canvas>
 
         </Grid>
-        <Grid x:Name="SplitGrid" Background="#FFB0A2A2" Margin="0,0,10,10" Grid.ColumnSpan="2">
-            <Grid x:Name="S_SideGrid" Height="960" VerticalAlignment="Top" Margin="1205,10,10,0" Width="405">
+        <Grid x:Name="SplitGrid" Background="#FFB0A2A2" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
+            <Grid x:Name="S_SideGrid" Height="960" VerticalAlignment="Top" Margin="1205,10,10,0" Width="405" d:IsHidden="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
                     <RowDefinition Height="243*"/>
@@ -150,7 +150,7 @@
                 </UniformGrid>
             </ScrollViewer>
         </Grid>
-        <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" Margin="0,0,10,10">
+        <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" Margin="0,0,10,10" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -168,7 +168,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="DisplayMoreInfoGrid" Grid.ColumnSpan="2" Margin="240,155,515,205"/>
+        <Grid x:Name="DisplayMoreInfoGrid" Grid.ColumnSpan="2" Margin="240,155,515,205" d:IsHidden="True"/>
 
     </Grid>
 </Window>

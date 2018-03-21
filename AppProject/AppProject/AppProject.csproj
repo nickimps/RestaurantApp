@@ -54,8 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BillItem.xaml.cs">
-      <DependentUpon>BillItem.xaml</DependentUpon>
+    <Compile Include="BillItemControl.xaml.cs">
+      <DependentUpon>BillItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="BillOptions.xaml.cs">
       <DependentUpon>BillOptions.xaml</DependentUpon>
@@ -76,11 +76,11 @@
     <Compile Include="TitleWindow.xaml.cs">
       <DependentUpon>TitleWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Bill.xaml">
+    <Page Include="BillControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="BillItem.xaml">
+    <Page Include="BillItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,8 +100,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bill.xaml.cs">
-      <DependentUpon>Bill.xaml</DependentUpon>
+    <Compile Include="BillControl.xaml.cs">
+      <DependentUpon>BillControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
