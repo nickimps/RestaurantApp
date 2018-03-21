@@ -20,9 +20,14 @@ namespace AppProject
     /// </summary>
     public partial class MenuItemsControl : UserControl
     {
-        public MenuItemsControl()
+        public MenuItemsControl(Image image, string imageName)
         {
             InitializeComponent();
+
+            this.FoodTitle.Text = imageName;
+            this.ImageContent.BeginInit();
+            this.ImageContent.Source = image.Source;
+            this.ImageContent.EndInit();
         }
     }
 }

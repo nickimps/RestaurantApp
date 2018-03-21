@@ -27,6 +27,8 @@ namespace AppProject
         public MainWindow()
         {
             InitializeComponent();
+            DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
+
             List<string> imageFileNames = HelperMethods481.
             AssemblyManager.GetAllEmbeddedResourceFilesEndingWith(".png", ".jpg");
 
@@ -34,12 +36,27 @@ namespace AppProject
             {
                 Image image = HelperMethods481.AssemblyManager.GetImageFromEmbeddedResources(fileName);
                 string itemName = fileName.Replace(".jpg", "").Split('.').Last();
-                MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
-                this.DisplayMoreInfoGrid.Children.Add(moreInfo);
-                moreInfo.Visibility = Visibility.Hidden;
+                MenuItemsControl menuItems = new MenuItemsControl(image, itemName);
+                menuItems.MouseDown += new MouseButtonEventHandler(item_more_info_MouseDown);
+                this.Menu_items_uniform_gird.Children.Add(menuItems);
             }
             W_StartButton.Opacity = 0.25;
             W_StartButton.IsEnabled = false;
+            R_MoveButtonsGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void item_more_info_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DisplayMoreInfoGrid.Visibility = Visibility.Visible;
+            
+            MenuItemsControl mic = sender as MenuItemsControl;
+            Image image = mic.ImageContent;
+            string itemName = mic.FoodTitle.Text;
+            MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
+            this.DisplayMoreInfoGrid.Children.Clear();
+            this.DisplayMoreInfoGrid.Children.Add(moreInfo);
+            
+                
         }
 
         private void W_numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
