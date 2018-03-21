@@ -300,10 +300,12 @@
                 <ScrollViewer Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
                     <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                 </ScrollViewer>
+                <Ellipse Fill="#FFF4F4F5" Height="56.573" Width="56.572" Canvas.Left="419.817" Canvas.Top="185.845"/>
+                <Image HorizontalAlignment="Left" Height="53.714" VerticalAlignment="Top" Width="68.102" Source="PeanutAllergyLogo.png" Canvas.Left="421.286" Canvas.Top="187.418"/>
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
@@ -354,6 +356,6 @@
             <Button x:Name="S_Enter" Content="" HorizontalAlignment="Left" Height="50" Margin="337,200.643,0,0" VerticalAlignment="Top" Width="110.143" Background="#FF3C3C3C"/>
             <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
         </Grid>
-    </Grid> 
+    </Grid>
 
 </Window>
