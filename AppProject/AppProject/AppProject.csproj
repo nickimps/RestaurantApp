@@ -54,8 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BillItem.xaml.cs">
-      <DependentUpon>BillItem.xaml</DependentUpon>
+    <Compile Include="BillItemControl.xaml.cs">
+      <DependentUpon>BillItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="BillOptions.xaml.cs">
       <DependentUpon>BillOptions.xaml</DependentUpon>
@@ -63,6 +63,7 @@
     <Compile Include="BillSplitingScreen.xaml.cs">
       <DependentUpon>BillSplitingScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AssemblyManager.cs" />
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
@@ -75,11 +76,11 @@
     <Compile Include="TitleWindow.xaml.cs">
       <DependentUpon>TitleWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Bill.xaml">
+    <Page Include="BillControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="BillItem.xaml">
+    <Page Include="BillItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,8 +100,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bill.xaml.cs">
-      <DependentUpon>Bill.xaml</DependentUpon>
+    <Compile Include="BillControl.xaml.cs">
+      <DependentUpon>BillControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -154,6 +155,34 @@
   <ItemGroup>
     <Resource Include="logo.png" />
     <Resource Include="LogoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Nachos.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Salad Rolls.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Spring Rolls.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Waffle Fries.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Descriptions\Nachos.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Descriptions\Salad Rolls.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Descriptions\Spring Rolls.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Descriptions\Waffle Fries.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

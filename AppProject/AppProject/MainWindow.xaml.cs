@@ -23,6 +23,7 @@ namespace AppProject
         public MainWindow()
         {
             InitializeComponent();
+<<<<<<< HEAD
             W_StartButton.Opacity = 0.25;
         }
 
@@ -36,6 +37,33 @@ namespace AppProject
             {
                 W_StartButton.Opacity = 0.25;
             }
+=======
+            WelcomeScreen.Visibility = Visibility.Hidden;
+
+
+            // Code taken from david to add images
+            List<string> imageFileNames = HelperMethods481.
+            AssemblyManager.GetAllEmbeddedResourceFilesEndingWith(".png", ".jpg");
+
+            foreach (string fileName in imageFileNames)
+            {
+                Image image = HelperMethods481.AssemblyManager.GetImageFromEmbeddedResources(fileName);
+                string itemName = fileName.Replace(".jpg", "").Split('.').Last();
+                MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
+                this.DisplayMoreInfoGrid.Children.Add(moreInfo);
+            }
+        }
+
+        private void numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.MenuGrid.Visibility = Visibility.Hidden;
+            this.ReviewWindow.Visibility = Visibility.Visible;
+>>>>>>> 0d0b66237a4f139fd2e44716df134b40f46060a9
         }
     }
 }
