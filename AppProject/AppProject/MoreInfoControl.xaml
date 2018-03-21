@@ -1,20 +1,21 @@
-﻿<UserControl x:Class="SkipTheServer.MoreInfoControl"
+﻿<UserControl x:Class="AppProject.MoreInfoControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SkipTheServer"
+             xmlns:local="clr-namespace:AppProject"
              mc:Ignorable="d" 
              d:DesignHeight="725" d:DesignWidth="960">
     <Grid Width="860">
         <Grid x:Name="InfoGrid" HorizontalAlignment="Left" Margin="-10,0,-90,0" Background="#FFF15202" Width="860">
             <Grid x:Name="Info" Background="#FF37C2BA" Width="860">
-                <TextBlock x:Name="Food_Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Margin="45,35,365,0" FontSize="36" Text="California Rolls" Background="#FFCDF3AE"/>
-                <TextBlock x:Name="Notes" TextWrapping="Wrap" Text="Notes" HorizontalAlignment="Right" Width="275.963" Margin="0,0,65,165" FontSize="24" Background="#FFCDF3AE" Height="100" VerticalAlignment="Bottom"/>
-                <TextBlock x:Name="Description" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="0,135,65,290" Width="275.963" Background="#FFCDF3AE" FontSize="24"><Run Text="8 Pieces. "/><LineBreak/><Run Text="Crab, Cucumber &amp; Avocado"/></TextBlock>
-                <Image x:Name="image" Margin="45,105,365,140" Source="california_roll.jpg"/>
-                <Button x:Name="Add" Content="Add Item" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="235" Margin="200,0,0,45" Height="65" Background="#FFCDF3AE" FontSize="24"/>
-                <Button x:Name="Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60" Height="60" FontSize="24" Background="#FFF23131" Click="Close_Click"/>
+                <TextBlock x:Name="Food_Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Margin="45,35,365,0" FontSize="36" Text="Item name" FontWeight="Bold"/>
+                <TextBlock x:Name="Description" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="0,105,29.037,230" Width="275.963" FontSize="18" Text="Description"/>
+                <Image x:Name="Food_Image" Margin="45,105,325,140" Stretch="UniformToFill"/>
+                <Button x:Name="MI_Add" Content="Add Item" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="235" Margin="200,0,0,45" Height="65" Background="#FF313F54" FontSize="24"/>
+                <Button x:Name="MI_Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60" Height="60" FontSize="24" Background="#FFF23131" Click="Close_Click"/>
+                <TextBox x:Name="UserNotes" HorizontalAlignment="Right" Height="105" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="275.963" Margin="0,0,29.037,105"/>
+                <TextBlock x:Name="Notes" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,29.037,215" Height="30" HorizontalAlignment="Right" Width="275.963" FontSize="22" FontWeight="Bold"><Run Text="Add "/><Run Text="n"/><Run Text="otes"/><Run Text=" to order"/><Run Text=":"/></TextBlock>
             </Grid>
         </Grid>
 
