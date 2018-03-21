@@ -46,5 +46,13 @@ namespace AppProject
                 this.BillCheckBox.Visibility = Visibility.Visible;
             }
         }
+
+        public void ToggleItemCheckBoxes()
+        {
+            foreach (BillItem item in items)
+            {
+                item.ToggleCheckBoxVisibility();
+            }
+        }
     }
 }

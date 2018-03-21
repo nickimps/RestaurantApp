@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" Grid.Column="1" Margin="0,28,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
         <Grid x:Name="ItemTitleGrid" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Top">
-            <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="28,0,64.677,0" Height="28" HorizontalAlignment="Left"><Run FontSize="20" Text=""/><LineBreak/><Run FontSize="20"/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="28,0,64.677,0" Height="28" HorizontalAlignment="Left" FontSize="20"><Run Text=""/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
             <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Margin="252.645,0,28,0" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right"/>
             <CheckBox x:Name="ItemCheckBox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False" Visibility="Hidden"/>
             <Button x:Name="CancelButton" Content="Button" HorizontalAlignment="Right" Width="16" Height="16" Margin="319.641,6,6,0" VerticalAlignment="Top" Template="{DynamicResource CloseButton}" Visibility="Hidden"/>

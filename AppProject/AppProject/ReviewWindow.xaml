@@ -20,6 +20,11 @@
                 <ContentPresenter x:Name="ContentBox" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="Auto" Margin="106,10"/>
             </Grid>
         </ControlTemplate>
+        <ControlTemplate x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Grid x:Name="CloseGrid" Width="16" Height="16">
+                <TextBlock x:Name="X" HorizontalAlignment="Left" Margin="0,0,0,-63.8" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="16" Height="17" Foreground="Red"/>
+            </Grid>
+        </ControlTemplate>
     </Window.Resources>
     <Grid x:Name="ReviewWindow1" Margin="0">
         <Grid x:Name="SideGrid" Background="#FFAAA5A5" HorizontalAlignment="Right" Width="405">
@@ -34,7 +39,83 @@
             </Grid>
             <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,10,10,0" Height="46"/>
         </Grid>
-        <Grid x:Name="BillListGrid" Background="#FF8D1A1A" Margin="10,10,405,10"/>
+        <Grid x:Name="BillListGrid" Background="#FF8D1A1A" Margin="10,10,405,10">
+            <Grid x:Name="BillMainGrid" Background="#FFA8A8A8" Margin="0,0,797,798" Width="400" MinHeight="94">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="InnerGrid" Margin="10" Background="#FF00FFF3" Width="380">
+                    <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" Visibility="Hidden"/>
+                    <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom">
+                        <TextBlock x:Name="TotalText1" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
+                        <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right"/>
+                    </Grid>
+                    <UniformGrid x:Name="ItemListGrid" Margin="10,38,10,36" Columns="1" Width="340">
+                        <Grid x:Name="BillItemGrid_Copy1" Width="340" MinWidth="340" MinHeight="28" Background="#FF52A2A2" Margin="0,0,0,32">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <UniformGrid x:Name="AdditionalInfoGrid2" Columns="1" Grid.Column="1" Margin="0,28,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
+                            <Grid x:Name="ItemTitleGrid2" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Top">
+                                <TextBlock x:Name="ItemName2" TextWrapping="Wrap" Margin="28,0,64.677,0" Height="28" HorizontalAlignment="Left" FontSize="20" Text="Nachos"/>
+                                <TextBlock x:Name="ItemPrice2" TextWrapping="Wrap" Margin="252.645,0,28,0" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right" Text="4.00"/>
+                                <CheckBox x:Name="ItemCheckBox2" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False" Visibility="Hidden"/>
+                                <Button x:Name="CancelButton3" Content="Button" HorizontalAlignment="Right" Width="16" Height="16" Margin="319.641,6,6,0" VerticalAlignment="Top" Template="{DynamicResource CloseButton}" Visibility="Hidden"/>
+                            </Grid>
+                        </Grid>
+                    </UniformGrid>
+                    <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock x:Name="BillText" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="Bill #" Height="28"/>
+                        <TextBlock x:Name="BillNumber" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50,0,0,0" Height="28" FontSize="20" FontWeight="Bold"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid x:Name="BillMainGrid_Copy" Background="#FFA8A8A8" Margin="592.5,0,204.5,798" Width="400" MinHeight="94">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="InnerGrid1" Margin="10" Background="#FF00FFF3" Width="380">
+                    <CheckBox x:Name="BillCheckBox1" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" Visibility="Hidden"/>
+                    <Grid x:Name="TotalInfoGrid1" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom">
+                        <TextBlock x:Name="TotalText2" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
+                        <TextBlock x:Name="TotalNumber1" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right"/>
+                    </Grid>
+                    <UniformGrid x:Name="ItemListGrid1" Margin="10,38,10,36" Columns="1" Width="340">
+                        <Grid x:Name="BillItemGrid" Width="340" MinWidth="340" MinHeight="28" Background="#FF52A2A2" Margin="0,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" Grid.Column="1" Margin="0,28,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
+                            <Grid x:Name="ItemTitleGrid" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Top">
+                                <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="28,0,64.677,0" Height="28" HorizontalAlignment="Left" FontSize="20" Text="Salad Rolls"/>
+                                <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Margin="252.645,0,28,0" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right" Text="2.50"/>
+                                <CheckBox x:Name="ItemCheckBox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False" Visibility="Hidden"/>
+                                <Button x:Name="CancelButton1" Content="Button" HorizontalAlignment="Right" Width="16" Height="16" Margin="319.641,6,6,0" VerticalAlignment="Top" Template="{DynamicResource CloseButton}" Visibility="Hidden"/>
+                            </Grid>
+                        </Grid>
+                        <Grid x:Name="BillItemGrid_Copy" Width="340" MinWidth="340" MinHeight="28" Background="#FF52A2A2" Margin="0,0,0,2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <UniformGrid x:Name="AdditionalInfoGrid1" Columns="1" Grid.Column="1" Margin="0,28,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
+                            <Grid x:Name="ItemTitleGrid1" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Top">
+                                <TextBlock x:Name="ItemName1" TextWrapping="Wrap" Margin="28,0,64.677,0" Height="28" HorizontalAlignment="Left" FontSize="20"><Run Text=""/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+                                <TextBlock x:Name="ItemPrice1" TextWrapping="Wrap" Margin="252.645,0,28,0" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right"/>
+                                <CheckBox x:Name="ItemCheckBox1" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False" Visibility="Hidden"/>
+                                <Button x:Name="CancelButton2" Content="Button" HorizontalAlignment="Right" Width="16" Height="16" Margin="319.641,6,6,0" VerticalAlignment="Top" Template="{DynamicResource CloseButton}" Visibility="Hidden"/>
+                            </Grid>
+                        </Grid>
+                    </UniformGrid>
+                    <Grid x:Name="BillInfoGrid1" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock x:Name="BillText1" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="Bill #" Height="28"/>
+                        <TextBlock x:Name="BillNumber1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50,0,0,0" Height="28" FontSize="20" FontWeight="Bold"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>

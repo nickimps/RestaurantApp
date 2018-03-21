@@ -17,7 +17,7 @@
             </Grid>
             <UniformGrid x:Name="ItemListGrid" Margin="10,38,10,36" Columns="1" Width="340">
             </UniformGrid>
-            <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50">
+            <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <TextBlock x:Name="BillText" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="Bill #" Height="28"/>
                 <TextBlock x:Name="BillNumber" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50,0,0,0" Height="28" FontSize="20" FontWeight="Bold"/>
             </Grid>
