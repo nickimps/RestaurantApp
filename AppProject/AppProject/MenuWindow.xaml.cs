@@ -21,7 +21,7 @@ namespace AppProject
     {
         public MenuWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }
