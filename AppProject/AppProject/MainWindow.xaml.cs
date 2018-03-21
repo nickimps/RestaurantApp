@@ -23,6 +23,19 @@ namespace AppProject
         public MainWindow()
         {
             InitializeComponent();
+            W_StartButton.Opacity = 0.25;
+        }
+
+        private void W_numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (W_numberOfPeopleSlider.Value > 0)
+            {
+                W_StartButton.Opacity = 1;
+            }
+            else
+            {
+                W_StartButton.Opacity = 0.25;
+            }
         }
     }
 }

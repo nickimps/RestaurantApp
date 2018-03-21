@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="980" Width="1620" WindowStyle="None">
+        Title="MainWindow" Height="980" Width="1620" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <ControlTemplate x:Key="HelpButton" TargetType="{x:Type Button}">
             <Grid x:Name="ButtonGrid" Height="46" Margin="0" Width="46">
@@ -54,14 +54,159 @@
             <Setter Property="FontSize" Value="22"/>
             <Setter Property="FontStyle" Value="Italic"/>
         </Style>
+        <Style x:Key="MenuCategoryButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFE05A00" RadiusY="7" RadiusX="7" StrokeThickness="4"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuItemButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFE05A00" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFFF6C00" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle3" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFEC7700" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle4" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFEE712B" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle5" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFDC4712" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle6" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FF00A80F" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
     </Window.Resources>
-    <Grid x:Name="MainWindowGrid" Margin="4,15.5,-12,-23.5" Height="980" Width="1620">
+    <Grid x:Name="MainWindowGrid" Margin="0,0,-5.714,-5.714" Width="1620" Height="980">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="ReviewWindow" Margin="0,0,8,8" Grid.ColumnSpan="2">
+        <Grid x:Name="ReviewWindow" Margin="0,0,8,8" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid x:Name="SideGrid1" Background="#FFAAA5A5" HorizontalAlignment="Right" Width="405">
                 <Button x:Name="CheckoutButton" Content="Checkout&#xA;" Template="{DynamicResource RectangleButton3}" Margin="10,894,10,10" FontSize="30" FontWeight="Bold"/>
                 <Button x:Name="SendButton" Content="Send Orders" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,181" FontSize="30" FontWeight="Bold" Height="76"/>
@@ -83,34 +228,40 @@
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Canvas x:Name="MenuInterface" Grid.ColumnSpan="2" Margin="0,0,-1,-2">
-                <Grid x:Name="MenuItemsGrid" HorizontalAlignment="Left" Width="946" Background="#FF4E8197" Height="982" Canvas.Left="270">
-                    <Rectangle Fill="#FFFCFFF5" HorizontalAlignment="Left" Stroke="#FFFF6600" VerticalAlignment="Top" Width="946" Height="982" StrokeThickness="4"/>
-                    <Grid Margin="44,128,621.574,572.632">
-                        <Rectangle Fill="#FF313F54" HorizontalAlignment="Left" Height="276" Stroke="Black" VerticalAlignment="Top" Width="276" Margin="-10,0,0,0"/>
-                        <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="This is another title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Margin="-10,0,0,0" Foreground="White"/>
-                        <Rectangle Fill="#FFE7E7CE" HorizontalAlignment="Left" Height="186" Margin="-4,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="264"/>
-                        <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="-4,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                        <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="131,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                        <Rectangle Fill="#FF313F54" HorizontalAlignment="Left" Height="276" Stroke="Black" VerticalAlignment="Top" Width="276" Margin="296,0,-296,0"/>
-                        <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="This is another title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Margin="296,0,-296,0" Foreground="White"/>
-                        <Rectangle Fill="#FFE7E7CE" HorizontalAlignment="Left" Height="186" Margin="302,32,-290,0" Stroke="Black" VerticalAlignment="Top" Width="264"/>
-                        <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="302,224,-155,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                        <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="437,224,-290,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                    </Grid>
-                    <TextBlock HorizontalAlignment="Left" Height="119" Margin="44,9,0,0" TextWrapping="Wrap" Text="Appetizers" VerticalAlignment="Top" Width="915.334" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center"/>
+            <Canvas x:Name="M_MenuInterface" Grid.ColumnSpan="2" Margin="0,0,-1,-2">
+                <Grid x:Name="M_CategoryGrid" HorizontalAlignment="Left" Width="270" Background="#FFEFEFEF" Height="982">
+                    <Button x:Name="M_HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,864.036,112,0" Height="46"/>
+                    <Button x:Name="M_AppetizersButton" Content="Appetizers" HorizontalAlignment="Left" Height="94" Margin="18.5,121.5,-7.5,0" Style="{DynamicResource MenuItemButtonStyle}" VerticalAlignment="Top" Width="259"/>
+                    <Button x:Name="M_EntreesButton" Content="Entrees" HorizontalAlignment="Left" Height="94" Margin="18.5,265.5,-7.5,0" Style="{DynamicResource ButtonStyle2}" VerticalAlignment="Top" Width="259"/>
+                    <Button x:Name="M_DessertsButton" Content="Desserts" HorizontalAlignment="Left" Height="94" Margin="18.5,409.5,-7.5,0" Style="{DynamicResource ButtonStyle3}" VerticalAlignment="Top" Width="259"/>
+                    <Button x:Name="M_DrinksButton" Content="Drinks" HorizontalAlignment="Left" Height="94" Margin="18.5,697.5,-7.5,0" Style="{DynamicResource ButtonStyle5}" VerticalAlignment="Top" Width="259"/>
+                    <Button x:Name="M_KidsMenuButton" Content="Kids Menu" HorizontalAlignment="Left" Height="94" Margin="18.5,553.5,-7.5,0" Style="{DynamicResource ButtonStyle4}" VerticalAlignment="Top" Width="259"/>
                 </Grid>
-                <Grid x:Name="CategoryGrid" HorizontalAlignment="Left" Width="270" Background="#FF313F54" Height="982">
-                    <TextBlock Height="99" TextWrapping="Wrap" Text="Categories" VerticalAlignment="Top" FontSize="20" TextAlignment="Center" Foreground="#FFFF6600"/>
-                    <Button Content="Appetizers" VerticalAlignment="Top" Margin="12,84,0,0" Height="93.96" FontSize="24" Background="#FFFCFFF5" BorderBrush="#FFFF6600" BorderThickness="4,4,0,4" Padding="1" Width="259"/>
-                    <Button Content="Entrees" VerticalAlignment="Top" Margin="10,230,0,0" Height="93.96" FontSize="24" Background="#FFD1DBBD" BorderBrush="#FFFF6600" BorderThickness="4,4,0,4"/>
-                    <Button Content="Desserts" VerticalAlignment="Top" Margin="10,380,0,0" Height="93.96" FontSize="24" Background="#FF91AA9D" BorderBrush="#FFFF6600" BorderThickness="4,4,0,4"/>
-                    <Button Content="Drinks" VerticalAlignment="Top" Margin="10,532,0,0" Height="93.96" FontSize="24" Background="#FF4E8197" BorderBrush="#FFFF6600" BorderThickness="4,4,0,4"/>
-                    <Button Content="Kids Menu" VerticalAlignment="Top" Margin="10,688,0,0" Height="93.96" FontSize="24" Background="#FF6EB6D9" BorderBrush="#FFFF6600" BorderThickness="4,4,0,4"/>
-                    <Button Content="Help&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Margin="36.858,885.622,0,0" FontSize="48" Height="70.571" Background="#FFA4BFE8" Foreground="#FFEF5411" FontFamily="Century Gothic" FontWeight="Bold"/>
+                <Grid x:Name="M_MenuItemsGrid" HorizontalAlignment="Left" Canvas.Left="270" Height="982" Width="946">
+                    <Rectangle x:Name="M_Background" Fill="#FFE05A00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
+                    <Canvas x:Name="MenuItems" Margin="44,128,621.574,572.632">
+                        <Rectangle Fill="#FFEFEFEF" HorizontalAlignment="Left" Height="276" Stroke="#FF363636" VerticalAlignment="Top" Width="276" StrokeThickness="3" RadiusX="4" RadiusY="4" Canvas.Left="-10"/>
+                        <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Food Title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Foreground="#FF363636" FontFamily="Century Gothic" Canvas.Left="-10" Canvas.Top="5"/>
+                        <Rectangle HorizontalAlignment="Left" Height="171.857" Stroke="#FF363636" VerticalAlignment="Top" Width="245.714" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="4.857" Canvas.Top="37"/>
+                        <Rectangle Fill="#FFDC2F2F" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="4.857" Canvas.Top="218"/>
+                        <Rectangle Fill="#FF68C3D4" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="135.571" Canvas.Top="218"/>
+                        <Rectangle Fill="#FFEFEFEF" HorizontalAlignment="Left" Height="276" Stroke="#FF363636" VerticalAlignment="Top" Width="276" StrokeThickness="3" RadiusX="4" RadiusY="4" Canvas.Left="-10"/>
+                        <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Food Title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Foreground="#FF363636" FontFamily="Century Gothic" Canvas.Left="-10" Canvas.Top="5"/>
+                        <Rectangle HorizontalAlignment="Left" Height="171.857" Stroke="#FF363636" VerticalAlignment="Top" Width="245.714" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="4.857" Canvas.Top="37"/>
+                        <Rectangle Fill="#FFDC2F2F" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="4.857" Canvas.Top="218"/>
+                        <Rectangle Fill="#FF568EA3" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Canvas.Left="135.571" Canvas.Top="218"/>
+                        <TextBlock TextWrapping="Wrap" Text="Add To Bill" Canvas.Left="4.857" Canvas.Top="229.429" FontFamily="Century Gothic" FontSize="20" Width="115" Height="25.048" TextAlignment="Center" FontWeight="Bold" Foreground="#FFEFEFEF"/>
+                        <TextBlock TextWrapping="Wrap" Text="More Info" Canvas.Left="135.571" Canvas.Top="229.429" FontFamily="Century Gothic" FontSize="20" Width="115" Height="25.048" TextAlignment="Center" FontWeight="Bold" Foreground="#FFEFEFEF"/>
+                    </Canvas>
+                    <TextBlock x:Name="M_MenuTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Appetizers" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
+                    <Rectangle x:Name="M_AppetizerCover" Fill="#FFE05A00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,125.428,0,0"/>
+                    <Rectangle x:Name="M_EntreesCover" Fill="#FFFF6C00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,269.44,0,0" d:IsHidden="True"/>
+                    <Rectangle x:Name="M_DessertsCover" Fill="#FFEC7700" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,413.511,0,0" d:IsHidden="True"/>
+                    <Rectangle x:Name="M_KidsMenuCover" Fill="#FFEE712B" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,557.536,0,0" d:IsHidden="True"/>
+                    <Rectangle x:Name="M_DrinksCover" Fill="#FFDC4712" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,701.535,0,0" d:IsHidden="True"/>
                 </Grid>
-                <Grid x:Name="BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FF313F54" Height="982" Canvas.Left="1216">
-                    <Button Content="Review Order(s)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="385" Height="76" Margin="10,896,0,0" FontSize="36" Background="#FF6BB8EE" BorderBrush="Black"/>
+                <Grid x:Name="M_BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FFEFEFEF" Height="982" Canvas.Left="1216">
+                    <Button x:Name="M_ReviewOrderButton" Content="Review Order" HorizontalAlignment="Left" Height="94" Margin="27.428,860.143,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
                 </Grid>
             </Canvas>
 
@@ -137,15 +288,15 @@
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Canvas x:Name="Container" Grid.ColumnSpan="2">
-                <Rectangle x:Name="Background" Fill="#FF313F54" HorizontalAlignment="Left" Height="980" StrokeThickness="0" VerticalAlignment="Top" Width="1620"/>
+            <Canvas x:Name="W_Container" Grid.ColumnSpan="2">
+                <Rectangle x:Name="W_Background" Fill="#FF313F54" HorizontalAlignment="Left" Height="1000.571" StrokeThickness="0" VerticalAlignment="Top" Width="1638.286" Canvas.Top="-6" Canvas.Left="-8"/>
+                <Image x:Name="W_Logo" HorizontalAlignment="Left" Height="1050.405" VerticalAlignment="Top" Width="782.849" Source="logo.png" Canvas.Left="-254.849" Canvas.Top="-226"/>
 
-                <TextBlock x:Name="WelcomeMessageLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="137.816" Width="1610" FontFamily="Century Gothic" FontSize="48" TextAlignment="Center" Canvas.Top="216.772" Foreground="#FFEF5411"><Run Text="Hi there"/><LineBreak/><Run Text="How many people are eating today?"/></TextBlock>
-                <Slider x:Name="numberOfPeopleSlider" HorizontalAlignment="Left" Height="50.96" VerticalAlignment="Top" Width="866.336" Maximum="6" TickPlacement="BottomRight" Cursor="Hand" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" FontSize="22" FontWeight="Bold" Foreground="#EF5411" BorderBrush="#FFFF6517" Background="{x:Null}" ValueChanged="numberOfPeopleSlider_ValueChanged" Canvas.Left="374.24" Canvas.Top="503.576" />
-                <TextBox x:Name="SliderNumber" Text="{Binding Value, ElementName=numberOfPeopleSlider, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" FontSize="20" FontWeight="Bold" Width="25" Height="26.604" Canvas.Left="533" Canvas.Top="456.576" Background="#FF313F54" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" IsReadOnly="True" Foreground="#FFEF5411" />
-                <TextBlock x:Name="NumberOfPeopleLabel" HorizontalAlignment="Left" Height="26.604" TextWrapping="Wrap" Text="Number of People:" VerticalAlignment="Top" Width="165.76" FontSize="20" Canvas.Left="374.24" Canvas.Top="458.576" Foreground="#FFEF5411" FontStyle="Italic"/>
-                <Button x:Name="StartButton" Content="Start Ordering" Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Height="100" Canvas.Left="702" Canvas.Top="687.5" Width="220" Foreground="#FF313F54" FontWeight="Bold"/>
-                <Image x:Name="Logo" HorizontalAlignment="Left" Height="1050.405" VerticalAlignment="Top" Width="782.849" Source="logo.png" Canvas.Left="-254.849" Canvas.Top="-226"/>
+                <TextBlock x:Name="W_WelcomeMessageLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="137.816" Width="1610" FontFamily="Century Gothic" FontSize="48" TextAlignment="Center" Canvas.Top="216.772" Foreground="#FFEF5411"><Run Text="Hi there"/><LineBreak/><Run Text="How many people are eating today?"/></TextBlock>
+                <Slider x:Name="W_numberOfPeopleSlider" HorizontalAlignment="Left" Height="50.96" VerticalAlignment="Top" Width="866.336" Maximum="6" TickPlacement="BottomRight" Cursor="Hand" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" FontSize="22" FontWeight="Bold" Foreground="#EF5411" BorderBrush="#FFFF6517" Background="{x:Null}" ValueChanged="W_numberOfPeopleSlider_ValueChanged" Canvas.Left="374.24" Canvas.Top="503.576" />
+                <TextBox x:Name="W_SliderNumber" Text="{Binding Value, ElementName=numberOfPeopleSlider, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" FontSize="20" FontWeight="Bold" Width="25" Height="26.604" Canvas.Left="507.5" Canvas.Top="458.076" Background="#FF313F54" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" IsReadOnly="True" Foreground="#FFEF5411" />
+                <TextBlock x:Name="W_NumberOfPeopleLabel" HorizontalAlignment="Left" Height="26.604" TextWrapping="Wrap" VerticalAlignment="Top" Width="138.331" FontSize="20" Canvas.Left="374.24" Canvas.Top="458.576" Foreground="#FFEF5411" FontStyle="Italic"><Run Text="Number of "/><Run Text="Bills"/><Run FontStyle="Normal" Text=":"/></TextBlock>
+                <Button x:Name="W_StartButton" Content="Start Ordering" Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Height="100" Canvas.Left="702" Canvas.Top="687.5" Width="220" Foreground="#FF313F54" FontWeight="Bold"/>
 
             </Canvas>
 
