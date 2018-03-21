@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppProject"
         mc:Ignorable="d"
-        Title="ReviewWindow" Height="1080" Width="1720" WindowStyle="None">
+        Title="ReviewWindow" Height="980" Width="1620" WindowStyle="None">
     <Window.Resources>
         <ControlTemplate x:Key="HelpButton" TargetType="{x:Type Button}">
             <Grid x:Name="ButtonGrid" Height="46" Margin="0" Width="46">
@@ -16,25 +16,25 @@
         </ControlTemplate>
         <ControlTemplate x:Key="RectangleButton" TargetType="{x:Type Button}">
             <Grid x:Name="ButtonGrid">
-                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="410" Stroke="Black" Fill="#FF00A80F"/>
+                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="372" Stroke="Black" Fill="#FF00A80F"/>
                 <ContentPresenter x:Name="ContentBox" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="Auto" Margin="106,10"/>
             </Grid>
         </ControlTemplate>
     </Window.Resources>
-    <Grid x:Name="ReviewWindow1" Margin="0" Width="1720" Height="1080">
-        <Grid x:Name="SideGrid" Margin="1290,0,0,0" Background="#FFAAA5A5" Width="430">
-            <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="374,10,0,0" Height="46"/>
-            <Button x:Name="CheckoutButton" Content="Checkout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="410" Template="{DynamicResource RectangleButton}" Height="76" Margin="10,993,0,0" FontSize="36" FontWeight="Bold"/>
-            <Button x:Name="SendButton" Content="Edit Bill" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="410" Template="{DynamicResource RectangleButton}" Margin="10,0,0,192" FontSize="36" FontWeight="Bold" Height="76"/>
-            <Button x:Name="EditButton" Content="Send Order" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="410" Template="{DynamicResource RectangleButton}" Margin="10,0,0,101" FontWeight="Bold" FontSize="36"/>
-            <Grid x:Name="SideInfoGrid" HorizontalAlignment="Left" Height="733" VerticalAlignment="Bottom" Width="410" Margin="10,0,0,286" Background="#FF24247A">
-                <Grid x:Name="TotalGrid" Margin="10,677,10,10">
+    <Grid x:Name="ReviewWindow1" Margin="0">
+        <Grid x:Name="SideGrid" Background="#FFAAA5A5" HorizontalAlignment="Right" Width="405">
+            <Button x:Name="CheckoutButton" Content="Checkout&#xD;&#xA;" Template="{DynamicResource RectangleButton}" Margin="10,894,10,10" FontSize="30" FontWeight="Bold"/>
+            <Button x:Name="SendButton" Content="Send Orders" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton}" Margin="10,0,10,181" FontSize="30" FontWeight="Bold" Height="76"/>
+            <Button x:Name="EditButton" Content="Edit Orders" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton}" Margin="10,0,10,91" FontWeight="Bold" FontSize="30"/>
+            <Grid x:Name="SideInfoGrid" Margin="10,10,10,341" Background="#FF24247A">
+                <Grid x:Name="TotalGrid" Margin="10,0,10,10" Height="59" VerticalAlignment="Bottom">
                     <TextBlock x:Name="TotalText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="136" FontWeight="Bold" FontSize="30"><Run Text="Total"/></TextBlock>
-                    <TextBlock x:Name="TotalValue" TextWrapping="Wrap" Margin="141,0,0,0" TextAlignment="Right" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" Width="249"/>
+                    <TextBlock x:Name="TotalValue" TextWrapping="Wrap" Margin="141,0,0,0" TextAlignment="Right" FontSize="30" FontWeight="Bold"/>
                 </Grid>
             </Grid>
+            <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,10,10,0" Height="46"/>
         </Grid>
-        <Grid x:Name="BillListGrid" Background="#FF8D1A1A" Margin="10,10,435,10"/>
+        <Grid x:Name="BillListGrid" Background="#FF8D1A1A" Margin="10,10,405,10"/>
 
     </Grid>
 </Window>
