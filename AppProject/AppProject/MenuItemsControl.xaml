@@ -4,20 +4,57 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppProject"
-             mc:Ignorable="d" 
-             d:DesignHeight="281.368" d:DesignWidth="280.426" Width="276" Height="276">
+             mc:Ignorable="d" d:DesignWidth="280.426" Width="276" Height="275">
+    <UserControl.Resources>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="M_Add_to_bill_button">
+                            <Rectangle Fill="#FFDC2F2F" RadiusY="4" RadiusX="4" Stroke="#FF363636" StrokeThickness="2"/>
+                            <ContentPresenter x:Name="M_add_presenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Height="46" Margin="0" Width="115" Content=""/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="M_more_info_button" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid x:Name="M_More_info_button">
+                            <Rectangle x:Name="M_more_info" Fill="#FF568EA3" RadiusY="4" RadiusX="4" Stroke="#FF363636" StrokeThickness="2"/>
+                            <ContentPresenter x:Name="M_more_info_presenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="More Info" OpacityMask="#FFEEEEEE"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Rectangle x:Name="MainColor" Fill="#FFEFEFEF" Stroke="#FF363636" StrokeThickness="3" RadiusX="4" RadiusY="4"/>
-        <Rectangle Fill="#FFDC2F2F" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Margin="4.857,218,0,0"/>
-        <Rectangle Fill="#FF68C3D4" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Margin="135.571,218,0,0"/>
-        <Rectangle x:Name="Border" Fill="#FFEFEFEF" HorizontalAlignment="Left" Height="276" Stroke="#FF363636" VerticalAlignment="Top" Width="276" StrokeThickness="3" RadiusX="4" RadiusY="4"/>
-        <TextBlock x:Name="FoodTitle" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Food Title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Foreground="#FF363636" FontFamily="Century Gothic" Margin="0,5,0,0"/>
-        <Rectangle HorizontalAlignment="Left" Height="171.857" Stroke="#FF363636" VerticalAlignment="Top" Width="256" RadiusX="4" RadiusY="4" StrokeThickness="2" Margin="10,37,0,0"/>
-        <Rectangle Fill="#FFDC2F2F" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Margin="4.857,218,0,0"/>
-        <Rectangle Fill="#FF568EA3" HorizontalAlignment="Left" Height="46" Stroke="#FF363636" VerticalAlignment="Top" Width="115" RadiusX="4" RadiusY="4" StrokeThickness="2" Margin="135.571,218,0,0"/>
-        <TextBlock TextWrapping="Wrap" Text="Add To Bill" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" FontWeight="Bold" Foreground="#FFEFEFEF" Margin="4.857,229.429,156.143,21.523"/>
-        <TextBlock TextWrapping="Wrap" Text="More Info" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" FontWeight="Bold" Foreground="#FFEFEFEF" Margin="135.571,229.429,25.429,21.523"/>
-        <Image x:Name="ImageContent" Margin="10,37,10,67.143"/>
+        <Rectangle x:Name="Tile_border" Fill="#FFEFEFEF" HorizontalAlignment="Left" Height="276" Stroke="#FF363636" VerticalAlignment="Top" Width="276" StrokeThickness="3" RadiusX="4" RadiusY="4"/>
+        <TextBlock x:Name="FoodTitle" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Food Title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Foreground="#FF363636" FontFamily="Century Gothic" Margin="0,5,0,0" FontWeight="Bold"/>
+        <TextBlock TextWrapping="Wrap" Text="Add To Bill" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" FontWeight="Bold" Foreground="#FFEFEFEF" Margin="15.571,229.429,145.429,21.523"/>
+        <TextBlock TextWrapping="Wrap" FontFamily="Century Gothic" FontSize="20" TextAlignment="Center" FontWeight="Bold" Foreground="#FFEFEFEF" Margin="0,229.429,16,21.523" HorizontalAlignment="Right" Width="115"><Run Text="More Info"/></TextBlock>
+        <Image x:Name="ImageContent" Margin="10,37,10,67.143" Stretch="UniformToFill"/>
+        <Rectangle x:Name="image_border" HorizontalAlignment="Left" Height="171.857" Stroke="#FF363636" VerticalAlignment="Top" Width="256" RadiusX="4" RadiusY="4" StrokeThickness="2" Margin="10,37,0,0"/>
+        <Button x:Name="M_more_info_button" Content="Button" HorizontalAlignment="Left" Height="46" Style="{DynamicResource M_more_info_button}" VerticalAlignment="Top" Width="115" Background="{x:Null}" Margin="145,217,0,0"/>
+        <Button x:Name="M_add_to_bill_button" Content="Button" HorizontalAlignment="Left" Margin="15.571,218,0,12" Style="{DynamicResource ButtonStyle1}" Width="115" Background="{x:Null}"/>
 
     </Grid>
 </UserControl>

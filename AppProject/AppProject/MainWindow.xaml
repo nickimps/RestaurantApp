@@ -281,7 +281,6 @@
                 </Grid>
                 <Grid x:Name="M_MenuItemsGrid" HorizontalAlignment="Left" Canvas.Left="270" Height="982" Width="946">
                     <Rectangle x:Name="M_Background" Fill="#FFE05A00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
-                    <local:MenuItemsControl Margin="44,128,621.574,572.632"/>
                     <TextBlock x:Name="M_MenuTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Appetizers" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
                     <Rectangle x:Name="M_AppetizerCover" Fill="#FFE05A00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,125.428,0,0"/>
                     <Rectangle x:Name="M_EntreesCover" Fill="#FFFF6C00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,269.44,0,0" d:IsHidden="True"/>
@@ -292,6 +291,9 @@
                 <Grid x:Name="M_BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FFEFEFEF" Height="982" Canvas.Left="1216">
                     <Button x:Name="M_ReviewOrderButton" Content="Review Order" HorizontalAlignment="Left" Height="94" Margin="27.428,860.143,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="M_ReviewOrderButton_Click"/>
                 </Grid>
+                <ScrollViewer Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
+                    <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+                </ScrollViewer>
             </Canvas>
 
         </Grid>
