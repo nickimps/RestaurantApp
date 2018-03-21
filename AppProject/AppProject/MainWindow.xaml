@@ -300,10 +300,11 @@
                 <ScrollViewer Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
                     <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                 </ScrollViewer>
+                <Image Height="40.8" Width="39.2" Canvas.Left="843.2" Canvas.Top="187.2" Source="shell fish allergy.jpg"/>
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
@@ -344,16 +345,16 @@
                 <Button x:Name="W_StartButton" Content="Start Ordering" Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Height="100" Canvas.Left="702" Canvas.Top="687.5" Width="220" Foreground="#FF313F54" FontWeight="Bold" Click="W_StartButton_Click"/>
 
             </Canvas>
-            <Grid x:Name="DisplayMoreInfoGrid" Grid.ColumnSpan="2" Margin="392.382,188.863,352.618,161.137" d:IsHidden="True"/>
 
         </Grid>
-        <Grid x:Name="ServerGrid" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="600" Height="400" Visibility="Hidden">
+        <Grid x:Name="ServerGrid" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="600" Height="400" Visibility="Hidden" d:IsHidden="True">
             <Rectangle x:Name="S_Background" Fill="#FF2F2E2E" Stroke="#FF661E1E" StrokeThickness="20"/>
             <TextBlock x:Name="S_Message" TextWrapping="Wrap" Text="A Server Is On Their Way" VerticalAlignment="Top" Margin="106.5,115.5,0,0" FontSize="36" HorizontalAlignment="Left" Foreground="#FFDB9B01"/>
             <PasswordBox x:Name="S_Password" HorizontalAlignment="Left" Height="50" Margin="137,200.643,0,0" VerticalAlignment="Top" Width="200"/>
             <Button x:Name="S_Enter" Content="" HorizontalAlignment="Left" Height="50" Margin="337,200.643,0,0" VerticalAlignment="Top" Width="110.143" Background="#FF3C3C3C"/>
             <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
         </Grid>
-    </Grid> 
+        <Grid x:Name="DisplayMoreInfoGrid" Margin="392.382,188.863,362.618,171.137" Grid.ColumnSpan="2" d:IsHidden="True"/>
+    </Grid>
 
 </Window>
