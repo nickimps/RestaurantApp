@@ -6,16 +6,15 @@
              xmlns:local="clr-namespace:SkipTheServer"
              mc:Ignorable="d" 
              d:DesignHeight="725" d:DesignWidth="960">
-    <Grid>
-        <Grid x:Name="InfoGrid" HorizontalAlignment="Left" Width="960" Margin="-10,0,0,0" Background="#FFF15202" Height="725">
-            <Grid x:Name="Info" Background="#FF37C2BA" Width="960">
-                <TextBlock x:Name="Food_Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Margin="45,21.153,385,0" FontSize="36" Text="Food Name" Background="#FFCDF3AE"/>
-                <TextBlock x:Name="Notes" TextWrapping="Wrap" Text="Notes" HorizontalAlignment="Right" Width="315.963" Margin="0,0,25,140" FontSize="24" Background="#FFCDF3AE" Height="125" VerticalAlignment="Bottom"/>
-                <TextBlock x:Name="Description" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="0,105,25,290" Width="315.963" Background="#FFCDF3AE" FontSize="24"><Run Text="Description"/></TextBlock>
-                <Image x:Name="image" Margin="30,75,400,355"/>
-                <Button x:Name="Add" Content="Add Item" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="235" Margin="205,0,0,40" Height="65" Background="#FFCDF3AE" FontSize="24"/>
+    <Grid Width="860">
+        <Grid x:Name="InfoGrid" HorizontalAlignment="Left" Margin="-10,0,-90,0" Background="#FFF15202" Width="860">
+            <Grid x:Name="Info" Background="#FF37C2BA" Width="860">
+                <TextBlock x:Name="Food_Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Margin="45,35,365,0" FontSize="36" Text="California Rolls" Background="#FFCDF3AE"/>
+                <TextBlock x:Name="Notes" TextWrapping="Wrap" Text="Notes" HorizontalAlignment="Right" Width="275.963" Margin="0,0,65,165" FontSize="24" Background="#FFCDF3AE" Height="100" VerticalAlignment="Bottom"/>
+                <TextBlock x:Name="Description" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="0,135,65,290" Width="275.963" Background="#FFCDF3AE" FontSize="24"><Run Text="8 Pieces. "/><LineBreak/><Run Text="Crab, Cucumber &amp; Avocado"/></TextBlock>
+                <Image x:Name="image" Margin="45,105,365,140" Source="california_roll.jpg"/>
+                <Button x:Name="Add" Content="Add Item" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="235" Margin="200,0,0,45" Height="65" Background="#FFCDF3AE" FontSize="24"/>
                 <Button x:Name="Close" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="60" Height="60" FontSize="24" Background="#FFF23131" Click="Close_Click"/>
-                <Rectangle Fill="#FFFAF0AC" Stroke="Black" Margin="45,105,365,140"/>
             </Grid>
         </Grid>
 
