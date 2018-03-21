@@ -209,6 +209,11 @@
                 <ContentPresenter x:Name="ButtonPresenter" HorizontalAlignment="Center" Height="40" VerticalAlignment="Stretch" Width="Auto" Margin="17.5,18" Grid.ColumnSpan="2"/>
             </Grid>
         </ControlTemplate>
+        <ControlTemplate x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Grid x:Name="CloseGrid" Width="16" Height="16">
+                <TextBlock x:Name="X" HorizontalAlignment="Left" Margin="0,0,0,-63.8" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="16" Height="17" Foreground="Red"/>
+            </Grid>
+        </ControlTemplate>
     </Window.Resources>
     <Grid x:Name="MainWindowGrid" Margin="0,0,-5.714,-5.714" Width="1620" Height="980">
         <Grid.ColumnDefinitions>
@@ -260,12 +265,12 @@
                     <Button x:Name="R_ReturnButton" Content=" Return to Menu" HorizontalAlignment="Left" Width="385" Margin="0,172,0,0" FontSize="30" Template="{DynamicResource ReturnButton}" FontWeight="Bold" Click="R_ReturnButton_Click" Height="76"/>
                 </Grid>
                 <Grid x:Name="R_EditButtonsGrid" Height="195" VerticalAlignment="Top" Margin="0,453.5,0,0" Grid.RowSpan="2">
-                    <Button x:Name="R_EditButton" Content="Split Items" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,10" FontWeight="Bold" FontSize="30" Width="385" Height="80"/>
+                    <Button x:Name="R_SplitButton" Content="Split Items" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,10" FontWeight="Bold" FontSize="30" Width="385" Height="80"/>
                     <Button x:Name="R_MoveButton" Content="Move Item" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton3}" Margin="10,0,10,95" FontWeight="Bold" FontSize="30" Width="385" Height="80" Click="R_MoveButton_Click"/>
                 </Grid>
                 <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0" Height="261.75" Grid.Row="1">
                     <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Width="385" Margin="0,175.75,0,10" FontSize="30" Template="{DynamicResource ReturnButton}" FontWeight="Bold" Click="R_CancelButton_Click" Height="76"/>
-                    <Button x:Name="ConfirmButton" Content="Confirm" Template="{DynamicResource RectangleButton3}" Margin="0,0,0,96" FontSize="30" FontWeight="Bold" Height="76" Width="385" VerticalAlignment="Bottom"/>
+                    <Button x:Name="ConfirmButton" Content="Confirm" Template="{DynamicResource RectangleButton3}" Margin="0,0,0,96" FontSize="30" FontWeight="Bold" Height="76" Width="385" VerticalAlignment="Bottom" Click="ConfirmButton_Click"/>
                 </Grid>
             </Grid>
             <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Width="1195" Margin="10,10,0,10" Background="#FF5B5353">

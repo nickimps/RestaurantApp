@@ -20,6 +20,7 @@ namespace AppProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Bill selectedBill;
         List<Bill> bills=new List<Bill>();
         int numDinners = 0;
 
@@ -61,14 +62,26 @@ namespace AppProject
             WelcomeScreen.Visibility = Visibility.Hidden;
             numDinners = (int) W_numberOfPeopleSlider.Value;
 
-            for (int i=0; i<numDinners; i++)
-            {
+            for (int i=0; i<2; i++)
+            { 
                 Bill cBill = new Bill(i + 1);
+                //cBill.BillCheckBox.Checked += 
                 this.R_BillUnicormGrid.Children.Add(cBill);
                 bills.Add(cBill);
             }
+            BillItem nachos = new BillItem("Nachos", "4.00");
+            BillItem saladRolls = new BillItem("Salad Rolls", "2.50");
+            BillItem waffleFries = new BillItem("Waffle Fries", "3.50");
+            BillItem springRolls = new BillItem("Spring Rolls", "2.00");
+
+            bills[0].AddItem(waffleFries);
+            bills[0].AddItem(nachos);
+            bills[1].AddItem(springRolls);
+            bills[1].AddItem(saladRolls);
 
         }
+
+        //public void 
 
         private void R_ReturnButton_Click(object sender, RoutedEventArgs e)
         {
@@ -102,6 +115,11 @@ namespace AppProject
             this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
             this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
