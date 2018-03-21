@@ -190,7 +190,11 @@
     <Content Include="Descriptions\Waffle Fries.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+<<<<<<< HEAD
     <Resource Include="shell fish allergy.jpg" />
+=======
+    <Resource Include="PeanutAllergyLogo.png" />
+>>>>>>> a730e45b7329d1ba1c6a6110838a57a7fffeb149
     <EmbeddedResource Include="Images\Caesar Salad.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
