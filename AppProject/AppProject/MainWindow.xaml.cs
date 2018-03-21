@@ -39,6 +39,7 @@ namespace AppProject
             }
             W_StartButton.Opacity = 0.25;
             W_StartButton.IsEnabled = false;
+            R_MoveButtonsGrid.Visibility = Visibility.Hidden;
         }
 
         private void W_numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
