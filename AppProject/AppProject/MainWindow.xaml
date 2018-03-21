@@ -310,7 +310,7 @@
                 </Grid.RowDefinitions>
                 <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,2,10,0" Height="46"/>
                 <Grid x:Name="R_TransitionButtonGrid" Margin="10,178.442,10,10" Grid.Row="1" Width="385" Height="248">
-                    <Button x:Name="R_CheckoutButton" Content="Pay for Meal" HorizontalAlignment="Left" Height="94" Margin="18.286,44.999,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
+                    <Button x:Name="R_CheckoutButton" Content="Pay for Meal" HorizontalAlignment="Left" Height="94" Margin="18.286,44.999,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_CheckoutButton_Click"/>
                     <Button x:Name="R_SendButton" Content="Send To Kitchen" HorizontalAlignment="Left" Height="94" Margin="18.286,-76,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
                     <Button x:Name="R_ReturnButton" Content="Return To Menu" HorizontalAlignment="Left" Height="94" Margin="18.286,162,0,-8" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="R_ReturnButton_Click"/>
                 </Grid>
@@ -346,6 +346,12 @@
             <Grid x:Name="DisplayMoreInfoGrid" Grid.ColumnSpan="2" Margin="392.382,188.863,352.618,161.137" d:IsHidden="True"/>
 
         </Grid>
-
-    </Grid>
+        <Grid x:Name="ServerGrid" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="600" Height="400" Visibility="Hidden">
+            <Rectangle x:Name="S_Background" Fill="#FF2F2E2E" Stroke="#FF661E1E" StrokeThickness="20"/>
+            <TextBlock x:Name="S_Message" TextWrapping="Wrap" Text="A Server Is On Their Way" VerticalAlignment="Top" Margin="106.5,115.5,0,0" FontSize="36" HorizontalAlignment="Left" Foreground="#FFDB9B01"/>
+            <PasswordBox x:Name="S_Password" HorizontalAlignment="Left" Height="50" Margin="137,200.643,0,0" VerticalAlignment="Top" Width="200"/>
+            <Button x:Name="S_Enter" Content="" HorizontalAlignment="Left" Height="50" Margin="337,200.643,0,0" VerticalAlignment="Top" Width="110.143" Background="#FF3C3C3C"/>
+            <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
+        </Grid>
+    </Grid> 
 </Window>

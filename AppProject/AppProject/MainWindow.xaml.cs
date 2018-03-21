@@ -138,5 +138,15 @@ namespace AppProject
         {
             
         }
+
+        private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.ServerGrid.Visibility = Visibility.Visible;
+        }
+
+        private void S_Dismiss_Click(object sender, RoutedEventArgs e)
+        {
+            this.ServerGrid.Visibility = Visibility.Hidden;
+        }
     }
 }
