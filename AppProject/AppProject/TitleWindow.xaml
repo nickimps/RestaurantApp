@@ -37,7 +37,6 @@
         </Grid.ColumnDefinitions>
         <Canvas x:Name="Container" Grid.ColumnSpan="2">
             <Rectangle x:Name="Background" Fill="#FF313F54" HorizontalAlignment="Left" Height="980" StrokeThickness="0" VerticalAlignment="Top" Width="1620"/>
-
             <TextBlock x:Name="WelcomeMessageLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="137.816" Width="1610" FontFamily="Century Gothic" FontSize="48" TextAlignment="Center" Canvas.Top="216.772" Foreground="#FFEF5411"><Run Text="Hi there"/><LineBreak/><Run Text="How many people are eating today?"/></TextBlock>
             <Slider x:Name="numberOfPeopleSlider" HorizontalAlignment="Left" Height="50.96" VerticalAlignment="Top" Width="866.336" Maximum="6" TickPlacement="BottomRight" Cursor="Hand" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" FontSize="22" FontWeight="Bold" Foreground="#EF5411" BorderBrush="#FFFF6517" Background="{x:Null}" ValueChanged="numberOfPeopleSlider_ValueChanged" Canvas.Left="374.24" Canvas.Top="503.576" />
             <TextBox x:Name="SliderNumber" Text="{Binding Value, ElementName=numberOfPeopleSlider, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" FontSize="20" FontWeight="Bold" Width="25" Height="26.604" Canvas.Left="533" Canvas.Top="456.576" Background="#FF313F54" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" IsReadOnly="True" Foreground="#FFEF5411" />

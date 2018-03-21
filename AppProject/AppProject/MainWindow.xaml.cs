@@ -53,5 +53,10 @@ namespace AppProject
             this.MenuGrid.Visibility = Visibility.Hidden;
             this.ReviewWindow.Visibility = Visibility.Visible;
         }
+
+        private void W_StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WelcomeScreen.Visibility = Visibility.Hidden;
+        }
     }
 }
