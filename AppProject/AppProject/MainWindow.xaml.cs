@@ -20,7 +20,7 @@ namespace AppProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        //List<Bill> bills;
+        List<Bill> bills=new List<Bill>();
         int numDinners = 0;
 
         public MainWindow()
@@ -59,13 +59,13 @@ namespace AppProject
         {
             MenuGrid.Visibility = Visibility.Visible;
             WelcomeScreen.Visibility = Visibility.Hidden;
-            Console.WriteLine(W_numberOfPeopleSlider.Value);
             numDinners = (int) W_numberOfPeopleSlider.Value;
 
-            //Need to actually get the number of people in this loop
             for (int i=0; i<numDinners; i++)
             {
-                this.R_BillUnicormGrid.Children.Add(new Bill(i+1));
+                Bill cBill = new Bill(i + 1);
+                this.R_BillUnicormGrid.Children.Add(cBill);
+                bills.Add(cBill);
             }
 
         }
@@ -84,8 +84,24 @@ namespace AppProject
 
         private void R_MoveButton_Click(object sender, RoutedEventArgs e)
         {
-            //ReviewGrid.Visibility = Visibility.Hidden;
-           // ReviewGrid_Move1.Visibility = Visibility.Visible;
+            foreach (Bill bill in bills)
+            {
+                bill.ToggleCheckBoxVisibility();
+            }
+            this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
+            this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_MoveButtonsGrid.Visibility = Visibility.Visible;
+        }
+
+        private void R_CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Bill bill in bills)
+            {
+                bill.ToggleCheckBoxVisibility();
+            }
+            this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+            this.R_EditButtonsGrid.Visibility = Visibility.Visible;
+            this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;
         }
     }
 }
