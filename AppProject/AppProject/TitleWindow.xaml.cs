@@ -23,7 +23,7 @@ namespace AppProject
         public TitleWindow()
         {
             InitializeComponent();
-            this.MenuInterface.Visibility = Visibility.Hidden;
+            //this.MenuInterface.Visibility = Visibility.Hidden;
             StartButton.Opacity = 0.25;
         }
 
