@@ -61,6 +61,24 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <Grid x:Name="MainSplitGrid" Background="#FFB0A2A2" Margin="0,0,10,10" Grid.ColumnSpan="2">
+            <Grid x:Name="SideGrid" Height="960" VerticalAlignment="Top" Margin="1205,10,10,0" Width="405">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="277*"/>
+                    <RowDefinition Height="243*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="SplitItemButton" Content="Split Items" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton2}" Margin="10,0,10,10" FontSize="36" FontWeight="Bold" Height="76" Grid.Row="1"/>
+            </Grid>
+            <ScrollViewer HorizontalAlignment="Left" Width="1195" Margin="10,10,0,10" Background="#FF5B5353">
+                <UniformGrid x:Name="BillUnicormGrid" ScrollViewer.CanContentScroll="True" Columns="2" Width="1185" VerticalAlignment="Top">
+                    <local:Bill Width="Auto"/>
+                    <local:Bill Width="Auto"/>
+                    <local:Bill Width="Auto"/>
+                    <local:Bill Width="Auto"/>
+                </UniformGrid>
+            </ScrollViewer>
+        </Grid>
+
         <Grid x:Name="ReviewWindow" Margin="0,0,8,8" Grid.ColumnSpan="2">
             <Grid x:Name="SideGrid1" Background="#FFAAA5A5" HorizontalAlignment="Right" Width="405">
                 <Button x:Name="CheckoutButton" Content="Checkout&#xA;" Template="{DynamicResource RectangleButton3}" Margin="10,894,10,10" FontSize="30" FontWeight="Bold"/>
@@ -115,23 +133,6 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="MainSplitGrid" Background="#FFB0A2A2" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
-            <Grid x:Name="SideGrid" Height="960" VerticalAlignment="Top" Margin="1205,10,10,0" Width="405">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="277*"/>
-                    <RowDefinition Height="243*"/>
-                </Grid.RowDefinitions>
-                <Button x:Name="SplitItemButton" Content="Split Items" VerticalAlignment="Bottom" Template="{DynamicResource RectangleButton2}" Margin="10,0,10,10" FontSize="36" FontWeight="Bold" Height="76" Grid.Row="1"/>
-            </Grid>
-            <ScrollViewer HorizontalAlignment="Left" Width="1195" Margin="10,10,0,10" Background="#FF5B5353">
-                <UniformGrid x:Name="BillUnicormGrid" ScrollViewer.CanContentScroll="True" Columns="2" Width="1185" VerticalAlignment="Top">
-                    <local:Bill Width="Auto"/>
-                    <local:Bill Width="Auto"/>
-                    <local:Bill Width="Auto"/>
-                    <local:Bill Width="Auto"/>
-                </UniformGrid>
-            </ScrollViewer>
-        </Grid>
         <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" Margin="0,0,10,10" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
@@ -150,6 +151,7 @@
             </Canvas>
 
         </Grid>
+        <Grid x:Name="DisplayMoreInfoGrid" Grid.ColumnSpan="2" Margin="240,155,515,205"/>
 
     </Grid>
 </Window>
