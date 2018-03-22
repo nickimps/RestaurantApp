@@ -190,6 +190,7 @@
     <Content Include="Descriptions\Waffle Fries.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="PeanutAllergyLogo.png" />
     <Resource Include="shell fish allergy.jpg" />
     <EmbeddedResource Include="Images\Caesar Salad.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
