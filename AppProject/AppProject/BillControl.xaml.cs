@@ -21,35 +21,24 @@ namespace AppProject
     public partial class BillControl : UserControl
     {
 
-        public List<BillItem> items = new List<BillItem>();
-        public BillControl(int billNumber)
+        public List<BillItemControl> items = new List<BillItemControl>();
+        public BillControl(Bill bill)
         {
             InitializeComponent();
-            this.BillNumber.Text = billNumber.ToString();
+            this.BillIdentifier.Text = bill.billName;
+            this.TotalNumber.Text = bill.ReturnTotal().ToString();
         }
 
 
-        public void AddItem(BillItem item)
+        public void AddItem(BillItemControl item)
         {
             this.ItemListGrid.Children.Add(item); 
             items.Add(item);
         }
 
-        public void ToggleCheckBoxVisibility()
-        {
-            if (this.BillCheckBox.Visibility == Visibility.Visible)
-            {
-                this.BillCheckBox.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                this.BillCheckBox.Visibility = Visibility.Visible;
-            }
-        }
-
         public void ToggleItemCheckBoxes()
         {
-            foreach (BillItem item in items)
+            foreach (BillItemControl item in items)
             {
                 item.ToggleCheckBoxVisibility();
             }

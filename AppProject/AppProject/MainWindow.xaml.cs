@@ -21,8 +21,9 @@ namespace AppProject
     public partial class MainWindow : Window
     {
         //Bill selectedBill;
-        List<BillControl> billsView=new List<BillControl>();
+        List<Bill> bills = new List<Bill>();
         int numDinners = 0;
+        List<List<FoodItem>> menu = new List<List<FoodItem>>();
 
         public MainWindow()
         {
@@ -81,22 +82,20 @@ namespace AppProject
 
             for (int i=0; i<numDinners; i++)
             { 
-                BillControl cBill = new BillControl(i + 1);
-                //cBill.BillCheckBox.Checked += 
-                this.R_BillUniformGrid.Children.Add(cBill);
-                billsView.Add(cBill);
+                Bill cBill = new Bill((i+1).ToString());
+                bills.Add(cBill);
+                R_BillUniformGrid.Children.Add(cBill.billView);
             }
             FoodItem nachos = new FoodItem("Nachos", 4.00);
             FoodItem saladRolls = new FoodItem("Salad Rolls", 2.50);
             FoodItem waffleFries = new FoodItem("Waffle Fries", 3.50);
             FoodItem springRolls = new FoodItem("Spring Rolls", 2.00);
 
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
+
+            // alteredNachos.name = "M Nachos";
+
+            bills[0].AddItem(new FoodItem(saladRolls));
+            bills[0].AddItem(new FoodItem(nachos));
 
             //bills[1].AddItem(springRolls);
             //bills[1].AddItem(saladRolls);
@@ -119,9 +118,9 @@ namespace AppProject
 
         private void R_MoveButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (BillControl bill in billsView)
+            foreach (Bill bill in bills)
             {
-                bill.ToggleCheckBoxVisibility();
+                bill.ToggleCheckBox();
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
@@ -130,9 +129,9 @@ namespace AppProject
 
         private void R_CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (BillControl bill in billsView)
+            foreach (Bill bill in bills)
             {
-                bill.ToggleCheckBoxVisibility();
+                bill.ToggleCheckBox();
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;

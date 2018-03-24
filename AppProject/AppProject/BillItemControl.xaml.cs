@@ -18,9 +18,9 @@ namespace AppProject
     /// <summary>
     /// Interaction logic for BillItem.xaml
     /// </summary>
-    public partial class BillItem : UserControl
+    public partial class BillItemControl : UserControl
     {
-        public BillItem(FoodItem item)
+        public BillItemControl(FoodItem item)
         {
             InitializeComponent();
             this.ItemName.Text = item.name;
