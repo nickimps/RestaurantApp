@@ -21,7 +21,7 @@ namespace AppProject
     public partial class MainWindow : Window
     {
         //Bill selectedBill;
-        List<Bill> bills=new List<Bill>();
+        List<BillControl> billsView=new List<BillControl>();
         int numDinners = 0;
 
         public MainWindow()
@@ -79,22 +79,27 @@ namespace AppProject
             WelcomeScreen.Visibility = Visibility.Hidden;
             numDinners = (int) W_numberOfPeopleSlider.Value;
 
-            for (int i=0; i<2; i++)
+            for (int i=0; i<numDinners; i++)
             { 
-                Bill cBill = new Bill(i + 1);
+                BillControl cBill = new BillControl(i + 1);
                 //cBill.BillCheckBox.Checked += 
-                this.R_BillUnicormGrid.Children.Add(cBill);
-                bills.Add(cBill);
+                this.R_BillUniformGrid.Children.Add(cBill);
+                billsView.Add(cBill);
             }
-            BillItem nachos = new BillItem("Nachos", "4.00");
-            BillItem saladRolls = new BillItem("Salad Rolls", "2.50");
-            BillItem waffleFries = new BillItem("Waffle Fries", "3.50");
-            BillItem springRolls = new BillItem("Spring Rolls", "2.00");
+            FoodItem nachos = new FoodItem("Nachos", 4.00);
+            FoodItem saladRolls = new FoodItem("Salad Rolls", 2.50);
+            FoodItem waffleFries = new FoodItem("Waffle Fries", 3.50);
+            FoodItem springRolls = new FoodItem("Spring Rolls", 2.00);
 
-            bills[0].AddItem(waffleFries);
-            bills[0].AddItem(nachos);
-            bills[1].AddItem(springRolls);
-            bills[1].AddItem(saladRolls);
+            billsView[0].AddItem(new BillItem(nachos));
+            billsView[0].AddItem(new BillItem(nachos));
+            billsView[0].AddItem(new BillItem(nachos));
+            billsView[0].AddItem(new BillItem(nachos));
+            billsView[0].AddItem(new BillItem(nachos));
+            billsView[0].AddItem(new BillItem(nachos));
+
+            //bills[1].AddItem(springRolls);
+            //bills[1].AddItem(saladRolls);
 
         }
 
@@ -114,7 +119,7 @@ namespace AppProject
 
         private void R_MoveButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Bill bill in bills)
+            foreach (BillControl bill in billsView)
             {
                 bill.ToggleCheckBoxVisibility();
             }
@@ -125,7 +130,7 @@ namespace AppProject
 
         private void R_CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Bill bill in bills)
+            foreach (BillControl bill in billsView)
             {
                 bill.ToggleCheckBoxVisibility();
             }
