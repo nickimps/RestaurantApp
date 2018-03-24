@@ -21,8 +21,9 @@ namespace AppProject
     public partial class MainWindow : Window
     {
         //Bill selectedBill;
-        List<BillControl> billsView=new List<BillControl>();
+        List<Bill> bills = new List<Bill>();
         int numDinners = 0;
+        List<List<FoodItem>> menu = new List<List<FoodItem>>();
 
         public MainWindow()
         {
@@ -37,7 +38,10 @@ namespace AppProject
                 Image image = HelperMethods481.AssemblyManager.GetImageFromEmbeddedResources(fileName);
                 string itemName = fileName.Replace(".jpg", "").Split('.').Last();
                 MenuItemsControl menuItems = new MenuItemsControl(image, itemName);
-                menuItems.MouseDown += new MouseButtonEventHandler(item_more_info_MouseDown);
+
+                menuItems.InformationRequest += new EventHandler<EventArgs>(displayMoreInfo);
+                //menuItems.M_more_info_button.Click += new RoutedEventHandler(item_more_info_MouseDown);
+                //menuItems.M_add_to_bill_button.Click += new RoutedEventHandler();
                 this.Menu_items_uniform_gird.Children.Add(menuItems);
             }
             W_StartButton.Opacity = 0.25;
@@ -45,19 +49,18 @@ namespace AppProject
             R_MoveButtonsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void item_more_info_MouseDown(object sender, MouseButtonEventArgs e)
+        private void displayMoreInfo(object sender, EventArgs e)
         {
             DisplayMoreInfoGrid.Visibility = Visibility.Visible;
-            
+
             MenuItemsControl mic = sender as MenuItemsControl;
             Image image = mic.ImageContent;
             string itemName = mic.FoodTitle.Text;
             MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
             this.DisplayMoreInfoGrid.Children.Clear();
             this.DisplayMoreInfoGrid.Children.Add(moreInfo);
-            
-                
         }
+
 
         private void W_numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -81,22 +84,21 @@ namespace AppProject
 
             for (int i=0; i<numDinners; i++)
             { 
-                BillControl cBill = new BillControl(i + 1);
-                //cBill.BillCheckBox.Checked += 
-                this.R_BillUniformGrid.Children.Add(cBill);
-                billsView.Add(cBill);
+                Bill cBill = new Bill((i+1).ToString());
+                bills.Add(cBill);
+                R_BillUniformGrid.Children.Add(cBill.billView);
+                M_BillUniformGrid.Children.Add(cBill.mBillView);
             }
             FoodItem nachos = new FoodItem("Nachos", 4.00);
             FoodItem saladRolls = new FoodItem("Salad Rolls", 2.50);
             FoodItem waffleFries = new FoodItem("Waffle Fries", 3.50);
             FoodItem springRolls = new FoodItem("Spring Rolls", 2.00);
 
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
-            billsView[0].AddItem(new BillItem(nachos));
+
+            // alteredNachos.name = "M Nachos";
+
+            bills[0].AddItem(new FoodItem(saladRolls));
+            bills[0].AddItem(new FoodItem(nachos));
 
             //bills[1].AddItem(springRolls);
             //bills[1].AddItem(saladRolls);
@@ -119,9 +121,9 @@ namespace AppProject
 
         private void R_MoveButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (BillControl bill in billsView)
+            foreach (Bill bill in bills)
             {
-                bill.ToggleCheckBoxVisibility();
+                bill.ToggleCheckBox();
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
@@ -130,9 +132,9 @@ namespace AppProject
 
         private void R_CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            foreach (BillControl bill in billsView)
+            foreach (Bill bill in bills)
             {
-                bill.ToggleCheckBoxVisibility();
+                bill.ToggleCheckBox();
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;

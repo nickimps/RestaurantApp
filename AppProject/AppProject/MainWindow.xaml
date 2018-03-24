@@ -270,7 +270,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561" d:IsHidden="True">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -296,6 +296,9 @@
                 </Grid>
                 <Grid x:Name="M_BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FFEFEFEF" Height="982" Canvas.Left="1216">
                     <Button x:Name="M_ReviewOrderButton" Content="Review Order" HorizontalAlignment="Left" Height="94" Margin="27.428,860.143,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="M_ReviewOrderButton_Click"/>
+                    <ScrollViewer x:Name="M_BillScroller" Margin="10,10,10,154.113" VerticalScrollBarVisibility="Hidden">
+                        <UniformGrid x:Name="M_BillUniformGrid" Width="385" VerticalAlignment="Top" Columns="1"/>
+                    </ScrollViewer>
                 </Grid>
                 <ScrollViewer Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
                     <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
@@ -303,7 +306,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
