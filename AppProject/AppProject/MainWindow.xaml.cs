@@ -38,7 +38,10 @@ namespace AppProject
                 Image image = HelperMethods481.AssemblyManager.GetImageFromEmbeddedResources(fileName);
                 string itemName = fileName.Replace(".jpg", "").Split('.').Last();
                 MenuItemsControl menuItems = new MenuItemsControl(image, itemName);
-                menuItems.MouseDown += new MouseButtonEventHandler(item_more_info_MouseDown);
+
+                menuItems.InformationRequest += new EventHandler<EventArgs>(displayMoreInfo);
+                //menuItems.M_more_info_button.Click += new RoutedEventHandler(item_more_info_MouseDown);
+                //menuItems.M_add_to_bill_button.Click += new RoutedEventHandler();
                 this.Menu_items_uniform_gird.Children.Add(menuItems);
             }
             W_StartButton.Opacity = 0.25;
@@ -46,19 +49,18 @@ namespace AppProject
             R_MoveButtonsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void item_more_info_MouseDown(object sender, MouseButtonEventArgs e)
+        private void displayMoreInfo(object sender, EventArgs e)
         {
             DisplayMoreInfoGrid.Visibility = Visibility.Visible;
-            
+
             MenuItemsControl mic = sender as MenuItemsControl;
             Image image = mic.ImageContent;
             string itemName = mic.FoodTitle.Text;
             MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
             this.DisplayMoreInfoGrid.Children.Clear();
             this.DisplayMoreInfoGrid.Children.Add(moreInfo);
-            
-                
         }
+
 
         private void W_numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -85,6 +87,7 @@ namespace AppProject
                 Bill cBill = new Bill((i+1).ToString());
                 bills.Add(cBill);
                 R_BillUniformGrid.Children.Add(cBill.billView);
+                M_BillUniformGrid.Children.Add(cBill.mBillView);
             }
             FoodItem nachos = new FoodItem("Nachos", 4.00);
             FoodItem saladRolls = new FoodItem("Salad Rolls", 2.50);

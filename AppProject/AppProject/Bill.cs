@@ -13,7 +13,8 @@ namespace AppProject
         private Boolean transactionCompleted { get; set; }
         public string billName { get; set; }
         public BillControl billView;
-        private double total=0;
+        public Menu_BillControl mBillView;
+        private double total = 0;
 
         public Bill(string identity)
         {
@@ -21,6 +22,7 @@ namespace AppProject
             billItems = new List<FoodItem>();
             transactionCompleted = false;
             CreateView();
+            CreateMenuView();
         }
 
         public BillControl GetView()
@@ -33,13 +35,19 @@ namespace AppProject
             billView = new BillControl(this);
         }
 
-        public void AddItem(FoodItem item) 
+        public void CreateMenuView()
+        {
+            mBillView = new Menu_BillControl(this);
+        }
+
+        public void AddItem(FoodItem item)
         {
             billItems.Add(item);
             billView.AddItem(item.billItemView);
 
             total += item.value;
-            billView.TotalNumber.Text = total.ToString();
+
+            UpdateTotalsInViews();
         }
 
         public void ToggleCheckBox()
@@ -54,21 +62,35 @@ namespace AppProject
             }
         }
 
-        public double ReturnTotal()
-        {
-            return total;
-        }
-
         public void RemoveItem(int index)
         {
             total -= billItems[index].value;
             billItems.RemoveAt(index);
+            UpdateTotalsInViews();
         }
 
         public void RemoveItem(FoodItem item)
         {
             total -= item.value;
             billItems.Remove(item);
+            UpdateTotalsInViews();
+        }
+
+        public void UpdateTotalsInViews()
+        {
+            mBillView.TotalText.Text = total.ToString();
+            billView.TotalNumber.Text = total.ToString();
+        }
+
+        public void UpdateIdentifiersInViews()
+        {
+            billView.BillIdentifier.Text = billName;
+            mBillView.IdentifierText.Text = billName;
+        }
+
+        public double ReturnTotal()
+        {
+            return total;
         }
     }
 }
