@@ -18,11 +18,11 @@ namespace AppProject
     /// <summary>
     /// Interaction logic for Bill.xaml
     /// </summary>
-    public partial class Bill : UserControl
+    public partial class BillControl : UserControl
     {
 
         public List<BillItem> items = new List<BillItem>();
-        public Bill(int billNumber)
+        public BillControl(int billNumber)
         {
             InitializeComponent();
             this.BillNumber.Text = billNumber.ToString();

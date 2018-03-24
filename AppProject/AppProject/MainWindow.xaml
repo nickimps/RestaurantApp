@@ -270,7 +270,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -300,13 +300,10 @@
                 <ScrollViewer Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
                     <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                 </ScrollViewer>
-                <Ellipse Fill="#FFF4F4F5" Height="56.573" Width="56.572" Canvas.Left="419.817" Canvas.Top="185.845"/>
-                <Image Height="53.932" Width="45.6" Canvas.Left="843.2" Canvas.Top="187.2" Source="shell fish allergy.jpg"/>
-                <Image HorizontalAlignment="Left" Height="53.714" VerticalAlignment="Top" Width="68.102" Source="PeanutAllergyLogo.png" Canvas.Left="421.286" Canvas.Top="187.418"/>
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2">
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
@@ -327,8 +324,8 @@
                     <Button x:Name="ConfirmButton" Content="Confirm" HorizontalAlignment="Left" Height="94" Margin="19.385,44.667,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
                 </Grid>
             </Grid>
-            <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Width="1195" Margin="10,10,0,10" Background="#FFBDC3C7" Foreground="{x:Null}">
-                <UniformGrid x:Name="R_BillUnicormGrid" ScrollViewer.CanContentScroll="True" Columns="2" Width="1185" VerticalAlignment="Top"/>
+            <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Height="960" VerticalAlignment="Top" Width="1195" Margin="10,10,0,0">
+                <UniformGrid x:Name="R_BillUniformGrid" Width="1195" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Columns="2" IsEnabled="False"/>
             </ScrollViewer>
         </Grid>
         <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" Margin="0,0,10,10" d:IsHidden="True">
