@@ -277,7 +277,6 @@
                 <Button Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.216" Height="71.124" Background="{x:Null}" Cursor="Hand" BorderBrush="{x:Null}"/>
             </Grid>
         </ControlTemplate>
-<<<<<<< HEAD
         <Style x:Key="SendToKitchen" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -285,62 +284,13 @@
                         <Grid x:Name="SendToKitchenGrid" Background="#FF313F54">
                             <Button Width="232.806" VerticalAlignment="Top" Margin="0,231.2,0,0" Height="78" HorizontalAlignment="Center" FontSize="24" Content="OK" Background="#FFFF822E"/>
                             <ContentPresenter HorizontalAlignment="Center" Height="121.56" Margin="10,62.4,0,0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Top" Width="390.648"/>
-=======
-        <Style x:Key="ButtonStyle9" TargetType="{x:Type Button}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid>
-                            <Rectangle Fill="#FF34495E" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FFEE712B"/>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
->>>>>>> f993ceb709dd8b52dcf43e43294aacd99ff192a3
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsFocused" Value="True"/>
-                            <Trigger Property="IsDefaulted" Value="True"/>
-                            <Trigger Property="IsMouseOver" Value="True"/>
-                            <Trigger Property="IsPressed" Value="True"/>
-                            <Trigger Property="IsEnabled" Value="False"/>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-<<<<<<< HEAD
-            <Setter Property="FontSize" Value="72"/>
-            <Setter Property="Foreground" Value="#FFEE5411"/>
-=======
-            <Setter Property="FontFamily" Value="Century Gothic"/>
-            <Setter Property="Cursor" Value="Hand"/>
-        </Style>
-        <Style x:Key="ButtonStyle10" TargetType="{x:Type Button}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid>
-                            <Rectangle Fill="#FF34495E" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FFEE712B"/>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="25" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsFocused" Value="True"/>
-                            <Trigger Property="IsDefaulted" Value="True"/>
-                            <Trigger Property="IsMouseOver" Value="True"/>
-                            <Trigger Property="IsPressed" Value="True"/>
-                            <Trigger Property="IsEnabled" Value="False"/>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="FontFamily" Value="Century Gothic"/>
-            <Setter Property="Cursor" Value="Hand"/>
->>>>>>> f993ceb709dd8b52dcf43e43294aacd99ff192a3
-        </Style>
     </Window.Resources>
+                        
     <Grid x:Name="MainWindowGrid" Margin="0,0,-5.714,-5.714" Width="1620" Height="980">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
         <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
@@ -408,19 +358,13 @@
                 <Rectangle x:Name="M_KidsMenuCover" Fill="#FFEE712B" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Canvas.Left="264" Canvas.Top="557.536" Visibility="Hidden"/>
                 <Rectangle x:Name="M_DrinksCover" Fill="#FFDC4712" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Canvas.Left="264" Canvas.Top="701.535" Visibility="Hidden"/>
             </Canvas>
-
         </Grid>
-<<<<<<< HEAD
-        <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="310.8,304.4,0,0" Background="#FF313F54"/>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2">
-=======
         <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="293.818,304.4,0,0" d:IsHidden="True">
             <Rectangle Fill="#FF34495E" HorizontalAlignment="Left" Height="385.6" RadiusY="7" RadiusX="7" Stroke="#FFBDC3C7" StrokeThickness="4" VerticalAlignment="Top" Width="876.982"/>
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="96.76" Width="876.982" FontSize="60" Foreground="#FFEE712B" FontFamily="Century Gothic" Margin="0,116.42,0,172.42" TextAlignment="Center"><Run Text="Server on the"/><Run Text="ir"/><Run Text=" way"/></TextBlock>
             <Button x:Name="Help_DismissButton" Content="Dismiss" HorizontalAlignment="Left" Height="72.571" Margin="264,267.537,0,0" Style="{DynamicResource ButtonStyle9}" VerticalAlignment="Top" Width="348.948" Click="Button_Click_1"/>
         </Grid>
         <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
->>>>>>> f993ceb709dd8b52dcf43e43294aacd99ff192a3
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
