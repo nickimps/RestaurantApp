@@ -283,7 +283,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -356,7 +356,7 @@
             <Button Content="OK" Margin="326.292,255.998,351.474,58.478" FontSize="24" Background="#FFFF822E" Foreground="#FF1A1615" Click="Button_Click_1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="199.216" Height="71.124" Template="{DynamicResource HelpPromptDismiss}"/>
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="152.76" Width="582.09" Text="Server on the way" FontSize="72" Foreground="#FFEE5411"/>
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" Visibility="Hidden" d:IsHidden="True">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2">
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
