@@ -90,15 +90,17 @@ namespace AppProject
         {
             DisplayMoreInfoGrid.Visibility = Visibility.Visible;
             this.M_CategoryGrid.IsEnabled = false;
-            this.M_MenuItemsGrid.IsEnabled = false;
-            //this.M_ScrollViewer.IsEnabled = false;
+            this.selectedMenu.IsEnabled = false;
+            this.selectedMenuItems.IsEnabled = false;
+            this.selectedMenuCover.IsEnabled = false;
 
             BlurEffect myBlurEffect = new BlurEffect();
             myBlurEffect.Radius = 6;
             myBlurEffect.KernelType = KernelType.Gaussian;
             this.M_CategoryGrid.Effect = myBlurEffect;
-            this.M_MenuItemsGrid.Effect = myBlurEffect;
-            //this.M_ScrollViewer.Effect = myBlurEffect;
+            this.selectedMenu.Effect = myBlurEffect;
+            this.selectedMenuItems.Effect = myBlurEffect;
+            this.selectedMenuCover.Effect = myBlurEffect;
 
             MenuItemsControl mic = sender as MenuItemsControl;
             Image image = mic.ImageContent;
@@ -116,22 +118,26 @@ namespace AppProject
             myDeBlurEffect.Radius = 0;
             myDeBlurEffect.KernelType = KernelType.Gaussian;
             this.M_CategoryGrid.Effect = myDeBlurEffect;
-            this.M_MenuItemsGrid.Effect = myDeBlurEffect;
-            //this.M_ScrollViewer.Effect = myDeBlurEffect;
+            this.selectedMenu.Effect = myDeBlurEffect;
+            this.selectedMenuItems.Effect = myDeBlurEffect;
+            this.selectedMenuCover.Effect = myDeBlurEffect;
 
             this.M_CategoryGrid.IsEnabled = true;
-            this.M_MenuItemsGrid.IsEnabled = true;
-           // this.M_ScrollViewer.IsEnabled = true;
+            this.selectedMenu.IsEnabled = true;
+            this.selectedMenuItems.IsEnabled = true;
+            this.selectedMenuCover.IsEnabled = true;
         }
 
         private void M_AddRequest(object sender, ItemEventArgs e)
         {
             this.M_CategoryGrid.Opacity = 0.3;
             this.M_CategoryGrid.IsEnabled = false;
-            this.M_MenuItemsGrid.Opacity = 0.3;
-            this.M_MenuItemsGrid.IsEnabled = false;
-            //this.M_ScrollViewer.Opacity = 0.3;
-            //this.M_ScrollViewer.IsEnabled = false;
+            this.selectedMenu.Opacity = 0.3;
+            this.selectedMenu.IsEnabled = false;
+            this.selectedMenuItems.Opacity = 0.3;
+            this.selectedMenuItems.IsEnabled = false;
+            this.selectedMenuCover.Opacity = 0.3;
+            this.selectedMenuCover.IsEnabled = false;
             this.DisplayMoreInfoGrid.Opacity = 0.5;
             this.DisplayMoreInfoGrid.IsEnabled = false;
             addMode = true;
@@ -145,10 +151,16 @@ namespace AppProject
             {
                 this.M_CategoryGrid.Opacity = 1;
                 this.M_CategoryGrid.IsEnabled = true;
-                this.M_MenuItemsGrid.Opacity = 1;
-                this.M_MenuItemsGrid.IsEnabled = true;
-                //this.M_ScrollViewer.Opacity = 1;
-                //this.M_ScrollViewer.IsEnabled = true;
+                this.selectedMenu.Opacity = 1;
+                this.selectedMenu.IsEnabled = true;
+                this.selectedMenuItems.Opacity = 1;
+                this.selectedMenuItems.IsEnabled = true;
+                this.selectedMenuCover.Opacity = 1;
+                this.selectedMenuCover.IsEnabled = true;
+
+                EventHandler<EventArgs> DeBlurThings = new EventHandler<EventArgs>(M_DeBlur);
+                DeBlurThings.Invoke(this, new EventArgs());
+
                 this.DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
                 this.DisplayMoreInfoGrid.Opacity = 1;
                 this.DisplayMoreInfoGrid.IsEnabled = true;
