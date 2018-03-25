@@ -26,7 +26,7 @@
             <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="28,0,0,0" Height="28" HorizontalAlignment="Left" FontSize="20"><Run Text=""/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
             <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Margin="0,0,28,0" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right" Grid.Column="1"/>
             <CheckBox x:Name="ItemCheckBox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False" Visibility="Hidden"/>
-            <Button x:Name="CancelButton" Content="Button" HorizontalAlignment="Right" Width="16" Height="16" Margin="0,6,6,0" VerticalAlignment="Top" Template="{DynamicResource CloseButton}" Visibility="Hidden" Grid.Column="1"/>
+            <Button x:Name="CancelButton" Content="Button" HorizontalAlignment="Right" Width="16" Height="16" Margin="0,6,6,0" VerticalAlignment="Top" Template="{DynamicResource CloseButton}" Visibility="Hidden" Grid.Column="1" Click="CancelButton_Click"/>
         </Grid>
     </Grid>
 </UserControl>

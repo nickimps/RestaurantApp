@@ -24,12 +24,12 @@ namespace AppProject
     {
         //Bill selectedBill;
         List<Bill> bills = new List<Bill>();
+        List<FoodItem> orderedFoods = new List<FoodItem>();
+
         int numDinners = 0;
-        List<FoodCategory> menu = new List<FoodCategory>();
+ 
         private Boolean addMode = false;
         FoodItem selectedItem;
-
-
         Grid selectedMenu = null;
         ScrollViewer selectedMenuItems = null;
         Rectangle selectedMenuCover;
@@ -235,25 +235,20 @@ namespace AppProject
         {
             foreach (Bill bill in bills)
             {
-                //Gotta Set it so that bills and items are dragable in this mode others disallow it
-
+                bill.ToggleItemDragging();
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
             this.R_MoveButtonsGrid.Visibility = Visibility.Visible;
-
-
-
-
-
         }
 
         private void R_CancelButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (Bill bill in bills)
             {
-                bill.ToggleCheckBox();
+                bill.ToggleItemDragging();
             }
+
             this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
             this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;

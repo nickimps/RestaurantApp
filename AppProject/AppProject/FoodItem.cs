@@ -13,6 +13,7 @@ namespace AppProject
         public string description { get; set; }
         public string additionalInfo { get; set; }
         public BillItemControl billItemView;
+        public List<BillItemControl> viewList;
 
         public FoodItem(string itemName, string itemValue)
         {
@@ -38,6 +39,17 @@ namespace AppProject
             CreateView();
         }
 
+
+        public void SplitOrderEvenly()
+        {
+            //Split Logic goes here
+        }
+
+        public void SplitUnEvenly()
+        {
+            //Split Unevenly logic goes here
+        }
+
         public BillItemControl GetView()
         {
             return billItemView;
@@ -47,5 +59,6 @@ namespace AppProject
         {
             billItemView = new BillItemControl(this);
         }
+
     }
 }
