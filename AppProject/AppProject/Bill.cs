@@ -51,11 +51,8 @@ namespace AppProject
         public void AddItem(FoodItem item)
         { 
             billItems.Add(item);
-            Console.WriteLine("HELLO? " + item.name);
             billView.AddItem(item.billItemView);
-
             total += item.value;
-
             UpdateTotalsInViews();
         }
 
