@@ -29,6 +29,12 @@ namespace AppProject
             this.TotalNumber.Text = bill.ReturnTotal().ToString();
         }
 
+        public BillControl(BillControl clone)
+        {
+            this.BillIdentifier = clone.BillIdentifier;
+            this.BillInfoGrid = clone.BillInfoGrid;
+            this.TotalNumber = clone.TotalNumber;
+        }
 
         public void AddItem(BillItemControl item)
         {

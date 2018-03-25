@@ -97,7 +97,9 @@ namespace AppProject
             } 
             else
             {
-                //Display the bill
+                this.BillDisplayGrid.Visibility = Visibility.Visible;
+                BillControl bill = new BillControl(clickedBill);
+                this.ContentGrid.Children.Add(bill);
             }
         }
 
@@ -180,6 +182,11 @@ namespace AppProject
         private void S_Dismiss_Click(object sender, RoutedEventArgs e)
         {
             this.ServerGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.BillDisplayGrid.Visibility = Visibility.Hidden;
         }
     }
 }
