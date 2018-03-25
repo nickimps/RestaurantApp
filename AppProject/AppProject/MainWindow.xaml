@@ -325,7 +325,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561" d:IsHidden="True">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -435,7 +435,7 @@
 
                 <TextBlock x:Name="W_WelcomeMessageLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="137.816" Width="1610" FontFamily="Century Gothic" FontSize="48" TextAlignment="Center" Canvas.Top="216.772" Foreground="#FFEF5411"><Run Text="Hi there"/><LineBreak/><Run Text="How many people are eating today?"/></TextBlock>
                 <Slider x:Name="W_numberOfPeopleSlider" HorizontalAlignment="Left" Height="50.96" VerticalAlignment="Top" Width="866.336" Maximum="6" TickPlacement="BottomRight" Cursor="Hand" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" FontSize="22" FontWeight="Bold" Foreground="#EF5411" BorderBrush="#FFFF6517" Background="{x:Null}" ValueChanged="W_numberOfPeopleSlider_ValueChanged" Canvas.Left="374.24" Canvas.Top="503.576" />
-                <TextBox x:Name="W_SliderNumber" Text="{Binding Value, ElementName=W_numberOfPeopleSlider, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" FontSize="20" FontWeight="Bold" Width="26.714" Height="27.104" Canvas.Left="507.5" Canvas.Top="458.076" Background="#FF313F54" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" IsReadOnly="True" Foreground="#FFEF5411" />
+                <TextBox x:Name="W_SliderNumber" Text="{Binding Value, ElementName=W_numberOfPeopleSlider, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" FontSize="20" FontWeight="Bold" Width="26.714" Height="27.104" Canvas.Left="507.5" Canvas.Top="458.076" Background="#FF34495E" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" IsReadOnly="True" Foreground="#FFEF5411" />
                 <TextBlock x:Name="W_NumberOfPeopleLabel" HorizontalAlignment="Left" Height="26.604" TextWrapping="Wrap" VerticalAlignment="Top" Width="138.331" FontSize="20" Canvas.Left="374.24" Canvas.Top="458.576" Foreground="#FFEF5411" FontStyle="Italic"><Run Text="Number of "/><Run Text="Bills"/><Run FontStyle="Normal" Text=":"/></TextBlock>
                 <Button x:Name="W_StartButton" Content="Start Ordering" Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Height="100" Canvas.Left="702" Canvas.Top="687.5" Width="220" Foreground="#FF313F54" FontWeight="Bold" Click="W_StartButton_Click"/>
 
