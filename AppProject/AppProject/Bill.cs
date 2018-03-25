@@ -84,8 +84,9 @@ namespace AppProject
 
         private void UpdateTotalsInViews()
         {
-            m_BillView.TotalText.Text = total.ToString();
-            billView.TotalNumber.Text = total.ToString();
+            string price = String.Format("{0:0.00}", total);
+            m_BillView.TotalText.Text = price;
+            billView.TotalNumber.Text = price;
         }
 
         private void UpdateIdentifiersInViews()
