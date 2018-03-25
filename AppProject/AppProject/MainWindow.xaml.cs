@@ -26,6 +26,7 @@ namespace AppProject
         List<FoodCategory> menu = new List<FoodCategory>();
         private Boolean addMode = false;
         FoodItem selectedItem;
+    
 
         public MainWindow()
         {
@@ -151,11 +152,17 @@ namespace AppProject
         {
             foreach (Bill bill in bills)
             {
-                bill.ToggleCheckBox();
+                //Gotta Set it so that bills and items are dragable in this mode others disallow it
+                
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
             this.R_MoveButtonsGrid.Visibility = Visibility.Visible;
+
+
+
+          
+
         }
 
         private void R_CancelButton_Click(object sender, RoutedEventArgs e)

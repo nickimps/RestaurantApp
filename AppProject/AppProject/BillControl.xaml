@@ -4,19 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppProject"
-             mc:Ignorable="d" Width="400" MinWidth="400" MinHeight="94" MaxWidth="400">
+             mc:Ignorable="d" Width="400" MinWidth="400" MinHeight="94" MaxWidth="400" AllowDrop="True">
     <Grid x:Name="BillMainGrid" Background="#FFA8A8A8" Margin="0" Width="400" MinHeight="94">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid x:Name="InnerGrid" Margin="10" Background="#FF00FFF3" Width="380">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="74*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" Visibility="Hidden"/>
             <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom">
                 <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
                 <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right"/>
             </Grid>
-            <UniformGrid x:Name="ItemListGrid" Margin="10,38,10,36" Columns="1" Width="340">
-            </UniformGrid>
+            <UniformGrid x:Name="ItemListGrid" Margin="20,38,20,36" Columns="1" Width="340" Drop="ItemListGrid_Drop" DragEnter="ItemListGrid_DragEnter" MinHeight="30" Background="#FFFBFBFB"/>
             <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <TextBlock x:Name="BillText" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="Bill #" Height="28"/>
                 <TextBlock x:Name="BillIdentifier" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50,0,0,0" Height="28" FontSize="20" FontWeight="Bold"/>

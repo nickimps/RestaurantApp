@@ -26,6 +26,11 @@ namespace AppProject
             this.ItemName.Text = item.name;
             this.ItemPrice.Text = item.value.ToString();
         }
+
+        public BillItemControl()
+        {
+            InitializeComponent();
+        }
         
         public void ToggleCheckBoxVisibility()
         {
@@ -36,6 +41,14 @@ namespace AppProject
             {
                 this.ItemCheckBox.Visibility = Visibility.Visible;
             }
+        }
+
+        private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("Initialized");
+            BillItemControl item = sender as BillItemControl;
+            DragDrop.DoDragDrop(item, item, DragDropEffects.Move);
+
         }
     }
 }
