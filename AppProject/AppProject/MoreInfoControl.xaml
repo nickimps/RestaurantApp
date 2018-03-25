@@ -73,7 +73,7 @@
             <TextBlock x:Name="Food_Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Margin="45,30.5,305.857,0" FontSize="48" Text="Item name" FontWeight="Bold" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
             <TextBlock x:Name="Description" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="0,152.786,29.037,274.643" Width="275.963" FontSize="18" Text="Description" FontFamily="Century Gothic" Foreground="#FFEFEFEF"/>
             <Image x:Name="Food_Image" Margin="45,105,325,122" Stretch="UniformToFill"/>
-            <Button x:Name="MI_Add" Content="Button" HorizontalAlignment="Left" Margin="292.5,628.786,0,0" Style="{DynamicResource ButtonStyle1}" Background="{x:Null}" VerticalAlignment="Top" ClickMode="Press" Width="275" Height="65"/>
+            <Button x:Name="MI_Add" Content="Button" HorizontalAlignment="Left" Margin="292.5,628.786,0,0" Style="{DynamicResource ButtonStyle1}" Background="{x:Null}" VerticalAlignment="Top" ClickMode="Press" Width="275" Height="65" Click="MI_add_to_bill_button_Click" Cursor="Hand"/>
             <Button x:Name="MI_Close" Content="X" Style="{DynamicResource ExitButton}" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Margin="797.333,16,16,662.333" Click="Close_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
@@ -86,12 +86,22 @@
             </Button>
             <TextBox x:Name="UserNotes" HorizontalAlignment="Right" Height="112.643" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="275.963" Margin="0,0,29.037,122" FontFamily="Century Gothic" FontSize="16" Background="#FF2796CB" BorderBrush="#FFEFEFEF" BorderThickness="3" SelectionBrush="#FFCED700" Foreground="#FFEFEFEF"/>
             <TextBlock x:Name="Notes" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,29.037,239.643" Height="30" HorizontalAlignment="Right" Width="275.963" FontSize="22" FontWeight="Bold" Foreground="#FFEFEFEF" RenderTransformOrigin="0.505,-0.164"><Run Text="Add "/><Run Text="n"/><Run Text="otes"/><Run Text=" to order"/><Run Text=":"/></TextBlock>
+<<<<<<< HEAD
+            <Canvas x:Name="IconContainer" Margin="555,84.001,191,620">
+                <Image x:Name="GlutenFree_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/GlutenFree_Icon.png"/>
+                <Image x:Name="Peanut_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Peanut_Icon.png" Canvas.Left="22.9"/>
+                <Image x:Name="Spicy_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Spicy_Icon.png" Canvas.Left="45.8"/>
+                <Image x:Name="Special_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Special_Icon.png" Canvas.Left="68.7"/>
+                <Image x:Name="Vegan_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Vegan_Icon.png" Canvas.Left="91.6"/>
+            </Canvas>
+=======
             <Image x:Name="GlutenFree_Icon" HorizontalAlignment="Left" Height="20.999" Margin="555,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/GlutenFree_Icon.png"/>
             <Image x:Name="Peanut_Icon" HorizontalAlignment="Left" Height="20.999" Margin="577.9,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Peanut_Icon.png"/>
             <Image x:Name="Spicy_Icon" HorizontalAlignment="Left" Height="20.999" Margin="600.8,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Spicy_Icon.png"/>
             <Image x:Name="Special_Icon" HorizontalAlignment="Left" Height="20.999" Margin="623.7,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Special_Icon.png"/>
             <Image x:Name="Vegan_Icon" HorizontalAlignment="Left" Height="20.999" Margin="646.6,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Vegan_Icon.png"/>
             <TextBlock x:Name="Price" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Price" VerticalAlignment="Top" Margin="555,109.843,0,0" Width="91.1" Height="37.943" FontSize="18" FontFamily="Century Gothic" Foreground="#FFEFEFEF"/>
+>>>>>>> 133ee8c6164e400bc78453da6f4b89f472a05e13
         </Grid>
 
     </Grid>
