@@ -330,14 +330,10 @@
                         <UniformGrid x:Name="M_BillUniformGrid" Width="385" VerticalAlignment="Top" Columns="1"/>
                     </ScrollViewer>
                 </Grid>
-<<<<<<< HEAD
-                <ScrollViewer Name="M_ScrollViewer" Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
-=======
                 <ScrollViewer x:Name="M_AppetizerScrollGrid" Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
->>>>>>> 133ee8c6164e400bc78453da6f4b89f472a05e13
                     <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                 </ScrollViewer>
-                <ScrollViewer x:Name="M_EntreeScrollGrid" Height="844.439" Canvas.Left="310" Canvas.Top="137.561" Width="901" Visibility="Hidden">
+                <ScrollViewer x:Name="M_EntreeScrollGrid" Height="844.439" Canvas.Left="310" Canvas.Top="137.561" Width="901">
                     <UniformGrid x:Name="Menu_Entrees_uniform_grid" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                 </ScrollViewer>
                 <ScrollViewer x:Name="M_DessertScrollGrid" Visibility="Hidden" Height="844.439" Canvas.Left="310" Canvas.Top="137.561" Width="901">
