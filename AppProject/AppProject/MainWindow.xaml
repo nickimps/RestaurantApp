@@ -318,6 +318,27 @@
             <Setter Property="FontFamily" Value="Century Gothic"/>
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
+        <Style x:Key="ButtonStyle11" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#19DC2F2F" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FFDC2F2F"/>
+                            <ContentPresenter HorizontalAlignment="Right" TextBlock.FontSize="36" TextBlock.Foreground="#DC2F2F" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="Cancel" Margin="0,8.215,55.145,8.215"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
     </Window.Resources>
     <Grid x:Name="MainWindowGrid" Margin="0,0,-5.714,-5.714" Width="1620" Height="980">
         <Grid.ColumnDefinitions>
@@ -475,9 +496,10 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="AddItemsPromptGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="133.172" VerticalAlignment="Top" Width="763.2" Margin="354.229,177.555,0,0">
-            <Rectangle x:Name="S_Background_Copy" Fill="#FF34495E" Stroke="#FFBDC3C7" StrokeThickness="4" RadiusX="7" RadiusY="7"/>
-            <TextBlock x:Name="S_Message_Copy" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,27.357,-55.267,0" FontSize="60" HorizontalAlignment="Left" Foreground="#FFEE712B" FontFamily="Century Gothic" Width="744.467" TextAlignment="Center"><Run Text="Please "/><Run Text="choose which"/><Run Text=" "/><Run Text="bill"/></TextBlock>
+        <Grid x:Name="AddItemsPromptGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="255.445" VerticalAlignment="Top" Width="763.2" Margin="354.229,177.555,0,0">
+            <Rectangle x:Name="AddItems_Background" Fill="#FFEFEFEF" Stroke="#FFEE712B" StrokeThickness="8" RadiusX="7" RadiusY="7"/>
+            <TextBlock x:Name="AddItems_Message" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,27.357,-55.267,0" FontSize="60" HorizontalAlignment="Left" Foreground="#FFEE712B" FontFamily="Century Gothic" Width="744.467" TextAlignment="Center"><Run Text="Please "/><Run Text="choose which"/><Run Text=" "/><Run Text="bill"/><LineBreak/><Run FontSize="48" Text="or"/></TextBlock>
+            <Button x:Name="AddItems_CancelButton" Content="Dismiss" HorizontalAlignment="Left" Height="60.571" Margin="263.15,168.77,0,0" Style="{DynamicResource ButtonStyle11}" VerticalAlignment="Top" Width="240" Click="AddItems_Click" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
     </Grid>
 

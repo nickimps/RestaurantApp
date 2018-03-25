@@ -134,6 +134,7 @@ namespace AppProject
             this.selectedMenuCover.Effect = myDeBlurEffect;
 
             this.M_CategoryGrid.IsEnabled = true;
+            this.DisplayMoreInfoGrid.IsEnabled = true;
             this.selectedMenu.IsEnabled = true;
             this.selectedMenuItems.IsEnabled = true;
             this.selectedMenuCover.IsEnabled = true;
@@ -170,8 +171,7 @@ namespace AppProject
             {
                 EventHandler<EventArgs> DeBlurThings = new EventHandler<EventArgs>(M_DeBlur);
                 DeBlurThings.Invoke(this, new EventArgs());
-
-                this.DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
+                
                 this.DisplayMoreInfoGrid.IsEnabled = true;
 
                 AddItemsPromptGrid.Visibility = Visibility.Hidden;
@@ -384,6 +384,7 @@ namespace AppProject
             HelpPromptGrid.Visibility = Visibility.Visible;
 
             this.M_CategoryGrid.IsEnabled = false;
+            this.DisplayMoreInfoGrid.IsEnabled = false;
             this.selectedMenu.IsEnabled = false;
             this.selectedMenuItems.IsEnabled = false;
             this.selectedMenuCover.IsEnabled = false;
@@ -394,6 +395,7 @@ namespace AppProject
                 KernelType = KernelType.Gaussian
             };
             this.M_CategoryGrid.Effect = myBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myBlurEffect;
             this.selectedMenu.Effect = myBlurEffect;
             this.selectedMenuItems.Effect = myBlurEffect;
             this.selectedMenuCover.Effect = myBlurEffect;
@@ -409,14 +411,25 @@ namespace AppProject
                 KernelType = KernelType.Gaussian
             };
             this.M_CategoryGrid.Effect = myDeBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myDeBlurEffect;
             this.selectedMenu.Effect = myDeBlurEffect;
             this.selectedMenuItems.Effect = myDeBlurEffect;
             this.selectedMenuCover.Effect = myDeBlurEffect;
 
             this.M_CategoryGrid.IsEnabled = true;
+            this.DisplayMoreInfoGrid.IsEnabled = true;
             this.selectedMenu.IsEnabled = true;
             this.selectedMenuItems.IsEnabled = true;
             this.selectedMenuCover.IsEnabled = true;
+        }
+
+        private void AddItems_Click(object sender, RoutedEventArgs e)
+        {
+            EventHandler<EventArgs> DeBlurThings = new EventHandler<EventArgs>(M_DeBlur);
+            DeBlurThings.Invoke(this, new EventArgs());
+
+            addMode = false;
+            AddItemsPromptGrid.Visibility = Visibility.Hidden;
         }
     }
 }
