@@ -35,7 +35,7 @@ namespace AppProject
 
         private string readDescription(string itemName)
         {
-            string text = "Didn't find a descripion";
+            string text = "Didn't find a description";
             try
             {
                 text = File.ReadAllText(@"Descriptions\" + itemName + ".txt");

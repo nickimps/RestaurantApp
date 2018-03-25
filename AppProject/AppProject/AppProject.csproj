@@ -79,9 +79,6 @@
       <DependentUpon>MoreInfoControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="TableLogic.cs" />
-    <Compile Include="TitleWindow.xaml.cs">
-      <DependentUpon>TitleWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="BillControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,10 +121,6 @@
     <Page Include="MoreInfoControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="TitleWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -189,12 +182,12 @@
     <Content Include="Descriptions\Waffle Fries.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="MenuIcons\GlutenFree_Icon.png" />
+    <Resource Include="MenuIcons\Peanut_Icon.png" />
+    <Resource Include="MenuIcons\Special_Icon.png" />
+    <Resource Include="MenuIcons\Spicy_Icon.png" />
+    <Resource Include="MenuIcons\Vegan_Icon.png" />
     <Resource Include="Menu\categories.txt" />
-    <Resource Include="PeanutAllergyLogo.png" />
-    <Resource Include="shell fish allergy.jpg" />
-    <EmbeddedResource Include="Images\Appetizers\Caesar Salad.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
