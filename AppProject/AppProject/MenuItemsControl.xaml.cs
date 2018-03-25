@@ -21,7 +21,7 @@ namespace AppProject
     public partial class MenuItemsControl : UserControl
     {
         public event EventHandler<EventArgs> InformationRequest;
-        public event EventHandler<EventArgs> AddRequest;
+        public event EventHandler<ItemEventArgs> AddRequest;
         public MenuItemsControl(Image image, string imageName)
         {
             InitializeComponent();
@@ -32,6 +32,13 @@ namespace AppProject
             this.ImageContent.EndInit();
         }
 
+        public FoodItem ReturnFoodItem()
+        {
+            FoodItem item = new FoodItem(this.FoodTitle.Text, 2.00);
+            return item;
+        }
+
+
         private void M_more_info_button_Click(object sender, RoutedEventArgs e)
         {
             this.InformationRequest.Invoke(this, new EventArgs());
@@ -39,7 +46,7 @@ namespace AppProject
 
         private void M_add_to_bill_button_Click(object sender, RoutedEventArgs e)
         {
-            this.AddRequest.Invoke(this, new EventArgs());
+            this.AddRequest.Invoke(this, new ItemEventArgs() { item = this.ReturnFoodItem() });
         }
     }
 }

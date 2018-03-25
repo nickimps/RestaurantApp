@@ -38,7 +38,8 @@ namespace AppProject
             string text = "Didn't find a descripion";
             try
             {
-              text = File.ReadAllText(@"Descriptions\" + itemName + ".txt");
+                
+                text = File.ReadAllText(@"Descriptions\" + itemName + ".txt");
                 Console.WriteLine(text);  
             }
             catch (FileNotFoundException ex){ Console.WriteLine(ex); }

@@ -23,13 +23,26 @@ namespace AppProject
         //Bill selectedBill;
         List<Bill> bills = new List<Bill>();
         int numDinners = 0;
-        List<List<FoodItem>> menu = new List<List<FoodItem>>();
+        List<FoodCategory> menu = new List<FoodCategory>();
+        private Boolean addMode = false;
+        FoodItem selectedItem;
 
         public MainWindow()
         {
             InitializeComponent();
             DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
 
+
+            //Creating Menu from local file
+            //string[] categories = System.IO.File.ReadAllLines(@"Menu\categories.txt");
+            //foreach (string category in categories)
+            //{
+             //   menu.Add(new FoodCategory(category));
+                //System.IO.File.ReadAllLines(@"Menu\"+category+)
+            //}
+
+
+            //Menu Screen Setup
             List<string> imageFileNames = HelperMethods481.
             AssemblyManager.GetAllEmbeddedResourceFilesEndingWith(".png", ".jpg");
 
@@ -39,17 +52,20 @@ namespace AppProject
                 string itemName = fileName.Replace(".jpg", "").Split('.').Last();
                 MenuItemsControl menuItems = new MenuItemsControl(image, itemName);
 
-                menuItems.InformationRequest += new EventHandler<EventArgs>(displayMoreInfo);
-                //menuItems.M_more_info_button.Click += new RoutedEventHandler(item_more_info_MouseDown);
-                //menuItems.M_add_to_bill_button.Click += new RoutedEventHandler();
+                menuItems.InformationRequest += new EventHandler<EventArgs>(M_DisplayMoreInfo);
+                menuItems.AddRequest += new EventHandler<ItemEventArgs>(M_AddRequest);
+
                 this.Menu_items_uniform_gird.Children.Add(menuItems);
             }
+
+
+            //Welcome Screen Setup
             W_StartButton.Opacity = 0.25;
             W_StartButton.IsEnabled = false;
             R_MoveButtonsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void displayMoreInfo(object sender, EventArgs e)
+        private void M_DisplayMoreInfo(object sender, EventArgs e)
         {
             DisplayMoreInfoGrid.Visibility = Visibility.Visible;
 
@@ -59,6 +75,30 @@ namespace AppProject
             MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
             this.DisplayMoreInfoGrid.Children.Clear();
             this.DisplayMoreInfoGrid.Children.Add(moreInfo);
+        }
+
+        private void M_AddRequest(object sender, ItemEventArgs e)
+        {
+            this.M_CategoryGrid.Opacity = 0.3;
+            this.M_MenuItemsGrid.Opacity = 0.3;
+            addMode = true;
+            selectedItem = new FoodItem(e.item);
+        }
+
+        private void M_BillClick(object sender, EventArgs e)
+        {
+            Bill clickedBill = sender as Bill;
+            if (addMode)
+            {
+                this.M_CategoryGrid.Opacity = 1;
+                this.M_MenuItemsGrid.Opacity = 1;
+                addMode = false;
+                clickedBill.AddItem(selectedItem);
+            } 
+            else
+            {
+                //Display the bill
+            }
         }
 
 
@@ -76,36 +116,22 @@ namespace AppProject
             }
         }
 
+        //Method initializes bills and displays them onto their respective screens
         private void W_StartButton_Click(object sender, RoutedEventArgs e)
         {
             MenuGrid.Visibility = Visibility.Visible;
             WelcomeScreen.Visibility = Visibility.Hidden;
             numDinners = (int) W_numberOfPeopleSlider.Value;
 
-            for (int i=0; i<numDinners; i++)
-            { 
-                Bill cBill = new Bill((i+1).ToString());
+            for (int i = 0; i < numDinners; i++)
+            {
+                Bill cBill = new Bill((i + 1).ToString());
                 bills.Add(cBill);
                 R_BillUniformGrid.Children.Add(cBill.billView);
-                M_BillUniformGrid.Children.Add(cBill.mBillView);
+                M_BillUniformGrid.Children.Add(cBill.m_BillView);
+                cBill.MenuBillClicked += new EventHandler<EventArgs>(M_BillClick);
             }
-            FoodItem nachos = new FoodItem("Nachos", 4.00);
-            FoodItem saladRolls = new FoodItem("Salad Rolls", 2.50);
-            FoodItem waffleFries = new FoodItem("Waffle Fries", 3.50);
-            FoodItem springRolls = new FoodItem("Spring Rolls", 2.00);
-
-
-            // alteredNachos.name = "M Nachos";
-
-            bills[0].AddItem(new FoodItem(saladRolls));
-            bills[0].AddItem(new FoodItem(nachos));
-
-            //bills[1].AddItem(springRolls);
-            //bills[1].AddItem(saladRolls);
-
         }
-
-        //public void 
 
         private void R_ReturnButton_Click(object sender, RoutedEventArgs e)
         {

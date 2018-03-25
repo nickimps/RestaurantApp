@@ -6,9 +6,11 @@
              xmlns:local="clr-namespace:AppProject"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="385" Width="385" Height="75">
-    <Grid x:Name="MainGrid" Background="#FFE60707" Width="385" Height="75">
+    <Grid x:Name="MainGrid" Width="385" Height="75">
+        <Button x:Name="InteractionButton" Content="Button" HorizontalAlignment="Left" Width="385" Background="#FFF70000"/>
+
         <Grid x:Name="InformationGrid" Margin="10" Background="#FFFDFDFD" Height="55" Width="365">
-            <TextBlock x:Name="IdentifierText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="199.29" FontSize="36" Height="55"/>
+            <TextBlock x:Name="IdentifierText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="144.29" FontSize="36" Height="55" Margin="55,0,0,0"/>
             <TextBlock x:Name="TotalText" TextWrapping="Wrap" FontSize="30" HorizontalAlignment="Right" TextAlignment="Right"/>
         </Grid>
 
