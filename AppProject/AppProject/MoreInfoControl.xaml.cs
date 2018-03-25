@@ -34,7 +34,6 @@ namespace AppProject
             setPriceAndDescription(imageName);
         }
 
-
         private void setPriceAndDescription(string itemName)
         {
             int counter = 0;
