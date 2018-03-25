@@ -37,11 +37,20 @@ namespace AppProject
         public MainWindow()
         {
             InitializeComponent();
+<<<<<<< HEAD
+
+            DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
+            BillDisplayGrid.Visibility = Visibility.Hidden;
+            ReviewGrid.Visibility = Visibility.Hidden;
+            SendToKitchenGrid.Visibility = Visibility.Hidden;
+
+=======
             ReviewGrid.Visibility = Visibility.Hidden;
             DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
             BillDisplayGrid.Visibility = Visibility.Hidden;
             ServerGrid.Visibility = Visibility.Hidden;
             HelpPromptGrid.Visibility = Visibility.Hidden;
+>>>>>>> f993ceb709dd8b52dcf43e43294aacd99ff192a3
             selectedMenu = M_MenuItemsGrid;
             selectedMenuItems = M_AppetizerScrollGrid;
             selectedMenuCover = M_AppetizerCover;
@@ -259,6 +268,11 @@ namespace AppProject
             
         }
 
+        private void R_SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            SendToKitchenGrid.Visibility = Visibility.Visible;
+        }
+
         private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
         {
             this.ServerGrid.Visibility = Visibility.Visible;
@@ -394,7 +408,7 @@ namespace AppProject
             this.selectedMenuCover.Effect = myBlurEffect;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Dismiss_call_server_prompt_click(object sender, RoutedEventArgs e)
         {
             HelpPromptGrid.Visibility = Visibility.Hidden;
 
@@ -413,5 +427,12 @@ namespace AppProject
             this.selectedMenuItems.IsEnabled = true;
             this.selectedMenuCover.IsEnabled = true;
         }
+
+        private void Dismiss_send_to_kitchen_prompt_click(object sender, RoutedEventArgs e)
+        {
+            SendToKitchenGrid.Visibility = Visibility.Hidden;
+        }
+
+       
     }
 }
