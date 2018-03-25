@@ -30,14 +30,37 @@ namespace AppProject
             this.ImageContent.BeginInit();
             this.ImageContent.Source = image.Source;
             this.ImageContent.EndInit();
+            this.FoodPrice.Text = getFoodPrice(imageName);
         }
 
         public FoodItem ReturnFoodItem()
         {
-            FoodItem item = new FoodItem(this.FoodTitle.Text, 2.00);
+            FoodItem item = new FoodItem(this.FoodTitle.Text, this.FoodPrice.Text);
             return item;
         }
 
+
+        // read description file for the price of the food item
+        private string getFoodPrice(string item)
+        {
+            int counter = 0;
+            string price = "";
+            try
+            {
+                System.IO.StreamReader file = new System.IO.StreamReader(@"Descriptions\" + item + ".txt");
+                while ((price = file.ReadLine()) != null)
+                {
+                    if (counter == 0)
+                    {
+                        return price;
+                    }
+                    else
+                        break;
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+            return price;
+        }
 
         private void M_more_info_button_Click(object sender, RoutedEventArgs e)
         {

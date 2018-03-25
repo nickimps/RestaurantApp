@@ -14,7 +14,7 @@ namespace AppProject
         public string billName { get; set; }
         public BillControl billView;
         public Menu_BillControl m_BillView;
-        private double total = 0;
+        private int total = 0;
 
         public event EventHandler<EventArgs> MenuBillClicked;
 

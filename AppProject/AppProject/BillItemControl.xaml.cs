@@ -24,7 +24,7 @@ namespace AppProject
         {
             InitializeComponent();
             this.ItemName.Text = item.name;
-            this.ItemPrice.Text = item.value.ToString();
+            //this.ItemPrice.Text = item.value.ToString();
         }
 
         public BillItemControl()
