@@ -28,7 +28,7 @@ namespace AppProject
         List<FoodCategory> menu = new List<FoodCategory>();
         private Boolean addMode = false;
         FoodItem selectedItem;
-    
+
 
         Grid selectedMenu = null;
         ScrollViewer selectedMenuItems = null;
@@ -37,12 +37,11 @@ namespace AppProject
         public MainWindow()
         {
             InitializeComponent();
-
+            ReviewGrid.Visibility = Visibility.Hidden;
             DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
             BillDisplayGrid.Visibility = Visibility.Hidden;
-            ReviewGrid.Visibility = Visibility.Hidden;
-            SendToKitchenGrid.Visibility = Visibility.Hidden;
-
+            ServerGrid.Visibility = Visibility.Hidden;
+            HelpPromptGrid.Visibility = Visibility.Hidden;
             selectedMenu = M_MenuItemsGrid;
             selectedMenuItems = M_AppetizerScrollGrid;
             selectedMenuCover = M_AppetizerCover;
@@ -54,8 +53,8 @@ namespace AppProject
             //string[] categories = System.IO.File.ReadAllLines(@"Menu\categories.txt");
             //foreach (string category in categories)
             //{
-             //   menu.Add(new FoodCategory(category));
-                //System.IO.File.ReadAllLines(@"Menu\"+category+)
+            //   menu.Add(new FoodCategory(category));
+            //System.IO.File.ReadAllLines(@"Menu\"+category+)
             //}
 
 
@@ -174,7 +173,7 @@ namespace AppProject
                 this.DisplayMoreInfoGrid.IsEnabled = true;
                 addMode = false;
                 clickedBill.AddItem(selectedItem);
-            } 
+            }
             else
             {
                 this.BillDisplayGrid.Visibility = Visibility.Visible;
@@ -203,7 +202,7 @@ namespace AppProject
         {
             MenuGrid.Visibility = Visibility.Visible;
             WelcomeScreen.Visibility = Visibility.Hidden;
-            numDinners = (int) W_numberOfPeopleSlider.Value;
+            numDinners = (int)W_numberOfPeopleSlider.Value;
 
             for (int i = 0; i < numDinners; i++)
             {
@@ -232,7 +231,7 @@ namespace AppProject
             foreach (Bill bill in bills)
             {
                 //Gotta Set it so that bills and items are dragable in this mode others disallow it
-                
+
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
@@ -240,7 +239,7 @@ namespace AppProject
 
 
 
-          
+
 
         }
 
@@ -257,12 +256,7 @@ namespace AppProject
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
 
-        private void R_SendButton_Click(object sender, RoutedEventArgs e)
-        {
-            SendToKitchenGrid.Visibility = Visibility.Visible;
         }
 
         private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
@@ -383,7 +377,6 @@ namespace AppProject
         private void CallServerButton_Click(object sender, RoutedEventArgs e)
         {
             HelpPromptGrid.Visibility = Visibility.Visible;
-<<<<<<< HEAD
 
             this.M_CategoryGrid.IsEnabled = false;
             this.selectedMenu.IsEnabled = false;
@@ -399,14 +392,11 @@ namespace AppProject
             this.selectedMenu.Effect = myBlurEffect;
             this.selectedMenuItems.Effect = myBlurEffect;
             this.selectedMenuCover.Effect = myBlurEffect;
-=======
->>>>>>> 03d675db8d295c216b28e9315582e2c326e221af
         }
 
-        private void Dismiss_call_server_prompt_click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             HelpPromptGrid.Visibility = Visibility.Hidden;
-<<<<<<< HEAD
 
             BlurEffect myDeBlurEffect = new BlurEffect
             {
@@ -422,15 +412,6 @@ namespace AppProject
             this.selectedMenu.IsEnabled = true;
             this.selectedMenuItems.IsEnabled = true;
             this.selectedMenuCover.IsEnabled = true;
-=======
->>>>>>> 03d675db8d295c216b28e9315582e2c326e221af
         }
-
-        private void Dismiss_send_to_kitchen_prompt_click(object sender, RoutedEventArgs e)
-        {
-            SendToKitchenGrid.Visibility = Visibility.Hidden;
-        }
-
-       
     }
 }
