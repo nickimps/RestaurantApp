@@ -315,7 +315,6 @@
                     <Button x:Name="M_DessertsButton" Content="Desserts" HorizontalAlignment="Left" Height="94" Margin="18.5,409.5,-7.5,0" Style="{DynamicResource ButtonStyle3}" VerticalAlignment="Top" Width="259" Click="M_DessertsButton_Click"/>
                     <Button x:Name="M_DrinksButton" Content="Drinks" HorizontalAlignment="Left" Height="94" Margin="18.5,697.5,-7.5,0" Style="{DynamicResource ButtonStyle5}" VerticalAlignment="Top" Width="259" Click="M_DrinksButton_Click"/>
                     <Button x:Name="M_KidsMenuButton" Content="Kids Menu" HorizontalAlignment="Left" Height="94" Margin="18.5,553.5,-7.5,0" Style="{DynamicResource ButtonStyle4}" VerticalAlignment="Top" Width="259" Click="M_KidsMenuButton_Click"/>
-                    <TextBlock HorizontalAlignment="Left" Height="27.06" Margin="73.929,915.036,0,0" TextWrapping="Wrap" Text="Call a Server" VerticalAlignment="Top" Width="127.428" Foreground="Blue" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20"/>
 
                     <Button x:Name="CallServerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127.428" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Click="CallServerButton_Click" Margin="67.2,835.1,0,0" Cursor="Hand" Template="{DynamicResource CallServerButtonTemplate}">
                         <Grid x:Name="CallServerGrid" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="127.428">
@@ -330,11 +329,7 @@
                         <UniformGrid x:Name="M_BillUniformGrid" Width="385" VerticalAlignment="Top" Columns="1"/>
                     </ScrollViewer>
                 </Grid>
-<<<<<<< HEAD
-                <ScrollViewer Name="M_ScrollViewer" Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
-=======
                 <ScrollViewer x:Name="M_AppetizerScrollGrid" Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
->>>>>>> 133ee8c6164e400bc78453da6f4b89f472a05e13
                     <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                 </ScrollViewer>
                 <ScrollViewer x:Name="M_EntreeScrollGrid" Height="844.439" Canvas.Left="310" Canvas.Top="137.561" Width="901" Visibility="Hidden">
@@ -357,11 +352,11 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="310.8,304.4,0,0" Background="#FF313F54">
+        <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="310.8,304.4,0,0" Background="#FF313F54" d:IsHidden="True">
             <Button Content="OK" Margin="326.292,255.998,351.474,58.478" FontSize="24" Background="#FFFF822E" Foreground="#FF1A1615" Click="Button_Click_1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="199.216" Height="71.124" Template="{DynamicResource HelpPromptDismiss}"/>
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="152.76" Width="582.09" Text="Server on the way" FontSize="72" Foreground="#FFEE5411"/>
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" Visibility="Hidden">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" Visibility="Hidden" d:IsHidden="True">
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
@@ -412,7 +407,7 @@
             <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
         </Grid>
         
-        <Grid x:Name="DisplayMoreInfoGrid" Margin="306.7,104.6,362.618,171.137" Grid.ColumnSpan="2" Height="725"/>
+        <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860"/>
         <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">
                 <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585" d:IsHidden="True">
                     <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="button_Click" Margin="0"/>

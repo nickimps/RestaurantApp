@@ -65,7 +65,7 @@ namespace AppProject
 
         public FoodItem ReturnFoodItem()
         {
-            FoodItem item = new FoodItem(this.Food_Name.Text, 2.00);
+            FoodItem item = new FoodItem(this.Food_Name.Text, this.Price.ToString());
             return item;
         }
 
