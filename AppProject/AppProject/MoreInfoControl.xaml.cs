@@ -34,7 +34,6 @@ namespace AppProject
             setPriceAndDescription(imageName);
         }
 
-
         private void setPriceAndDescription(string itemName)
         {
             int counter = 0;
@@ -65,7 +64,7 @@ namespace AppProject
 
         public FoodItem ReturnFoodItem()
         {
-            FoodItem item = new FoodItem(this.Food_Name.Text, this.Price.ToString());
+            FoodItem item = new FoodItem(this.Food_Name.Text, this.Price.Text);
             return item;
         }
 

@@ -9,7 +9,7 @@ namespace AppProject
     public class FoodItem
     {
         public string name { get; set; }
-        public int value { get; set; }
+        public double value { get; set; }
         public string description { get; set; }
         public string additionalInfo { get; set; }
         public BillItemControl billItemView;
@@ -17,15 +17,15 @@ namespace AppProject
         public FoodItem(string itemName, string itemValue)
         {
             name = itemName;
-            value = convertPriceToInt(itemValue);
+            value = convertPriceToDouble(itemValue);
             description = "";
             additionalInfo = "";
         }
 
-        public int convertPriceToInt(string itemValue)
+        public double convertPriceToDouble(string itemValue)
         {
             string price = itemValue.Substring(1);
-            int x = Int32.Parse(price);
+            double x = Convert.ToDouble(price);
             return x;
         }
         
