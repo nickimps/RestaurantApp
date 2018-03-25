@@ -270,7 +270,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561" d:IsHidden="True">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -300,7 +300,7 @@
                         <UniformGrid x:Name="M_BillUniformGrid" Width="385" VerticalAlignment="Top" Columns="1"/>
                     </ScrollViewer>
                 </Grid>
-                <ScrollViewer Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
+                <ScrollViewer Name="M_ScrollViewer" Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
                     <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                 </ScrollViewer>
             </Canvas>

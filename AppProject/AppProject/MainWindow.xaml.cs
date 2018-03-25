@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -31,6 +32,7 @@ namespace AppProject
         {
             InitializeComponent();
             DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
+            BillDisplayGrid.Visibility = Visibility.Hidden;
 
 
             //Creating Menu from local file
@@ -68,6 +70,16 @@ namespace AppProject
         private void M_DisplayMoreInfo(object sender, EventArgs e)
         {
             DisplayMoreInfoGrid.Visibility = Visibility.Visible;
+            this.M_CategoryGrid.IsEnabled = false;
+            this.M_MenuItemsGrid.IsEnabled = false;
+            this.M_ScrollViewer.IsEnabled = false;
+
+            BlurEffect myBlurEffect = new BlurEffect();
+            myBlurEffect.Radius = 6;
+            myBlurEffect.KernelType = KernelType.Gaussian;
+            this.M_CategoryGrid.Effect = myBlurEffect;
+            this.M_MenuItemsGrid.Effect = myBlurEffect;
+            this.M_ScrollViewer.Effect = myBlurEffect;
 
             MenuItemsControl mic = sender as MenuItemsControl;
             Image image = mic.ImageContent;
@@ -75,12 +87,34 @@ namespace AppProject
             MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
             this.DisplayMoreInfoGrid.Children.Clear();
             this.DisplayMoreInfoGrid.Children.Add(moreInfo);
+            moreInfo.AddRequest += new EventHandler<ItemEventArgs>(M_AddRequest);
+            moreInfo.DeBlur += new EventHandler<EventArgs>(M_DeBlur);
+        }
+
+        private void M_DeBlur(object sender, EventArgs e)
+        {
+            BlurEffect myDeBlurEffect = new BlurEffect();
+            myDeBlurEffect.Radius = 0;
+            myDeBlurEffect.KernelType = KernelType.Gaussian;
+            this.M_CategoryGrid.Effect = myDeBlurEffect;
+            this.M_MenuItemsGrid.Effect = myDeBlurEffect;
+            this.M_ScrollViewer.Effect = myDeBlurEffect;
+
+            this.M_CategoryGrid.IsEnabled = true;
+            this.M_MenuItemsGrid.IsEnabled = true;
+            this.M_ScrollViewer.IsEnabled = true;
         }
 
         private void M_AddRequest(object sender, ItemEventArgs e)
         {
             this.M_CategoryGrid.Opacity = 0.3;
+            this.M_CategoryGrid.IsEnabled = false;
             this.M_MenuItemsGrid.Opacity = 0.3;
+            this.M_MenuItemsGrid.IsEnabled = false;
+            this.M_ScrollViewer.Opacity = 0.3;
+            this.M_ScrollViewer.IsEnabled = false;
+            this.DisplayMoreInfoGrid.Opacity = 0.5;
+            this.DisplayMoreInfoGrid.IsEnabled = false;
             addMode = true;
             selectedItem = new FoodItem(e.item);
         }
@@ -91,7 +125,14 @@ namespace AppProject
             if (addMode)
             {
                 this.M_CategoryGrid.Opacity = 1;
+                this.M_CategoryGrid.IsEnabled = true;
                 this.M_MenuItemsGrid.Opacity = 1;
+                this.M_MenuItemsGrid.IsEnabled = true;
+                this.M_ScrollViewer.Opacity = 1;
+                this.M_ScrollViewer.IsEnabled = true;
+                this.DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
+                this.DisplayMoreInfoGrid.Opacity = 1;
+                this.DisplayMoreInfoGrid.IsEnabled = true;
                 addMode = false;
                 clickedBill.AddItem(selectedItem);
             } 
