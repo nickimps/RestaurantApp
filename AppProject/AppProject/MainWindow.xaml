@@ -284,6 +284,23 @@
                         <Grid x:Name="SendToKitchenGrid" Background="#FF313F54">
                             <Button Width="232.806" VerticalAlignment="Top" Margin="0,231.2,0,0" Height="78" HorizontalAlignment="Center" FontSize="24" Content="OK" Background="#FFFF822E"/>
                             <ContentPresenter HorizontalAlignment="Center" Height="121.56" Margin="10,62.4,0,0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Top" Width="390.648"/>
+<<<<<<< HEAD
+=======
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="72"/>
+            <Setter Property="Foreground" Value="#FFEE5411"/>
+        </Style>
+>>>>>>> parent of 1c442bf... Merge branch 'master' of https://github.com/GroupFiveCPSC481/RestaurantApp
     </Window.Resources>
                         
     <Grid x:Name="MainWindowGrid" Margin="0,0,-5.714,-5.714" Width="1620" Height="980">
@@ -359,12 +376,17 @@
                 <Rectangle x:Name="M_DrinksCover" Fill="#FFDC4712" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Canvas.Left="264" Canvas.Top="701.535" Visibility="Hidden"/>
             </Canvas>
         </Grid>
+<<<<<<< HEAD
         <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="293.818,304.4,0,0" d:IsHidden="True">
             <Rectangle Fill="#FF34495E" HorizontalAlignment="Left" Height="385.6" RadiusY="7" RadiusX="7" Stroke="#FFBDC3C7" StrokeThickness="4" VerticalAlignment="Top" Width="876.982"/>
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="96.76" Width="876.982" FontSize="60" Foreground="#FFEE712B" FontFamily="Century Gothic" Margin="0,116.42,0,172.42" TextAlignment="Center"><Run Text="Server on the"/><Run Text="ir"/><Run Text=" way"/></TextBlock>
             <Button x:Name="Help_DismissButton" Content="Dismiss" HorizontalAlignment="Left" Height="72.571" Margin="264,267.537,0,0" Style="{DynamicResource ButtonStyle9}" VerticalAlignment="Top" Width="348.948" Click="Button_Click_1"/>
         </Grid>
         <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
+=======
+        <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="310.8,304.4,0,0" Background="#FF313F54"/>
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2">
+>>>>>>> parent of 1c442bf... Merge branch 'master' of https://github.com/GroupFiveCPSC481/RestaurantApp
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
@@ -399,7 +421,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Canvas x:Name="W_Container" Grid.ColumnSpan="2">
-                <Rectangle x:Name="W_Background" Fill="#FF34495E" HorizontalAlignment="Left" Height="1000.571" StrokeThickness="0" VerticalAlignment="Top" Width="1638.286" Canvas.Top="-6" Canvas.Left="-8"/>
+                <Rectangle x:Name="W_Background" Fill="#FF313F54" HorizontalAlignment="Left" Height="1000.571" StrokeThickness="0" VerticalAlignment="Top" Width="1638.286" Canvas.Top="-6" Canvas.Left="-8"/>
                 <Image x:Name="W_Logo" HorizontalAlignment="Left" Height="1050.405" VerticalAlignment="Top" Width="782.849" Source="logo.png" Canvas.Left="-254.849" Canvas.Top="-226" OpacityMask="Black"/>
 
                 <TextBlock x:Name="W_WelcomeMessageLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="137.816" Width="1610" FontFamily="Century Gothic" FontSize="48" TextAlignment="Center" Canvas.Top="216.772" Foreground="#FFEF5411"><Run Text="Hi there"/><LineBreak/><Run Text="How many people are eating today?"/></TextBlock>
@@ -411,12 +433,12 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ServerGrid" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="876.982" Visibility="Visible" Margin="293.818,304.4,449.2,290" d:IsHidden="True">
-            <Rectangle x:Name="S_Background" Fill="#FF34495E" Stroke="#FFBDC3C7" StrokeThickness="4" RadiusX="7" RadiusY="7"/>
-            <TextBlock x:Name="S_Message" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,95.5,0,0" FontSize="60" HorizontalAlignment="Left" Foreground="#FFEE712B" FontFamily="Century Gothic" Width="876.982" TextAlignment="Center"><Run Text="Server on the"/><Run Text="ir"/><Run Text=" way"/></TextBlock>
-            <PasswordBox x:Name="S_Password" HorizontalAlignment="Left" Height="50" Margin="276,201,0,0" VerticalAlignment="Top" Width="239" Padding="0,-2,0,0" UseLayoutRounding="True" Background="#FF34495E" BorderBrush="#FFEE712B" BorderThickness="3" Foreground="#FFECF0F1" SelectionBrush="#FFEE712B" FontFamily="Century Gothic" FontSize="36"/>
-            <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="60.571" Margin="318.579,290.858,0,0" Style="{DynamicResource ButtonStyle9}" VerticalAlignment="Top" Width="240" Click="S_Dismiss_Click" RenderTransformOrigin="0.5,0.5"/>
-            <Button x:Name="S_Enter" Content="Enter" HorizontalAlignment="Left" Height="50" Margin="508.5,201,0,0" Style="{DynamicResource ButtonStyle10}" VerticalAlignment="Top" Width="93.143" Click="Button_Click_1"/>
+        <Grid x:Name="ServerGrid" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="600" Height="400" Visibility="Hidden" d:IsHidden="True">
+            <Rectangle x:Name="S_Background" Fill="#FF2F2E2E" Stroke="#FF661E1E" StrokeThickness="20"/>
+            <TextBlock x:Name="S_Message" TextWrapping="Wrap" Text="A Server Is On Their Way" VerticalAlignment="Top" Margin="106.5,115.5,0,0" FontSize="36" HorizontalAlignment="Left" Foreground="#FFDB9B01"/>
+            <PasswordBox x:Name="S_Password" HorizontalAlignment="Left" Height="50" Margin="137,200.643,0,0" VerticalAlignment="Top" Width="200"/>
+            <Button x:Name="S_Enter" Content="" HorizontalAlignment="Left" Height="50" Margin="337,200.643,0,0" VerticalAlignment="Top" Width="110.143" Background="#FF3C3C3C"/>
+            <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
         </Grid>
         <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860" d:IsHidden="True"/>
         <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">

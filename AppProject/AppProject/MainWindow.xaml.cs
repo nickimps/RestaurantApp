@@ -37,20 +37,12 @@ namespace AppProject
         public MainWindow()
         {
             InitializeComponent();
-<<<<<<< HEAD
 
             DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
             BillDisplayGrid.Visibility = Visibility.Hidden;
             ReviewGrid.Visibility = Visibility.Hidden;
             SendToKitchenGrid.Visibility = Visibility.Hidden;
 
-=======
-            ReviewGrid.Visibility = Visibility.Hidden;
-            DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
-            BillDisplayGrid.Visibility = Visibility.Hidden;
-            ServerGrid.Visibility = Visibility.Hidden;
-            HelpPromptGrid.Visibility = Visibility.Hidden;
->>>>>>> f993ceb709dd8b52dcf43e43294aacd99ff192a3
             selectedMenu = M_MenuItemsGrid;
             selectedMenuItems = M_AppetizerScrollGrid;
             selectedMenuCover = M_AppetizerCover;
@@ -357,37 +349,11 @@ namespace AppProject
         private void CallServerButton_Click(object sender, RoutedEventArgs e)
         {
             HelpPromptGrid.Visibility = Visibility.Visible;
-
-            this.M_CategoryGrid.IsEnabled = false;
-            this.selectedMenu.IsEnabled = false;
-            this.selectedMenuItems.IsEnabled = false;
-            this.selectedMenuCover.IsEnabled = false;
-
-            BlurEffect myBlurEffect = new BlurEffect();
-            myBlurEffect.Radius = 6;
-            myBlurEffect.KernelType = KernelType.Gaussian;
-            this.M_CategoryGrid.Effect = myBlurEffect;
-            this.selectedMenu.Effect = myBlurEffect;
-            this.selectedMenuItems.Effect = myBlurEffect;
-            this.selectedMenuCover.Effect = myBlurEffect;
         }
 
         private void Dismiss_call_server_prompt_click(object sender, RoutedEventArgs e)
         {
             HelpPromptGrid.Visibility = Visibility.Hidden;
-
-            BlurEffect myDeBlurEffect = new BlurEffect();
-            myDeBlurEffect.Radius = 0;
-            myDeBlurEffect.KernelType = KernelType.Gaussian;
-            this.M_CategoryGrid.Effect = myDeBlurEffect;
-            this.selectedMenu.Effect = myDeBlurEffect;
-            this.selectedMenuItems.Effect = myDeBlurEffect;
-            this.selectedMenuCover.Effect = myDeBlurEffect;
-
-            this.M_CategoryGrid.IsEnabled = true;
-            this.selectedMenu.IsEnabled = true;
-            this.selectedMenuItems.IsEnabled = true;
-            this.selectedMenuCover.IsEnabled = true;
         }
 
         private void Dismiss_send_to_kitchen_prompt_click(object sender, RoutedEventArgs e)
