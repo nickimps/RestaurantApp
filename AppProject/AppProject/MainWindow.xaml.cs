@@ -37,11 +37,16 @@ namespace AppProject
         public MainWindow()
         {
             InitializeComponent();
+            ReviewGrid.Visibility = Visibility.Hidden;
             DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
             BillDisplayGrid.Visibility = Visibility.Hidden;
+            ServerGrid.Visibility = Visibility.Hidden;
+            HelpPromptGrid.Visibility = Visibility.Hidden;
+            AddItemsPromptGrid.Visibility = Visibility.Hidden;
             selectedMenu = M_MenuItemsGrid;
             selectedMenuItems = M_AppetizerScrollGrid;
             selectedMenuCover = M_AppetizerCover;
+            this.M_AppetizersButton.FontWeight = FontWeights.Bold;
 
             HelpPromptGrid.Visibility = Visibility.Hidden;
 
@@ -49,8 +54,8 @@ namespace AppProject
             //string[] categories = System.IO.File.ReadAllLines(@"Menu\categories.txt");
             //foreach (string category in categories)
             //{
-             //   menu.Add(new FoodCategory(category));
-                //System.IO.File.ReadAllLines(@"Menu\"+category+)
+            //   menu.Add(new FoodCategory(category));
+            //System.IO.File.ReadAllLines(@"Menu\"+category+)
             //}
 
 
@@ -89,16 +94,21 @@ namespace AppProject
         private void M_DisplayMoreInfo(object sender, EventArgs e)
         {
             DisplayMoreInfoGrid.Visibility = Visibility.Visible;
-            this.M_CategoryGrid.IsEnabled = false;
-            this.M_MenuItemsGrid.IsEnabled = false;
-            //this.M_ScrollViewer.IsEnabled = false;
 
-            BlurEffect myBlurEffect = new BlurEffect();
-            myBlurEffect.Radius = 6;
-            myBlurEffect.KernelType = KernelType.Gaussian;
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
             this.M_CategoryGrid.Effect = myBlurEffect;
-            this.M_MenuItemsGrid.Effect = myBlurEffect;
-            //this.M_ScrollViewer.Effect = myBlurEffect;
+            this.selectedMenu.Effect = myBlurEffect;
+            this.selectedMenuItems.Effect = myBlurEffect;
+            this.selectedMenuCover.Effect = myBlurEffect;
+
+            this.M_CategoryGrid.IsEnabled = false;
+            this.selectedMenu.IsEnabled = false;
+            this.selectedMenuItems.IsEnabled = false;
+            this.selectedMenuCover.IsEnabled = false;
 
             MenuItemsControl mic = sender as MenuItemsControl;
             Image image = mic.ImageContent;
@@ -112,28 +122,44 @@ namespace AppProject
 
         private void M_DeBlur(object sender, EventArgs e)
         {
-            BlurEffect myDeBlurEffect = new BlurEffect();
-            myDeBlurEffect.Radius = 0;
-            myDeBlurEffect.KernelType = KernelType.Gaussian;
+            BlurEffect myDeBlurEffect = new BlurEffect
+            {
+                Radius = 0,
+                KernelType = KernelType.Gaussian
+            };
             this.M_CategoryGrid.Effect = myDeBlurEffect;
-            this.M_MenuItemsGrid.Effect = myDeBlurEffect;
-            //this.M_ScrollViewer.Effect = myDeBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myDeBlurEffect;
+            this.selectedMenu.Effect = myDeBlurEffect;
+            this.selectedMenuItems.Effect = myDeBlurEffect;
+            this.selectedMenuCover.Effect = myDeBlurEffect;
 
             this.M_CategoryGrid.IsEnabled = true;
-            this.M_MenuItemsGrid.IsEnabled = true;
-           // this.M_ScrollViewer.IsEnabled = true;
+            this.DisplayMoreInfoGrid.IsEnabled = true;
+            this.selectedMenu.IsEnabled = true;
+            this.selectedMenuItems.IsEnabled = true;
+            this.selectedMenuCover.IsEnabled = true;
         }
 
         private void M_AddRequest(object sender, ItemEventArgs e)
         {
-            this.M_CategoryGrid.Opacity = 0.3;
+            AddItemsPromptGrid.Visibility = Visibility.Visible;
+
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
+            this.M_CategoryGrid.Effect = myBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myBlurEffect;
+            this.selectedMenu.Effect = myBlurEffect;
+            this.selectedMenuItems.Effect = myBlurEffect;
+            this.selectedMenuCover.Effect = myBlurEffect;
+
             this.M_CategoryGrid.IsEnabled = false;
-            this.M_MenuItemsGrid.Opacity = 0.3;
-            this.M_MenuItemsGrid.IsEnabled = false;
-            //this.M_ScrollViewer.Opacity = 0.3;
-            //this.M_ScrollViewer.IsEnabled = false;
-            this.DisplayMoreInfoGrid.Opacity = 0.5;
-            this.DisplayMoreInfoGrid.IsEnabled = false;
+            this.selectedMenu.IsEnabled = false;
+            this.selectedMenuItems.IsEnabled = false;
+            this.selectedMenuCover.IsEnabled = false;
+
             addMode = true;
             selectedItem = new FoodItem(e.item);
         }
@@ -143,18 +169,16 @@ namespace AppProject
             Bill clickedBill = sender as Bill;
             if (addMode)
             {
-                this.M_CategoryGrid.Opacity = 1;
-                this.M_CategoryGrid.IsEnabled = true;
-                this.M_MenuItemsGrid.Opacity = 1;
-                this.M_MenuItemsGrid.IsEnabled = true;
-                //this.M_ScrollViewer.Opacity = 1;
-                //this.M_ScrollViewer.IsEnabled = true;
-                this.DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
-                this.DisplayMoreInfoGrid.Opacity = 1;
+                EventHandler<EventArgs> DeBlurThings = new EventHandler<EventArgs>(M_DeBlur);
+                DeBlurThings.Invoke(this, new EventArgs());
+                
                 this.DisplayMoreInfoGrid.IsEnabled = true;
+
+                AddItemsPromptGrid.Visibility = Visibility.Hidden;
+
                 addMode = false;
                 clickedBill.AddItem(selectedItem);
-            } 
+            }
             else
             {
                 this.BillDisplayGrid.Visibility = Visibility.Visible;
@@ -183,7 +207,7 @@ namespace AppProject
         {
             MenuGrid.Visibility = Visibility.Visible;
             WelcomeScreen.Visibility = Visibility.Hidden;
-            numDinners = (int) W_numberOfPeopleSlider.Value;
+            numDinners = (int)W_numberOfPeopleSlider.Value;
 
             for (int i = 0; i < numDinners; i++)
             {
@@ -232,7 +256,7 @@ namespace AppProject
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
@@ -256,6 +280,12 @@ namespace AppProject
             selectedMenuCover.Visibility = Visibility.Hidden;
             selectedMenuItems.Visibility = Visibility.Hidden;
 
+            this.M_AppetizersButton.FontWeight = FontWeights.Bold;
+            this.M_EntreesButton.FontWeight = FontWeights.Regular;
+            this.M_DessertsButton.FontWeight = FontWeights.Regular;
+            this.M_DrinksButton.FontWeight = FontWeights.Regular;
+            this.M_KidsMenuButton.FontWeight = FontWeights.Regular;
+
             this.M_MenuItemsGrid.Visibility = Visibility.Visible;
             this.M_AppetizerCover.Visibility = Visibility.Visible;
             this.M_AppetizerScrollGrid.Visibility = Visibility.Visible;
@@ -269,6 +299,12 @@ namespace AppProject
             selectedMenu.Visibility = Visibility.Hidden;
             selectedMenuCover.Visibility = Visibility.Hidden;
             selectedMenuItems.Visibility = Visibility.Hidden;
+
+            this.M_EntreesButton.FontWeight = FontWeights.Bold;
+            this.M_AppetizersButton.FontWeight = FontWeights.Regular;
+            this.M_DessertsButton.FontWeight = FontWeights.Regular;
+            this.M_DrinksButton.FontWeight = FontWeights.Regular;
+            this.M_KidsMenuButton.FontWeight = FontWeights.Regular;
 
             this.M_EntreeItemsGrid.Visibility = Visibility.Visible;
             this.M_EntreesCover.Visibility = Visibility.Visible;
@@ -284,6 +320,12 @@ namespace AppProject
             selectedMenuCover.Visibility = Visibility.Hidden;
             selectedMenuItems.Visibility = Visibility.Hidden;
 
+            this.M_DessertsButton.FontWeight = FontWeights.Bold;
+            this.M_AppetizersButton.FontWeight = FontWeights.Regular;
+            this.M_EntreesButton.FontWeight = FontWeights.Regular;
+            this.M_DrinksButton.FontWeight = FontWeights.Regular;
+            this.M_KidsMenuButton.FontWeight = FontWeights.Regular;
+
             this.M_DessertItemGrid.Visibility = Visibility.Visible;
             this.M_DessertsCover.Visibility = Visibility.Visible;
             this.M_DessertScrollGrid.Visibility = Visibility.Visible;
@@ -297,6 +339,12 @@ namespace AppProject
             selectedMenu.Visibility = Visibility.Hidden;
             selectedMenuCover.Visibility = Visibility.Hidden;
             selectedMenuItems.Visibility = Visibility.Hidden;
+
+            this.M_DrinksButton.FontWeight = FontWeights.Bold;
+            this.M_AppetizersButton.FontWeight = FontWeights.Regular;
+            this.M_EntreesButton.FontWeight = FontWeights.Regular;
+            this.M_DessertsButton.FontWeight = FontWeights.Regular;
+            this.M_KidsMenuButton.FontWeight = FontWeights.Regular;
 
             this.M_DrinkItemsGrid.Visibility = Visibility.Visible;
             this.M_DrinksCover.Visibility = Visibility.Visible;
@@ -312,6 +360,12 @@ namespace AppProject
             selectedMenuCover.Visibility = Visibility.Hidden;
             selectedMenuItems.Visibility = Visibility.Hidden;
 
+            this.M_KidsMenuButton.FontWeight = FontWeights.Bold;
+            this.M_AppetizersButton.FontWeight = FontWeights.Regular;
+            this.M_EntreesButton.FontWeight = FontWeights.Regular;
+            this.M_DessertsButton.FontWeight = FontWeights.Regular;
+            this.M_DrinksButton.FontWeight = FontWeights.Regular;
+
             this.M_KidsItemGrid.Visibility = Visibility.Visible;
             this.M_KidsMenuCover.Visibility = Visibility.Visible;
             this.M_KidsScrollGrid.Visibility = Visibility.Visible;
@@ -323,11 +377,54 @@ namespace AppProject
         private void CallServerButton_Click(object sender, RoutedEventArgs e)
         {
             HelpPromptGrid.Visibility = Visibility.Visible;
+
+            this.M_CategoryGrid.IsEnabled = false;
+            this.DisplayMoreInfoGrid.IsEnabled = false;
+            this.selectedMenu.IsEnabled = false;
+            this.selectedMenuItems.IsEnabled = false;
+            this.selectedMenuCover.IsEnabled = false;
+
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
+            this.M_CategoryGrid.Effect = myBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myBlurEffect;
+            this.selectedMenu.Effect = myBlurEffect;
+            this.selectedMenuItems.Effect = myBlurEffect;
+            this.selectedMenuCover.Effect = myBlurEffect;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             HelpPromptGrid.Visibility = Visibility.Hidden;
+
+            BlurEffect myDeBlurEffect = new BlurEffect
+            {
+                Radius = 0,
+                KernelType = KernelType.Gaussian
+            };
+            this.M_CategoryGrid.Effect = myDeBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myDeBlurEffect;
+            this.selectedMenu.Effect = myDeBlurEffect;
+            this.selectedMenuItems.Effect = myDeBlurEffect;
+            this.selectedMenuCover.Effect = myDeBlurEffect;
+
+            this.M_CategoryGrid.IsEnabled = true;
+            this.DisplayMoreInfoGrid.IsEnabled = true;
+            this.selectedMenu.IsEnabled = true;
+            this.selectedMenuItems.IsEnabled = true;
+            this.selectedMenuCover.IsEnabled = true;
+        }
+
+        private void AddItems_Click(object sender, RoutedEventArgs e)
+        {
+            EventHandler<EventArgs> DeBlurThings = new EventHandler<EventArgs>(M_DeBlur);
+            DeBlurThings.Invoke(this, new EventArgs());
+
+            addMode = false;
+            AddItemsPromptGrid.Visibility = Visibility.Hidden;
         }
     }
 }

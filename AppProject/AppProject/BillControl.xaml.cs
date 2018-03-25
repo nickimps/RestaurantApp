@@ -44,8 +44,8 @@ namespace AppProject
 
             //Subscribing to BillItemControl events -- Used for move drag and drop
             item.Removed += new EventHandler<ItemEventArgs>(RemoveItem);
-            item.Released += new EventHandler<EventArgs>(ToggleDroppability);
-            item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
+            //item.Released += new EventHandler<EventArgs>(ToggleDroppability);
+           // item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
         }
 
         public void ToggleItemCheckBoxes()

@@ -14,7 +14,7 @@ namespace AppProject
         public string billName { get; set; }
         public BillControl billView;
         public Menu_BillControl m_BillView;
-        private int total = 0;
+        private double total = 0;
 
         public event EventHandler<EventArgs> MenuBillClicked;
 
@@ -89,8 +89,9 @@ namespace AppProject
 
         private void UpdateTotalsInViews()
         {
-            m_BillView.TotalText.Text = total.ToString();
-            billView.TotalNumber.Text = total.ToString();
+            string price = String.Format("{0:0.00}", total);
+            m_BillView.TotalText.Text = price;
+            billView.TotalNumber.Text = price;
         }
 
         private void UpdateIdentifiersInViews()
