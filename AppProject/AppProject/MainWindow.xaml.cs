@@ -40,6 +40,8 @@ namespace AppProject
             selectedMenuItems = M_AppetizerScrollGrid;
             selectedMenuCover = M_AppetizerCover;
 
+            HelpPromptGrid.Visibility = Visibility.Hidden;
+
             //Creating Menu from local file
             //string[] categories = System.IO.File.ReadAllLines(@"Menu\categories.txt");
             //foreach (string category in categories)
@@ -273,6 +275,16 @@ namespace AppProject
             selectedMenu = this.M_KidsItemGrid;
             selectedMenuCover = this.M_KidsMenuCover;
             selectedMenuItems = this.M_KidsScrollGrid;
+        }
+
+        private void CallServerButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpPromptGrid.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            HelpPromptGrid.Visibility = Visibility.Hidden;
         }
     }
 }

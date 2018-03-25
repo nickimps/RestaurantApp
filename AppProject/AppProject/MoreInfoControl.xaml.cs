@@ -26,24 +26,32 @@ namespace AppProject
         {
             InitializeComponent();
             this.Food_Name.Text = imageName;
-            this.Description.Text = readDescription(imageName);
             this.Food_Image.BeginInit();
             this.Food_Image.Source = image.Source;
             this.Food_Image.EndInit();
+            setPriceAndDescription(imageName);
         }
 
 
-        private string readDescription(string itemName)
+        private void setPriceAndDescription(string itemName)
         {
-            string text = "Didn't find a description";
+            int counter = 0;
+            string line;
             try
             {
-                text = File.ReadAllText(@"Descriptions\" + itemName + ".txt");
-                Console.WriteLine(text);  
+                System.IO.StreamReader file = new System.IO.StreamReader(@"Descriptions\" + itemName + ".txt");
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (counter == 0)
+                    {
+                        this.Price.Text = line;
+                    }
+                    else
+                        this.Description.Text = line;
+                    counter++;
+                }
             }
-            catch (FileNotFoundException ex){ Console.WriteLine(ex); }
-            
-            return text;
+            catch (FileNotFoundException ex) { Console.WriteLine(ex); }
         }
 
 

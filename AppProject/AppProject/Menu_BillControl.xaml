@@ -6,13 +6,22 @@
              xmlns:local="clr-namespace:AppProject"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="385" Width="385" Height="75">
+    <UserControl.Resources>
+        <Storyboard x:Key="Bill_hover"/>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Bill_hover}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
     <Grid x:Name="MainGrid" Width="385" Height="75">
-        <Button x:Name="InteractionButton" Content="Button" HorizontalAlignment="Left" Width="385" Background="#FFF70000"/>
+        <Rectangle x:Name="Bill_Background" Fill="#FFF66A0E" HorizontalAlignment="Left" Height="75" Stroke="Black" VerticalAlignment="Top" Width="385"/>
 
         <Grid x:Name="InformationGrid" Margin="10" Background="#FFFDFDFD" Height="55" Width="365">
-            <TextBlock x:Name="IdentifierText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="144.29" FontSize="36" Height="55" Margin="55,0,0,0"/>
-            <TextBlock x:Name="TotalText" TextWrapping="Wrap" FontSize="30" HorizontalAlignment="Right" TextAlignment="Right"/>
+            <TextBlock x:Name="IdentifierText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="144.29" FontSize="36" Height="55" Margin="55,0,0,0" d:IsHidden="True"/>
+            <TextBlock x:Name="TotalText" TextWrapping="Wrap" FontSize="30" HorizontalAlignment="Right" TextAlignment="Right" d:IsHidden="True"/>
         </Grid>
+        <Button x:Name="InteractionButton" Content="Button" HorizontalAlignment="Left" Width="385" Background="#FFDF2222" Opacity="0"/>
 
     </Grid>
 </UserControl>
