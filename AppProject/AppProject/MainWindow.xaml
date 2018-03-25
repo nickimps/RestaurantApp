@@ -322,7 +322,7 @@
                     <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-40,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
                     <Button x:Name="R_MoveButton" Content="Move Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-160,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_MoveButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0" Height="261.75" Grid.Row="1" d:IsHidden="True">
+                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0" Height="261.75" Grid.Row="1">
                     <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Height="94" Margin="18.052,161.667,0,0" Style="{DynamicResource ButtonStyle8}" VerticalAlignment="Top" Width="348.948" Click="R_CancelButton_Click"/>
                     <Button x:Name="ConfirmButton" Content="Confirm" HorizontalAlignment="Left" Height="94" Margin="19.385,44.667,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
                 </Grid>
@@ -356,8 +356,8 @@
             <Button x:Name="S_Enter" Content="" HorizontalAlignment="Left" Height="50" Margin="337,200.643,0,0" VerticalAlignment="Top" Width="110.143" Background="#FF3C3C3C"/>
             <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
         </Grid>
-        <Grid x:Name="DisplayMoreInfoGrid" Margin="392.382,188.863,362.618,171.137" Grid.ColumnSpan="2"/>
-        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center">
+        <Grid x:Name="DisplayMoreInfoGrid" Margin="306.668,104.863,448.332,150.137" Grid.ColumnSpan="2" Height="725"/>
+        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">
             <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585">
                 <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="button_Click" Margin="0"/>
             </Grid>
