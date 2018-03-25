@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AppProject"
         mc:Ignorable="d"
 
-        Title="MainWindow" Height="980" Width="1620" WindowStyle="None" ResizeMode="NoResize" Icon="LogoIcon.png" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="980" Width="1620" WindowStyle="None" ResizeMode="NoResize" Icon="LogoIcon.png" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ControlTemplate x:Key="HelpButton" TargetType="{x:Type Button}">
             <Grid x:Name="ButtonGrid" Height="46" Margin="0" Width="46">
@@ -263,6 +263,19 @@
             <Setter Property="FontFamily" Value="Century Gothic"/>
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
+        <ControlTemplate x:Key="CallServerButtonTemplate" TargetType="{x:Type Button}">
+            <Grid>
+                <Grid x:Name="CallServerGrid" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="127.428">
+                    <Button x:Name="M_HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,10,43.961,0" Height="46"/>
+                    <TextBlock HorizontalAlignment="Left" Height="27.06" Margin="0,62.94,0,0" TextWrapping="Wrap" Text="Call a Server" VerticalAlignment="Top" Width="127.428" Foreground="Blue" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20"/>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="HelpPromptDismiss" TargetType="{x:Type Button}">
+            <Grid>
+                <Button Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.216" Height="71.124" Background="#FFFF822E" Cursor="Hand"/>
+            </Grid>
+        </ControlTemplate>
     </Window.Resources>
     <Grid x:Name="MainWindowGrid" Margin="0,0,-5.714,-5.714" Width="1620" Height="980">
         <Grid.ColumnDefinitions>
@@ -286,13 +299,17 @@
                     <Rectangle x:Name="M_DrinksCover" Fill="#FFDC4712" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,701.535,0,0" d:IsHidden="True"/>
                 </Grid>
                 <Grid x:Name="M_CategoryGrid" HorizontalAlignment="Left" Width="270" Background="#FFEFEFEF" Height="982">
-                    <Button x:Name="M_HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,864.036,112,0" Height="46"/>
                     <Button x:Name="M_AppetizersButton" Content="Appetizers" HorizontalAlignment="Left" Height="94" Margin="18.5,121.5,-7.5,0" Style="{DynamicResource MenuItemButtonStyle}" VerticalAlignment="Top" Width="259"/>
                     <Button x:Name="M_EntreesButton" Content="Entrees" HorizontalAlignment="Left" Height="94" Margin="18.5,265.5,-7.5,0" Style="{DynamicResource ButtonStyle2}" VerticalAlignment="Top" Width="259"/>
                     <Button x:Name="M_DessertsButton" Content="Desserts" HorizontalAlignment="Left" Height="94" Margin="18.5,409.5,-7.5,0" Style="{DynamicResource ButtonStyle3}" VerticalAlignment="Top" Width="259"/>
                     <Button x:Name="M_DrinksButton" Content="Drinks" HorizontalAlignment="Left" Height="94" Margin="18.5,697.5,-7.5,0" Style="{DynamicResource ButtonStyle5}" VerticalAlignment="Top" Width="259"/>
                     <Button x:Name="M_KidsMenuButton" Content="Kids Menu" HorizontalAlignment="Left" Height="94" Margin="18.5,553.5,-7.5,0" Style="{DynamicResource ButtonStyle4}" VerticalAlignment="Top" Width="259"/>
-                    <TextBlock HorizontalAlignment="Left" Height="27.06" Margin="73.929,915.036,0,0" TextWrapping="Wrap" Text="Call a Server" VerticalAlignment="Top" Width="127.428" Foreground="Blue" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20"/>
+                    <Button x:Name="CallServerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127.428" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Click="CallServerButton_Click" Margin="67.2,835.1,0,0" Cursor="Hand" Template="{DynamicResource CallServerButtonTemplate}">
+                        <Grid x:Name="CallServerGrid" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="127.428">
+                            <Button x:Name="M_HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,10,43.961,0" Height="46"/>
+                            <TextBlock HorizontalAlignment="Left" Height="27.06" Margin="0,62.94,0,0" TextWrapping="Wrap" Text="Call a Server" VerticalAlignment="Top" Width="127.428" Foreground="Blue" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20"/>
+                        </Grid>
+                    </Button>
                 </Grid>
                 <Grid x:Name="M_BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FFEFEFEF" Height="982" Canvas.Left="1216">
                     <Button x:Name="M_ReviewOrderButton" Content="Review Order" HorizontalAlignment="Left" Height="94" Margin="27.428,860.143,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="M_ReviewOrderButton_Click"/>
@@ -306,7 +323,11 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" Visibility="Hidden" d:IsHidden="True">
+        <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="310.8,304.4,0,0" Background="#FF313F54">
+            <Button Content="OK" Margin="326.292,255.998,351.474,58.478" FontSize="24" Background="#FFFF822E" Foreground="#FF1A1615" Click="Button_Click_1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="199.216" Height="71.124" Template="{DynamicResource HelpPromptDismiss}"/>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="152.76" Width="582.09" Text="Server on the way" FontSize="72" Foreground="#FFEE5411"/>
+        </Grid>
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" Visibility="Hidden">
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>
@@ -338,7 +359,7 @@
             </Grid.ColumnDefinitions>
             <Canvas x:Name="W_Container" Grid.ColumnSpan="2">
                 <Rectangle x:Name="W_Background" Fill="#FF313F54" HorizontalAlignment="Left" Height="1000.571" StrokeThickness="0" VerticalAlignment="Top" Width="1638.286" Canvas.Top="-6" Canvas.Left="-8"/>
-                <Image x:Name="W_Logo" HorizontalAlignment="Left" Height="1050.405" VerticalAlignment="Top" Width="782.849" Source="logo.png" Canvas.Left="-254.849" Canvas.Top="-226"/>
+                <Image x:Name="W_Logo" HorizontalAlignment="Left" Height="1050.405" VerticalAlignment="Top" Width="782.849" Source="logo.png" Canvas.Left="-254.849" Canvas.Top="-226" OpacityMask="Black"/>
 
                 <TextBlock x:Name="W_WelcomeMessageLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="137.816" Width="1610" FontFamily="Century Gothic" FontSize="48" TextAlignment="Center" Canvas.Top="216.772" Foreground="#FFEF5411"><Run Text="Hi there"/><LineBreak/><Run Text="How many people are eating today?"/></TextBlock>
                 <Slider x:Name="W_numberOfPeopleSlider" HorizontalAlignment="Left" Height="50.96" VerticalAlignment="Top" Width="866.336" Maximum="6" TickPlacement="BottomRight" Cursor="Hand" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" FontSize="22" FontWeight="Bold" Foreground="#EF5411" BorderBrush="#FFFF6517" Background="{x:Null}" ValueChanged="W_numberOfPeopleSlider_ValueChanged" Canvas.Left="374.24" Canvas.Top="503.576" />
@@ -356,17 +377,17 @@
             <Button x:Name="S_Enter" Content="" HorizontalAlignment="Left" Height="50" Margin="337,200.643,0,0" VerticalAlignment="Top" Width="110.143" Background="#FF3C3C3C"/>
             <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
         </Grid>
-        <Grid x:Name="DisplayMoreInfoGrid" Margin="392.382,188.863,362.618,171.137" Grid.ColumnSpan="2"/>
-        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center">
-            <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585">
+        <Grid x:Name="DisplayMoreInfoGrid" Margin="392.382,188.863,362.618,171.137" Grid.ColumnSpan="2" d:IsHidden="True"/>
+        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">
+            <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585" d:IsHidden="True">
                 <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="button_Click" Margin="0"/>
             </Grid>
-            <Grid x:Name="ContentGrid" VerticalAlignment="Top" Width="400" Margin="0,20,0,0">
-                <Grid x:Name="BillMainGrid" Background="#FFA8A8A8" Margin="0" Width="400" MinHeight="94">
+            <Grid x:Name="ContentGrid" VerticalAlignment="Top" Width="400" Margin="0,20,0,0" d:IsHidden="True">
+                <Grid x:Name="BillMainGrid" Background="#FFA8A8A8" Margin="0" Width="400" MinHeight="94" d:IsHidden="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid x:Name="InnerGrid" Margin="10" Background="#FF00FFF3" Width="380">
+                    <Grid x:Name="InnerGrid" Margin="10" Background="#FF00FFF3" Width="380" d:IsHidden="True">
                         <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" Visibility="Hidden"/>
                         <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom">
                             <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>

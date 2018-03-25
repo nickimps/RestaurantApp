@@ -31,7 +31,7 @@ namespace AppProject
         {
             InitializeComponent();
             DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
-
+            HelpPromptGrid.Visibility = Visibility.Hidden;
 
             //Creating Menu from local file
             //string[] categories = System.IO.File.ReadAllLines(@"Menu\categories.txt");
@@ -187,6 +187,16 @@ namespace AppProject
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.BillDisplayGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void CallServerButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpPromptGrid.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            HelpPromptGrid.Visibility = Visibility.Hidden;
         }
     }
 }

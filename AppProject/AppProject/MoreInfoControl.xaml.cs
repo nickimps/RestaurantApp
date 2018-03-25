@@ -40,7 +40,7 @@ namespace AppProject
             {
                 
                 text = File.ReadAllText(@"Descriptions\" + itemName + ".txt");
-                Console.WriteLine(text);  
+                //Console.WriteLine(text);  
             }
             catch (FileNotFoundException ex){ Console.WriteLine(ex); }
             
