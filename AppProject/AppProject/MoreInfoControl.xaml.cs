@@ -21,6 +21,8 @@ namespace AppProject
     /// </summary>
     public partial class MoreInfoControl : UserControl
     {
+        public event EventHandler<ItemEventArgs> AddRequest;
+        public event EventHandler<EventArgs> DeBlur;
         // This lets me add info to the object whenever it is initialized
         public MoreInfoControl(Image image, string imageName)
         {
@@ -58,7 +60,18 @@ namespace AppProject
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
-            
+            this.DeBlur.Invoke(this, new EventArgs());
+        }
+
+        public FoodItem ReturnFoodItem()
+        {
+            FoodItem item = new FoodItem(this.Food_Name.Text, this.Price.ToString());
+            return item;
+        }
+
+        private void MI_add_to_bill_button_Click(object sender, RoutedEventArgs e)
+        {
+            this.AddRequest.Invoke(this, new ItemEventArgs() { item = this.ReturnFoodItem() });
         }
     }
 }

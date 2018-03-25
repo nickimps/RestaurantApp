@@ -73,7 +73,7 @@
             <TextBlock x:Name="Food_Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Margin="45,30.5,305.857,0" FontSize="48" Text="Item name" FontWeight="Bold" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
             <TextBlock x:Name="Description" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="0,152.786,29.037,274.643" Width="275.963" FontSize="18" Text="Description" FontFamily="Century Gothic" Foreground="#FFEFEFEF"/>
             <Image x:Name="Food_Image" Margin="45,105,325,122" Stretch="UniformToFill"/>
-            <Button x:Name="MI_Add" Content="Button" HorizontalAlignment="Left" Margin="292.5,628.786,0,0" Style="{DynamicResource ButtonStyle1}" Background="{x:Null}" VerticalAlignment="Top" ClickMode="Press" Width="275" Height="65"/>
+            <Button x:Name="MI_Add" Content="Button" HorizontalAlignment="Left" Margin="292.5,628.786,0,0" Style="{DynamicResource ButtonStyle1}" Background="{x:Null}" VerticalAlignment="Top" ClickMode="Press" Width="275" Height="65" Click="MI_add_to_bill_button_Click" Cursor="Hand"/>
             <Button x:Name="MI_Close" Content="X" Style="{DynamicResource ExitButton}" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Margin="797.333,16,16,662.333" Click="Close_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
