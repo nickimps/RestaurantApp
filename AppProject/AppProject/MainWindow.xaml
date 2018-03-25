@@ -352,7 +352,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="310.8,304.4,0,0" Background="#FF313F54">
+        <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="310.8,304.4,0,0" Background="#FF313F54" d:IsHidden="True">
             <Button Content="OK" Margin="326.292,255.998,351.474,58.478" FontSize="24" Background="#FFFF822E" Foreground="#FF1A1615" Click="Button_Click_1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="199.216" Height="71.124" Template="{DynamicResource HelpPromptDismiss}"/>
             <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="152.76" Width="582.09" Text="Server on the way" FontSize="72" Foreground="#FFEE5411"/>
         </Grid>
@@ -406,7 +406,7 @@
             <Button x:Name="S_Enter" Content="" HorizontalAlignment="Left" Height="50" Margin="337,200.643,0,0" VerticalAlignment="Top" Width="110.143" Background="#FF3C3C3C"/>
             <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="43.5" Margin="183.143,322.143,0,0" VerticalAlignment="Top" Width="238.5" UseLayoutRounding="True" FontSize="24" Foreground="#FFDB9B01" Background="#FF2F2E2E" BorderBrush="#FF2F2E2E" Padding="1" Click="S_Dismiss_Click"/>
         </Grid>
-        <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860"/>
+        <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860" d:IsHidden="True"/>
             <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">
                 <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585" d:IsHidden="True">
                     <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="button_Click" Margin="0"/>
