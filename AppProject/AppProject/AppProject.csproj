@@ -163,16 +163,16 @@
     <Resource Include="LogoIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Images\Nachos.jpg">
+    <EmbeddedResource Include="Images\Entrees\Nachos.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Images\Salad Rolls.jpg">
+    <EmbeddedResource Include="Images\Drinks\Salad Rolls.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Images\Spring Rolls.jpg">
+    <EmbeddedResource Include="Images\Desserts\Spring Rolls.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Images\Waffle Fries.jpg">
+    <EmbeddedResource Include="Images\Kids Menu\Waffle Fries.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -192,9 +192,10 @@
     <Resource Include="Menu\categories.txt" />
     <Resource Include="PeanutAllergyLogo.png" />
     <Resource Include="shell fish allergy.jpg" />
-    <EmbeddedResource Include="Images\Caesar Salad.jpg">
+    <EmbeddedResource Include="Images\Appetizers\Caesar Salad.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
