@@ -75,7 +75,7 @@
         <Button x:Name="M_add_to_bill_button" Content="Button" HorizontalAlignment="Left" Margin="10,217.241,0,0" Style="{DynamicResource ButtonStyle1}" Background="{x:Null}" VerticalAlignment="Top" ClickMode="Press" Click="M_add_to_bill_button_Click" Width="120.571"/>
         <Grid x:Name="TitleGrid" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="256" Margin="10,0,0,0">
             <TextBlock x:Name="FoodTitle" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Food Title" VerticalAlignment="Top" Width="256" FontSize="24" TextAlignment="Center" Foreground="#FF363636" FontFamily="Century Gothic" Margin="0,5,0,0" FontWeight="Bold"/>
-            <TextBlock x:Name="FoodPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="166.326,10,0,0" Height="27" Width="89.674" FontSize="20" TextAlignment="Right" FontWeight="Bold" FontFamily="Century Gothic"/>
+            <TextBlock x:Name="FoodPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="192.967,5,0,0" Height="27" Width="47.166" FontSize="20" TextAlignment="Right" FontWeight="Bold" FontFamily="Century Gothic"/>
         </Grid>
 
     </Grid>

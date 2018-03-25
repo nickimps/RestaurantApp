@@ -9,19 +9,26 @@ namespace AppProject
     public class FoodItem
     {
         public string name { get; set; }
-        public double value { get; set; }
+        public int value { get; set; }
         public string description { get; set; }
         public string additionalInfo { get; set; }
         public BillItemControl billItemView;
 
-        public FoodItem(string itemName, double itemValue)
+        public FoodItem(string itemName, string itemValue)
         {
             name = itemName;
-            value = itemValue;
+            value = convertPriceToInt(itemValue);
             description = "";
             additionalInfo = "";
         }
 
+        public int convertPriceToInt(string itemValue)
+        {
+            string price = itemValue.Substring(1);
+            int x = Int32.Parse(price);
+            return x;
+        }
+        
         public FoodItem(FoodItem clone)
         {
             name = clone.name;
