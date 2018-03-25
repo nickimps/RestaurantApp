@@ -68,6 +68,11 @@ namespace AppProject
             }
         }
 
+        public void ToggleItemDragging()
+        {
+            billView.ToggleItemDraggability();
+        }
+
         public void RemoveItem(int index)
         {
             total -= billItems[index].value;

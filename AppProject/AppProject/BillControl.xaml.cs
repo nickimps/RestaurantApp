@@ -21,8 +21,8 @@ namespace AppProject
     public partial class BillControl : UserControl
     {
 
-        public List<BillItemControl> items = new List<BillItemControl>();
         public Bill billLogic { get; set; }
+
         public BillControl(Bill bill)
         {
             InitializeComponent();
@@ -40,19 +40,43 @@ namespace AppProject
 
         public void AddItem(BillItemControl item)
         {
-            this.ItemListGrid.Children.Add(item); 
-            items.Add(item);
+            this.ItemListGrid.Children.Add(item);
+
+            //Subscribing to BillItemControl events -- Used for move drag and drop
+            item.Removed += new EventHandler<ItemEventArgs>(RemoveItem);
+            item.Released += new EventHandler<EventArgs>(ToggleDroppability);
+            item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
         }
 
         public void ToggleItemCheckBoxes()
         {
-            foreach (BillItemControl item in items)
+            foreach (BillItemControl bc in this.ItemListGrid.Children)
             {
-                item.ToggleCheckBoxVisibility();
+                bc.ToggleCheckBoxVisibility();
             }
         }
 
-            
+        public void ToggleItemDraggability()
+        {
+            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            {
+                bic.ToggleMovingEnabled();
+            }
+        }
+     
+        private void ToggleDroppability(object sender, EventArgs e)
+        {
+            if (this.ItemListGrid.AllowDrop)
+            {
+                this.ItemListGrid.AllowDrop = false;
+            } else
+            {
+                this.ItemListGrid.AllowDrop = true;
+            }
+
+            Console.WriteLine("Droppability = " + this.ItemListGrid.AllowDrop);
+        }
+
         private void ItemListGrid_DragLeave(object sender, DragEventArgs e)
         {
 
@@ -60,9 +84,9 @@ namespace AppProject
 
         private void ItemListGrid_Drop(object sender, DragEventArgs e)
         {
-            BillControl bill = sender as BillControl;
-            BillItemControl item = (BillItemControl)e.Data.GetData("AppProject.BillItemControl");
-
+            BillItemControl itemC = (BillItemControl)e.Data.GetData("AppProject.BillItemControl");
+            itemC.Moved();
+            billLogic.AddItem(itemC.item);
         }
 
         private void ItemListGrid_DragEnter(object sender, DragEventArgs e)
@@ -75,6 +99,16 @@ namespace AppProject
             {
                 e.Effects = DragDropEffects.None;
             }
+        }
+
+        private void RemoveItem(object sender, ItemEventArgs e)
+        {
+            //Unsubscribing from BillItemControl(BIC) Events for the BIC removed
+            e.item.billItemView.Removed -= new EventHandler<ItemEventArgs>(RemoveItem);
+            //e.item.billItemView.Released -= new EventHandler<EventArgs>(ToggleDroppability);
+            //e.item.billItemView.Dragged -= new EventHandler<EventArgs>(ToggleDroppability);
+            billLogic.RemoveItem(e.item);
+            this.ItemListGrid.Children.Remove(e.item.billItemView);
         }
     }
 }
