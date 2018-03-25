@@ -25,6 +25,7 @@ namespace AppProject
             InitializeComponent();
             this.ItemName.Text = item.name;
             this.ItemPrice.Text = item.value.ToString();
+            Console.WriteLine("BEING CREATED");
         }
         
         public void ToggleCheckBoxVisibility()

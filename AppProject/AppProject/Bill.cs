@@ -13,8 +13,10 @@ namespace AppProject
         private Boolean transactionCompleted { get; set; }
         public string billName { get; set; }
         public BillControl billView;
-        public Menu_BillControl mBillView;
+        public Menu_BillControl m_BillView;
         private double total = 0;
+
+        public event EventHandler<EventArgs> MenuBillClicked;
 
         public Bill(string identity)
         {
@@ -30,19 +32,26 @@ namespace AppProject
             return billView;
         }
 
-        public void CreateView()
+        private void CreateView()
         {
             billView = new BillControl(this);
         }
 
-        public void CreateMenuView()
+        private void CreateMenuView()
         {
-            mBillView = new Menu_BillControl(this);
+            m_BillView = new Menu_BillControl(this);
+            m_BillView.InteractionButton.Click += new RoutedEventHandler(MenuBillClickedEvent);
+        }
+
+        private void MenuBillClickedEvent(object sender, RoutedEventArgs e)
+        {
+            this.MenuBillClicked.Invoke(this, new EventArgs());
         }
 
         public void AddItem(FoodItem item)
-        {
+        { 
             billItems.Add(item);
+            Console.WriteLine("HELLO? " + item.name);
             billView.AddItem(item.billItemView);
 
             total += item.value;
@@ -76,16 +85,16 @@ namespace AppProject
             UpdateTotalsInViews();
         }
 
-        public void UpdateTotalsInViews()
+        private void UpdateTotalsInViews()
         {
-            mBillView.TotalText.Text = total.ToString();
+            m_BillView.TotalText.Text = total.ToString();
             billView.TotalNumber.Text = total.ToString();
         }
 
-        public void UpdateIdentifiersInViews()
+        private void UpdateIdentifiersInViews()
         {
             billView.BillIdentifier.Text = billName;
-            mBillView.IdentifierText.Text = billName;
+            m_BillView.IdentifierText.Text = billName;
         }
 
         public double ReturnTotal()

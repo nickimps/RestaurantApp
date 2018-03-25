@@ -276,6 +276,15 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Canvas x:Name="M_MenuInterface" Grid.ColumnSpan="2" Margin="0,0,-1,-2">
+                <Grid x:Name="M_MenuItemsGrid" HorizontalAlignment="Left" Canvas.Left="270" Height="982" Width="946" IsEnabled="False">
+                    <Rectangle x:Name="M_Background" Fill="#FFE05A00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
+                    <TextBlock x:Name="M_MenuTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Appetizers" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
+                    <Rectangle x:Name="M_AppetizerCover" Fill="#FFE05A00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,125.428,0,0"/>
+                    <Rectangle x:Name="M_EntreesCover" Fill="#FFFF6C00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,269.44,0,0" d:IsHidden="True"/>
+                    <Rectangle x:Name="M_DessertsCover" Fill="#FFEC7700" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,413.511,0,0" d:IsHidden="True"/>
+                    <Rectangle x:Name="M_KidsMenuCover" Fill="#FFEE712B" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,557.536,0,0" d:IsHidden="True"/>
+                    <Rectangle x:Name="M_DrinksCover" Fill="#FFDC4712" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,701.535,0,0" d:IsHidden="True"/>
+                </Grid>
                 <Grid x:Name="M_CategoryGrid" HorizontalAlignment="Left" Width="270" Background="#FFEFEFEF" Height="982">
                     <Button x:Name="M_HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,864.036,112,0" Height="46"/>
                     <Button x:Name="M_AppetizersButton" Content="Appetizers" HorizontalAlignment="Left" Height="94" Margin="18.5,121.5,-7.5,0" Style="{DynamicResource MenuItemButtonStyle}" VerticalAlignment="Top" Width="259"/>
@@ -284,15 +293,6 @@
                     <Button x:Name="M_DrinksButton" Content="Drinks" HorizontalAlignment="Left" Height="94" Margin="18.5,697.5,-7.5,0" Style="{DynamicResource ButtonStyle5}" VerticalAlignment="Top" Width="259"/>
                     <Button x:Name="M_KidsMenuButton" Content="Kids Menu" HorizontalAlignment="Left" Height="94" Margin="18.5,553.5,-7.5,0" Style="{DynamicResource ButtonStyle4}" VerticalAlignment="Top" Width="259"/>
                     <TextBlock HorizontalAlignment="Left" Height="27.06" Margin="73.929,915.036,0,0" TextWrapping="Wrap" Text="Call a Server" VerticalAlignment="Top" Width="127.428" Foreground="Blue" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20"/>
-                </Grid>
-                <Grid x:Name="M_MenuItemsGrid" HorizontalAlignment="Left" Canvas.Left="270" Height="982" Width="946">
-                    <Rectangle x:Name="M_Background" Fill="#FFE05A00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
-                    <TextBlock x:Name="M_MenuTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Appetizers" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
-                    <Rectangle x:Name="M_AppetizerCover" Fill="#FFE05A00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,125.428,0,0"/>
-                    <Rectangle x:Name="M_EntreesCover" Fill="#FFFF6C00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,269.44,0,0" d:IsHidden="True"/>
-                    <Rectangle x:Name="M_DessertsCover" Fill="#FFEC7700" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,413.511,0,0" d:IsHidden="True"/>
-                    <Rectangle x:Name="M_KidsMenuCover" Fill="#FFEE712B" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,557.536,0,0" d:IsHidden="True"/>
-                    <Rectangle x:Name="M_DrinksCover" Fill="#FFDC4712" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Margin="-5.429,701.535,0,0" d:IsHidden="True"/>
                 </Grid>
                 <Grid x:Name="M_BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FFEFEFEF" Height="982" Canvas.Left="1216">
                     <Button x:Name="M_ReviewOrderButton" Content="Review Order" HorizontalAlignment="Left" Height="94" Margin="27.428,860.143,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="M_ReviewOrderButton_Click"/>
@@ -306,7 +306,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True" Visibility="Hidden">
             <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="277*"/>

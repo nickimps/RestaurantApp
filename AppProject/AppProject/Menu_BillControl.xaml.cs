@@ -20,11 +20,17 @@ namespace AppProject
     /// </summary>
     public partial class Menu_BillControl : UserControl
     {
+
+        //public event EventHandler<EventArgs> ButtonClicked;
+
         public Menu_BillControl(Bill bill)
         {
             InitializeComponent();
             this.IdentifierText.Text = bill.billName;
             this.TotalText.Text = bill.ReturnTotal().ToString();
+
         }
+
+       
     }
 }
