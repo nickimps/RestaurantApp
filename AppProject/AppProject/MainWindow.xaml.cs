@@ -42,6 +42,7 @@ namespace AppProject
             BillDisplayGrid.Visibility = Visibility.Hidden;
             ServerGrid.Visibility = Visibility.Hidden;
             HelpPromptGrid.Visibility = Visibility.Hidden;
+            AddItemsPromptGrid.Visibility = Visibility.Hidden;
             selectedMenu = M_MenuItemsGrid;
             selectedMenuItems = M_AppetizerScrollGrid;
             selectedMenuCover = M_AppetizerCover;
@@ -140,6 +141,8 @@ namespace AppProject
 
         private void M_AddRequest(object sender, ItemEventArgs e)
         {
+            AddItemsPromptGrid.Visibility = Visibility.Visible;
+
             BlurEffect myBlurEffect = new BlurEffect
             {
                 Radius = 10,
@@ -169,8 +172,10 @@ namespace AppProject
                 DeBlurThings.Invoke(this, new EventArgs());
 
                 this.DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
-                this.DisplayMoreInfoGrid.Opacity = 1;
                 this.DisplayMoreInfoGrid.IsEnabled = true;
+
+                AddItemsPromptGrid.Visibility = Visibility.Hidden;
+
                 addMode = false;
                 clickedBill.AddItem(selectedItem);
             }
