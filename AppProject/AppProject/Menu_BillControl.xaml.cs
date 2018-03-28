@@ -10,18 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AppProject
 {
     /// <summary>
-    /// Interaction logic for ReviewWindow.xaml
+    /// Interaction logic for Menu_BillControl.xaml
     /// </summary>
-    public partial class ReviewWindow : Window
+    public partial class Menu_BillControl : UserControl
     {
-        public ReviewWindow()
+
+        //public event EventHandler<EventArgs> ButtonClicked;
+
+        public Menu_BillControl(Bill bill)
         {
             InitializeComponent();
+            this.IdentifierText.Text = bill.billName;
+            this.TotalText.Text = bill.ReturnTotal().ToString();
+
         }
+
+       
     }
 }

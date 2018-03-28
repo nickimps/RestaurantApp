@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AppProject
 {
     /// <summary>
-    /// Interaction logic for Bill.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Bill : UserControl
+    public partial class BillOptions : Window
     {
-        public Bill()
+        public BillOptions()
         {
             InitializeComponent();
         }

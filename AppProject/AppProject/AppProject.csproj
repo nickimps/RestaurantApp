@@ -54,15 +54,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bill.cs" />
+    <Compile Include="BillEventArgs.cs" />
+    <Compile Include="BillItemControl.xaml.cs">
+      <DependentUpon>BillItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BillOptions.xaml.cs">
+      <DependentUpon>BillOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyManager.cs" />
+    <Compile Include="FoodCategory.cs" />
+    <Compile Include="FoodItem.cs" />
+    <Compile Include="ItemControlEventArgs.cs" />
+    <Compile Include="ItemEventArgs.cs" />
+    <Compile Include="MenuItemsControl.xaml.cs">
+      <DependentUpon>MenuItemsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReviewWindow.xaml.cs">
-      <DependentUpon>ReviewWindow.xaml</DependentUpon>
+    <Compile Include="Menu_BillControl.xaml.cs">
+      <DependentUpon>Menu_BillControl.xaml</DependentUpon>
     </Compile>
-    <Page Include="Bill.xaml">
+    <Compile Include="MoreInfoControl.xaml.cs">
+      <DependentUpon>MoreInfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TableLogic.cs" />
+    <Page Include="BillControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BillItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BillOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,20 +100,32 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bill.xaml.cs">
-      <DependentUpon>Bill.xaml</DependentUpon>
+    <Compile Include="BillControl.xaml.cs">
+      <DependentUpon>BillControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MenuItemsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ReviewWindow.xaml">
+    <Page Include="Menu_BillControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MoreInfoControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simple Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -112,7 +152,51 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.png" />
+    <Resource Include="LogoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Entrees\Nachos.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Drinks\Salad Rolls.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Desserts\Spring Rolls.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Kids Menu\Waffle Fries.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Descriptions\Caesar Salad.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Descriptions\Nachos.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Descriptions\Salad Rolls.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Descriptions\Spring Rolls.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Descriptions\Waffle Fries.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="MenuIcons\GlutenFree_Icon.png" />
+    <Resource Include="MenuIcons\Peanut_Icon.png" />
+    <Resource Include="MenuIcons\Special_Icon.png" />
+    <Resource Include="MenuIcons\Spicy_Icon.png" />
+    <Resource Include="MenuIcons\Vegan_Icon.png" />
+    <Resource Include="Menu\categories.txt" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

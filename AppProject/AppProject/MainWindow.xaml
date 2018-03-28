@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1720">
+
+        Title="MainWindow" Height="980" Width="1620" WindowStyle="None" ResizeMode="NoResize" Icon="LogoIcon.png" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ControlTemplate x:Key="HelpButton" TargetType="{x:Type Button}">
             <Grid x:Name="ButtonGrid" Height="46" Margin="0" Width="46">
@@ -16,88 +17,490 @@
         </ControlTemplate>
         <ControlTemplate x:Key="RectangleButton" TargetType="{x:Type Button}">
             <Grid x:Name="ButtonGrid">
-                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="410" Stroke="Black" Fill="#FF00A80F"/>
-                <ContentPresenter x:Name="ContentBox" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="Auto" Margin="106,10"/>
+                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="410" Stroke="White" Fill="#FF00A80F"/>
+                <ContentPresenter x:Name="ContentBox" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="Auto" Margin="106,10"/>
             </Grid>
         </ControlTemplate>
+        <ControlTemplate x:Key="RectangleButton2" TargetType="{x:Type Button}">
+            <Grid x:Name="ButtonGrid" Width="385" Margin="5,0,0.5,0">
+                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="372" Stroke="White" Fill="#FF00A80F"/>
+                <ContentPresenter x:Name="ContentBox" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Margin="70,14.058"/>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="RectangleButton3" TargetType="{x:Type Button}">
+            <Grid x:Name="ButtonGrid" Margin="0" Width="385" Height="76">
+                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="385" Stroke="White" Fill="#FF388E3C"/>
+                <ContentPresenter x:Name="ContentBox" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Stretch" Width="200.429" Margin="93.428,18.048,91.143,18.048"/>
+            </Grid>
+        </ControlTemplate>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Canvas>
+                            <Rectangle Width="220" VerticalAlignment="Top" StrokeThickness="5" Stroke="#FFFF6517" RadiusX="10" RadiusY="10" Height="100" HorizontalAlignment="Left" Fill="#FFFF822E"/>
+                            <ContentPresenter HorizontalAlignment="Left" Height="26.5" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Canvas.Top="37.5" VerticalAlignment="Top" Width="149.5" Canvas.Left="36"/>
+                        </Canvas>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+        </Style>
+        <Style x:Key="MenuCategoryButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFE05A00" RadiusY="7" RadiusX="7" StrokeThickness="4"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MenuItemButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFE05A00" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFFF6C00" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle3" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFEC7700" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle4" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFEE712B" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle5" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFDC4712" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle6" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FF388E3C" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <ControlTemplate x:Key="ReturnButton" TargetType="{x:Type Button}">
+            <Grid x:Name="ReturnGrid" Width="385" Height="76">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="26*"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="ButtonBorder" Fill="#FF388E3C" HorizontalAlignment="Left" Height="76" Stroke="White" VerticalAlignment="Top" Width="385" Grid.ColumnSpan="2"/>
+                <ContentPresenter x:Name="ButtonPresenter" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" HorizontalAlignment="Center" Height="40" VerticalAlignment="Stretch" Width="Auto" Margin="17.5,18" Grid.ColumnSpan="2"/>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="CloseButton" TargetType="{x:Type Button}">
+            <Grid x:Name="CloseGrid" Width="16" Height="16">
+                <TextBlock x:Name="X" HorizontalAlignment="Left" Margin="0,0,0,-63.8" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="16" Height="17" Foreground="Red"/>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="RectangleButton4" TargetType="{x:Type Button}">
+            <Grid x:Name="ButtonGrid" Margin="0" Width="385" Height="76">
+                <Rectangle x:Name="Box" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="385" Stroke="White" Fill="#FF388E3C"/>
+                <ContentPresenter x:Name="ContentBox" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" HorizontalAlignment="Center" Height="Auto" VerticalAlignment="Center" Width="144.428" Margin="119.428,18.048,121.144,18.048"/>
+            </Grid>
+        </ControlTemplate>
+        <Style x:Key="ButtonStyle7" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFD65F00" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle8" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFDC2F2F" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF363636"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <ControlTemplate x:Key="CallServerButtonTemplate" TargetType="{x:Type Button}">
+            <Grid>
+                <Grid x:Name="CallServerGrid" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="127.428">
+                    <Button x:Name="M_HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,10,43.961,0" Height="46"/>
+                    <TextBlock HorizontalAlignment="Left" Height="27.06" Margin="0,62.94,0,0" TextWrapping="Wrap" Text="Call a Server" VerticalAlignment="Top" Width="127.428" Foreground="Blue" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20"/>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="HelpPromptDismiss" TargetType="{x:Type Button}">
+            <Grid>
+                <Button Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="199.216" Height="71.124" Background="#FFFF822E" Cursor="Hand"/>
+            </Grid>
+        </ControlTemplate>
+        <Style x:Key="ButtonStyle9" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FF263D53" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FFEE712B"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="Ok"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle10" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FF263D53" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FFEE712B"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="25" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style x:Key="ButtonStyle11" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#19DC2F2F" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FFDC2F2F"/>
+                            <ContentPresenter HorizontalAlignment="Right" TextBlock.FontSize="36" TextBlock.Foreground="#DC2F2F" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="Cancel" Margin="0,8.215,55.145,8.215"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
     </Window.Resources>
-    <Grid x:Name="MainWindowGrid" Margin="0,0,-8,-31">
+    <Grid x:Name="MainWindowGrid" Margin="0,0,-5.714,-5.714" Width="1620" Height="980">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="1080" VerticalAlignment="Top" Width="1720">
-            <Grid x:Name="CategoryGrid" HorizontalAlignment="Left" Width="286" Background="#FFE8E8E8" Margin="0,0,0,-10">
-                <TextBlock Height="99" TextWrapping="Wrap" Text="Categories" VerticalAlignment="Top" FontSize="20" TextAlignment="Center"/>
-                <Button Content="Appetizers" VerticalAlignment="Top" Margin="12,182,-2,0" Height="93.96" FontSize="24" Background="#FFE69C9C" BorderBrush="Black" BorderThickness="2,2,0,2" Padding="1"/>
-                <Button Content="Entrees" VerticalAlignment="Top" Margin="10,328,0,0" Height="93.96" FontSize="24" Background="#FFBEE69C" BorderBrush="Black" BorderThickness="2,2,0,2"/>
-                <Button Content="Desserts" VerticalAlignment="Top" Margin="10,478,0,0" Height="93.96" FontSize="24" Background="#FFE6E69C" BorderBrush="Black" BorderThickness="2,2,0,2"/>
-                <Button Content="Drinks" VerticalAlignment="Top" Margin="10,630,0,0" Height="93.96" FontSize="24" Background="#FF9CCEE6" BorderBrush="Black" BorderThickness="2,2,0,2"/>
-                <Button Content="Kids Menu" VerticalAlignment="Top" Margin="10,786,0,0" Height="93.96" FontSize="24" Background="#FFDBEE88" BorderBrush="Black" BorderThickness="2,2,0,2"/>
-                <Button Content="Help&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Margin="42,956,0,0" FontSize="48" Height="92"/>
-            </Grid>
-            <Grid x:Name="MenuItemsGrid" HorizontalAlignment="Left" Width="1000" Margin="288,2,0,-12" Background="#FFE69C9C">
-                <Grid Margin="44,128,680,676">
-                    <Rectangle Fill="#FFB1EC7F" HorizontalAlignment="Left" Height="276" Stroke="Black" VerticalAlignment="Top" Width="276"/>
-                    <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="This is another title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="186" Margin="6,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="264"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="6,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="141,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                </Grid>
-                <Grid Margin="364,128,360,676">
-                    <Rectangle Fill="#FFB1EC7F" HorizontalAlignment="Left" Height="276" Stroke="Black" VerticalAlignment="Top" Width="276"/>
-                    <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="This is another title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="186" Margin="6,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="264"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="6,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="141,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                </Grid>
-                <Grid Margin="683.334,128,40.666,676">
-                    <Rectangle Fill="#FFB1EC7F" HorizontalAlignment="Left" Height="276" Stroke="Black" VerticalAlignment="Top" Width="276"/>
-                    <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="This is another title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="186" Margin="6,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="264"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="6,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="141,224,0,0" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                </Grid>
-                <Rectangle Fill="#FFB1EC7F" HorizontalAlignment="Left" Height="276" Stroke="Black" VerticalAlignment="Top" Width="276" Margin="45,417,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="This is another title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Margin="45,415,0,0"/>
-                <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="186" Stroke="Black" VerticalAlignment="Top" Width="264" Margin="51,447,0,0"/>
-                <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Stroke="Black" VerticalAlignment="Top" Width="129" Margin="51,639,0,0"/>
-                <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Stroke="Black" VerticalAlignment="Top" Width="129" Margin="186,639,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Height="119" Margin="44,9,0,0" TextWrapping="Wrap" Text="Appetizers" VerticalAlignment="Top" Width="915.334" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center"/>
-                <Grid Margin="44,444,680,358">
-                    <Rectangle Fill="#FFB1EC7F" HorizontalAlignment="Left" Height="276" Margin="0,261,0,-259" Stroke="Black" VerticalAlignment="Top" Width="276"/>
-                    <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="This is another title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Margin="0,259,0,-13"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="186" Margin="6,291,0,-199" Stroke="Black" VerticalAlignment="Top" Width="264"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="6,483,0,-251" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="141,483,0,-251" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                    <Rectangle Fill="#FFB1EC7F" HorizontalAlignment="Left" Height="276" Margin="0,552,0,-550" Stroke="Black" VerticalAlignment="Top" Width="276"/>
-                    <TextBlock HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="This is another title" VerticalAlignment="Top" Width="276" FontSize="24" TextAlignment="Center" Margin="0,550,0,-304"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="186" Margin="6,582,0,-490" Stroke="Black" VerticalAlignment="Top" Width="264"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="6,774,0,-542" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                    <Rectangle Fill="#FFECEC7F" HorizontalAlignment="Left" Height="46" Margin="141,774,0,-542" Stroke="Black" VerticalAlignment="Top" Width="129"/>
-                </Grid>
-            </Grid>
-            <Grid x:Name="BillViewerGrid" HorizontalAlignment="Left" Width="430" Margin="1291,2,-11,-10" Background="#FFEEEEEE">
-                <Button Content="Review Order(s)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="410" Height="76" Margin="10,992,0,0" FontSize="36" Background="#FF6BB8EE" BorderBrush="Black"/>
-            </Grid>
-        </Grid>
 
-        <Grid x:Name="ReviewWindow" Grid.ColumnSpan="2" Margin="0,0,8,1" Height="1080" Width="1720">
-            <Grid x:Name="SideGrid" Margin="1282,0,0,0" Background="#FFAAA5A5" Width="430">
-                <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="374,10,0,0" Height="46"/>
-                <Button x:Name="CheckoutButton" Content="Checkout" HorizontalAlignment="Left" VerticalAlignment="Top" Width="410" Template="{DynamicResource RectangleButton}" Height="76" Margin="10,993,0,0" FontSize="36" FontWeight="Bold"/>
-                <Button x:Name="SendButton" Content="Edit Bill" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="410" Template="{DynamicResource RectangleButton}" Margin="10,0,0,192" FontSize="36" FontWeight="Bold" Height="76"/>
-                <Button x:Name="EditButton" Content="Send Order" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="410" Template="{DynamicResource RectangleButton}" Margin="10,0,0,101" FontWeight="Bold" FontSize="36"/>
-                <Grid x:Name="SideInfoGrid" HorizontalAlignment="Left" Height="733" VerticalAlignment="Bottom" Width="410" Margin="10,0,0,283" Background="#FF24247A">
-                    <Grid x:Name="TotalGrid" Margin="10,677,10,10">
-                        <TextBlock x:Name="TotalText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="136" FontWeight="Bold" FontSize="30"><Run Text="Total"/></TextBlock>
-                        <TextBlock x:Name="TotalValue" TextWrapping="Wrap" Margin="141,0,0,0" TextAlignment="Right" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" Width="249"/>
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" Margin="0,-7.561,0,7.561">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="M_MenuInterface" Grid.ColumnSpan="2" Margin="0,0,-1,-2">
+                <Grid x:Name="M_MenuItemsGrid" HorizontalAlignment="Left" Canvas.Left="270" Height="982" Width="946" IsEnabled="False">
+                    <Rectangle x:Name="M_Background" Fill="#FFE05A00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
+                    <TextBlock x:Name="M_MenuTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Appetizers" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
+                </Grid>
+                <Grid x:Name="M_EntreeItemsGrid" HorizontalAlignment="Left" Width="946" IsEnabled="False" Visibility="Hidden" Height="982" Canvas.Left="270">
+                    <Rectangle x:Name="M_EntreeBackground" Fill="#FFFF6C00" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
+                    <TextBlock x:Name="M_EntreeTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Entrees" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
+                </Grid>
+                <Grid x:Name="M_DessertItemGrid" HorizontalAlignment="Left" Width="946" IsEnabled="False" Visibility="Hidden" Height="982" Canvas.Left="270">
+                    <Rectangle x:Name="M_DessertBackground" Fill="#FFEC7700" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
+                    <TextBlock x:Name="M_DessertTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Desserts" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
+                </Grid>
+                <Grid x:Name="M_KidsItemGrid" HorizontalAlignment="Left" Width="946" IsEnabled="False" Visibility="Hidden" Height="982" Canvas.Left="270">
+                    <Rectangle x:Name="M_KidsBackground" Fill="#FFEE712B" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
+                    <TextBlock x:Name="M_KidsTitle" HorizontalAlignment="Left" Height="101" Margin="10,12,0,0" TextWrapping="Wrap" Text="Kids Menu" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
+                </Grid>
+                <Grid x:Name="M_DrinkItemsGrid" HorizontalAlignment="Left" Width="946" IsEnabled="False" Visibility="Hidden" Height="982" Canvas.Left="270">
+                    <Rectangle x:Name="M_DrinkBackground" Fill="#FFDC4712" HorizontalAlignment="Left" VerticalAlignment="Top" Width="946" Height="1022.286" StrokeThickness="4" Stroke="#FF363636" Margin="0,-18.286,0,-22"/>
+                    <TextBlock x:Name="M_DrinkTitle" HorizontalAlignment="Left" Height="101" TextWrapping="Wrap" Text="Drinks" VerticalAlignment="Top" Width="926" FontSize="72" FontWeight="Bold" TextDecorations="{x:Null}" TextAlignment="Center" Foreground="#FFEFEFEF" FontFamily="Century Gothic" Margin="10,12,0,0"/>
+                </Grid>
+                <Grid x:Name="M_CategoryGrid" HorizontalAlignment="Left" Width="270" Background="#FFEFEFEF" Height="982">
+                    <Button x:Name="M_AppetizersButton" Content="Appetizers" HorizontalAlignment="Left" Height="94" Margin="18.5,121.5,-7.5,0" Style="{DynamicResource MenuItemButtonStyle}" VerticalAlignment="Top" Width="259" Click="M_AppetizersButton_Click"/>
+                    <Button x:Name="M_EntreesButton" Content="Entrees" HorizontalAlignment="Left" Height="94" Margin="18.5,265.5,-7.5,0" Style="{DynamicResource ButtonStyle2}" VerticalAlignment="Top" Width="259" Background="#FFDDDDDD" Click="M_EntreesButton_Click"/>
+                    <Button x:Name="M_DessertsButton" Content="Desserts" HorizontalAlignment="Left" Height="94" Margin="18.5,409.5,-7.5,0" Style="{DynamicResource ButtonStyle3}" VerticalAlignment="Top" Width="259" Click="M_DessertsButton_Click"/>
+                    <Button x:Name="M_DrinksButton" Content="Drinks" HorizontalAlignment="Left" Height="94" Margin="18.5,697.5,-7.5,0" Style="{DynamicResource ButtonStyle5}" VerticalAlignment="Top" Width="259" Click="M_DrinksButton_Click"/>
+                    <Button x:Name="M_KidsMenuButton" Content="Kids Menu" HorizontalAlignment="Left" Height="94" Margin="18.5,553.5,-7.5,0" Style="{DynamicResource ButtonStyle4}" VerticalAlignment="Top" Width="259" Click="M_KidsMenuButton_Click"/>
+
+                    <Button x:Name="CallServerButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="127.428" Height="100" Background="{x:Null}" BorderBrush="{x:Null}" Click="CallServerButton_Click" Margin="67.2,835.1,0,0" Cursor="Hand" Template="{DynamicResource CallServerButtonTemplate}">
+                        <Grid x:Name="CallServerGrid" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="127.428">
+                            <Button x:Name="M_HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,10,43.961,0" Height="46"/>
+                            <TextBlock HorizontalAlignment="Left" Height="27.06" Margin="0,62.94,0,0" TextWrapping="Wrap" Text="Call a Server" VerticalAlignment="Top" Width="127.428" Foreground="Blue" FontFamily="Century Gothic" FontWeight="Bold" FontSize="20"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+                <Grid x:Name="M_BillViewerGrid" HorizontalAlignment="Left" Width="405" Background="#FFEFEFEF" Height="982" Canvas.Left="1216">
+                    <Button x:Name="M_ReviewOrderButton" Content="Review Order" HorizontalAlignment="Left" Height="94" Margin="27.428,860.143,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="M_ReviewOrderButton_Click"/>
+                    <ScrollViewer x:Name="M_BillScroller" Margin="10,10,10,154.113" VerticalScrollBarVisibility="Hidden">
+                        <UniformGrid x:Name="M_BillUniformGrid" Width="385" VerticalAlignment="Top" Columns="1"/>
+                    </ScrollViewer>
+                </Grid>
+                <ScrollViewer x:Name="M_AppetizerScrollGrid" Height="844.439" Width="901" Canvas.Left="310" Canvas.Top="137.561">
+                    <UniformGrid x:Name="Menu_items_uniform_gird" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+                </ScrollViewer>
+                <ScrollViewer x:Name="M_EntreeScrollGrid" Height="844.439" Canvas.Left="310" Canvas.Top="137.561" Width="901">
+                    <UniformGrid x:Name="Menu_Entrees_uniform_grid" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+                </ScrollViewer>
+                <ScrollViewer x:Name="M_DessertScrollGrid" Visibility="Hidden" Height="844.439" Canvas.Left="310" Canvas.Top="137.561" Width="901">
+                    <UniformGrid x:Name="Menu_Dessert_uniform_grid" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+                </ScrollViewer>
+                <ScrollViewer x:Name="M_KidsScrollGrid" Visibility="Hidden" Height="844.439" Canvas.Left="310" Canvas.Top="137.561" Width="901">
+                    <UniformGrid x:Name="Menu_Kids_uniform_grid" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+                </ScrollViewer>
+                <ScrollViewer x:Name="M_DrinkScrollGrid" Visibility="Hidden" Height="844.439" Canvas.Left="310" Canvas.Top="137.561" Width="901">
+                    <UniformGrid x:Name="Menu_Drink_uniform_grid" Height="834.439" Width="862.15" Columns="2" UseLayoutRounding="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
+                </ScrollViewer>
+                <Rectangle x:Name="M_AppetizerCover" Fill="#FFE05A00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Canvas.Left="264" Canvas.Top="125.428"/>
+                <Rectangle x:Name="M_EntreesCover" Fill="#FFFF6C00" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Canvas.Left="264" Canvas.Top="269.44" Visibility="Hidden"/>
+                <Rectangle x:Name="M_DessertsCover" Fill="#FFEC7700" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Canvas.Left="264" Canvas.Top="413.511" Visibility="Hidden"/>
+                <Rectangle x:Name="M_KidsMenuCover" Fill="#FFEE712B" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Canvas.Left="264" Canvas.Top="557.536" Visibility="Hidden"/>
+                <Rectangle x:Name="M_DrinksCover" Fill="#FFDC4712" HorizontalAlignment="Left" Height="86" StrokeThickness="4" VerticalAlignment="Top" Width="20.2" Canvas.Left="264" Canvas.Top="701.535" Visibility="Hidden"/>
+            </Canvas>
+
+        </Grid>
+        <Grid x:Name="HelpPromptGrid" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Grid.ColumnSpan="2" Margin="293.818,304.4,0,0" d:IsHidden="True">
+            <Rectangle Fill="#FF34495E" HorizontalAlignment="Left" Height="385.6" RadiusY="7" RadiusX="7" Stroke="#FFBDC3C7" StrokeThickness="4" VerticalAlignment="Top" Width="876.982"/>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="96.76" Width="876.982" FontSize="60" Foreground="#FFEE712B" FontFamily="Century Gothic" Margin="0,116.42,0,172.42" TextAlignment="Center"><Run Text="Server on the"/><Run Text="ir"/><Run Text=" way"/></TextBlock>
+            <Button x:Name="Help_DismissButton" Content="Dismiss" HorizontalAlignment="Left" Height="72.571" Margin="264,267.537,0,0" Style="{DynamicResource ButtonStyle9}" VerticalAlignment="Top" Width="348.948" Click="Button_Click_1"/>
+        </Grid>
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Margin="0,0,10,10" Grid.ColumnSpan="2" d:IsHidden="True">
+            <Grid x:Name="R_SideGrid" Margin="1205,10,0,10" Width="405">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="277*"/>
+                    <RowDefinition Height="243*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,2,10,0" Height="46"/>
+                <Grid x:Name="R_TransitionButtonGrid" Margin="10,178.442,10,10" Grid.Row="1" Width="385" Height="248">
+                    <Button x:Name="R_CheckoutButton" Content="Pay for Meal" HorizontalAlignment="Left" Height="94" Margin="18.286,44.999,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_CheckoutButton_Click"/>
+                    <Button x:Name="R_SendButton" Content="Send To Kitchen" HorizontalAlignment="Left" Height="94" Margin="18.286,-76,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
+                    <Button x:Name="R_ReturnButton" Content="Return To Menu" HorizontalAlignment="Left" Height="94" Margin="18.286,162,0,-8" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="R_ReturnButton_Click"/>
+                </Grid>
+                <Grid x:Name="R_EditButtonsGrid" Height="195" VerticalAlignment="Top" Margin="0,453.5,0,0" Grid.RowSpan="2">
+                    <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-40,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
+                    <Button x:Name="R_MoveButton" Content="Move Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-160,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_MoveButton_Click"/>
+                </Grid>
+                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0" Height="261.75" Grid.Row="1">
+                    <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Height="94" Margin="18.052,161.667,0,0" Style="{DynamicResource ButtonStyle8}" VerticalAlignment="Top" Width="348.948" Click="R_CancelButton_Click"/>
+                    <Button x:Name="ConfirmButton" Content="Confirm" HorizontalAlignment="Left" Height="94" Margin="19.385,44.667,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
+                </Grid>
+            </Grid>
+            <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Height="960" VerticalAlignment="Top" Width="1195" Margin="10,10,0,0">
+                <UniformGrid x:Name="R_BillUniformGrid" Width="1195" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Columns="2"/>
+            </ScrollViewer>
+        </Grid>
+        <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" Margin="0,0,10,10" d:IsHidden="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="W_Container" Grid.ColumnSpan="2">
+                <Rectangle x:Name="W_Background" Fill="#FF34495E" HorizontalAlignment="Left" Height="1000.571" StrokeThickness="0" VerticalAlignment="Top" Width="1638.286" Canvas.Top="-6" Canvas.Left="-8"/>
+                <Image x:Name="W_Logo" HorizontalAlignment="Left" Height="1050.405" VerticalAlignment="Top" Width="782.849" Source="logo.png" Canvas.Left="-254.849" Canvas.Top="-226" OpacityMask="Black"/>
+
+                <TextBlock x:Name="W_WelcomeMessageLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="137.816" Width="1610" FontFamily="Century Gothic" FontSize="48" TextAlignment="Center" Canvas.Top="216.772" Foreground="#FFEF5411"><Run Text="Hi there"/><LineBreak/><Run Text="How many people are eating today?"/></TextBlock>
+                <Slider x:Name="W_numberOfPeopleSlider" HorizontalAlignment="Left" Height="50.96" VerticalAlignment="Top" Width="866.336" Maximum="6" TickPlacement="BottomRight" Cursor="Hand" IsSnapToTickEnabled="True" RenderTransformOrigin="0.5,0.5" FontSize="22" FontWeight="Bold" Foreground="#EF5411" BorderBrush="#FFFF6517" Background="{x:Null}" ValueChanged="W_numberOfPeopleSlider_ValueChanged" Canvas.Left="374.24" Canvas.Top="503.576" />
+                <TextBox x:Name="W_SliderNumber" Text="{Binding Value, ElementName=W_numberOfPeopleSlider, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" FontSize="20" FontWeight="Bold" Width="26.714" Height="27.104" Canvas.Left="507.5" Canvas.Top="458.076" Background="#FF34495E" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" IsReadOnly="True" Foreground="#FFEF5411" />
+                <TextBlock x:Name="W_NumberOfPeopleLabel" HorizontalAlignment="Left" Height="26.604" TextWrapping="Wrap" VerticalAlignment="Top" Width="138.331" FontSize="20" Canvas.Left="374.24" Canvas.Top="458.576" Foreground="#FFEF5411" FontStyle="Italic"><Run Text="Number of "/><Run Text="Bills"/><Run FontStyle="Normal" Text=":"/></TextBlock>
+                <Button x:Name="W_StartButton" Content="Start Ordering" Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Height="100" Canvas.Left="702" Canvas.Top="687.5" Width="220" Foreground="#FF313F54" FontWeight="Bold" Click="W_StartButton_Click"/>
+
+            </Canvas>
+
+        </Grid>
+        <Grid x:Name="ServerGrid" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="876.982" Visibility="Visible" Margin="293.818,304.4,449.2,290" d:IsHidden="True">
+            <Rectangle x:Name="S_Background" Fill="#FF34495E" Stroke="#FFBDC3C7" StrokeThickness="4" RadiusX="7" RadiusY="7"/>
+            <TextBlock x:Name="S_Message" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,95.5,0,0" FontSize="60" HorizontalAlignment="Left" Foreground="#FFEE712B" FontFamily="Century Gothic" Width="876.982" TextAlignment="Center"><Run Text="Server on the"/><Run Text="ir"/><Run Text=" way"/></TextBlock>
+            <PasswordBox x:Name="S_Password" HorizontalAlignment="Left" Height="50" Margin="276,201,0,0" VerticalAlignment="Top" Width="239" Padding="0,-2,0,0" UseLayoutRounding="True" Background="#FF263D53" BorderBrush="#FFEE712B" BorderThickness="3" Foreground="#FFECF0F1" SelectionBrush="#FFEE712B" FontFamily="Century Gothic" FontSize="36"/>
+            <Button x:Name="S_Dismiss" Content="Dismiss" HorizontalAlignment="Left" Height="60.571" Margin="318.579,290.858,0,0" Style="{DynamicResource ButtonStyle9}" VerticalAlignment="Top" Width="240" Click="S_Dismiss_Click" RenderTransformOrigin="0.5,0.5"/>
+            <Button x:Name="S_Enter" Content="Enter" HorizontalAlignment="Left" Height="50" Margin="508.5,201,0,0" Style="{DynamicResource ButtonStyle10}" VerticalAlignment="Top" Width="93.143" Click="Button_Click_1"/>
+        </Grid>
+        <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860" d:IsHidden="True"/>
+        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">
+            <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585" d:IsHidden="True">
+                <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="button_Click" Margin="0"/>
+
+            </Grid>
+            <Grid x:Name="ContentGrid" VerticalAlignment="Top" Width="400" Margin="0,20,0,0" d:IsHidden="True">
+                <Grid x:Name="BillMainGrid" Background="#FFA8A8A8" Margin="0" Width="400" MinHeight="94" d:IsHidden="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="InnerGrid" Margin="10" Background="#FF00FFF3" Width="380" d:IsHidden="True">
+                        <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" Visibility="Hidden"/>
+                        <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom">
+                            <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
+                            <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right"/>
+                        </Grid>
+                        <UniformGrid x:Name="ItemListGrid" Margin="10,38,10,36" Columns="1" Width="340"/>
+                        <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <TextBlock x:Name="BillText" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="Bill #" Height="28"/>
+                            <TextBlock x:Name="BillIdentifier" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50,0,0,0" Height="28" FontSize="20" FontWeight="Bold"/>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid x:Name="BillListGrid" Background="#FF8D1A1A" Margin="10,10,435,10"/>
-
         </Grid>
-
+        <Grid x:Name="AddItemsPromptGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="255.445" VerticalAlignment="Top" Width="763.2" Margin="354.229,177.555,0,0" d:IsHidden="True">
+            <Rectangle x:Name="AddItems_Background" Fill="#FFEFEFEF" Stroke="#FFEE712B" StrokeThickness="8" RadiusX="7" RadiusY="7"/>
+            <TextBlock x:Name="AddItems_Message" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,27.357,-55.267,0" FontSize="60" HorizontalAlignment="Left" Foreground="#FFEE712B" FontFamily="Century Gothic" Width="744.467" TextAlignment="Center"><Run Text="Please "/><Run Text="choose which"/><Run Text=" "/><Run Text="bill"/><LineBreak/><Run FontSize="48" Text="or"/></TextBlock>
+            <Button x:Name="AddItems_CancelButton" Content="Dismiss" HorizontalAlignment="Left" Height="60.571" Margin="263.15,168.77,0,0" Style="{DynamicResource ButtonStyle11}" VerticalAlignment="Top" Width="240" Click="AddItems_Click" RenderTransformOrigin="0.5,0.5"/>
+        </Grid>
     </Grid>
+
 </Window>
