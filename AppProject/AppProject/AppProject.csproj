@@ -204,6 +204,8 @@
     <Resource Include="MenuIcons\Vegan_Icon.png" />
     <Resource Include="Menu\categories.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Design\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
