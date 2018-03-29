@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppProject"
-             mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="385" Width="385" Height="75">
+             mc:Ignorable="d" d:DesignWidth="385" Width="385" Height="122.235">
     <UserControl.Resources>
         <Storyboard x:Key="Bill_hover"/>
     </UserControl.Resources>
@@ -15,13 +14,14 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid x:Name="MainGrid" Width="385" Height="75">
-        <Rectangle x:Name="Bill_Background" Fill="#FFF66A0E" HorizontalAlignment="Left" Height="75" Stroke="Black" VerticalAlignment="Top" Width="385"/>
 
-        <Grid x:Name="InformationGrid" Margin="10" Background="#FFFDFDFD" Height="55" Width="365">
-            <TextBlock x:Name="IdentifierText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="144.29" FontSize="36" Height="55" Margin="55,0,0,0" d:IsHidden="True"/>
-            <TextBlock x:Name="TotalText" TextWrapping="Wrap" FontSize="30" HorizontalAlignment="Right" TextAlignment="Right" d:IsHidden="True"/>
+        <Rectangle x:Name="Bill_Background" Fill="#FFEE712B" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="365" RadiusX="7" RadiusY="7" StrokeThickness="6" Stroke="#FFDC4712" Margin="10,0,0,0"/>
+
+        <Grid x:Name="InformationGrid" Margin="10" Height="55" Width="365">
+            <TextBlock x:Name="IdentifierText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="189.29" FontSize="36" Margin="13.647,2.345,0,3.201" FontFamily="Century Gothic" Foreground="#FFEFEFEF"/>
+            <TextBlock x:Name="TotalText" TextWrapping="Wrap" FontSize="36" HorizontalAlignment="Right" TextAlignment="Right" FontFamily="Century Gothic" Foreground="#FFEFEFEF" Margin="0,3.413,13.674,2.132" Height="49.454" FontWeight="Bold"/>
         </Grid>
-        <Button x:Name="InteractionButton" Content="Button" HorizontalAlignment="Left" Width="385" Background="#FFDF2222" Opacity="0"/>
+        <Button x:Name="InteractionButton" Content="Button" HorizontalAlignment="Left" Width="365" Background="#FFDF2222" Opacity="0" Height="Auto" Margin="10,0,0,0" d:IsHidden="True"/>
 
     </Grid>
 </UserControl>

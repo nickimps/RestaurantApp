@@ -14,15 +14,14 @@
                 <RowDefinition Height="74*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" Visibility="Hidden" AllowDrop="False"/>
+            <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" AllowDrop="False" Background="White" BorderBrush="White" Visibility="Hidden"/>
             <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom" AllowDrop="False">
-                <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
-                <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right"/>
+                <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
+                <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right" FontFamily="Century Gothic"/>
             </Grid>
             <UniformGrid x:Name="ItemListGrid" Margin="20,38,20,36" Columns="1" Width="340" Drop="ItemListGrid_Drop" DragEnter="ItemListGrid_DragEnter" MinHeight="30" Background="#FFFBFBFB" AllowDrop="True"/>
-            <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" AllowDrop="False">
-                <TextBlock x:Name="BillText" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="Bill #" Height="28"/>
-                <TextBlock x:Name="BillIdentifier" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50,0,0,0" Height="28" FontSize="20" FontWeight="Bold"/>
+            <Grid x:Name="BillInfoGrid" Margin="20,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" AllowDrop="False" Width="149.675">
+                <TextBlock x:Name="BillIdentifier" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontSize="20" FontWeight="Bold"/>
             </Grid>
         </Grid>
     </Grid>
