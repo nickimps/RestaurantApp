@@ -373,7 +373,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Grid>
+                        <Grid Margin="-379.048,0,0,0">
                             <AdornerDecorator CacheMode="{Binding (materialDesign:ShadowAssist.CacheMode), RelativeSource={RelativeSource Self}}">
                                 <Grid>
                                     <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2">
@@ -401,7 +401,7 @@
                                 </Grid>
                             </AdornerDecorator>
                             <materialDesign:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Focusable="False" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <ContentPresenter HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="14.071" Margin="5.929,0,0,0"/>
+                            <ContentPresenter HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" TextBlock.FontFamily="Century Gothic" Width="40.642" Margin="179.017,0,0,0" Content="Close"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -567,7 +567,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -637,9 +637,9 @@
             <Button x:Name="S_Enter" Content="Enter" HorizontalAlignment="Left" Height="50" Margin="508.5,201,0,0" Style="{DynamicResource ButtonStyle10}" VerticalAlignment="Top" Width="93.143" Click="Button_Click_1"/>
         </Grid>
         <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860" d:IsHidden="True"/>
-        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">
-            <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585" d:IsHidden="True">
-                <Button x:Name="CloseButton" Content="X" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="button_Click" Style="{DynamicResource ButtonStyle12}" Background="#FFDC2F2F" BorderBrush="#FFDC2F2F"/>
+        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center">
+            <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585">
+                <Button x:Name="CloseButton" Content="" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="button_Click" Style="{DynamicResource ButtonStyle12}" Background="#FFDC2F2F" BorderBrush="#FFDC2F2F"/>
 
             </Grid>
             <Grid x:Name="ContentGrid" VerticalAlignment="Top" Width="400" Margin="0,20,0,0" d:IsHidden="True">
@@ -648,13 +648,13 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid x:Name="InnerGrid" Margin="10" Background="#FF00FFF3" Width="380" d:IsHidden="True">
-                        <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" Visibility="Hidden"/>
-                        <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom">
+                        <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" Visibility="Hidden" d:IsHidden="True"/>
+                        <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom" d:IsHidden="True">
                             <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
                             <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right"/>
                         </Grid>
-                        <UniformGrid x:Name="ItemListGrid" Margin="10,38,10,36" Columns="1" Width="340"/>
-                        <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <UniformGrid x:Name="ItemListGrid" Margin="10,38,10,36" Columns="1" Width="340" d:IsHidden="True"/>
+                        <Grid x:Name="BillInfoGrid" Margin="10,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" d:IsHidden="True">
                             <TextBlock x:Name="BillText" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" Text="Bill #" Height="28"/>
                             <TextBlock x:Name="BillIdentifier" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="50,0,0,0" Height="28" FontSize="20" FontWeight="Bold"/>
                         </Grid>

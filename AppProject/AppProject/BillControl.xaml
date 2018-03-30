@@ -5,23 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppProject"
              mc:Ignorable="d" Width="400" MinWidth="400" MinHeight="94" MaxWidth="400">
-    <Grid x:Name="BillMainGrid" Background="#FFA8A8A8" Margin="0" Width="400" MinHeight="94">
+    <Grid x:Name="BillMainGrid" Background="#FFECF0F1" Margin="0" Width="400" MinHeight="94">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid x:Name="InnerGrid" Margin="10" Background="#FF00FFF3" Width="380" AllowDrop="False">
+        <Grid x:Name="InnerGrid" Margin="10" Background="#FFEE712B" Width="380" AllowDrop="False">
             <Grid.RowDefinitions>
                 <RowDefinition Height="74*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <CheckBox x:Name="BillCheckBox" Content="" VerticalAlignment="Top" Margin="0,15,15,0" HorizontalAlignment="Right" Width="16" Height="16" AllowDrop="False" Background="White" BorderBrush="White" Visibility="Hidden"/>
             <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom" AllowDrop="False">
-                <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
-                <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right" FontFamily="Century Gothic"/>
+                <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic" Foreground="#FFECF0F1"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
+                <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right" FontFamily="Century Gothic" Foreground="#FFECF0F1"/>
             </Grid>
-            <UniformGrid x:Name="ItemListGrid" Margin="20,38,20,36" Columns="1" Width="340" Drop="ItemListGrid_Drop" DragEnter="ItemListGrid_DragEnter" MinHeight="30" Background="#FFFBFBFB" AllowDrop="True"/>
+            <UniformGrid x:Name="ItemListGrid" Margin="20,38,20,36" Columns="1" Width="340" Drop="ItemListGrid_Drop" DragEnter="ItemListGrid_DragEnter" MinHeight="30" Background="#FFEE712B" AllowDrop="True"/>
             <Grid x:Name="BillInfoGrid" Margin="20,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" AllowDrop="False" Width="149.675">
-                <TextBlock x:Name="BillIdentifier" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontSize="20" FontWeight="Bold"/>
+                <TextBlock x:Name="BillIdentifier" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontSize="20" FontWeight="Bold" Foreground="#FFECF0F1"/>
             </Grid>
         </Grid>
     </Grid>

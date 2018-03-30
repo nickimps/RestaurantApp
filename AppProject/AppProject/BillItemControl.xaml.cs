@@ -38,6 +38,7 @@ namespace AppProject
 
             string price = String.Format("{0:0.00}", item.value);
             this.ItemPrice.Text = price;
+            this.ItemName.Text = sourceItem.name;
             MovingEnabled = false;
         }
 
@@ -45,8 +46,8 @@ namespace AppProject
         {
             item = sourceItem;
             originalItem = sourceItem;
-            this.ItemPrice.Text = item.value.ToString();
-            this.ItemName.Text = sourceItem.name;
+            ItemPrice.Text = item.value.ToString();
+            ItemName.Text = sourceItem.name;
         }
 
         public void Moved()
