@@ -259,13 +259,11 @@ namespace AppProject
 
         private void OnHideReviewStoryboardCompleted(object sender, EventArgs e)
         {
-            //MenuGrid.Visibility = Visibility.Visible;
             ReviewGrid.Visibility = Visibility.Hidden;
         }
 
         private void M_ReviewOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            //MenuGrid.Visibility = Visibility.Hidden;
             ReviewGrid.Visibility = Visibility.Visible;
             R_ReviewTitle.Text = "Review Bills";
         }

@@ -28,9 +28,6 @@ namespace AppProject
             InitializeComponent();
             this.IdentifierText.Text = bill.billName;
             this.TotalText.Text = "$" + bill.ReturnTotal().ToString();
-
         }
-
-       
     }
 }
