@@ -180,6 +180,9 @@ namespace AppProject
             selectedItem = new FoodItem(e.item);
         }
 
+
+        //Deals with MENU interface bills clicking.
+        //When in adding mode will add item. When not will display the bill.
         private void M_BillClick(object sender, EventArgs e)
         {
             Bill clickedBill = sender as Bill;
@@ -202,8 +205,10 @@ namespace AppProject
                 this.M_BillUniformGrid.Effect = myUnDropShadow;
 
                 addMode = false;
-                clickedBill.AddItem(selectedItem);
+                orderedFoods.Add(selectedItem);
+                clickedBill.AddNewItem(selectedItem);
             }
+            //Display Bill
             else
             {
                 this.BillDisplayGrid.Visibility = Visibility.Visible;

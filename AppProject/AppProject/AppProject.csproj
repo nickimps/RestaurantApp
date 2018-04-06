@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BICEventArgs.cs" />
     <Compile Include="Bill.cs" />
     <Compile Include="BillEventArgs.cs" />
     <Compile Include="BillItemControl.xaml.cs">

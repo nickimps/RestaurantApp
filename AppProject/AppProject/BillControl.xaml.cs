@@ -20,6 +20,7 @@ namespace AppProject
     /// </summary>
     public partial class BillControl : UserControl
     {
+        public event EventHandler<EventArgs> BillItemListChange;
 
         public Bill billLogic { get; set; }
 
@@ -43,7 +44,7 @@ namespace AppProject
             this.ItemListGrid.Children.Add(item);
 
             //Subscribing to BillItemControl events -- Used for move drag and drop
-            item.Removed += new EventHandler<ItemEventArgs>(RemoveItem);
+            item.Removed += new EventHandler<BICEventArgs>(RemoveItem);
             //item.Released += new EventHandler<EventArgs>(ToggleDroppability);
            // item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
         }
@@ -86,7 +87,7 @@ namespace AppProject
         {
             BillItemControl itemC = (BillItemControl)e.Data.GetData("AppProject.BillItemControl");
             itemC.Moved();
-            billLogic.AddItem(itemC.item);
+            billLogic.AddExistingItem(itemC);
         }
 
         private void ItemListGrid_DragEnter(object sender, DragEventArgs e)
@@ -101,14 +102,14 @@ namespace AppProject
             }
         }
 
-        private void RemoveItem(object sender, ItemEventArgs e)
+        private void RemoveItem(object sender, BICEventArgs e)
         {
+            this.ItemListGrid.Children.Remove(e.bic);
+            this.BillItemListChange.Invoke(this, new EventArgs());
             //Unsubscribing from BillItemControl(BIC) Events for the BIC removed
-            e.item.billItemView.Removed -= new EventHandler<ItemEventArgs>(RemoveItem);
+            e.bic.Removed -= new EventHandler<BICEventArgs>(RemoveItem);
             //e.item.billItemView.Released -= new EventHandler<EventArgs>(ToggleDroppability);
             //e.item.billItemView.Dragged -= new EventHandler<EventArgs>(ToggleDroppability);
-            billLogic.RemoveItem(e.item);
-            this.ItemListGrid.Children.Remove(e.item.billItemView);
         }
     }
 }
