@@ -7,8 +7,8 @@
              mc:Ignorable="d" Width="340" MinHeight="30" Focusable="True" MouseDown="UserControl_MouseDown" Foreground="{x:Null}" Height="41.821">
     <UserControl.Resources>
         <ControlTemplate x:Key="CloseButton" TargetType="{x:Type Button}">
-            <Grid x:Name="CloseGrid" Width="16" Height="16">
-                <TextBlock x:Name="X" HorizontalAlignment="Left" Margin="0,0,0,-63.8" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="16" Height="17" Foreground="Red"/>
+            <Grid x:Name="CloseGrid" Width="20" Height="20">
+                <TextBlock x:Name="X" HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="20" Height="20" Foreground="Black" FontSize="18" LineHeight="Auto"/>
             </Grid>
         </ControlTemplate>
     </UserControl.Resources>
@@ -23,10 +23,10 @@
                 <ColumnDefinition Width="23*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="27,7,0,6.82" Height="28" HorizontalAlignment="Left" FontSize="20" FontFamily="Century Gothic" Text="Test Test" Foreground="#FFECF0F1"/>
-            <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Margin="0,7,6,6.82" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right" FontFamily="Century Gothic" Text="$99.99" Foreground="#FFECF0F1"/>
+            <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="32,7,0,6.82" Height="28" HorizontalAlignment="Left" FontSize="20" FontFamily="Century Gothic" Text="Test Test" Foreground="#FFECF0F1"/>
+            <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Margin="0,7.577,37,6.243" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right" FontFamily="Century Gothic" Text="$99.99" Foreground="#FFECF0F1"/>
             <CheckBox x:Name="ItemCheckBox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False" Opacity="0.75" Visibility="Hidden"/>
-            <Button x:Name="CancelButton" Content="Button" HorizontalAlignment="Right" Width="16" Height="16" Margin="0,6,6,0" VerticalAlignment="Top" Template="{DynamicResource CloseButton}" Grid.Column="1" Click="CancelButton_Click" Visibility="Hidden"/>
+            <Button x:Name="CancelButton" Content="Button" HorizontalAlignment="Right" Width="37" Height="Auto" Template="{DynamicResource CloseButton}" Click="CancelButton_Click" Margin="0,0,0,6"/>
         </Grid>
     </Grid>
 </UserControl>

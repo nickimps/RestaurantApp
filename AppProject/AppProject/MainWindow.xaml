@@ -489,7 +489,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" d:IsHidden="True">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -639,7 +639,7 @@
         <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860" d:IsHidden="True"/>
         <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center">
             <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585">
-                <Button x:Name="CloseButton" Content="" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="button_Click" Style="{DynamicResource ButtonStyle12}" Background="#FFDC2F2F" BorderBrush="#FFDC2F2F"/>
+                <Button x:Name="CloseButton" Content="" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="Close_BillDisplayGrid" Style="{DynamicResource ButtonStyle12}" Background="#FFDC2F2F" BorderBrush="#FFDC2F2F"/>
 
             </Grid>
             <Grid x:Name="ContentGrid" VerticalAlignment="Top" Width="400" Margin="0,20,0,0" d:IsHidden="True">

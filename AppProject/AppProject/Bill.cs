@@ -26,11 +26,6 @@ namespace AppProject
             CreateMenuView();
         }
 
-        public BillControl GetView()
-        {
-            return billView;
-        }
-
         private void CreateView()
         {
             billView = new BillControl(this);
