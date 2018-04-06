@@ -64,6 +64,14 @@ namespace AppProject
                 bic.ToggleMovingEnabled();
             }
         }
+        
+        public void ToggleItemDeletability()
+        {
+            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            {
+                bic.ToggleCancelButtonVisibility();
+            }
+        }
      
         private void ToggleDroppability(object sender, EventArgs e)
         {

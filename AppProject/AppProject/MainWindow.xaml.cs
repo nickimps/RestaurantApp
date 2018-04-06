@@ -27,7 +27,8 @@ namespace AppProject
         List<Bill> bills = new List<Bill>();
         List<FoodItem> orderedFoods = new List<FoodItem>();
 
-        int numDinners = 0;
+        private int numDinners = 0;
+        private int billPosition;
  
         private Boolean addMode = false;
         FoodItem selectedItem;
@@ -212,11 +213,32 @@ namespace AppProject
             else
             {
                 this.BillDisplayGrid.Visibility = Visibility.Visible;
-                BillControl bill = new BillControl(clickedBill);
-                this.ContentGrid.Children.Add(bill);
+                billPosition = this.R_BillUniformGrid.Children.IndexOf(clickedBill.billView);
+                this.R_BillUniformGrid.Children.Remove(clickedBill.billView);
+                this.ContentGrid.Children.Add(clickedBill.billView);
+
+                //This is a temporary solution for Menu Bill interactive when one is clicked
+                this.M_BillUniformGrid.IsEnabled = false;
+
             }
         }
 
+        private void Close_BillDisplayGrid(object sender, RoutedEventArgs e)
+        {
+            this.BillDisplayGrid.Visibility = Visibility.Hidden;
+            BillControl bc = this.ContentGrid.Children[1] as BillControl;
+            this.ContentGrid.Children.Remove(bc);
+            if (billPosition == BillDisplayGrid.Children.Count)
+            {
+                this.R_BillUniformGrid.Children.Add(bc);
+            } else
+            {
+                this.R_BillUniformGrid.Children.Insert(billPosition, bc);
+            }
+
+            //This is a temporary solution for Menu Bill interactive when one is clicked
+            this.M_BillUniformGrid.IsEnabled = true;
+        }
 
         private void W_numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -278,6 +300,7 @@ namespace AppProject
             foreach (Bill bill in bills)
             {
                 bill.ToggleItemDragging();
+                bill.billView.ToggleItemDeletability();
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
@@ -290,6 +313,7 @@ namespace AppProject
             foreach (Bill bill in bills)
             {
                 bill.ToggleItemDragging();
+                bill.billView.ToggleItemDeletability();
             }
 
             this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
@@ -311,11 +335,6 @@ namespace AppProject
         private void S_Dismiss_Click(object sender, RoutedEventArgs e)
         {
             this.ServerGrid.Visibility = Visibility.Hidden;
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            this.BillDisplayGrid.Visibility = Visibility.Hidden;
         }
 
         private void M_AppetizersButton_Click(object sender, RoutedEventArgs e)

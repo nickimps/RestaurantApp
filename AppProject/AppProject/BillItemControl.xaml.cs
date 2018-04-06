@@ -27,6 +27,7 @@ namespace AppProject
         public Boolean MovingEnabled { get; set; }
         public double itemPrice {get; set;}
 
+        public Boolean itemSent = false;
         public string itemName { get; set; }
 
         //public FoodItem item { get; set; }
@@ -87,8 +88,20 @@ namespace AppProject
             {
                 MovingEnabled = false;
             } else
-            {
+            { 
                 MovingEnabled = true;
+            }
+        }
+
+        public void ToggleCancelButtonVisibility()
+        {
+            Console.WriteLine(this.CancelButton.Visibility);
+            if (this.CancelButton.Visibility == Visibility.Visible)
+            {
+                this.CancelButton.Visibility = Visibility.Hidden;
+            } else
+            {
+                this.CancelButton.Visibility = Visibility.Visible;
             }
         }
 
@@ -123,7 +136,10 @@ namespace AppProject
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            //this.Removed.Invoke(this, new ItemControlEventArgs() { bic = this });
+            if (!itemSent)
+            {
+                this.Removed.Invoke(this, new BICEventArgs() { bic = this });
+            }
         }
     }
 }
