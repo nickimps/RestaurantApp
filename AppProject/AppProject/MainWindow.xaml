@@ -584,16 +584,15 @@
                 <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,2,10,0" Height="46"/>
                 <Grid x:Name="R_TransitionButtonGrid" Margin="10,178.442,10,10" Grid.Row="1" Width="385" Height="248">
                     <Button x:Name="R_CheckoutButton" Content="Pay for Meal" HorizontalAlignment="Left" Height="94" Margin="18.286,44.999,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_CheckoutButton_Click"/>
-                    <Button x:Name="R_SendButton" Content="Send To Kitchen" HorizontalAlignment="Left" Height="94" Margin="18.286,-76,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
+                    <Button x:Name="R_SendButton" Content="Send To Kitchen" HorizontalAlignment="Left" Height="94" Margin="18.286,-76,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_SendButton_Click"/>
                     <Button x:Name="R_ReturnButton" Content="Return To Menu" HorizontalAlignment="Left" Height="94" Margin="18.286,162,0,-8" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="R_ReturnButton_Click"/>
                 </Grid>
                 <Grid x:Name="R_EditButtonsGrid" Height="195" VerticalAlignment="Top" Margin="0,453.5,0,0" Grid.RowSpan="2">
                     <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Margin="28,-40,0,0" Style="{DynamicResource ButtonStyle6}" Width="348.948" Height="94" VerticalAlignment="Top"/>
                     <Button x:Name="R_MoveButton" Content="Move Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-160,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_MoveButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0" Height="261.75" Grid.Row="1" d:IsHidden="True">
-                    <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Height="94" Margin="18.052,160.167,0,0" Style="{DynamicResource ButtonStyle8}" VerticalAlignment="Top" Width="348.948" Click="R_CancelButton_Click"/>
-                    <Button x:Name="ConfirmButton" Content="Confirm" HorizontalAlignment="Left" Height="94" Margin="19.385,43.167,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948"/>
+                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0,0,10" Height="261.75" Grid.Row="1">
+                    <Button x:Name="DoneButton" Content="Done" HorizontalAlignment="Left" Height="94" Margin="19.052,167.75,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_DoneButton_Click"/>
                 </Grid>
             </Grid>
             <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Height="854.287" VerticalAlignment="Top" Width="1185.572" Margin="19.428,108.285,0,0" Background="#FF787878">
@@ -637,7 +636,7 @@
             <Button x:Name="S_Enter" Content="Enter" HorizontalAlignment="Left" Height="50" Margin="508.5,201,0,0" Style="{DynamicResource ButtonStyle10}" VerticalAlignment="Top" Width="93.143" Click="Button_Click_1"/>
         </Grid>
         <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860" d:IsHidden="True"/>
-        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center">
+        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">
             <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585">
                 <Button x:Name="CloseButton" Content="" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="Close_BillDisplayGrid" Style="{DynamicResource ButtonStyle12}" Background="#FFDC2F2F" BorderBrush="#FFDC2F2F"/>
 

@@ -94,14 +94,29 @@ namespace AppProject
         }
 
         public void ToggleCancelButtonVisibility()
-        {
-            Console.WriteLine(this.CancelButton.Visibility);
+        {;
             if (this.CancelButton.Visibility == Visibility.Visible)
             {
                 this.CancelButton.Visibility = Visibility.Hidden;
             } else
             {
-                this.CancelButton.Visibility = Visibility.Visible;
+                if (!itemSent)
+                {
+                    this.CancelButton.Visibility = Visibility.Visible;
+                }
+            }
+        }
+
+        public void SendItem()
+        {
+            if (itemSent)
+            {
+
+            } else
+            {
+                itemSent = true;
+                this.CancelButton.Visibility = Visibility.Hidden;
+                this.BackgroundColor.Fill = Brushes.Black;
             }
         }
 
