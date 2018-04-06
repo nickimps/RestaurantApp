@@ -49,11 +49,19 @@ namespace AppProject
            // item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
         }
 
+        public void SendItems()
+        {
+            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            {
+                bic.SendItem();
+            }
+        }
+
         public void ToggleItemCheckBoxes()
         {
-            foreach (BillItemControl bc in this.ItemListGrid.Children)
+            foreach (BillItemControl bic in this.ItemListGrid.Children)
             {
-                bc.ToggleCheckBoxVisibility();
+                bic.ToggleCheckBoxVisibility();
             }
         }
 

@@ -93,153 +93,9 @@ namespace AppProject
             R_MoveButtonsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void M_DisplayMoreInfo(object sender, EventArgs e)
-        {
-            DisplayMoreInfoGrid.Visibility = Visibility.Visible;
-
-            BlurEffect myBlurEffect = new BlurEffect
-            {
-                Radius = 10,
-                KernelType = KernelType.Gaussian
-            };
-            this.M_CategoryGrid.Effect = myBlurEffect;
-            this.selectedMenu.Effect = myBlurEffect;
-            this.selectedMenuItems.Effect = myBlurEffect;
-            this.selectedMenuCover.Effect = myBlurEffect;
-            this.M_ReviewOrderButton.Effect = myBlurEffect;
-
-            this.M_ReviewOrderButton.IsEnabled = false;
-            this.M_CategoryGrid.IsEnabled = false;
-            this.selectedMenu.IsEnabled = false;
-            this.selectedMenuItems.IsEnabled = false;
-            this.selectedMenuCover.IsEnabled = false;
-
-            MenuItemsControl mic = sender as MenuItemsControl;
-            Image image = mic.ImageContent;
-            string itemName = mic.FoodTitle.Text;
-            MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
-            this.DisplayMoreInfoGrid.Children.Clear();
-            this.DisplayMoreInfoGrid.Children.Add(moreInfo);
-            moreInfo.AddRequest += new EventHandler<ItemEventArgs>(M_AddRequest);
-            moreInfo.DeBlur += new EventHandler<EventArgs>(M_DeBlur);
-        }
-
-        private void M_DeBlur(object sender, EventArgs e)
-        {
-            BlurEffect myDeBlurEffect = new BlurEffect
-            {
-                Radius = 0,
-                KernelType = KernelType.Gaussian
-            };
-            this.M_CategoryGrid.Effect = myDeBlurEffect;
-            this.DisplayMoreInfoGrid.Effect = myDeBlurEffect;
-            this.selectedMenu.Effect = myDeBlurEffect;
-            this.selectedMenuItems.Effect = myDeBlurEffect;
-            this.selectedMenuCover.Effect = myDeBlurEffect;
-            this.M_ReviewOrderButton.Effect = myDeBlurEffect;
-
-            this.M_ReviewOrderButton.IsEnabled = true;
-            this.M_CategoryGrid.IsEnabled = true;
-            this.DisplayMoreInfoGrid.IsEnabled = true;
-            this.selectedMenu.IsEnabled = true;
-            this.selectedMenuItems.IsEnabled = true;
-            this.selectedMenuCover.IsEnabled = true;
-        }
-
-        private void M_AddRequest(object sender, ItemEventArgs e)
-        {
-            AddItemsPromptGrid.Visibility = Visibility.Visible;
-
-            BlurEffect myBlurEffect = new BlurEffect
-            {
-                Radius = 10,
-                KernelType = KernelType.Gaussian
-            };
-            this.M_CategoryGrid.Effect = myBlurEffect;
-            this.DisplayMoreInfoGrid.Effect = myBlurEffect;
-            this.selectedMenu.Effect = myBlurEffect;
-            this.selectedMenuItems.Effect = myBlurEffect;
-            this.selectedMenuCover.Effect = myBlurEffect;
-            this.M_ReviewOrderButton.Effect = myBlurEffect;
-
-            this.M_ReviewOrderButton.IsEnabled = false;
-            this.M_CategoryGrid.IsEnabled = false;
-            this.selectedMenu.IsEnabled = false;
-            this.selectedMenuItems.IsEnabled = false;
-            this.selectedMenuCover.IsEnabled = false;
-
-            DropShadowEffect myDropShadow = new DropShadowEffect
-            {
-                BlurRadius = 10,
-                Direction = 315,
-                ShadowDepth = 5,
-                Color = Colors.Black
-            };
-            this.M_BillUniformGrid.Effect = myDropShadow;
-
-            addMode = true;
-            selectedItem = new FoodItem(e.item);
-        }
-
-
-        //Deals with MENU interface bills clicking.
-        //When in adding mode will add item. When not will display the bill.
-        private void M_BillClick(object sender, EventArgs e)
-        {
-            Bill clickedBill = sender as Bill;
-            if (addMode)
-            {
-                EventHandler<EventArgs> DeBlurThings = new EventHandler<EventArgs>(M_DeBlur);
-                DeBlurThings.Invoke(this, new EventArgs());
-                
-                this.DisplayMoreInfoGrid.IsEnabled = true;
-
-                AddItemsPromptGrid.Visibility = Visibility.Hidden;
-
-                DropShadowEffect myUnDropShadow = new DropShadowEffect
-                {
-                    BlurRadius = 0,
-                    Direction = 0,
-                    ShadowDepth = 0,
-                    Color = Colors.White
-                };
-                this.M_BillUniformGrid.Effect = myUnDropShadow;
-
-                addMode = false;
-                orderedFoods.Add(selectedItem);
-                clickedBill.AddNewItem(selectedItem);
-            }
-            //Display Bill
-            else
-            {
-                this.BillDisplayGrid.Visibility = Visibility.Visible;
-                billPosition = this.R_BillUniformGrid.Children.IndexOf(clickedBill.billView);
-                this.R_BillUniformGrid.Children.Remove(clickedBill.billView);
-                this.ContentGrid.Children.Add(clickedBill.billView);
-
-                //This is a temporary solution for Menu Bill interactive when one is clicked
-                this.M_BillUniformGrid.IsEnabled = false;
-
-            }
-        }
-
-        private void Close_BillDisplayGrid(object sender, RoutedEventArgs e)
-        {
-            this.BillDisplayGrid.Visibility = Visibility.Hidden;
-            BillControl bc = this.ContentGrid.Children[1] as BillControl;
-            this.ContentGrid.Children.Remove(bc);
-            if (billPosition == BillDisplayGrid.Children.Count)
-            {
-                this.R_BillUniformGrid.Children.Add(bc);
-            } else
-            {
-                this.R_BillUniformGrid.Children.Insert(billPosition, bc);
-            }
-
-            //This is a temporary solution for Menu Bill interactive when one is clicked
-            this.M_BillUniformGrid.IsEnabled = true;
-        }
-
+        /**********************************************************
+         *************WELCOME SCREEN BUTTTON FUNCTIONS*************
+         **********************************************************/
         private void W_numberOfPeopleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (W_numberOfPeopleSlider.Value > 0)
@@ -258,14 +114,6 @@ namespace AppProject
         private void W_StartButton_Click(object sender, RoutedEventArgs e)
         {
             this.W_StartButton.IsEnabled = false;
-            Storyboard sb = this.FindResource("CloseWelcomeScreen") as Storyboard;
-            sb.Completed += OnWelcomeScreenStoryboardCompleted;
-        }
-
-        private void OnWelcomeScreenStoryboardCompleted(object sender, EventArgs e)
-        {
-            MenuGrid.Visibility = Visibility.Visible;
-            WelcomeScreen.Visibility = Visibility.Hidden;
             numDinners = (int)W_numberOfPeopleSlider.Value;
 
             for (int i = 0; i < numDinners; i++)
@@ -276,67 +124,19 @@ namespace AppProject
                 M_BillUniformGrid.Children.Add(cBill.m_BillView);
                 cBill.MenuBillClicked += new EventHandler<EventArgs>(M_BillClick);
             }
+            Storyboard sb = this.FindResource("CloseWelcomeScreen") as Storyboard;
+            sb.Completed += OnWelcomeScreenStoryboardCompleted;
         }
 
-        private void R_ReturnButton_Click(object sender, RoutedEventArgs e)
+        private void OnWelcomeScreenStoryboardCompleted(object sender, EventArgs e)
         {
-            Storyboard sb = this.FindResource("ShrinkReviewScreen") as Storyboard;
-            sb.Completed += OnHideReviewStoryboardCompleted;
+            MenuGrid.Visibility = Visibility.Visible;
+            WelcomeScreen.Visibility = Visibility.Hidden;
         }
 
-        private void OnHideReviewStoryboardCompleted(object sender, EventArgs e)
-        {
-            ReviewGrid.Visibility = Visibility.Hidden;
-        }
-
-        private void M_ReviewOrderButton_Click(object sender, RoutedEventArgs e)
-        {
-            ReviewGrid.Visibility = Visibility.Visible;
-            R_ReviewTitle.Text = "Review Bills";
-        }
-
-        private void R_MoveButton_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (Bill bill in bills)
-            {
-                bill.ToggleItemDragging();
-                bill.billView.ToggleItemDeletability();
-            }
-            this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
-            this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
-            this.R_MoveButtonsGrid.Visibility = Visibility.Visible;
-            R_ReviewTitle.Text = "Drag items to organize bills";
-        }
-
-        private void R_CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (Bill bill in bills)
-            {
-                bill.ToggleItemDragging();
-                bill.billView.ToggleItemDeletability();
-            }
-
-            this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
-            this.R_EditButtonsGrid.Visibility = Visibility.Visible;
-            this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;
-            R_ReviewTitle.Text = "Review Bills";
-        }
-
-        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.ServerGrid.Visibility = Visibility.Visible;
-        }
-
-        private void S_Dismiss_Click(object sender, RoutedEventArgs e)
-        {
-            this.ServerGrid.Visibility = Visibility.Hidden;
-        }
-
+        /**********************************************************
+        ***************MENU SCREEN BUTTTON FUNCTIONS***************
+        **********************************************************/
         private void M_AppetizersButton_Click(object sender, RoutedEventArgs e)
         {
             selectedMenu.Visibility = Visibility.Hidden;
@@ -437,16 +237,62 @@ namespace AppProject
             selectedMenuItems = this.M_KidsScrollGrid;
         }
 
-        private void CallServerButton_Click(object sender, RoutedEventArgs e)
+        private void M_DisplayMoreInfo(object sender, EventArgs e)
         {
-            HelpPromptGrid.Visibility = Visibility.Visible;
+            DisplayMoreInfoGrid.Visibility = Visibility.Visible;
 
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
+            this.M_CategoryGrid.Effect = myBlurEffect;
+            this.selectedMenu.Effect = myBlurEffect;
+            this.selectedMenuItems.Effect = myBlurEffect;
+            this.selectedMenuCover.Effect = myBlurEffect;
+            this.M_ReviewOrderButton.Effect = myBlurEffect;
+
+            this.M_ReviewOrderButton.IsEnabled = false;
             this.M_CategoryGrid.IsEnabled = false;
-            this.DisplayMoreInfoGrid.IsEnabled = false;
             this.selectedMenu.IsEnabled = false;
             this.selectedMenuItems.IsEnabled = false;
             this.selectedMenuCover.IsEnabled = false;
-            this.M_ReviewOrderButton.IsEnabled = false;
+
+            MenuItemsControl mic = sender as MenuItemsControl;
+            Image image = mic.ImageContent;
+            string itemName = mic.FoodTitle.Text;
+            MoreInfoControl moreInfo = new MoreInfoControl(image, itemName);
+            this.DisplayMoreInfoGrid.Children.Clear();
+            this.DisplayMoreInfoGrid.Children.Add(moreInfo);
+            moreInfo.AddRequest += new EventHandler<ItemEventArgs>(M_AddRequest);
+            moreInfo.DeBlur += new EventHandler<EventArgs>(M_DeBlur);
+        }
+
+        private void M_DeBlur(object sender, EventArgs e)
+        {
+            BlurEffect myDeBlurEffect = new BlurEffect
+            {
+                Radius = 0,
+                KernelType = KernelType.Gaussian
+            };
+            this.M_CategoryGrid.Effect = myDeBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myDeBlurEffect;
+            this.selectedMenu.Effect = myDeBlurEffect;
+            this.selectedMenuItems.Effect = myDeBlurEffect;
+            this.selectedMenuCover.Effect = myDeBlurEffect;
+            this.M_ReviewOrderButton.Effect = myDeBlurEffect;
+
+            this.M_ReviewOrderButton.IsEnabled = true;
+            this.M_CategoryGrid.IsEnabled = true;
+            this.DisplayMoreInfoGrid.IsEnabled = true;
+            this.selectedMenu.IsEnabled = true;
+            this.selectedMenuItems.IsEnabled = true;
+            this.selectedMenuCover.IsEnabled = true;
+        }
+
+        private void M_AddRequest(object sender, ItemEventArgs e)
+        {
+            AddItemsPromptGrid.Visibility = Visibility.Visible;
 
             BlurEffect myBlurEffect = new BlurEffect
             {
@@ -459,6 +305,94 @@ namespace AppProject
             this.selectedMenuItems.Effect = myBlurEffect;
             this.selectedMenuCover.Effect = myBlurEffect;
             this.M_ReviewOrderButton.Effect = myBlurEffect;
+
+            this.M_ReviewOrderButton.IsEnabled = false;
+            this.M_CategoryGrid.IsEnabled = false;
+            this.selectedMenu.IsEnabled = false;
+            this.selectedMenuItems.IsEnabled = false;
+            this.selectedMenuCover.IsEnabled = false;
+
+            DropShadowEffect myDropShadow = new DropShadowEffect
+            {
+                BlurRadius = 10,
+                Direction = 315,
+                ShadowDepth = 5,
+                Color = Colors.Black
+            };
+            this.M_BillUniformGrid.Effect = myDropShadow;
+
+            addMode = true;
+            selectedItem = new FoodItem(e.item);
+        }
+
+        //Deals with MENU interface bills clicking has two seperate modes
+        //When in adding mode will add item. When not will display the bill.
+        private void M_BillClick(object sender, EventArgs e)
+        {
+            Bill clickedBill = sender as Bill;
+            if (addMode)
+            {
+                EventHandler<EventArgs> DeBlurThings = new EventHandler<EventArgs>(M_DeBlur);
+                DeBlurThings.Invoke(this, new EventArgs());
+                
+                this.DisplayMoreInfoGrid.IsEnabled = true;
+
+                AddItemsPromptGrid.Visibility = Visibility.Hidden;
+
+                DropShadowEffect myUnDropShadow = new DropShadowEffect
+                {
+                    BlurRadius = 0,
+                    Direction = 0,
+                    ShadowDepth = 0,
+                    Color = Colors.White
+                };
+                this.M_BillUniformGrid.Effect = myUnDropShadow;
+
+                addMode = false;
+                orderedFoods.Add(selectedItem);
+                clickedBill.AddNewItem(selectedItem);
+            }
+            //Display Bill
+            else
+            {
+                this.BillDisplayGrid.Visibility = Visibility.Visible;
+                billPosition = this.R_BillUniformGrid.Children.IndexOf(clickedBill.billView);
+                this.R_BillUniformGrid.Children.Remove(clickedBill.billView);
+                this.ContentGrid.Children.Add(clickedBill.billView);
+
+                //This is a temporary solution for Menu Bill interactive when one is clicked
+                this.M_BillUniformGrid.IsEnabled = false;
+
+            }
+        }
+
+        //Function responsible to reseting bill display accordingly
+        private void Close_BillDisplayGrid(object sender, RoutedEventArgs e)
+        {
+            this.BillDisplayGrid.Visibility = Visibility.Hidden;
+            BillControl bc = this.ContentGrid.Children[1] as BillControl;
+            this.ContentGrid.Children.Remove(bc);
+            if (billPosition == BillDisplayGrid.Children.Count)
+            {
+                this.R_BillUniformGrid.Children.Add(bc);
+            } else
+            {
+                this.R_BillUniformGrid.Children.Insert(billPosition, bc);
+            }
+
+            //This is a temporary solution for Menu Bill interactive when one is clicked
+            this.M_BillUniformGrid.IsEnabled = true;
+        }
+
+        private void OnHideReviewStoryboardCompleted(object sender, EventArgs e)
+        {
+            ReviewGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void M_ReviewOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReviewGrid.Visibility = Visibility.Visible;
+            R_ReviewTitle.Text = "Review Bills";
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -501,6 +435,89 @@ namespace AppProject
 
             addMode = false;
             AddItemsPromptGrid.Visibility = Visibility.Hidden;
+        }
+
+
+        /**********************************************************
+        **************REVIEW SCREEN BUTTTON FUNCTIONS**************
+        **********************************************************/
+        private void R_MoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Bill bill in bills)
+            {
+                bill.ToggleItemDragging();
+                bill.billView.ToggleItemDeletability();
+            }
+            this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
+            this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_MoveButtonsGrid.Visibility = Visibility.Visible;
+            R_ReviewTitle.Text = "Drag items to organize bills";
+        }
+
+        private void R_DoneButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Bill bill in bills)
+            {
+                bill.ToggleItemDragging();
+                bill.billView.ToggleItemDeletability();
+            }
+
+            this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+            this.R_EditButtonsGrid.Visibility = Visibility.Visible;
+            this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;
+            R_ReviewTitle.Text = "Review Bills";
+        }
+
+        private void R_SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Bill bill in bills)
+            {
+                bill.billView.SendItems();
+            }
+        }
+
+        private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.ServerGrid.Visibility = Visibility.Visible;
+        }
+
+        private void R_ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            Storyboard sb = this.FindResource("ShrinkReviewScreen") as Storyboard;
+            sb.Completed += OnHideReviewStoryboardCompleted;
+        }
+
+        /**********************************************************
+        *************SERVER RELATTED BUTTTON FUNCTIONS*************
+        **********************************************************/
+
+        private void S_Dismiss_Click(object sender, RoutedEventArgs e)
+        {
+            this.ServerGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void CallServerButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpPromptGrid.Visibility = Visibility.Visible;
+
+            this.M_CategoryGrid.IsEnabled = false;
+            this.DisplayMoreInfoGrid.IsEnabled = false;
+            this.selectedMenu.IsEnabled = false;
+            this.selectedMenuItems.IsEnabled = false;
+            this.selectedMenuCover.IsEnabled = false;
+            this.M_ReviewOrderButton.IsEnabled = false;
+
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
+            this.M_CategoryGrid.Effect = myBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myBlurEffect;
+            this.selectedMenu.Effect = myBlurEffect;
+            this.selectedMenuItems.Effect = myBlurEffect;
+            this.selectedMenuCover.Effect = myBlurEffect;
+            this.M_ReviewOrderButton.Effect = myBlurEffect;
         }
     }
 }

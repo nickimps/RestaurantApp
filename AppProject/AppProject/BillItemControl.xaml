@@ -16,7 +16,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Rectangle Stroke="#FFECF0F1" StrokeThickness="2" RadiusX="15" RadiusY="20" Margin="0,0,0,0.959" Fill="#FFDC4712"/>
+        <Rectangle x:Name="BackgroundColor" Stroke="#FFECF0F1" StrokeThickness="2" RadiusX="15" RadiusY="20" Margin="0,0,0,0.959" Fill="#FFDC4712"/>
         <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="0" Margin="77,0,0,0"/>
         <Grid x:Name="ItemTitleGrid" Height="41.821" VerticalAlignment="Top" Focusable="True">
             <Grid.ColumnDefinitions>
