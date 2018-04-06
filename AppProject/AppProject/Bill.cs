@@ -9,7 +9,7 @@ namespace AppProject
 {
     public class Bill
     {
-        private List<FoodItem> billItems;
+        //private List<FoodItem> billItems;
         private Boolean transactionCompleted { get; set; }
         public string billName { get; set; }
         public BillControl billView;
@@ -21,7 +21,6 @@ namespace AppProject
         public Bill(string identity)
         {
             billName = identity;
-            billItems = new List<FoodItem>();
             transactionCompleted = false;
             CreateView();
             CreateMenuView();
@@ -35,6 +34,7 @@ namespace AppProject
         private void CreateView()
         {
             billView = new BillControl(this);
+            billView.BillItemListChange += new EventHandler<EventArgs>(RecalculateTotal);
         }
 
         private void CreateMenuView()
@@ -48,12 +48,22 @@ namespace AppProject
             this.MenuBillClicked.Invoke(this, new EventArgs());
         }
 
-        public void AddItem(FoodItem item)
-        { 
-            billItems.Add(item);
-            billView.AddItem(item.billItemView);
-            total += item.value;
+        private void RecalculateTotal(object sender, EventArgs e)
+        {
             UpdateTotalsInViews();
+        }
+
+        public void AddNewItem(FoodItem item)
+        { 
+            billView.AddItem(item.billItemView);
+
+            UpdateTotalsInViews();
+        }
+        public void AddExistingItem(BillItemControl bic)
+        {
+            billView.AddItem(bic);
+            UpdateTotalsInViews();
+
         }
 
         public void ToggleCheckBox()
@@ -72,24 +82,31 @@ namespace AppProject
         {
             billView.ToggleItemDraggability();
         }
-
+        /*
         public void RemoveItem(int index)
         {
-            total -= billItems[index].value;
+            total -= billItems[index].totalValue;
             billItems.RemoveAt(index);
             UpdateTotalsInViews();
         }
 
         public void RemoveItem(FoodItem item)
         {
-            total -= item.value;
+            total -= item.totalValue;
             billItems.Remove(item);
             UpdateTotalsInViews();
         }
-
+        */
         private void UpdateTotalsInViews()
         {
-            string price = String.Format("{0:0.00}", total);
+            double newTotal = 0;
+
+            foreach (BillItemControl bic in billView.ItemListGrid.Children)
+            {
+                newTotal += bic.itemPrice;
+            }
+
+            string price = String.Format("{0:0.00}", newTotal);
             m_BillView.TotalText.Text = price;
             billView.TotalNumber.Text = price;
         }

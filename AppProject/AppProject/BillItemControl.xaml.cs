@@ -21,38 +21,53 @@ namespace AppProject
     public partial class BillItemControl : UserControl
     {
         public BillControl owningBill { get; set; }
-        public event EventHandler<ItemEventArgs> Removed;
+        public event EventHandler<BICEventArgs> Removed;
         //public event EventHandler<EventArgs> Dragged;
         //public event EventHandler<EventArgs> Released;
         public Boolean MovingEnabled { get; set; }
-        public FoodItem item { get; set; }
+        public double itemPrice {get; set;}
+
+        public string itemName { get; set; }
+
+        //public FoodItem item { get; set; }
         public FoodItem originalItem { get; set; }
 
+
+        //Default Constructor for creating the first instance of an billItemControl in a FoodItem
         public BillItemControl(FoodItem sourceItem)
         {
-            item = sourceItem;
             originalItem = sourceItem;
             InitializeComponent();
 
-            this.ItemPrice.Text = item.value.ToString();
-
-            string price = String.Format("{0:0.00}", item.value);
+            itemPrice = sourceItem.totalValue;
+            string price = String.Format("{0:0.00}", itemPrice);
             this.ItemPrice.Text = price;
-            this.ItemName.Text = sourceItem.name;
+
+            itemName = sourceItem.name;
+            this.ItemName.Text = itemName;
+
             MovingEnabled = false;
         }
 
-        public BillItemControl(FoodItem sourceItem, string price)
+
+
+        //Constructor used to allow different prices to be set.
+
+        public BillItemControl(FoodItem sourceItem, double splitPrice)
         {
-            item = sourceItem;
             originalItem = sourceItem;
-            ItemPrice.Text = item.value.ToString();
+
+            itemPrice = splitPrice;
+
+            string price = String.Format("{0:0.00}", itemPrice);
+            this.ItemPrice.Text = price;
+
             ItemName.Text = sourceItem.name;
         }
 
         public void Moved()
         {
-            this.Removed.Invoke(this, new ItemEventArgs() { item = item });
+            this.Removed.Invoke(this, new BICEventArgs() { bic = this });
         }
         
         public void ToggleCheckBoxVisibility()
@@ -75,6 +90,13 @@ namespace AppProject
             {
                 MovingEnabled = true;
             }
+        }
+
+        public void ChangePrice(double newPrice)
+        {
+            itemPrice = newPrice;
+            string price = String.Format("{0:0.00}", itemPrice);
+            this.ItemPrice.Text = price;
         }
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)
