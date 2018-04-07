@@ -56,20 +56,23 @@ namespace AppProject
 
 
 
-        //Constructor used to allow different prices to be set.
+        //Constructor used to allow different prices to be set. Used when splitting items
 
         public BillItemControl(FoodItem sourceItem, double splitPrice)
         {
             originalItem = sourceItem;
+            InitializeComponent();
 
             itemPrice = splitPrice;
-
             string price = String.Format("{0:0.00}", itemPrice);
             this.ItemPrice.Text = price;
 
             ItemName.Text = sourceItem.name;
 
+            SplitEnabled = true;
+
             MovingEnabled = false;
+            ToggleCancelButtonVisibility();
         }
 
         public void Moved()
@@ -77,6 +80,11 @@ namespace AppProject
             this.Removed.Invoke(this, new BICEventArgs() { bic = this });
         }
         
+        public void Delete()
+        {
+            this.Deleted.Invoke(this, new BICEventArgs() { bic = this });
+        }
+
         public void ToggleCheckBoxVisibility()
         {
             if (this.ItemCheckBox.Visibility == Visibility.Visible)
@@ -143,6 +151,7 @@ namespace AppProject
             itemPrice = newPrice;
             string price = String.Format("{0:0.00}", itemPrice);
             this.ItemPrice.Text = price;
+            billControl.ItemListChanged();
         }
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)

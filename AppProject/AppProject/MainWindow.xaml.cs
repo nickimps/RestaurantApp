@@ -33,6 +33,7 @@ namespace AppProject
  
         private Boolean addMode = false;
         FoodItem selectedItem;
+        BillItemControl selectedBIC;
         Grid selectedMenu = null;
         ScrollViewer selectedMenuItems = null;
         Rectangle selectedMenuCover;
@@ -530,15 +531,14 @@ namespace AppProject
 
         private void R_DisplaySelections(object sender, BICEventArgs e)
         {
-            BillItemControl bic = e.bic;
-            billPosition = bills.IndexOf(bic.billControl.billLogic);
+            selectedBIC = e.bic;
+            billPosition = bills.IndexOf(selectedBIC.billControl.billLogic);
             this.S_BillUniformGrid.Children.RemoveAt(billPosition);
             this.BillSelectionGrid.Visibility = Visibility.Visible;
-            selectedItem = bic.originalItem;
             
             //Temporary Solutions to disable too many instances
             this.ReviewGrid.IsEnabled = false;
-            this.R_ReviewTitle.Text = "Split " + bic.itemName +  " with which bills?";
+            this.R_ReviewTitle.Text = "Split " + selectedBIC.itemName +  " with which bills?";
 
         }
 
@@ -619,6 +619,8 @@ namespace AppProject
             this.ReviewGrid.IsEnabled = true;
             this.R_ReviewTitle.Text = "Click which food item to split";
 
+            //Spliting Logic here
+            selectedBIC.originalItem.SplitOrderEvenly(selectedBills, selectedBIC);
 
             //Mandatory unselection for clean up purposes
             foreach (Bill bill in selectedBills)
