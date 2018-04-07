@@ -41,7 +41,7 @@ namespace AppProject
             CreateView();
         }
 
-        //So far the control is undefined so work on this method later.
+        //Logic to split orders
         public void SplitOrderEvenly(List<Bill> billsAffected, BillItemControl bic)
         {
             int numberOfBills = 1 + billsAffected.Count;
@@ -63,6 +63,8 @@ namespace AppProject
                     if (bic.itemSent)
                     {
                         associatedBIC.itemSent = true;
+                        associatedBIC.CancelButton.Visibility = System.Windows.Visibility.Hidden;
+                        associatedBIC.BackgroundColor.Fill = System.Windows.Media.Brushes.Black;
                     }
 
                     viewList.Add(associatedBIC);
@@ -149,6 +151,8 @@ namespace AppProject
             billItemView.Deleted += new EventHandler<BICEventArgs>(HandleViewDeletion);
         }
 
+
+        //Handles BillItemControl deletion events
         private void HandleViewDeletion(object sender, BICEventArgs e)
         {
             viewList.Remove(e.bic);
