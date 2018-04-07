@@ -33,13 +33,6 @@ namespace AppProject
             billLogic = bill;
         }
 
-        public BillControl(BillControl clone)
-        {
-            this.BillIdentifier = clone.BillIdentifier;
-            this.BillInfoGrid = clone.BillInfoGrid;
-            this.TotalNumber = clone.TotalNumber;
-        }
-
         public void AddItem(BillItemControl item)
         {
             this.ItemListGrid.Children.Add(item);
@@ -50,6 +43,11 @@ namespace AppProject
             item.Deleted += new EventHandler<BICEventArgs>(DeleteItem);
             //item.Released += new EventHandler<EventArgs>(ToggleDroppability);
             // item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
+        }
+
+        public void ItemListChanged()
+        {
+            this.BillItemListChange.Invoke(this, new EventArgs());
         }
 
         public void ToggleSplitMode()

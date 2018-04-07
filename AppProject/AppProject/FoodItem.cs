@@ -13,10 +13,8 @@ namespace AppProject
         public string name { get; set; }
         public double totalValue { get; set; }
         public string description { get; set; }
-        private int splitCount = 0;
         public Boolean evenSplit = true;
         public string additionalInfo { get; set; }
-        public BillItemControl billItemView;
         public List<BillItemControl> viewList;
 
         public FoodItem(string itemName, string itemValue)
@@ -44,49 +42,77 @@ namespace AppProject
         }
 
         //So far the control is undefined so work on this method later.
-        public void SplitOrderEvenly(List<BillControl> billsAffected)
+        public void SplitOrderEvenly(List<Bill> billsAffected, BillItemControl bic)
         {
-            //Split Logic goes here
-            splitCount += billsAffected.Count;
-            List<double> prices = calculatePrices();
+            int numberOfBills = 1 + billsAffected.Count;
+      
+            //Calculate the prices of an even split between affected parties
+            List<double> prices = calculatePrices(bic.itemPrice, numberOfBills);
 
-            //This loop assumes that it is always a new bill upon addition.
-            for (int i=0; i<splitCount; i++)
+            //This loop looks for items inside existing bills or creates new bills
+            bic.ChangePrice(prices[0]);
+            int index = 1;
+            foreach (Bill bill in billsAffected)
             {
-                if (i >= viewList.Count)
+                BillItemControl associatedBIC = bill.GetRespectiveItem(this);
+                if (associatedBIC == null)
                 {
-                    //Adding it to a the new bill.
-                    BillItemControl nBIC = new BillItemControl(this, prices[i]);
-                    
-                    //Need to add it to billcontrols
-                    billsAffected[i - viewList.Count].AddItem(nBIC);
+                    //New Bill must create it
+                    associatedBIC = new BillItemControl(this, prices[index]);
+                    viewList.Add(associatedBIC);
+                    associatedBIC.Deleted += new EventHandler<BICEventArgs>(HandleViewDeletion);
+                    bill.AddExistingItem(associatedBIC);
 
-                    //Adding into self array
-                    viewList.Add(nBIC);
                 } else
                 {
-                    viewList[i].ChangePrice(prices[i]);
+                    //If it is not a new bill then the price is the old price + new price split into it
+                    associatedBIC.ChangePrice(prices[index] + associatedBIC.itemPrice);
                 }
+                index++;
             }
 
         }
 
+        //Determines if there are duplicates between the bills viewList children and the list of bills provided
+        private int DuplicateCount(List<Bill> bills)
+        {
+            int count = 0;
+            foreach (Bill bill in bills)
+            {
+                Boolean duplicate = false;
+                foreach (BillItemControl bic in viewList)
+                {
+                    if (bic.billControl.billLogic.Equals(bill))
+                    {
+                        duplicate = true;
+                        break;
+                    }
+                }
+                if (!duplicate)
+                {
+                    count++;
+                }
+
+            }
+            return count;
+        }
+
         //Method gets split prices
-        private List<double> calculatePrices()
+        private List<double> calculatePrices(double price, int bills)
         {
             List<double> prices = new List<double>();
-            int tempVal = (int) totalValue * 100;
-            int remainder = tempVal % splitCount;
-            double splitPrice = (double)tempVal / 100 / splitCount; 
-            for (int i=0; i<splitCount; i++)
+            int tempVal =  (int) (price * 100);
+            int remainder = tempVal % bills;
+            int splitPrice = tempVal/bills; 
+            for (int i=0; i<bills; i++)
             {
                 if (i < remainder)
                 {
-                    prices.Add(splitPrice + 0.01);
+                    prices.Add((double) (splitPrice + 1)/100);
                 }
                 else
                 {
-                    prices.Add(splitPrice);
+                    prices.Add((double) splitPrice/100);
                 }
             }
             return prices;
@@ -98,15 +124,10 @@ namespace AppProject
             //Split Unevenly logic goes here
         }
 
-        public BillItemControl GetView()
-        {
-            return billItemView;
-        }
-
         public void CreateView()
         {
             viewList = new List<BillItemControl>();
-            billItemView = new BillItemControl(this);
+            BillItemControl billItemView = new BillItemControl(this);
             viewList.Add(billItemView);
             billItemView.Deleted += new EventHandler<BICEventArgs>(HandleViewDeletion);
         }
@@ -123,7 +144,7 @@ namespace AppProject
             //Need to recalculate other bills
             else
             {
-
+                
             }
         }
     }

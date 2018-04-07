@@ -61,15 +61,16 @@ namespace AppProject
         public BillItemControl(FoodItem sourceItem, double splitPrice)
         {
             originalItem = sourceItem;
+            InitializeComponent();
 
             itemPrice = splitPrice;
-
             string price = String.Format("{0:0.00}", itemPrice);
             this.ItemPrice.Text = price;
 
             ItemName.Text = sourceItem.name;
 
             MovingEnabled = false;
+            ToggleCancelButtonVisibility();
         }
 
         public void Moved()
@@ -143,6 +144,7 @@ namespace AppProject
             itemPrice = newPrice;
             string price = String.Format("{0:0.00}", itemPrice);
             this.ItemPrice.Text = price;
+            billControl.ItemListChanged();
         }
 
         private void UserControl_MouseDown(object sender, MouseButtonEventArgs e)

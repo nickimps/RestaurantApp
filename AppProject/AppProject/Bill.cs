@@ -40,33 +40,42 @@ namespace AppProject
             m_BillView.InteractionButton.Click += new RoutedEventHandler(MenuBillClickedEvent);
         }
         
-        public void CreateSelectionView()
+        private void CreateSelectionView()
         {
             s_BillView = new BillSelectionControl(this);
             
         }
 
-        private void MenuBillClickedEvent(object sender, RoutedEventArgs e)
+  
+        public BillItemControl GetRespectiveItem(FoodItem item)
         {
-            this.MenuBillClicked.Invoke(this, new EventArgs());
-        }
-
-        private void RecalculateTotal(object sender, EventArgs e)
-        {
-            UpdateTotalsInViews();
+            foreach (BillItemControl bic in this.billView.ItemListGrid.Children)
+            {
+                if (bic.originalItem.Equals(item))
+                {
+                    return bic;
+                }
+            }
+            return null;
         }
 
         public void AddNewItem(FoodItem item)
-        { 
-            billView.AddItem(item.billItemView);
+        {
+            billView.AddItem(item.viewList[0]);
 
             UpdateTotalsInViews();
         }
+
         public void AddExistingItem(BillItemControl bic)
         {
             billView.AddItem(bic);
             UpdateTotalsInViews();
 
+        }
+
+        public double ReturnTotal()
+        {
+            return total;
         }
 
         public void ToggleCheckBox()
@@ -85,21 +94,7 @@ namespace AppProject
         {
             billView.ToggleItemDraggability();
         }
-        /*
-        public void RemoveItem(int index)
-        {
-            total -= billItems[index].totalValue;
-            billItems.RemoveAt(index);
-            UpdateTotalsInViews();
-        }
 
-        public void RemoveItem(FoodItem item)
-        {
-            total -= item.totalValue;
-            billItems.Remove(item);
-            UpdateTotalsInViews();
-        }
-        */
         private void UpdateTotalsInViews()
         {
             double newTotal = 0;
@@ -120,9 +115,16 @@ namespace AppProject
             m_BillView.IdentifierText.Text = billName;
         }
 
-        public double ReturnTotal()
+        private void MenuBillClickedEvent(object sender, RoutedEventArgs e)
         {
-            return total;
+            this.MenuBillClicked.Invoke(this, new EventArgs());
         }
+
+        private void RecalculateTotal(object sender, EventArgs e)
+        {
+            UpdateTotalsInViews();
+        }
+
+       
     }
 }
