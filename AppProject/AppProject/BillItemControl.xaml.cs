@@ -56,7 +56,7 @@ namespace AppProject
 
 
 
-        //Constructor used to allow different prices to be set.
+        //Constructor used to allow different prices to be set. Used when splitting items
 
         public BillItemControl(FoodItem sourceItem, double splitPrice)
         {
@@ -68,6 +68,8 @@ namespace AppProject
             this.ItemPrice.Text = price;
 
             ItemName.Text = sourceItem.name;
+
+            SplitEnabled = true;
 
             MovingEnabled = false;
             ToggleCancelButtonVisibility();
