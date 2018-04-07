@@ -63,6 +63,8 @@ namespace AppProject
                     if (bic.itemSent)
                     {
                         associatedBIC.itemSent = true;
+                        associatedBIC.CancelButton.Visibility = System.Windows.Visibility.Hidden;
+                        associatedBIC.BackgroundColor.Fill = System.Windows.Media.Brushes.Black;
                     }
 
                     viewList.Add(associatedBIC);
@@ -149,6 +151,8 @@ namespace AppProject
             billItemView.Deleted += new EventHandler<BICEventArgs>(HandleViewDeletion);
         }
 
+
+        //Handles BillItemControl deletion events
         private void HandleViewDeletion(object sender, BICEventArgs e)
         {
             viewList.Remove(e.bic);
