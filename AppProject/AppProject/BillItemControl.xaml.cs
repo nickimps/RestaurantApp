@@ -47,7 +47,7 @@ namespace AppProject
 
             itemPrice = sourceItem.totalValue;
             string price = String.Format("{0:0.00}", itemPrice);
-            this.ItemPrice.Text = price;
+            this.ItemPrice.Text = "$" + price;
 
             itemName = sourceItem.name;
             this.ItemName.Text = itemName;

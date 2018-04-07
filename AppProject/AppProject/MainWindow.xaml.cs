@@ -385,6 +385,7 @@ namespace AppProject
                 this.DisplayMoreInfoGrid.IsEnabled = true;
 
                 AddItemsPromptGrid.Visibility = Visibility.Hidden;
+                DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
 
                 DropShadowEffect myUnDropShadow = new DropShadowEffect
                 {
