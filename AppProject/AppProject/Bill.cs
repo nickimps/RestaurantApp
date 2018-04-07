@@ -80,15 +80,15 @@ namespace AppProject
             return total;
         }
 
-        public void ToggleCheckBox()
+        public void ToggleRemoveButtonVisibility()
         {
-            if (billView.BillCheckBox.Visibility == Visibility.Visible)
+            if (billView.RemoveBillButton.Visibility == Visibility.Visible)
             {
-                billView.BillCheckBox.Visibility = Visibility.Hidden;
+                billView.RemoveBillButton.Visibility = Visibility.Hidden;
             }
             else
             {
-                billView.BillCheckBox.Visibility = Visibility.Visible;
+                billView.RemoveBillButton.Visibility = Visibility.Visible;
             }
         }
 

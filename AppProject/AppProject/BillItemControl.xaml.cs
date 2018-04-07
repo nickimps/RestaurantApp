@@ -86,6 +86,7 @@ namespace AppProject
             this.Deleted.Invoke(this, new BICEventArgs() { bic = this });
         }
 
+        /* Depracated
         public void ToggleCheckBoxVisibility()
         {
             if (this.ItemCheckBox.Visibility == Visibility.Visible)
@@ -95,7 +96,7 @@ namespace AppProject
             {
                 this.ItemCheckBox.Visibility = Visibility.Visible;
             }
-        }
+        }*/
 
         public void ToggleSplitEnabled()
         {

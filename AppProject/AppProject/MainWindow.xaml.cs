@@ -169,6 +169,7 @@ namespace AppProject
                 cBill.s_BillView.Selected += new EventHandler<EventArgs>(S_AddToSplitList);
                 cBill.s_BillView.Unselected += new EventHandler<EventArgs>(S_RemoveFromSplitList);
                 cBill.MenuBillClicked += new EventHandler<EventArgs>(M_BillClick);
+                cBill.billView.Deleted += new EventHandler<EventArgs>(R_HandleBillDeletion);
                 cBill.billView.SplitRequest += new EventHandler<BICEventArgs>(R_DisplaySelections);
             }
             Storyboard sb = this.FindResource("CloseWelcomeScreen") as Storyboard;
@@ -499,6 +500,7 @@ namespace AppProject
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_BillA_DGrid.Visibility = Visibility.Hidden;
             this.R_MoveButtonsGrid.Visibility = Visibility.Visible;
             R_ReviewTitle.Text = "Drag items to organize bills";
         }
@@ -513,6 +515,7 @@ namespace AppProject
 
             this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
+            this.R_BillA_DGrid.Visibility = Visibility.Visible;
             this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;
             R_ReviewTitle.Text = "Review Bills";
         }
@@ -521,6 +524,7 @@ namespace AppProject
         {
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_BillA_DGrid.Visibility = Visibility.Hidden;
             this.R_SplitButtonsGrid.Visibility = Visibility.Visible;
             R_ReviewTitle.Text = "Click which food item to split";
             foreach (Bill bill in bills)
@@ -540,6 +544,7 @@ namespace AppProject
             }
             this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
+            this.R_BillA_DGrid.Visibility = Visibility.Visible;
             this.R_SplitButtonsGrid.Visibility = Visibility.Hidden;
             R_ReviewTitle.Text = "Review Bills";
         }
@@ -580,6 +585,82 @@ namespace AppProject
             this.ReviewGrid.IsEnabled = false;
             this.R_ReviewTitle.Text = "Split " + selectedBIC.itemName +  " with which bills?";
 
+        }
+
+        private void R_DeleteBillButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Bill bill in bills)
+            {
+                bill.billView.ToggleBillDeleteButton();
+                bill.billView.ToggleItemDeletability();
+            }
+
+            this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
+            this.R_BillA_DGrid.Visibility = Visibility.Hidden;
+            this.R_DButtonsGrid.Visibility = Visibility.Visible;
+            this.R_ReviewTitle.Text = "Delete which bills? (Click on the X)";
+        }
+
+        private void R_DoneDeleting_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Bill bill in bills)
+            {
+                bill.billView.ToggleBillDeleteButton();
+                bill.billView.ToggleItemDeletability();
+            }
+
+            this.R_EditButtonsGrid.Visibility = Visibility.Visible;
+            this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+            this.R_BillA_DGrid.Visibility = Visibility.Visible;
+            this.R_DButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_ReviewTitle.Text = "Review Bills";
+        }
+
+        //Add New Bill button
+        private void R_AddBillButton_Click(object sender, RoutedEventArgs e)
+        {
+            numDinners++;
+            Bill cBill = new Bill("New Bill");
+            bills.Add(cBill);
+            R_BillUniformGrid.Children.Add(cBill.billView);
+            M_BillUniformGrid.Children.Add(cBill.m_BillView);
+            S_BillUniformGrid.Children.Add(cBill.s_BillView);
+
+            cBill.s_BillView.Selected += new EventHandler<EventArgs>(S_AddToSplitList);
+            cBill.s_BillView.Unselected += new EventHandler<EventArgs>(S_RemoveFromSplitList);
+            cBill.MenuBillClicked += new EventHandler<EventArgs>(M_BillClick);
+            cBill.billView.Deleted += new EventHandler<EventArgs>(R_HandleBillDeletion);
+            cBill.billView.SplitRequest += new EventHandler<BICEventArgs>(R_DisplaySelections);
+        }
+
+        //Handling of bill deletion
+        private void R_HandleBillDeletion(object sender, EventArgs e)
+        {
+            Bill deletedBill = (sender as BillControl).billLogic;
+
+            //Just Delete all FoodItems inside the bill 
+            while (deletedBill.billView.ItemListGrid.Children.Count != 0)
+            {
+                BillItemControl bic = deletedBill.billView.ItemListGrid.Children[0] as BillItemControl;
+                bic.Delete();
+            }
+
+            //Removing subscriptions and assignments
+            numDinners--;
+            bills.Remove(deletedBill);
+
+            R_BillUniformGrid.Children.Remove(deletedBill.billView);
+            M_BillUniformGrid.Children.Remove(deletedBill.m_BillView);
+            S_BillUniformGrid.Children.Remove(deletedBill.s_BillView);
+
+            deletedBill.s_BillView.Selected -= new EventHandler<EventArgs>(S_AddToSplitList);
+            deletedBill.s_BillView.Unselected -= new EventHandler<EventArgs>(S_RemoveFromSplitList);
+            deletedBill.MenuBillClicked -= new EventHandler<EventArgs>(M_BillClick);
+            deletedBill.billView.Deleted -= new EventHandler<EventArgs>(R_HandleBillDeletion);
+            deletedBill.billView.SplitRequest -= new EventHandler<BICEventArgs>(R_DisplaySelections);
+
+            deletedBill = null;
         }
 
         /**********************************************************

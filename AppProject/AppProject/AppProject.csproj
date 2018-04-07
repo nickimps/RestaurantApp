@@ -69,14 +69,10 @@
     <Compile Include="BillItemControl.xaml.cs">
       <DependentUpon>BillItemControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BillOptions.xaml.cs">
-      <DependentUpon>BillOptions.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AssemblyManager.cs" />
     <Compile Include="BillSelectionControl.xaml.cs">
       <DependentUpon>BillSelectionControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FoodCategory.cs" />
     <Compile Include="FoodItem.cs" />
     <Compile Include="ItemControlEventArgs.cs" />
     <Compile Include="ItemEventArgs.cs" />
@@ -97,10 +93,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="BillItemControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BillOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
