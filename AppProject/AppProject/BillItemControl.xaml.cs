@@ -29,9 +29,10 @@ namespace AppProject
 
         public Boolean SplitEnabled = false;
         public Boolean MovingEnabled { get; set; }
+        public Boolean itemSent = false;
+
         public double itemPrice {get; set;}
 
-        public Boolean itemSent = false;
         public string itemName { get; set; }
 
         //public FoodItem item { get; set; }

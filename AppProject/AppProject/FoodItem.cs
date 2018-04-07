@@ -57,8 +57,14 @@ namespace AppProject
                 BillItemControl associatedBIC = bill.GetRespectiveItem(this);
                 if (associatedBIC == null)
                 {
-                    //New Bill must create it
+                    //New Bill must create it 
+                    //Must retain properties of old bill item
                     associatedBIC = new BillItemControl(this, prices[index]);
+                    if (bic.itemSent)
+                    {
+                        associatedBIC.itemSent = true;
+                    }
+
                     viewList.Add(associatedBIC);
                     associatedBIC.Deleted += new EventHandler<BICEventArgs>(HandleViewDeletion);
                     bill.AddExistingItem(associatedBIC);
@@ -84,6 +90,7 @@ namespace AppProject
         }
 
         //Determines if there are duplicates between the bills viewList children and the list of bills provided
+        /*                                                DEPRACTED
         private int DuplicateCount(List<Bill> bills)
         {
             int count = 0;
@@ -102,10 +109,10 @@ namespace AppProject
                 {
                     count++;
                 }
-
             }
             return count;
         }
+        */
 
         //Method gets split prices
         private List<double> calculatePrices(double price, int bills)
@@ -150,15 +157,26 @@ namespace AppProject
             { 
                 this.Empty.Invoke(this, new ItemEventArgs() {item = this});
             }
+           
             //If the price is set to 0 then its been handled by something else so fase to deleted completely
             else if (e.bic.itemPrice == 0)
             {
                 //e.bic = null;
             }
+            
             //Need to recalculate other bills
+            //Mechanism, going to default evenly allocate the price of specific split to other bills.
+            //Will not perfectly evenly distribute bills.
             else
             {
-
+                double priceToBeDistributed = e.bic.itemPrice;
+                List<double> prices = calculatePrices(priceToBeDistributed, viewList.Count);
+                int index = 0;
+                foreach (BillItemControl bic in viewList)
+                {
+                    bic.ChangePrice(bic.itemPrice + prices[index]);
+                    index++;
+                }
             }
         }
     }
