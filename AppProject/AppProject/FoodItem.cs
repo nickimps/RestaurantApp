@@ -8,6 +8,8 @@ namespace AppProject
 {
     public class FoodItem
     {
+        public event EventHandler<ItemEventArgs> Empty;
+
         public string name { get; set; }
         public double totalValue { get; set; }
         public string description { get; set; }
@@ -103,8 +105,26 @@ namespace AppProject
 
         public void CreateView()
         {
+            viewList = new List<BillItemControl>();
             billItemView = new BillItemControl(this);
+            viewList.Add(billItemView);
+            billItemView.Deleted += new EventHandler<BICEventArgs>(HandleViewDeletion);
         }
 
+        private void HandleViewDeletion(object sender, BICEventArgs e)
+        {
+
+            e.bic.Deleted -= new EventHandler<BICEventArgs>(HandleViewDeletion);
+            if (viewList.Count == 1)
+            {
+                viewList.Remove(e.bic);
+                this.Empty.Invoke(this, new ItemEventArgs() {item = this});
+            }
+            //Need to recalculate other bills
+            else
+            {
+
+            }
+        }
     }
 }

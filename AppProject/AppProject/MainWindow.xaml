@@ -489,7 +489,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -567,7 +567,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+        <Grid x:Name="ReviewGrid" Background="#FF959A9D" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -587,15 +587,18 @@
                     <Button x:Name="R_SendButton" Content="Send To Kitchen" HorizontalAlignment="Left" Height="94" Margin="18.286,-76,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_SendButton_Click"/>
                     <Button x:Name="R_ReturnButton" Content="Return To Menu" HorizontalAlignment="Left" Height="94" Margin="18.286,162,0,-8" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="R_ReturnButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_EditButtonsGrid" Height="195" VerticalAlignment="Top" Margin="0,453.5,0,0" Grid.RowSpan="2">
-                    <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Margin="28,-40,0,0" Style="{DynamicResource ButtonStyle6}" Width="348.948" Height="94" VerticalAlignment="Top"/>
+                <Grid x:Name="R_EditButtonsGrid" Height="195" VerticalAlignment="Top" Margin="0,453.5,0,0" Grid.RowSpan="2" d:IsHidden="True">
+                    <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Margin="28,-40,0,0" Style="{DynamicResource ButtonStyle6}" Width="348.948" Height="94" VerticalAlignment="Top" Click="R_SplitButton_Click"/>
                     <Button x:Name="R_MoveButton" Content="Move Item(s)" HorizontalAlignment="Left" Height="94" Margin="28,-160,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_MoveButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0,0,10" Height="261.75" Grid.Row="1">
+                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Margin="10,0,0,10" Height="261.75" Grid.Row="1" d:IsHidden="True">
                     <Button x:Name="DoneButton" Content="Done" HorizontalAlignment="Left" Height="94" Margin="19.052,167.75,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_DoneButton_Click"/>
                 </Grid>
+                <Grid x:Name="R_SplitButtonsGrid" VerticalAlignment="Bottom" Margin="10,0,0,10" Height="261.75" Grid.Row="1">
+                    <Button x:Name="FinishSplitButton" Content="Done" HorizontalAlignment="Left" Height="94" Margin="19.052,167.75,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_FinishSplitButton_Click"/>
+                </Grid>
             </Grid>
-            <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Height="854.287" VerticalAlignment="Top" Width="1185.572" Margin="19.428,108.285,0,0" Background="#FF787878">
+            <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Height="854.287" VerticalAlignment="Top" Width="1185.572" Margin="19.428,108.285,0,0" Background="#FF787878" d:IsHidden="True">
                 <UniformGrid x:Name="R_BillUniformGrid" Width="1195" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Columns="2"/>
             </ScrollViewer>
             <TextBlock x:Name="R_ReviewTitle" HorizontalAlignment="Left" Height="93.285" Margin="19.428,10,0,0" TextWrapping="Wrap" Text="Review Bills" VerticalAlignment="Top" Width="1185.572" FontFamily="Century Gothic" FontSize="65" TextAlignment="Center" Foreground="White"/>
@@ -670,6 +673,19 @@
             <Rectangle x:Name="AddItems_Background" Fill="#FFEFEFEF" Stroke="#FFEE712B" StrokeThickness="8" RadiusX="7" RadiusY="7"/>
             <TextBlock x:Name="AddItems_Message" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,27.357,-55.267,0" FontSize="60" HorizontalAlignment="Left" Foreground="#FFEE712B" FontFamily="Century Gothic" Width="744.467" TextAlignment="Center"><Run Text="Please "/><Run Text="choose which"/><Run Text=" "/><Run Text="bill"/><LineBreak/><Run FontSize="48" Text="or"/></TextBlock>
             <Button x:Name="AddItems_CancelButton" Content="Dismiss" HorizontalAlignment="Left" Height="60.571" Margin="263.15,168.77,0,0" Style="{DynamicResource ButtonStyle11}" VerticalAlignment="Top" Width="240" Click="AddItems_Click" RenderTransformOrigin="0.5,0.5"/>
+        </Grid>
+        <Grid x:Name="CommunicationGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="280" VerticalAlignment="Top" Width="400" Margin="610,304.4,0,0" Background="#FF37383A" Visibility="Hidden" d:IsHidden="True">
+            <TextBlock x:Name="C_TextMessage" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Your orders have been sent!" VerticalAlignment="Top" Height="105.96" Width="400" TextAlignment="Center" Margin="0,52,0,0" FontSize="36" FontWeight="Bold"/>
+            <Button x:Name="C_DismissButton" Content="Dismiss" Height="60.571" Margin="0,209.429,0,0" Style="{DynamicResource ButtonStyle9}" VerticalAlignment="Top" Click="C_DismissButton_Click" RenderTransformOrigin="0.5,0.5" Width="240"/>
+        </Grid>
+        <Grid x:Name="BillSelectionGrid" Grid.ColumnSpan="2" Margin="1210,10,10,10" Background="#FFAC5B5B" Visibility="Hidden">
+            <Grid x:Name="S_ButtonGrid" Margin="10,0,10,10" Height="211" VerticalAlignment="Bottom">
+                <Button x:Name="S_CancelButton" Content="Cancel" Margin="15.526,0,15.526,10" Style="{DynamicResource ButtonStyle7}" Width="348.948" Height="94" VerticalAlignment="Bottom" Click="S_CancelButton_Click"/>
+                <Button x:Name="S_ConfirmButton" Content="Confirm" Height="94" Margin="15.526,-8,15.526,114" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Bottom" Width="348.948" Click="S_ConfirmButton_Click"/>
+            </Grid>
+            <ScrollViewer x:Name="S_Scroller" Height="724" VerticalAlignment="Top" Margin="10,10,10,0" Background="#FF7A6BD8">
+                <UniformGrid x:Name="S_BillUniformGrid" VerticalAlignment="Top" Width="360" Columns="1" HorizontalAlignment="Left"/>
+            </ScrollViewer>
         </Grid>
     </Grid>
 

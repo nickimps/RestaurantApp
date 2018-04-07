@@ -20,10 +20,14 @@ namespace AppProject
     /// </summary>
     public partial class BillItemControl : UserControl
     {
-        public BillControl owningBill { get; set; }
+        public BillControl billControl { get; set; }
         public event EventHandler<BICEventArgs> Removed;
+        public event EventHandler<BICEventArgs> Deleted;
+        public event EventHandler<BICEventArgs> Clicked;
         //public event EventHandler<EventArgs> Dragged;
         //public event EventHandler<EventArgs> Released;
+
+        public Boolean SplitEnabled = false;
         public Boolean MovingEnabled { get; set; }
         public double itemPrice {get; set;}
 
@@ -64,6 +68,8 @@ namespace AppProject
             this.ItemPrice.Text = price;
 
             ItemName.Text = sourceItem.name;
+
+            MovingEnabled = false;
         }
 
         public void Moved()
@@ -79,6 +85,18 @@ namespace AppProject
             } else
             {
                 this.ItemCheckBox.Visibility = Visibility.Visible;
+            }
+        }
+
+        public void ToggleSplitEnabled()
+        {
+            if (SplitEnabled)
+            {
+                SplitEnabled = false;
+            }
+            else
+            {
+                SplitEnabled = true;
             }
         }
 
@@ -142,6 +160,9 @@ namespace AppProject
                  * The Issue with above code is that when item is moved from one bill to another the starting bill will unsubscribe to this items events
                  * and the second bill will subscribe to item's events thereby causing both bills to have their droppability disabled.
                  */
+            } else if (SplitEnabled)
+            {
+                this.Clicked.Invoke(this, new BICEventArgs() { bic = this });
             } else
             {
                 //Do nothing
@@ -153,7 +174,7 @@ namespace AppProject
         {
             if (!itemSent)
             {
-                this.Removed.Invoke(this, new BICEventArgs() { bic = this });
+                this.Deleted.Invoke(this, new BICEventArgs() { bic = this });
             }
         }
     }

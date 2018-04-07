@@ -14,6 +14,7 @@ namespace AppProject
         public string billName { get; set; }
         public BillControl billView;
         public Menu_BillControl m_BillView;
+        public BillSelectionControl s_BillView;
         private double total = 0;
 
         public event EventHandler<EventArgs> MenuBillClicked;
@@ -24,6 +25,7 @@ namespace AppProject
             transactionCompleted = false;
             CreateView();
             CreateMenuView();
+            CreateSelectionView();
         }
 
         private void CreateView()
@@ -36,6 +38,12 @@ namespace AppProject
         {
             m_BillView = new Menu_BillControl(this);
             m_BillView.InteractionButton.Click += new RoutedEventHandler(MenuBillClickedEvent);
+        }
+        
+        public void CreateSelectionView()
+        {
+            s_BillView = new BillSelectionControl(this);
+            
         }
 
         private void MenuBillClickedEvent(object sender, RoutedEventArgs e)

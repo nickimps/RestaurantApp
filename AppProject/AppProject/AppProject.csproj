@@ -73,6 +73,9 @@
       <DependentUpon>BillOptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="AssemblyManager.cs" />
+    <Compile Include="BillSelectionControl.xaml.cs">
+      <DependentUpon>BillSelectionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FoodCategory.cs" />
     <Compile Include="FoodItem.cs" />
     <Compile Include="ItemControlEventArgs.cs" />
@@ -89,7 +92,6 @@
     <Compile Include="MoreInfoControl.xaml.cs">
       <DependentUpon>MoreInfoControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TableLogic.cs" />
     <Page Include="BillControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BillOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BillSelectionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
