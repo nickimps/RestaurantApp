@@ -405,6 +405,7 @@ namespace AppProject
         private void M_ReviewOrderButton_Click(object sender, RoutedEventArgs e)
         {
             ReviewGrid.Visibility = Visibility.Visible;
+            R_SplitButtonsGrid.Visibility = Visibility.Hidden;
             R_ReviewTitle.Text = "Review Bills";
         }
 
@@ -482,15 +483,16 @@ namespace AppProject
 
         private void R_SplitButton_Click(object sender, RoutedEventArgs e)
         {
+            this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
+            this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_SplitButtonsGrid.Visibility = Visibility.Visible;
+            R_ReviewTitle.Text = "Click which food item to split";
             foreach (Bill bill in bills)
             {
                 bill.billView.ToggleSplitMode();
                 bill.billView.ToggleItemDeletability();
             }
-            this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
-            this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
-            this.R_SplitButtonsGrid.Visibility = Visibility.Visible;
-            R_ReviewTitle.Text = "Click which food item to split";
+            
         }
 
         private void R_FinishSplitButton_Click(object sender, RoutedEventArgs e)
@@ -514,6 +516,8 @@ namespace AppProject
             }
             this.CommunicationGrid.Visibility = Visibility.Visible;
             this.ReviewGrid.IsEnabled = false;
+            this.R_CheckoutButton.Opacity = 1;
+            this.R_CheckoutButton.IsEnabled = true;
             //EFFECTS HERE?
 
         }
