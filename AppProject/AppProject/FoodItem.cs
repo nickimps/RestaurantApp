@@ -73,6 +73,16 @@ namespace AppProject
 
         }
 
+        //Combines two seperate BillItemControls 
+        // *** TO BE USED ONLY ON BILLITEMCONTROLS WITHIN THE SAME BILLLOGIC ***
+        public void Combine(BillItemControl combined, BillItemControl destroyed)
+        {
+            combined.ChangePrice(combined.itemPrice + destroyed.itemPrice);
+            //Destroy the second item
+            destroyed.ChangePrice(0);
+            
+        }
+
         //Determines if there are duplicates between the bills viewList children and the list of bills provided
         private int DuplicateCount(List<Bill> bills)
         {
@@ -134,17 +144,21 @@ namespace AppProject
 
         private void HandleViewDeletion(object sender, BICEventArgs e)
         {
-
+            viewList.Remove(e.bic);
             e.bic.Deleted -= new EventHandler<BICEventArgs>(HandleViewDeletion);
             if (viewList.Count == 1)
-            {
-                viewList.Remove(e.bic);
+            { 
                 this.Empty.Invoke(this, new ItemEventArgs() {item = this});
+            }
+            //If the price is set to 0 then its been handled by something else so fase to deleted completely
+            else if (e.bic.itemPrice == 0)
+            {
+                //e.bic = null;
             }
             //Need to recalculate other bills
             else
             {
-                
+
             }
         }
     }

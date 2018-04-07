@@ -78,6 +78,11 @@ namespace AppProject
             this.Removed.Invoke(this, new BICEventArgs() { bic = this });
         }
         
+        public void Delete()
+        {
+            this.Deleted.Invoke(this, new BICEventArgs() { bic = this });
+        }
+
         public void ToggleCheckBoxVisibility()
         {
             if (this.ItemCheckBox.Visibility == Visibility.Visible)

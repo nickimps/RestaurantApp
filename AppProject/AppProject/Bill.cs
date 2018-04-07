@@ -46,7 +46,9 @@ namespace AppProject
             
         }
 
-  
+        //This function returns an BillItemControl that was found to be in the item specified
+        //Used to identify if a BillItemControl from an ordered FoodItem is in a BillControl already.
+        //Returns null if not found else will return the respective BillItemControl
         public BillItemControl GetRespectiveItem(FoodItem item)
         {
             foreach (BillItemControl bic in this.billView.ItemListGrid.Children)

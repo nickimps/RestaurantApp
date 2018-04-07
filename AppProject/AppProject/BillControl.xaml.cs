@@ -111,8 +111,19 @@ namespace AppProject
         private void ItemListGrid_Drop(object sender, DragEventArgs e)
         {
             BillItemControl itemC = (BillItemControl)e.Data.GetData("AppProject.BillItemControl");
-            itemC.Moved();
-            billLogic.AddExistingItem(itemC);
+            //Original Item is not in this current bill so add without issue
+            BillItemControl bic = billLogic.GetRespectiveItem(itemC.originalItem);
+            if (bic == null) {
+                itemC.Moved();
+                billLogic.AddExistingItem(itemC);
+            }
+            //Item was found to be in the same bill need to combine them and delete one.
+            else
+            {
+                itemC.originalItem.Combine(bic, itemC);
+                itemC.Delete();
+            }
+            
         }
 
         private void ItemListGrid_DragEnter(object sender, DragEventArgs e)
@@ -146,6 +157,7 @@ namespace AppProject
             e.bic.Clicked -= new EventHandler<BICEventArgs>(SplitSelection);
             e.bic.Deleted -= new EventHandler<BICEventArgs>(DeleteItem);
             this.BillItemListChange.Invoke(this, new EventArgs());
+            
         }
 
         private void SplitSelection(object sender, BICEventArgs e)
