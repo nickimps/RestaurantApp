@@ -146,7 +146,7 @@ namespace AppProject
         {
             viewList.Remove(e.bic);
             e.bic.Deleted -= new EventHandler<BICEventArgs>(HandleViewDeletion);
-            if (viewList.Count == 1)
+            if (viewList.Count == 0)
             { 
                 this.Empty.Invoke(this, new ItemEventArgs() {item = this});
             }
