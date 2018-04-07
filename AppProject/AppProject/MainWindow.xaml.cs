@@ -23,9 +23,13 @@ namespace AppProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        //Bill selectedBill;
+        //List of active bills
         List<Bill> bills = new List<Bill>();
+        
+        //List of ordered foods (Must be present on a bill to in this list
         List<FoodItem> orderedFoods = new List<FoodItem>();
+
+        //This is for bill splitting. Will List all bills selected (does not include original bill that has BillItemControl to be split)
         List<Bill> selectedBills = new List<Bill>();
 
         private int numDinners = 0;

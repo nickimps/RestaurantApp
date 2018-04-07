@@ -41,7 +41,7 @@ namespace AppProject
             CreateView();
         }
 
-        //So far the control is undefined so work on this method later.
+        //Logic to split orders
         public void SplitOrderEvenly(List<Bill> billsAffected, BillItemControl bic)
         {
             int numberOfBills = 1 + billsAffected.Count;
