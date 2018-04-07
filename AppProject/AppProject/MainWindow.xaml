@@ -613,16 +613,23 @@
                     <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Margin="34.052,605.3,0,0" Style="{DynamicResource ButtonStyle6}" Width="348.948" Height="94" VerticalAlignment="Top" Click="R_SplitButton_Click"/>
                     <Button x:Name="R_MoveButton" Content="Move Item(s)" HorizontalAlignment="Left" Height="94" Margin="34.052,480,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_MoveButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Height="980">
+                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
                     <Button x:Name="DoneButton" Content="Done Moving" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_DoneButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_SplitButtonsGrid" VerticalAlignment="Bottom" Height="980">
+                <Grid x:Name="R_SplitButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
                     <Button x:Name="FinishSplitButton" Content="Done Splitting" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_FinishSplitButton_Click"/>
+                </Grid>
+                <Grid x:Name="R_DButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
+                    <Button x:Name="R_DoneDeleting" Content="Done" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_DoneDeleting_Click"/>
                 </Grid>
             </Grid>
             <ScrollViewer x:Name="R_BillScroller" HorizontalAlignment="Left" Height="854.787" VerticalAlignment="Top" Width="1185.572" Margin="19.428,107.785,0,0" BorderThickness="10,2,2,2" Background="#FF34495E">
                 <UniformGrid x:Name="R_BillUniformGrid" Width="1195" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" Columns="2"/>
             </ScrollViewer>
+            <Grid x:Name="R_BillA_DGrid" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="88" Margin="1099.333,918.572,0,0">
+                <Button x:Name="R_AddBillButton" Content="+" HorizontalAlignment="Left" Height="44" Margin="0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="44" Click="R_AddBillButton_Click"/>
+                <Button x:Name="R_DeleteBillButton" Content="-" HorizontalAlignment="Left" Margin="44,0,0,0" Style="{DynamicResource ButtonStyle7}" Width="44" Click="R_DeleteBillButton_Click"/>
+            </Grid>
         </Grid>
         <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid.ColumnDefinitions>

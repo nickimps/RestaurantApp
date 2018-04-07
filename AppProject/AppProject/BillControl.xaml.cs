@@ -22,6 +22,7 @@ namespace AppProject
     {
         public event EventHandler<EventArgs> BillItemListChange;
         public event EventHandler<BICEventArgs> SplitRequest;
+        public event EventHandler<EventArgs> Deleted;
 
         public Bill billLogic { get; set; }
 
@@ -66,11 +67,28 @@ namespace AppProject
             }
         }
 
-        public void ToggleItemCheckBoxes()
+
+        public void ToggleBillDeleteButton()
         {
-            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            if (this.RemoveBillButton.Visibility == Visibility.Visible)
             {
-                bic.ToggleCheckBoxVisibility();
+                this.RemoveBillButton.Visibility = Visibility.Hidden;
+            } else
+            {
+                Boolean hasSentItem = false;
+                foreach (BillItemControl bic in this.ItemListGrid.Children)
+                {
+                    if (bic.itemSent)
+                    {
+                        hasSentItem = true;
+                        break;
+                    }
+                }
+                if (!hasSentItem)
+                {
+                    this.RemoveBillButton.Visibility = Visibility.Visible;
+                } 
+
             }
         }
 
@@ -163,6 +181,11 @@ namespace AppProject
         private void SplitSelection(object sender, BICEventArgs e)
         {
             this.SplitRequest.Invoke(this, e);
+        }
+
+        private void RemoveBillButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Deleted.Invoke(this, new EventArgs());
         }
     }
 }
