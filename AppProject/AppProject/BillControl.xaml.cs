@@ -21,6 +21,7 @@ namespace AppProject
     public partial class BillControl : UserControl
     {
         public event EventHandler<EventArgs> BillItemListChange;
+        public event EventHandler<BICEventArgs> SplitRequest;
 
         public Bill billLogic { get; set; }
 
@@ -42,11 +43,21 @@ namespace AppProject
         public void AddItem(BillItemControl item)
         {
             this.ItemListGrid.Children.Add(item);
-
+            item.billControl = this;
             //Subscribing to BillItemControl events -- Used for move drag and drop
             item.Removed += new EventHandler<BICEventArgs>(RemoveItem);
+            item.Clicked += new EventHandler<BICEventArgs>(SplitSelection);
+            item.Deleted += new EventHandler<BICEventArgs>(DeleteItem);
             //item.Released += new EventHandler<EventArgs>(ToggleDroppability);
-           // item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
+            // item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
+        }
+
+        public void ToggleSplitMode()
+        {
+            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            {
+                bic.ToggleSplitEnabled();
+            }
         }
 
         public void SendItems()
@@ -72,7 +83,7 @@ namespace AppProject
                 bic.ToggleMovingEnabled();
             }
         }
-        
+
         public void ToggleItemDeletability()
         {
             foreach (BillItemControl bic in this.ItemListGrid.Children)
@@ -80,7 +91,7 @@ namespace AppProject
                 bic.ToggleCancelButtonVisibility();
             }
         }
-     
+
         private void ToggleDroppability(object sender, EventArgs e)
         {
             if (this.ItemListGrid.AllowDrop)
@@ -124,8 +135,24 @@ namespace AppProject
             this.BillItemListChange.Invoke(this, new EventArgs());
             //Unsubscribing from BillItemControl(BIC) Events for the BIC removed
             e.bic.Removed -= new EventHandler<BICEventArgs>(RemoveItem);
+            e.bic.Clicked -= new EventHandler<BICEventArgs>(SplitSelection);
+            e.bic.Deleted -= new EventHandler<BICEventArgs>(DeleteItem);
             //e.item.billItemView.Released -= new EventHandler<EventArgs>(ToggleDroppability);
             //e.item.billItemView.Dragged -= new EventHandler<EventArgs>(ToggleDroppability);
+        }
+
+        private void DeleteItem(object sender, BICEventArgs e)
+        {
+            this.ItemListGrid.Children.Remove(e.bic);
+            e.bic.Removed -= new EventHandler<BICEventArgs>(RemoveItem);
+            e.bic.Clicked -= new EventHandler<BICEventArgs>(SplitSelection);
+            e.bic.Deleted -= new EventHandler<BICEventArgs>(DeleteItem);
+            this.BillItemListChange.Invoke(this, new EventArgs());
+        }
+
+        private void SplitSelection(object sender, BICEventArgs e)
+        {
+            this.SplitRequest.Invoke(this, e);
         }
     }
 }

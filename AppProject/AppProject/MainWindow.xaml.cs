@@ -26,6 +26,7 @@ namespace AppProject
         //Bill selectedBill;
         List<Bill> bills = new List<Bill>();
         List<FoodItem> orderedFoods = new List<FoodItem>();
+        List<Bill> selectedBills = new List<Bill>();
 
         private int numDinners = 0;
         private int billPosition;
@@ -93,6 +94,12 @@ namespace AppProject
             R_MoveButtonsGrid.Visibility = Visibility.Hidden;
         }
 
+        private void RemoveItemOrder(object sender, ItemEventArgs e) 
+        {
+            e.item.Empty -= new EventHandler<ItemEventArgs>(RemoveItemOrder);
+            orderedFoods.Remove(e.item);
+        }
+
         /**********************************************************
          *************WELCOME SCREEN BUTTTON FUNCTIONS*************
          **********************************************************/
@@ -122,7 +129,11 @@ namespace AppProject
                 bills.Add(cBill);
                 R_BillUniformGrid.Children.Add(cBill.billView);
                 M_BillUniformGrid.Children.Add(cBill.m_BillView);
+                S_BillUniformGrid.Children.Add(cBill.s_BillView);
+                cBill.s_BillView.Selected += new EventHandler<EventArgs>(S_AddToSplitList);
+                cBill.s_BillView.Unselected += new EventHandler<EventArgs>(S_RemoveFromSplitList);
                 cBill.MenuBillClicked += new EventHandler<EventArgs>(M_BillClick);
+                cBill.billView.SplitRequest += new EventHandler<BICEventArgs>(R_DisplaySelections);
             }
             Storyboard sb = this.FindResource("CloseWelcomeScreen") as Storyboard;
             sb.Completed += OnWelcomeScreenStoryboardCompleted;
@@ -350,6 +361,7 @@ namespace AppProject
 
                 addMode = false;
                 orderedFoods.Add(selectedItem);
+                selectedItem.Empty += new EventHandler<ItemEventArgs>(RemoveItemOrder);
                 clickedBill.AddNewItem(selectedItem);
             }
             //Display Bill
@@ -437,7 +449,6 @@ namespace AppProject
             AddItemsPromptGrid.Visibility = Visibility.Hidden;
         }
 
-
         /**********************************************************
         **************REVIEW SCREEN BUTTTON FUNCTIONS**************
         **********************************************************/
@@ -468,12 +479,42 @@ namespace AppProject
             R_ReviewTitle.Text = "Review Bills";
         }
 
+        private void R_SplitButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Bill bill in bills)
+            {
+                bill.billView.ToggleSplitMode();
+                bill.billView.ToggleItemDeletability();
+            }
+            this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
+            this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_SplitButtonsGrid.Visibility = Visibility.Visible;
+            R_ReviewTitle.Text = "Click which food item to split";
+        }
+
+        private void R_FinishSplitButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Bill bill in bills)
+            {
+                bill.billView.ToggleSplitMode();
+                bill.billView.ToggleItemDeletability();
+            }
+            this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+            this.R_EditButtonsGrid.Visibility = Visibility.Visible;
+            this.R_SplitButtonsGrid.Visibility = Visibility.Hidden;
+            R_ReviewTitle.Text = "Review Bills";
+        }
+
         private void R_SendButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (Bill bill in bills)
             {
                 bill.billView.SendItems();
             }
+            this.CommunicationGrid.Visibility = Visibility.Visible;
+            this.ReviewGrid.IsEnabled = false;
+            //EFFECTS HERE?
+
         }
 
         private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
@@ -485,6 +526,20 @@ namespace AppProject
         {
             Storyboard sb = this.FindResource("ShrinkReviewScreen") as Storyboard;
             sb.Completed += OnHideReviewStoryboardCompleted;
+        }
+
+        private void R_DisplaySelections(object sender, BICEventArgs e)
+        {
+            BillItemControl bic = e.bic;
+            billPosition = bills.IndexOf(bic.billControl.billLogic);
+            this.S_BillUniformGrid.Children.RemoveAt(billPosition);
+            this.BillSelectionGrid.Visibility = Visibility.Visible;
+            selectedItem = bic.originalItem;
+            
+            //Temporary Solutions to disable too many instances
+            this.ReviewGrid.IsEnabled = false;
+            this.R_ReviewTitle.Text = "Split " + bic.itemName +  " with which bills?";
+
         }
 
         /**********************************************************
@@ -518,6 +573,61 @@ namespace AppProject
             this.selectedMenuItems.Effect = myBlurEffect;
             this.selectedMenuCover.Effect = myBlurEffect;
             this.M_ReviewOrderButton.Effect = myBlurEffect;
+        }
+
+        /**********************************************************
+        **************COMMUNICATION BUTTTON FUNCTIONS**************
+        **********************************************************/
+
+        private void C_DismissButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.CommunicationGrid.Visibility = Visibility.Hidden;
+            this.ReviewGrid.IsEnabled = true;
+        }
+
+        /**********************************************************
+        ********************SPLITTING FUNCTIONS********************
+        **********************************************************/
+        private void S_AddToSplitList(object sender, EventArgs e)
+        {
+            BillSelectionControl bSC = sender as BillSelectionControl;
+            selectedBills.Add(bSC.billLogic);
+        }
+
+        private void S_RemoveFromSplitList(object sender, EventArgs e)
+        {
+            BillSelectionControl bSC = sender as BillSelectionControl;
+            selectedBills.Remove(bSC.billLogic);
+        }
+
+        private void S_CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.BillSelectionGrid.Visibility = Visibility.Hidden;
+            this.ReviewGrid.IsEnabled = true;
+            this.R_ReviewTitle.Text = "Click which food item to split";
+            foreach (Bill bill in selectedBills)
+            {
+                bill.s_BillView.Unselect();
+            }
+            this.S_BillUniformGrid.Children.Insert(billPosition, bills[billPosition].s_BillView);
+            selectedBills.Clear();
+        }
+
+        private void S_ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.BillSelectionGrid.Visibility = Visibility.Hidden;
+            this.ReviewGrid.IsEnabled = true;
+            this.R_ReviewTitle.Text = "Click which food item to split";
+
+
+            //Mandatory unselection for clean up purposes
+            foreach (Bill bill in selectedBills)
+            {
+                bill.s_BillView.Unselect();
+            }
+
+            this.S_BillUniformGrid.Children.Insert(billPosition, bills[billPosition].s_BillView);
+            selectedBills.Clear();
         }
     }
 }
