@@ -66,6 +66,96 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image x:Name="GlutenFree_Icon" Source="MenuIcons/GlutenFree_Icon.png"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle3" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image x:Name="Peanut_Icon" Source="MenuIcons/Peanut_Icon.png"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle4" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image x:Name="Spicy_Icon" Source="MenuIcons/Spicy_Icon.png"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle5" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image x:Name="Special_Icon" Source="MenuIcons/Special_Icon.png"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle6" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Image x:Name="Vegan_Icon" Source="MenuIcons/Vegan_Icon.png"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     <Grid Height="725" Width="860">
         <Grid x:Name="InfoGrid" HorizontalAlignment="Left" Width="860" Height="725">
@@ -86,11 +176,11 @@
             </Button>
             <TextBox x:Name="UserNotes" HorizontalAlignment="Right" Height="112.643" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="275.963" Margin="0,0,29.037,183.546" FontFamily="Century Gothic" FontSize="16" Background="#FF2796CB" BorderBrush="#FFEFEFEF" BorderThickness="3" SelectionBrush="#FFCED700" Foreground="#FFEFEFEF"/>
             <TextBlock x:Name="Notes" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,29.037,301.189" Height="30" HorizontalAlignment="Right" Width="275.963" FontSize="22" FontWeight="Bold" Foreground="#FFEFEFEF" RenderTransformOrigin="0.505,-0.164"><Run Text="Add "/><Run Text="n"/><Run Text="otes"/><Run Text=" to order"/><Run Text=":"/></TextBlock>
-            <Image x:Name="GlutenFree_Icon" HorizontalAlignment="Left" Height="20.999" Margin="555,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/GlutenFree_Icon.png"/>
-            <Image x:Name="Peanut_Icon" HorizontalAlignment="Left" Height="20.999" Margin="577.9,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Peanut_Icon.png"/>
-            <Image x:Name="Spicy_Icon" HorizontalAlignment="Left" Height="20.999" Margin="600.8,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Spicy_Icon.png"/>
-            <Image x:Name="Special_Icon" HorizontalAlignment="Left" Height="20.999" Margin="623.7,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Special_Icon.png"/>
-            <Image x:Name="Vegan_Icon" HorizontalAlignment="Left" Height="20.999" Margin="646.6,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Vegan_Icon.png"/>
+            <Button x:Name="GlutenFreeIconButton" Content="Button" HorizontalAlignment="Left" Height="20.999" Margin="555,84.001,0,0" Style="{DynamicResource ButtonStyle2}" VerticalAlignment="Top" Width="22.4" Click="GlutenFreeIconButton_Click"/>
+            <Button x:Name="NutsIconButton" Content="Button" HorizontalAlignment="Left" Height="20.999" Margin="577.9,84.001,0,0" Style="{DynamicResource ButtonStyle3}" VerticalAlignment="Top" Width="22.4" Click="NutsIconButton_Click"/>
+            <Button x:Name="SpicyIconButton" Content="Button" HorizontalAlignment="Left" Height="20.999" Margin="600.8,84.001,0,0" Style="{DynamicResource ButtonStyle4}" VerticalAlignment="Top" Width="22.4" Click="SpicyIconButton_Click"/>
+            <Button x:Name="SpecialIconButton" Content="Button" HorizontalAlignment="Left" Height="20.999" Margin="623.7,84.001,0,0" Style="{DynamicResource ButtonStyle5}" VerticalAlignment="Top" Width="22.4" Click="SpecialIconButton_Click"/>
+            <Button x:Name="VeganIconButton" Content="Button" HorizontalAlignment="Left" Height="20.999" Margin="646.6,84.001,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="22.4" Click="VeganIconButton_Click"/>
             <TextBlock x:Name="Price" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Price" VerticalAlignment="Top" Margin="555,109.843,0,0" Width="91.1" Height="37.943" FontSize="24" FontFamily="Century Gothic" Foreground="#FFEFEFEF"/>
             <Canvas x:Name="LegendForMenuIcons" Margin="9.286,694.001,507.63,10">
                 <Image x:Name="GlutenFree_Icon_Copy" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/GlutenFree_Icon.png"/>
@@ -103,6 +193,13 @@
                 <TextBlock HorizontalAlignment="Left" Height="12.286" TextWrapping="Wrap" VerticalAlignment="Top" Width="58.714" Foreground="#FFEFEFEF" FontFamily="Century Gothic" FontSize="10" Canvas.Left="110.729" Canvas.Top="4.036"><Run Text="Has "/><Run Text="N"/><Run Text="uts"/></TextBlock>
                 <TextBlock HorizontalAlignment="Left" Height="12.286" TextWrapping="Wrap" Text="Special" VerticalAlignment="Top" Width="38.025" Foreground="#FFEFEFEF" FontFamily="Century Gothic" FontSize="10" Canvas.Left="240.629" Canvas.Top="4.036"/>
                 <TextBlock HorizontalAlignment="Left" Height="12.286" TextWrapping="Wrap" Text="Vegan" VerticalAlignment="Top" Width="38.025" Foreground="#FFEFEFEF" FontFamily="Century Gothic" FontSize="10" Canvas.Left="305.059" Canvas.Top="4.036"/>
+            </Canvas>
+            <Canvas x:Name="PopUpNamesForMenuIconClick" Margin="450.4,45.542,88.916,615.157">
+                <TextBlock x:Name="GF_Text" HorizontalAlignment="Left" Height="12.286" TextWrapping="Wrap" Text="Gluten-Free" VerticalAlignment="Top" Width="70.524" Foreground="#FFEFEFEF" FontFamily="Century Gothic" Canvas.Left="78.824" Canvas.Top="22.476"/>
+                <TextBlock x:Name="Spicy_Text" HorizontalAlignment="Left" Height="18.381" TextWrapping="Wrap" Text="Spicy" VerticalAlignment="Top" Width="37.911" Foreground="#FFEFEFEF" FontFamily="Century Gothic" Canvas.Left="146.013" Canvas.Top="22.899"/>
+                <TextBlock x:Name="Nuts_Text" HorizontalAlignment="Left" Height="12.286" TextWrapping="Wrap" VerticalAlignment="Top" Width="58.714" Foreground="#FFEFEFEF" FontFamily="Century Gothic" Canvas.Left="112.997" Canvas.Top="22.476"><Run Text="Has "/><Run Text="N"/><Run Text="uts"/></TextBlock>
+                <TextBlock x:Name="Special_Text" HorizontalAlignment="Left" Height="18.381" TextWrapping="Wrap" Text="Special" VerticalAlignment="Top" Width="46.406" Foreground="#FFEFEFEF" FontFamily="Century Gothic" Canvas.Left="162.704" Canvas.Top="22.899"/>
+                <TextBlock x:Name="Vegan_Text" HorizontalAlignment="Left" Height="18.804" TextWrapping="Wrap" Text="Vegan" VerticalAlignment="Top" Width="42.596" Foreground="#FFEFEFEF" FontFamily="Century Gothic" Canvas.Left="186.923" Canvas.Top="22.476"/>
             </Canvas>
         </Grid>
 

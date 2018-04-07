@@ -32,6 +32,12 @@ namespace AppProject
             this.Food_Image.Source = image.Source;
             this.Food_Image.EndInit();
             setPriceAndDescription(imageName);
+
+            GF_Text.Visibility = Visibility.Hidden;
+            Nuts_Text.Visibility = Visibility.Hidden;
+            Special_Text.Visibility = Visibility.Hidden;
+            Vegan_Text.Visibility = Visibility.Hidden;
+            Spicy_Text.Visibility = Visibility.Hidden;
         }
 
         private void setPriceAndDescription(string itemName)
@@ -71,6 +77,106 @@ namespace AppProject
         private void MI_add_to_bill_button_Click(object sender, RoutedEventArgs e)
         {
             this.AddRequest.Invoke(this, new ItemEventArgs() { item = this.ReturnFoodItem() });
+        }
+
+        private void GlutenFreeIconButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (GF_Text.IsVisible)
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                GF_Text.Visibility = Visibility.Visible;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void NutsIconButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Nuts_Text.IsVisible)
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Visible;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void SpicyIconButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Spicy_Text.IsVisible)
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void SpecialIconButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Special_Text.IsVisible)
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Visible;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void VeganIconButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Vegan_Text.IsVisible)
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Hidden;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                GF_Text.Visibility = Visibility.Hidden;
+                Nuts_Text.Visibility = Visibility.Hidden;
+                Special_Text.Visibility = Visibility.Hidden;
+                Vegan_Text.Visibility = Visibility.Visible;
+                Spicy_Text.Visibility = Visibility.Hidden;
+            }
         }
     }
 }
