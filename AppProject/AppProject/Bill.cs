@@ -107,8 +107,8 @@ namespace AppProject
             }
 
             string price = String.Format("{0:0.00}", newTotal);
-            m_BillView.TotalText.Text = price;
-            billView.TotalNumber.Text = price;
+            m_BillView.TotalText.Text = "$" + price;
+            billView.TotalNumber.Text = "$" + price;
         }
 
         private void UpdateIdentifiersInViews()
