@@ -47,10 +47,21 @@ namespace AppProject
             ServerGrid.Visibility = Visibility.Hidden;
             HelpPromptGrid.Visibility = Visibility.Hidden;
             AddItemsPromptGrid.Visibility = Visibility.Hidden;
+
+            //Set the opening menu category to appetizers
             selectedMenu = M_MenuItemsGrid;
             selectedMenuItems = M_AppetizerScrollGrid;
             selectedMenuCover = M_AppetizerCover;
+
             this.M_AppetizersButton.FontWeight = FontWeights.Bold;
+            this.M_EntreesButton.FontWeight = FontWeights.Regular;
+            this.M_DessertsButton.FontWeight = FontWeights.Regular;
+            this.M_DrinksButton.FontWeight = FontWeights.Regular;
+            this.M_KidsMenuButton.FontWeight = FontWeights.Regular;
+
+            this.M_MenuItemsGrid.Visibility = Visibility.Visible;
+            this.M_AppetizerCover.Visibility = Visibility.Visible;
+            this.M_AppetizerScrollGrid.Visibility = Visibility.Visible;
 
             HelpPromptGrid.Visibility = Visibility.Hidden;
 
@@ -70,7 +81,17 @@ namespace AppProject
             foreach (string fileName in imageFileNames)
             {
                 Image image = HelperMethods481.AssemblyManager.GetImageFromEmbeddedResources(fileName);
-                string itemName = fileName.Replace(".jpg", "").Split('.').Last();
+
+                string itemName = "";
+                if (fileName.Contains(".jpg"))
+                {
+                    itemName = fileName.Replace(".jpg", "").Split('.').Last();
+                }
+                else if (fileName.Contains(".png"))
+                {
+                    itemName = fileName.Replace(".png", "").Split('.').Last();
+                }
+                
                 MenuItemsControl menuItems = new MenuItemsControl(image, itemName);
 
                 menuItems.InformationRequest += new EventHandler<EventArgs>(M_DisplayMoreInfo);
@@ -85,6 +106,16 @@ namespace AppProject
                 else if (File.Exists(@"Images\Kids Menu\" + itemName + ".jpg"))
                     this.Menu_Kids_uniform_grid.Children.Add(menuItems);
                 else if (File.Exists(@"Images\Drinks\" + itemName + ".jpg"))
+                    this.Menu_Drink_uniform_grid.Children.Add(menuItems);
+               else if (File.Exists(@"Images\Appetizers\" + itemName + ".png"))
+                    this.Menu_items_uniform_gird.Children.Add(menuItems);
+                else if (File.Exists(@"Images\Entrees\" + itemName + ".png"))
+                    this.Menu_Entrees_uniform_grid.Children.Add(menuItems);
+                else if (File.Exists(@"Images\Desserts\" + itemName + ".png"))
+                    this.Menu_Dessert_uniform_grid.Children.Add(menuItems);
+                else if (File.Exists(@"Images\Kids Menu\" + itemName + ".png"))
+                    this.Menu_Kids_uniform_grid.Children.Add(menuItems);
+                else if (File.Exists(@"Images\Drinks\" + itemName + ".png"))
                     this.Menu_Drink_uniform_grid.Children.Add(menuItems);
             }
 

@@ -72,8 +72,8 @@
             <Rectangle x:Name="MI_Background" Fill="#FF2796CB" Stroke="#FF005792" RadiusX="4" RadiusY="4" StrokeThickness="4" Width="860" Height="725" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <TextBlock x:Name="Food_Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Margin="45,30.5,305.857,0" FontSize="48" Text="Item name" FontWeight="Bold" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
             <TextBlock x:Name="Description" HorizontalAlignment="Right" TextWrapping="Wrap" Margin="0,152.786,29.037,274.643" Width="275.963" FontSize="18" Text="Description" FontFamily="Century Gothic" Foreground="#FFEFEFEF"/>
-            <Image x:Name="Food_Image" Margin="45,105,325,122" Stretch="UniformToFill"/>
-            <Button x:Name="MI_Add" Content="Button" HorizontalAlignment="Left" Margin="292.5,628.786,0,0" Style="{DynamicResource ButtonStyle1}" Background="{x:Null}" VerticalAlignment="Top" ClickMode="Press" Width="275" Height="65" Click="MI_add_to_bill_button_Click" Cursor="Hand"/>
+            <Image x:Name="Food_Image" Margin="45,109.843,325,183.546" Stretch="Fill"/>
+            <Button x:Name="MI_Add" Content="Button" HorizontalAlignment="Left" Margin="292.5,597.106,0,0" Style="{DynamicResource ButtonStyle1}" Background="{x:Null}" VerticalAlignment="Top" ClickMode="Press" Width="275" Height="65" Click="MI_add_to_bill_button_Click" Cursor="Hand"/>
             <Button x:Name="MI_Close" Content="X" Style="{DynamicResource ExitButton}" Cursor="Hand" RenderTransformOrigin="0.5,0.5" Margin="797.333,16,16,662.333" Click="Close_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
@@ -84,8 +84,8 @@
                     </TransformGroup>
                 </Button.RenderTransform>
             </Button>
-            <TextBox x:Name="UserNotes" HorizontalAlignment="Right" Height="112.643" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="275.963" Margin="0,0,29.037,122" FontFamily="Century Gothic" FontSize="16" Background="#FF2796CB" BorderBrush="#FFEFEFEF" BorderThickness="3" SelectionBrush="#FFCED700" Foreground="#FFEFEFEF"/>
-            <TextBlock x:Name="Notes" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,29.037,239.643" Height="30" HorizontalAlignment="Right" Width="275.963" FontSize="22" FontWeight="Bold" Foreground="#FFEFEFEF" RenderTransformOrigin="0.505,-0.164"><Run Text="Add "/><Run Text="n"/><Run Text="otes"/><Run Text=" to order"/><Run Text=":"/></TextBlock>
+            <TextBox x:Name="UserNotes" HorizontalAlignment="Right" Height="112.643" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="275.963" Margin="0,0,29.037,183.546" FontFamily="Century Gothic" FontSize="16" Background="#FF2796CB" BorderBrush="#FFEFEFEF" BorderThickness="3" SelectionBrush="#FFCED700" Foreground="#FFEFEFEF"/>
+            <TextBlock x:Name="Notes" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,29.037,301.189" Height="30" HorizontalAlignment="Right" Width="275.963" FontSize="22" FontWeight="Bold" Foreground="#FFEFEFEF" RenderTransformOrigin="0.505,-0.164"><Run Text="Add "/><Run Text="n"/><Run Text="otes"/><Run Text=" to order"/><Run Text=":"/></TextBlock>
             <Image x:Name="GlutenFree_Icon" HorizontalAlignment="Left" Height="20.999" Margin="555,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/GlutenFree_Icon.png"/>
             <Image x:Name="Peanut_Icon" HorizontalAlignment="Left" Height="20.999" Margin="577.9,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Peanut_Icon.png"/>
             <Image x:Name="Spicy_Icon" HorizontalAlignment="Left" Height="20.999" Margin="600.8,84.001,0,0" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Spicy_Icon.png"/>
