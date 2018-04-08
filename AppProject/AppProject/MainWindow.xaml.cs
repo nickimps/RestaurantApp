@@ -51,6 +51,7 @@ namespace AppProject
             ServerGrid.Visibility = Visibility.Hidden;
             HelpPromptGrid.Visibility = Visibility.Hidden;
             AddItemsPromptGrid.Visibility = Visibility.Hidden;
+            BillSelectionGrid.Visibility = Visibility.Hidden;
 
             //Set the opening menu category to appetizers
             selectedMenu = M_MenuItemsGrid;
@@ -556,11 +557,18 @@ namespace AppProject
                 bill.billView.SendItems();
             }
             this.CommunicationGrid.Visibility = Visibility.Visible;
-            this.ReviewGrid.IsEnabled = false;
+
             this.R_CheckoutButton.Opacity = 1;
             this.R_CheckoutButton.IsEnabled = true;
-            //EFFECTS HERE?
 
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
+            this.ReviewGrid.Effect = myBlurEffect;
+
+            this.ReviewGrid.IsEnabled = false;
         }
 
         private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
@@ -580,9 +588,27 @@ namespace AppProject
             billPosition = bills.IndexOf(selectedBIC.billControl.billLogic);
             this.S_BillUniformGrid.Children.RemoveAt(billPosition);
             this.BillSelectionGrid.Visibility = Visibility.Visible;
-            
+
             //Temporary Solutions to disable too many instances
+
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
+            this.ReviewGrid.Effect = myBlurEffect;
+
             this.ReviewGrid.IsEnabled = false;
+
+            DropShadowEffect myDropShadow = new DropShadowEffect
+            {
+                BlurRadius = 10,
+                Direction = 315,
+                ShadowDepth = 5,
+                Color = Colors.Black
+            };
+            this.S_BillUniformGrid.Effect = myDropShadow;
+            
             this.R_ReviewTitle.Text = "Split " + selectedBIC.itemName +  " with which bills?";
 
         }
@@ -599,7 +625,7 @@ namespace AppProject
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_BillA_DGrid.Visibility = Visibility.Hidden;
             this.R_DButtonsGrid.Visibility = Visibility.Visible;
-            this.R_ReviewTitle.Text = "Delete which bills? (Click on the X)";
+            this.R_ReviewTitle.Text = "Click the 'x' to delete bill(s)";
         }
 
         private void R_DoneDeleting_Click(object sender, RoutedEventArgs e)
@@ -704,6 +730,15 @@ namespace AppProject
         {
             this.CommunicationGrid.Visibility = Visibility.Hidden;
             this.ReviewGrid.IsEnabled = true;
+
+            BlurEffect myDeBlurEffect = new BlurEffect
+            {
+                Radius = 0,
+                KernelType = KernelType.Gaussian
+            };
+            this.ReviewGrid.Effect = myDeBlurEffect;
+
+            this.ReviewGrid.IsEnabled = true;
         }
 
         /**********************************************************
@@ -724,7 +759,25 @@ namespace AppProject
         private void S_CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.BillSelectionGrid.Visibility = Visibility.Hidden;
+
+            BlurEffect myDeBlurEffect = new BlurEffect
+            {
+                Radius = 0,
+                KernelType = KernelType.Gaussian
+            };
+            this.ReviewGrid.Effect = myDeBlurEffect;
+
             this.ReviewGrid.IsEnabled = true;
+
+            DropShadowEffect myUnDropShadow = new DropShadowEffect
+            {
+                BlurRadius = 0,
+                Direction = 0,
+                ShadowDepth = 0,
+                Color = Colors.Black
+            };
+            this.S_BillUniformGrid.Effect = myUnDropShadow;
+
             this.R_ReviewTitle.Text = "Click which food item to split";
             foreach (Bill bill in selectedBills)
             {
@@ -737,7 +790,25 @@ namespace AppProject
         private void S_ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             this.BillSelectionGrid.Visibility = Visibility.Hidden;
+
+            BlurEffect myDeBlurEffect = new BlurEffect
+            {
+                Radius = 0,
+                KernelType = KernelType.Gaussian
+            };
+            this.ReviewGrid.Effect = myDeBlurEffect;
+
             this.ReviewGrid.IsEnabled = true;
+
+            DropShadowEffect myUnDropShadow = new DropShadowEffect
+            {
+                BlurRadius = 0,
+                Direction = 0,
+                ShadowDepth = 0,
+                Color = Colors.Black
+            };
+            this.S_BillUniformGrid.Effect = myUnDropShadow;
+            
             this.R_ReviewTitle.Text = "Click which food item to split";
 
             //Spliting Logic here

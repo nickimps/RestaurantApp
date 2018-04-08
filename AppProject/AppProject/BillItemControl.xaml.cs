@@ -66,7 +66,7 @@ namespace AppProject
 
             itemPrice = splitPrice;
             string price = String.Format("{0:0.00}", itemPrice);
-            this.ItemPrice.Text = price;
+            this.ItemPrice.Text = "$" + price;
 
             ItemName.Text = sourceItem.name;
 
@@ -144,7 +144,9 @@ namespace AppProject
             {
                 itemSent = true;
                 this.CancelButton.Visibility = Visibility.Hidden;
-                this.BackgroundColor.Fill = Brushes.Black;
+                SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+                mySolidColorBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7F7F7F"));
+                this.BackgroundColor.Fill = mySolidColorBrush;
             }
         }
 
@@ -152,7 +154,7 @@ namespace AppProject
         {
             itemPrice = newPrice;
             string price = String.Format("{0:0.00}", itemPrice);
-            this.ItemPrice.Text = price;
+            this.ItemPrice.Text = "$" + price;
             billControl.ItemListChanged();
         }
 
