@@ -694,17 +694,17 @@
                     <Button x:Name="R_SendButton" Content="Send To Kitchen" HorizontalAlignment="Left" Height="94" Margin="34.052,155.3,0,0" Style="{DynamicResource ButtonStyle15}" VerticalAlignment="Top" Width="348.948" Click="R_SendButton_Click"/>
                     <Button x:Name="R_ReturnButton" Content="Return To Menu" HorizontalAlignment="Left" Height="94" Margin="34.052,30,0,0" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="R_ReturnButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_EditButtonsGrid" Height="980" VerticalAlignment="Top">
+                <Grid x:Name="R_EditButtonsGrid" Height="980" VerticalAlignment="Top" d:IsHidden="True">
                     <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Margin="34.052,605.3,0,0" Style="{DynamicResource MoveSplitButtonTemplate}" Width="348.948" Height="94" VerticalAlignment="Top" Click="R_SplitButton_Click"/>
                     <Button x:Name="R_MoveButton" Content="Move Item(s)" HorizontalAlignment="Left" Height="94" Margin="34.052,480,0,0" Style="{DynamicResource MoveSplitButtonTemplate}" VerticalAlignment="Top" Width="348.948" Click="R_MoveButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
+                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden" d:IsHidden="True">
                     <Button x:Name="DoneButton" Content="Done Moving" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_DoneButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_SplitButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
+                <Grid x:Name="R_SplitButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden" d:IsHidden="True">
                     <Button x:Name="FinishSplitButton" Content="Done Splitting" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_FinishSplitButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_DButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
+                <Grid x:Name="R_DButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden" d:IsHidden="True">
                     <Button x:Name="R_DoneDeleting" Content="Done" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_DoneDeleting_Click"/>
                 </Grid>
             </Grid>
