@@ -594,7 +594,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" d:IsHidden="True">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -672,7 +672,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF34495E" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="ReviewGrid" Background="#FF34495E" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
