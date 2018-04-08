@@ -772,14 +772,14 @@
             <TextBlock x:Name="C_TextMessage" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="96.76" Width="876.982" FontSize="60" Foreground="#FFEE712B" FontFamily="Century Gothic" Margin="0,116.42,0,172.42" TextAlignment="Center" Text="Your orders have been sent!"/>
             <Button x:Name="C_DismissButton" Content="Dismiss" HorizontalAlignment="Left" Height="72.571" Margin="264,267.537,0,0" Style="{DynamicResource ButtonStyle9}" VerticalAlignment="Top" Width="348.948" Click="C_DismissButton_Click"/>
         </Grid>
-        <Grid x:Name="BillSelectionGrid" Grid.ColumnSpan="2" Margin="1210,0,0,0" Background="#FF34495E" d:IsHidden="True">
+        <Grid x:Name="BillSelectionGrid" Grid.ColumnSpan="2" Margin="1210,0,0,0" Background="#FF34495E">
             <Grid x:Name="S_ButtonGrid" Margin="10,0,10,10" Height="211" VerticalAlignment="Bottom">
                 <Button x:Name="ResetStateButton" Content="-" HorizontalAlignment="Left" Margin="0,732,0,-769" Style="{DynamicResource ButtonStyle14}" Width="342" Click="ResetStateButton_Click" Visibility="Hidden"/>
                 <Button x:Name="S_CancelButton" Content="Cancel" Margin="15.526,0,15.526,10" Style="{DynamicResource ButtonStyle7}" Width="348.948" Height="94" VerticalAlignment="Bottom" Click="S_CancelButton_Click"/>
                 <Button x:Name="S_ConfirmButton" Content="Confirm" Height="94" Margin="15.526,-8,15.526,114" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Bottom" Width="348.948" Click="S_ConfirmButton_Click"/>
             </Grid>
-            <ScrollViewer x:Name="S_Scroller" Height="706.857" VerticalAlignment="Top" Margin="10,27.143,10,0" Background="#FF34495E">
-                <UniformGrid x:Name="S_BillUniformGrid" VerticalAlignment="Top" Width="360" Columns="1" HorizontalAlignment="Left"/>
+            <ScrollViewer x:Name="S_Scroller" VerticalAlignment="Top" Margin="10,27.143,10,0" Background="#FF34495E" VerticalScrollBarVisibility="Hidden" Height="700">
+                <UniformGrid x:Name="S_BillUniformGrid" Columns="1" VerticalAlignment="Top"/>
             </ScrollViewer>
         </Grid>
     </Grid>

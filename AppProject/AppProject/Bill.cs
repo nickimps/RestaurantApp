@@ -23,9 +23,11 @@ namespace AppProject
         {
             billName = identity;
             transactionCompleted = false;
-            CreateView();
             CreateMenuView();
             CreateSelectionView();
+
+            CreateView();
+            
         }
 
         private void CreateView()
@@ -147,10 +149,12 @@ namespace AppProject
             billView.TotalNumber.Text = "$" + price;
         }
 
-        private void UpdateIdentifiersInViews()
+        public void UpdateIdentifiersInViews()
         {
             billView.BillIdentifier.Text = billName;
             m_BillView.IdentifierText.Text = billName;
+            s_BillView.billName = billName;
+            s_BillView.BillName.Text = billName;
         }
 
         private void MenuBillClickedEvent(object sender, RoutedEventArgs e)

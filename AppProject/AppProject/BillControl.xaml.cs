@@ -30,9 +30,9 @@ namespace AppProject
         {
             InitializeComponent();
             billLogic = bill;
+            billLogic.billView = this;
             this.BillIdentifier.Text = bill.billName;
             this.TotalNumber.Text = bill.ReturnTotal().ToString();
-            
         }
 
         public void AddItem(BillItemControl item)
@@ -198,6 +198,13 @@ namespace AppProject
         private void PaidForButton_Click(object sender, RoutedEventArgs e)
         {
             billLogic.ToggleTransactionStatus();
+        }
+
+        private void BillIdentifier_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            billLogic.billName = BillIdentifier.Text;
+            billLogic.UpdateIdentifiersInViews();
+
         }
     }
 }

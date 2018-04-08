@@ -40,7 +40,7 @@ namespace AppProject
             CheckmarkImage.Visibility = Visibility.Hidden;
         }
 
-        private void BillSelectionMainGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void BillSelectionButton_Click(object sender, RoutedEventArgs e)
         {
             //Console.WriteLine("IS THIS EVENT FIRING?");
             if (selected)
@@ -48,7 +48,8 @@ namespace AppProject
                 selected = false;
                 CheckmarkImage.Visibility = Visibility.Hidden;
                 this.Unselected.Invoke(this, new EventArgs());
-            } else
+            }
+            else
             {
                 selected = true;
                 CheckmarkImage.Visibility = Visibility.Visible;
