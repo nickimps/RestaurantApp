@@ -823,5 +823,18 @@ namespace AppProject
             this.S_BillUniformGrid.Children.Insert(billPosition, bills[billPosition].s_BillView);
             selectedBills.Clear();
         }
+
+        public void MurderAndReplace(MainWindow murdered)
+        {
+            murdered.Close();
+            murdered = null;
+        }
+
+        private void ResetStateButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow nWindow = new MainWindow();
+            nWindow.Show();
+            nWindow.MurderAndReplace(this);
+        }
     }
 }
