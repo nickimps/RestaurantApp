@@ -13,8 +13,8 @@ namespace AppProject
         public string name { get; set; }
         public double totalValue { get; set; }
         public string description { get; set; }
-        public Boolean evenSplit = true;
         public string additionalInfo { get; set; }
+        public Boolean itemSent = false;
         public List<BillItemControl> viewList;
 
         public FoodItem(string itemName, string itemValue)

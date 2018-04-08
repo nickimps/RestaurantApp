@@ -556,6 +556,27 @@
             <Setter Property="FontFamily" Value="Century Gothic"/>
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
+        <Style x:Key="ButtonStyle16" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Rectangle Fill="#FFDC2F2F" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FFEA5151"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" TextBlock.FontSize="36" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="W_StartButton">
@@ -666,23 +687,24 @@
                     <RowDefinition/>
                     <RowDefinition Height="0*"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="S_exit_server_mode" Content="Logout" HorizontalAlignment="Left" Height="94" Margin="34.052,30,0,0" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="s_exit_server_mode" d:IsHidden="True"/>
-                <Grid x:Name="R_TransitionButtonGrid" Margin="0,0,0,14">
+                <Button x:Name="S_exit_server_mode" Content="Logout" HorizontalAlignment="Left" Height="94" Margin="34.052,30,0,0" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="s_exit_server_mode"/>
+                <Button x:Name="S_clear_table_button" Content="Clear Table" HorizontalAlignment="Left" Height="94" Margin="34.052,861,0,0" Style="{DynamicResource ButtonStyle16}" VerticalAlignment="Top" Width="348.948" Click="ResetStateButton_Click"/>
+                <Grid x:Name="R_TransitionButtonGrid" Margin="0,0,0,14" d:IsHidden="True">
                     <Button x:Name="R_CheckoutButton" Content="Pay for Meal" HorizontalAlignment="Left" Height="94" Margin="34.052,280.67,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_CheckoutButton_Click" Opacity="0.5" IsEnabled="False"/>
                     <Button x:Name="R_SendButton" Content="Send To Kitchen" HorizontalAlignment="Left" Height="94" Margin="34.052,155.3,0,0" Style="{DynamicResource ButtonStyle15}" VerticalAlignment="Top" Width="348.948" Click="R_SendButton_Click"/>
                     <Button x:Name="R_ReturnButton" Content="Return To Menu" HorizontalAlignment="Left" Height="94" Margin="34.052,30,0,0" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="R_ReturnButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_EditButtonsGrid" Height="980" VerticalAlignment="Top">
+                <Grid x:Name="R_EditButtonsGrid" Height="980" VerticalAlignment="Top" d:IsHidden="True">
                     <Button x:Name="R_SplitButton" Content="Split Item(s)" HorizontalAlignment="Left" Margin="34.052,605.3,0,0" Style="{DynamicResource MoveSplitButtonTemplate}" Width="348.948" Height="94" VerticalAlignment="Top" Click="R_SplitButton_Click"/>
                     <Button x:Name="R_MoveButton" Content="Move Item(s)" HorizontalAlignment="Left" Height="94" Margin="34.052,480,0,0" Style="{DynamicResource MoveSplitButtonTemplate}" VerticalAlignment="Top" Width="348.948" Click="R_MoveButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
+                <Grid x:Name="R_MoveButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden" d:IsHidden="True">
                     <Button x:Name="DoneButton" Content="Done Moving" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_DoneButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_SplitButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
+                <Grid x:Name="R_SplitButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden" d:IsHidden="True">
                     <Button x:Name="FinishSplitButton" Content="Done Splitting" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_FinishSplitButton_Click"/>
                 </Grid>
-                <Grid x:Name="R_DButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden">
+                <Grid x:Name="R_DButtonsGrid" VerticalAlignment="Bottom" Height="980" Visibility="Hidden" d:IsHidden="True">
                     <Button x:Name="R_DoneDeleting" Content="Done" HorizontalAlignment="Left" Height="94" Margin="33,861,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_DoneDeleting_Click"/>
                 </Grid>
             </Grid>
@@ -767,7 +789,7 @@
             <TextBlock x:Name="AddItems_Message" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,27.357,-55.267,0" FontSize="60" HorizontalAlignment="Left" Foreground="#FFEE712B" FontFamily="Century Gothic" Width="744.467" TextAlignment="Center"><Run Text="Please "/><Run Text="choose "/><Run Text="a "/><Run Text="bill"/><LineBreak/><Run FontSize="48" Text="or"/></TextBlock>
             <Button x:Name="AddItems_CancelButton" Content="Dismiss" HorizontalAlignment="Left" Height="60.571" Margin="263.15,168.77,0,0" Style="{DynamicResource ButtonStyle11}" VerticalAlignment="Top" Width="240" Click="AddItems_Click" RenderTransformOrigin="0.5,0.5"/>
         </Grid>
-        <Grid x:Name="CommunicationGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Margin="293.818,304.4,0,0" Visibility="Hidden" d:IsHidden="True">
+        <Grid x:Name="CommunicationGrid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="385.6" VerticalAlignment="Top" Width="876.982" Margin="293.818,304.4,0,0" Visibility="Hidden">
             <Rectangle x:Name="C_Rectangle" Fill="#FF2C3E50" HorizontalAlignment="Left" Height="385.6" RadiusY="7" RadiusX="7" Stroke="#FFBDC3C7" StrokeThickness="4" VerticalAlignment="Top" Width="876.982" Margin="0,0,-476.982,-105.6"/>
             <TextBlock x:Name="C_TextMessage" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="96.76" Width="876.982" FontSize="60" Foreground="#FFEE712B" FontFamily="Century Gothic" Margin="0,116.42,0,172.42" TextAlignment="Center" Text="Your orders have been sent!"/>
             <Button x:Name="C_DismissButton" Content="Dismiss" HorizontalAlignment="Left" Height="72.571" Margin="264,267.537,0,0" Style="{DynamicResource ButtonStyle9}" VerticalAlignment="Top" Width="348.948" Click="C_DismissButton_Click"/>

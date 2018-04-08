@@ -47,6 +47,7 @@ namespace AppProject
         public MainWindow()
         {
             InitializeComponent();
+            serverMode = false;
             ReviewGrid.Visibility = Visibility.Hidden;
             DisplayMoreInfoGrid.Visibility = Visibility.Hidden;
             BillDisplayGrid.Visibility = Visibility.Hidden;
@@ -54,6 +55,8 @@ namespace AppProject
             HelpPromptGrid.Visibility = Visibility.Hidden;
             AddItemsPromptGrid.Visibility = Visibility.Hidden;
             BillSelectionGrid.Visibility = Visibility.Hidden;
+            
+
 
             //Set the opening menu category to appetizers
             selectedMenu = M_MenuItemsGrid;
@@ -122,12 +125,14 @@ namespace AppProject
             W_StartButton.Opacity = 0.25;
             W_StartButton.IsEnabled = false;
             R_MoveButtonsGrid.Visibility = Visibility.Hidden;
+            this.R_UpdateSendButtonStatus();
         }
 
         private void RemoveItemOrder(object sender, ItemEventArgs e) 
         {
             e.item.Empty -= new EventHandler<ItemEventArgs>(RemoveItemOrder);
             orderedFoods.Remove(e.item);
+            this.R_UpdateSendButtonStatus();
         }
 
         /**********************************************************
@@ -395,6 +400,7 @@ namespace AppProject
                 orderedFoods.Add(selectedItem);
                 selectedItem.Empty += new EventHandler<ItemEventArgs>(RemoveItemOrder);
                 clickedBill.AddNewItem(selectedItem);
+                this.R_UpdateSendButtonStatus();
             }
             //Display Bill
             else
@@ -437,6 +443,7 @@ namespace AppProject
         {
             ReviewGrid.Visibility = Visibility.Visible;
             R_SplitButtonsGrid.Visibility = Visibility.Hidden;
+            S_clear_table_button.Visibility = Visibility.Hidden;
             R_ReviewTitle.Text = "Review Bills";
         }
 
@@ -486,17 +493,42 @@ namespace AppProject
         **************REVIEW SCREEN BUTTTON FUNCTIONS**************
         **********************************************************/
 
+        public void R_UpdateSendButtonStatus()
+        {
+            Boolean UnSentItems = false;
+            foreach (FoodItem item in orderedFoods)
+            {
+                if (!item.itemSent)
+                {
+                    UnSentItems = true;
+                    break;
+                }
+            }
+            if (UnSentItems)
+            {
+                R_SendButton.Opacity = 1;
+                R_SendButton.IsEnabled = true;
+            } else
+            {
+                R_SendButton.Opacity = 0.5;
+                R_SendButton.IsEnabled = false;
+            }
+        }
+
         private void R_MoveButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (Bill bill in bills)
             {
                 bill.ToggleItemDragging();
                 bill.billView.ToggleItemDeletability();
-            }
+            }       
+            
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
             this.R_BillA_DGrid.Visibility = Visibility.Hidden;
             this.R_MoveButtonsGrid.Visibility = Visibility.Visible;
+            this.S_clear_table_button.Visibility = Visibility.Hidden;
+            this.S_exit_server_mode.Visibility = Visibility.Hidden;
             R_ReviewTitle.Text = "Drag items to organize bills";
         }
 
@@ -511,11 +543,15 @@ namespace AppProject
             if (serverMode == false)
             {
                 this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+                S_clear_table_button.Visibility = Visibility.Hidden;
+                S_exit_server_mode.Visibility = Visibility.Hidden;
                 R_ReviewTitle.Text = "Review Bills";
             }
             else
             {
                 this.R_ReviewTitle.Text = "Server View";
+                this.S_clear_table_button.Visibility = Visibility.Visible;
+                this.S_exit_server_mode.Visibility = Visibility.Visible;
             }
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
                 this.R_BillA_DGrid.Visibility = Visibility.Visible;
@@ -529,6 +565,8 @@ namespace AppProject
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
             this.R_BillA_DGrid.Visibility = Visibility.Hidden;
             this.R_SplitButtonsGrid.Visibility = Visibility.Visible;
+            this.S_clear_table_button.Visibility = Visibility.Hidden;
+            this.S_exit_server_mode.Visibility = Visibility.Hidden;
             R_ReviewTitle.Text = "Click which food item to split";
             foreach (Bill bill in bills)
             {
@@ -548,11 +586,15 @@ namespace AppProject
             if (serverMode == false)
             {
                 this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+                S_clear_table_button.Visibility = Visibility.Hidden;
+                S_exit_server_mode.Visibility = Visibility.Hidden;
                 R_ReviewTitle.Text = "Review Bills";
             }
             else
             {
                 this.R_ReviewTitle.Text = "Server View";
+                this.S_clear_table_button.Visibility = Visibility.Visible;
+                this.S_exit_server_mode.Visibility = Visibility.Visible;
             }
 
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
@@ -567,6 +609,17 @@ namespace AppProject
             {
                 bill.billView.SendItems();
             }
+            foreach (FoodItem item in orderedFoods)
+            {
+                if (item.itemSent)
+                {
+                }
+                else
+                {
+                    item.itemSent = true;
+                }
+            }
+
             this.CommunicationGrid.Visibility = Visibility.Visible;
 
             this.R_CheckoutButton.Opacity = 1;
@@ -580,6 +633,7 @@ namespace AppProject
             this.ReviewGrid.Effect = myBlurEffect;
 
             this.ReviewGrid.IsEnabled = false;
+            this.R_UpdateSendButtonStatus();
         }
 
         private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
@@ -637,6 +691,8 @@ namespace AppProject
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_BillA_DGrid.Visibility = Visibility.Hidden;
             this.R_DButtonsGrid.Visibility = Visibility.Visible;
+            this.S_clear_table_button.Visibility = Visibility.Hidden;
+            this.S_exit_server_mode.Visibility = Visibility.Hidden;
             this.R_ReviewTitle.Text = "Click the 'x' to delete bill(s)";
         }
 
@@ -650,11 +706,15 @@ namespace AppProject
             if (serverMode == false)
             {
                 this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+                S_clear_table_button.Visibility = Visibility.Hidden;
+                S_exit_server_mode.Visibility = Visibility.Hidden;      
                 this.R_ReviewTitle.Text = "Review Bills";
             }
             else
             {
                 this.R_ReviewTitle.Text = "Server View";
+                this.S_clear_table_button.Visibility = Visibility.Visible;
+                this.S_exit_server_mode.Visibility = Visibility.Visible;
             }
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;     
             this.R_BillA_DGrid.Visibility = Visibility.Visible;
@@ -771,7 +831,17 @@ namespace AppProject
             R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_ReviewTitle.Text = "Server View";
             S_exit_server_mode.Visibility = Visibility.Visible;
-            //S_clear_table_button.Visibility = Visibility.Visible;
+            foreach (Bill bill in bills)
+            {
+                bill.billView.PaidForButton.Visibility = Visibility.Visible;
+                if (bill.transactionCompleted)
+                {
+                    R_BillUniformGrid.Children.Add(bill.billView);
+                    M_BillUniformGrid.Children.Add(bill.m_BillView);
+                    S_BillUniformGrid.Children.Add(bill.s_BillView);
+                }
+            }
+            S_clear_table_button.Visibility = Visibility.Visible;
 
         }
 
@@ -781,13 +851,21 @@ namespace AppProject
             R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_ReviewTitle.Text = "Review Bills";
             S_exit_server_mode.Visibility = Visibility.Hidden;
-            //S_clear_table_button.Visibility = Visibility.Hidden;
+
+            foreach (Bill bill in bills)
+            {
+                bill.billView.PaidForButton.Visibility = Visibility.Hidden;
+                if (bill.transactionCompleted)
+                {
+                    R_BillUniformGrid.Children.Remove(bill.billView);
+                    M_BillUniformGrid.Children.Remove(bill.m_BillView);
+                    S_BillUniformGrid.Children.Remove(bill.s_BillView);
+                }
+            }
+            S_clear_table_button.Visibility = Visibility.Hidden;
+
         }
 
-        private void S_clear_table(object sender, RoutedEventArgs e)
-        {
-            // add the kill code here
-        }
         /**********************************************************
         **************COMMUNICATION BUTTTON FUNCTIONS**************
         **********************************************************/
@@ -1031,6 +1109,7 @@ namespace AppProject
 
         private void ResetStateButton_Click(object sender, RoutedEventArgs e)
         {
+            
             MainWindow nWindow = new MainWindow();
             nWindow.Show();
             nWindow.MurderAndReplace(this);
