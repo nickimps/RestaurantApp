@@ -310,7 +310,6 @@
     <Resource Include="MenuIcons\Special_Icon.png" />
     <Resource Include="MenuIcons\Spicy_Icon.png" />
     <Resource Include="MenuIcons\Vegan_Icon.png" />
-    <Resource Include="Menu\categories.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Design\" />

@@ -23,10 +23,14 @@ namespace AppProject
     {
         public event EventHandler<ItemEventArgs> AddRequest;
         public event EventHandler<EventArgs> DeBlur;
+        public List<Button> statButtonList = new List<Button>();
+
         // This lets me add info to the object whenever it is initialized
         public MoreInfoControl(Image image, string imageName)
         {
             InitializeComponent();
+            PopulateSpecialButtonList();
+
             this.Food_Name.Text = imageName;
             this.Food_Image.BeginInit();
             this.Food_Image.Source = image.Source;
@@ -42,25 +46,36 @@ namespace AppProject
 
         private void setPriceAndDescription(string itemName)
         {
-            int counter = 0;
-            string line;
             try
             {
-                System.IO.StreamReader file = new System.IO.StreamReader(@"Descriptions\" + itemName + ".txt");
-                while ((line = file.ReadLine()) != null)
+                string[] lines = System.IO.File.ReadAllLines(@"Descriptions\" + itemName + ".txt");
+                this.Price.Text = lines[0];
+                this.Description.Text = lines[1];
+                if (lines.Length < 3)
                 {
-                    if (counter == 0)
-                    {
-                        this.Price.Text = line;
-                    }
-                    else
-                        this.Description.Text = line;
-                    counter++;
+                    SetStatusVisibilities("00000");
+                } else
+                {
+                    SetStatusVisibilities(lines[2]);
                 }
             }
             catch (FileNotFoundException ex) { Console.WriteLine(ex); }
         }
 
+        private void SetStatusVisibilities(string status)
+        {
+            for (int i = 0; i < statButtonList.Count; i++)
+            {
+                if (status[i].Equals('1'))
+                {
+                    statButtonList[i].Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    statButtonList[i].Visibility = Visibility.Hidden;
+                }
+            }
+        }
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
@@ -77,6 +92,15 @@ namespace AppProject
         private void MI_add_to_bill_button_Click(object sender, RoutedEventArgs e)
         {
             this.AddRequest.Invoke(this, new ItemEventArgs() { item = this.ReturnFoodItem() });
+        }
+
+        private void PopulateSpecialButtonList()
+        {
+            statButtonList.Add(this.GlutenFreeIconButton);
+            statButtonList.Add(this.NutsIconButton);
+            statButtonList.Add(this.SpicyIconButton);
+            statButtonList.Add(this.SpecialIconButton);
+            statButtonList.Add(this.VeganIconButton);
         }
 
         private void GlutenFreeIconButton_Click(object sender, RoutedEventArgs e)

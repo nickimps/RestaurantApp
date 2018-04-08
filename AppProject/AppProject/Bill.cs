@@ -96,7 +96,7 @@ namespace AppProject
         {
             billView.ToggleItemDraggability();
         }
-
+        
         private void UpdateTotalsInViews()
         {
             double newTotal = 0;
