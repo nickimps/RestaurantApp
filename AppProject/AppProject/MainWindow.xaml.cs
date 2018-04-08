@@ -530,6 +530,14 @@ namespace AppProject
             this.S_clear_table_button.Visibility = Visibility.Hidden;
             this.S_exit_server_mode.Visibility = Visibility.Hidden;
             R_ReviewTitle.Text = "Drag items to organize bills";
+
+            if (serverMode)
+            {
+                foreach (Bill bill in bills)
+                {
+                    bill.billView.PaidForButton.Visibility = Visibility.Hidden;
+                }
+            }
         }
 
         private void R_DoneButton_Click(object sender, RoutedEventArgs e)
@@ -552,6 +560,13 @@ namespace AppProject
                 this.R_ReviewTitle.Text = "Server View";
                 this.S_clear_table_button.Visibility = Visibility.Visible;
                 this.S_exit_server_mode.Visibility = Visibility.Visible;
+                if (serverMode)
+                {
+                    foreach (Bill bill in bills)
+                    {
+                        bill.billView.PaidForButton.Visibility = Visibility.Visible;
+                    }
+                }
             }
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
                 this.R_BillA_DGrid.Visibility = Visibility.Visible;
@@ -572,6 +587,13 @@ namespace AppProject
             {
                 bill.billView.ToggleSplitMode();
                 bill.billView.ToggleItemDeletability();
+            }
+            if (serverMode)
+            {
+                foreach (Bill bill in bills)
+                {
+                    bill.billView.PaidForButton.Visibility = Visibility.Hidden;
+                }
             }
             
         }
@@ -595,6 +617,13 @@ namespace AppProject
                 this.R_ReviewTitle.Text = "Server View";
                 this.S_clear_table_button.Visibility = Visibility.Visible;
                 this.S_exit_server_mode.Visibility = Visibility.Visible;
+                if (serverMode)
+                {
+                    foreach (Bill bill in bills)
+                    {
+                        bill.billView.PaidForButton.Visibility = Visibility.Visible;
+                    }
+                }
             }
 
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
@@ -737,6 +766,7 @@ namespace AppProject
             cBill.MenuBillClicked += new EventHandler<EventArgs>(M_BillClick);
             cBill.billView.Deleted += new EventHandler<EventArgs>(R_HandleBillDeletion);
             cBill.billView.SplitRequest += new EventHandler<BICEventArgs>(R_DisplaySelections);
+
         }
 
         //Handling of bill deletion

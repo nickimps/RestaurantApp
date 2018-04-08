@@ -116,7 +116,6 @@ namespace AppProject
 
         public void ToggleItemDraggability()
         {
-
             if (billLogic.transactionCompleted)
             {
 
