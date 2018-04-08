@@ -184,6 +184,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Checkmark.png" />
     <Content Include="Descriptions\BBQ Ribs.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

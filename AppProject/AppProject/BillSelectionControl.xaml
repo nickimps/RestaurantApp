@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppProject"
-             mc:Ignorable="d" Height="69" Width="360">
-    <Grid x:Name="BillSelectionMainGrid" Width="360" Height="69" Background="#FF62A671" MouseDown="BillSelectionMainGrid_MouseDown">
-        <Rectangle x:Name="Border" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="69" Stroke="Black" VerticalAlignment="Top" Width="360"/>
-
-        <TextBlock x:Name="BillName" TextWrapping="Wrap" Margin="10" FontSize="36" Background="#FF62A671"><Run Text="Hello"/><LineBreak/><Run Text="."/><LineBreak/><Run/><LineBreak/><Run Text="\"/></TextBlock>
+             mc:Ignorable="d" Height="81.571" Width="360">
+    <Grid x:Name="BillSelectionMainGrid" Width="360" Height="69" MouseDown="BillSelectionMainGrid_MouseDown" Margin="0,0,0,6.857">
+        <Rectangle x:Name="Bill_Background" Fill="#FFEE712B" HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="360" RadiusX="7" RadiusY="7" StrokeThickness="6" Stroke="#FFDC4712"/>
+        <TextBlock x:Name="BillName" TextWrapping="Wrap" Margin="10.666,10,9.334,10" FontSize="36" Text="Name here" Foreground="#FFEFEFEF" FontFamily="Century Gothic"/>
+        <Image x:Name="CheckmarkImage" Margin="305.622,13.333,12.664,13.382" Source="Checkmark.png" Visibility="Hidden"/>
 
     </Grid>
 </UserControl>

@@ -37,7 +37,7 @@ namespace AppProject
         public void Unselect()
         {
             selected = false;
-            this.Border.Fill = Brushes.White;
+            CheckmarkImage.Visibility = Visibility.Hidden;
         }
 
         private void BillSelectionMainGrid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -46,12 +46,12 @@ namespace AppProject
             if (selected)
             {
                 selected = false;
-                this.Border.Fill = Brushes.White;
+                CheckmarkImage.Visibility = Visibility.Hidden;
                 this.Unselected.Invoke(this, new EventArgs());
             } else
             {
                 selected = true;
-                this.Border.Fill = Brushes.Goldenrod;
+                CheckmarkImage.Visibility = Visibility.Visible;
                 this.Selected.Invoke(this, new EventArgs());
             }
         }
