@@ -27,7 +27,16 @@ namespace AppProject
         {
             InitializeComponent();
             this.IdentifierText.Text = bill.billName;
-            this.TotalText.Text = "$" + bill.ReturnTotal().ToString();
+            string price = String.Format("{0:0.00}", bill.ReturnTotal().ToString());
+
+            if (price.Equals("0"))
+            {
+                this.TotalText.Text = "$0.00";
+            }
+            else
+            {
+                this.TotalText.Text = "$" + price;
+            }
         }
     }
 }
