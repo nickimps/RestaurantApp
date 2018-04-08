@@ -814,6 +814,116 @@ namespace AppProject
             this.S_BillUniformGrid.Children.Insert(billPosition, bills[billPosition].s_BillView);
             selectedBills.Clear();
         }
+        
+        // Used when manually scrolling.
+        private Point scrollStartPoint;
+        private Point scrollStartOffset;
+        private Boolean MenuBillScroller = false;
+        private Boolean ReviewScroller = false;
+        private Boolean MenuScroller = false;
+
+        protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
+        {
+            MenuBillScroller = false;
+            ReviewScroller = false;
+            MenuScroller = false;
+
+            if (R_BillScroller.IsMouseOver)
+            {
+                ReviewScroller = true;
+                // Save starting point, used later when determining how much to scroll.
+                scrollStartPoint = e.GetPosition(this);
+                scrollStartOffset.X = R_BillScroller.HorizontalOffset;
+                scrollStartOffset.Y = R_BillScroller.VerticalOffset;
+
+                // Update the cursor if can scroll or not.
+                this.Cursor = (R_BillScroller.ExtentWidth > R_BillScroller.ViewportWidth) ||
+                    (R_BillScroller.ExtentHeight > R_BillScroller.ViewportHeight) ?
+                    Cursors.ScrollAll : Cursors.Arrow;
+
+                this.CaptureMouse();
+            }
+            else if (!ReviewGrid.IsVisible && selectedMenuItems.IsMouseDirectlyOver)
+            {
+                MenuScroller = true;
+                scrollStartPoint = e.GetPosition(this);
+                scrollStartOffset.X = selectedMenuItems.HorizontalOffset;
+                scrollStartOffset.Y = selectedMenuItems.VerticalOffset;
+                
+                this.Cursor = (selectedMenuItems.ExtentWidth > selectedMenuItems.ViewportWidth) ||
+                    (selectedMenuItems.ExtentHeight > selectedMenuItems.ViewportHeight) ?
+                    Cursors.ScrollAll : Cursors.Arrow;
+
+                this.CaptureMouse();
+            }
+            else if (!ReviewGrid.IsVisible && M_BillScroller.IsMouseDirectlyOver)
+            {
+                MenuBillScroller = true;
+                scrollStartPoint = e.GetPosition(this);
+                scrollStartOffset.X = M_BillScroller.HorizontalOffset;
+                scrollStartOffset.Y = M_BillScroller.VerticalOffset;
+
+                this.Cursor = (M_BillScroller.ExtentWidth > M_BillScroller.ViewportWidth) ||
+                    (M_BillScroller.ExtentHeight > M_BillScroller.ViewportHeight) ?
+                    Cursors.ScrollAll : Cursors.Arrow;
+
+                this.CaptureMouse();
+                
+            }
+
+            
+            base.OnPreviewMouseDown(e);
+        }
+
+        protected override void OnPreviewMouseMove(MouseEventArgs e)
+        {
+            if (this.IsMouseCaptured)
+            {
+                // Get the new scroll position.
+                Point point = e.GetPosition(this);
+
+                // Determine the new amount to scroll.
+                Point delta = new Point(
+                    (point.X > this.scrollStartPoint.X) ?
+                        -(point.X - this.scrollStartPoint.X) :
+                        (this.scrollStartPoint.X - point.X),
+
+                    (point.Y > this.scrollStartPoint.Y) ?
+                        -(point.Y - this.scrollStartPoint.Y) :
+                        (this.scrollStartPoint.Y - point.Y));
+
+                if (ReviewScroller)
+                {
+                    // Scroll to the new position.
+                    R_BillScroller.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
+                    R_BillScroller.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);
+                }
+                else if (MenuScroller)
+                {
+                    selectedMenuItems.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
+                    selectedMenuItems.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);
+                }
+                else if (MenuBillScroller)
+                {
+                    M_BillScroller.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
+                    M_BillScroller.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);
+                }
+
+            }
+
+            base.OnPreviewMouseMove(e);
+        }
+
+        protected override void OnPreviewMouseUp(MouseButtonEventArgs e)
+        {
+            if (this.IsMouseCaptured)
+            {
+                this.Cursor = Cursors.Arrow;
+                this.ReleaseMouseCapture();
+            }
+
+            base.OnPreviewMouseUp(e);
+        }
 
         public void MurderAndReplace(MainWindow murdered)
         {
