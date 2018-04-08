@@ -769,7 +769,7 @@ namespace AppProject
             R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_ReviewTitle.Text = "Server View";
             S_exit_server_mode.Visibility = Visibility.Visible;
-            S_clear_table_button.Visibility = Visibility.Visible;
+            //S_clear_table_button.Visibility = Visibility.Visible;
 
         }
 
@@ -779,7 +779,7 @@ namespace AppProject
             R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_ReviewTitle.Text = "Review Bills";
             S_exit_server_mode.Visibility = Visibility.Hidden;
-            S_clear_table_button.Visibility = Visibility.Hidden;
+            //S_clear_table_button.Visibility = Visibility.Hidden;
         }
 
         private void S_clear_table(object sender, RoutedEventArgs e)
@@ -887,10 +887,6 @@ namespace AppProject
             this.S_BillUniformGrid.Children.Insert(billPosition, bills[billPosition].s_BillView);
             selectedBills.Clear();
         }
-<<<<<<< HEAD
-
-        
-=======
         
         // Used when manually scrolling.
         private Point scrollStartPoint;
@@ -1014,6 +1010,5 @@ namespace AppProject
             nWindow.Show();
             nWindow.MurderAndReplace(this);
         }
->>>>>>> 6b5d9d362ff3df06e68fd371c0040c195b669ec8
     }
 }
