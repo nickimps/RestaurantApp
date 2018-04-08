@@ -594,7 +594,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" d:IsHidden="True">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -672,7 +672,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF34495E" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="ReviewGrid" Background="#FF34495E" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -745,7 +745,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ServerGrid" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="876.982" Visibility="Visible" Margin="293.818,304.4,449.2,290" d:IsHidden="True">
+        <Grid x:Name="ServerGrid" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="876.982" Visibility="Visible" Margin="293.818,304.4,449.2,290">
             <Rectangle x:Name="S_Background" Fill="#FF34495E" Stroke="#FFBDC3C7" StrokeThickness="4" RadiusX="7" RadiusY="7"/>
             <TextBlock x:Name="S_Message" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,95.5,0,0" FontSize="60" HorizontalAlignment="Left" Foreground="#FFEE712B" FontFamily="Century Gothic" Width="876.982" TextAlignment="Center"><Run Text="Server on the"/><Run Text="ir"/><Run Text=" way"/></TextBlock>
             <PasswordBox x:Name="S_Password" HorizontalAlignment="Left" Height="50" Margin="276,201,0,0" VerticalAlignment="Top" Width="239" Padding="0,-2,0,0" UseLayoutRounding="True" Background="#FF263D53" BorderBrush="#FFEE712B" BorderThickness="3" Foreground="#FFECF0F1" SelectionBrush="#FFEE712B" FontFamily="Century Gothic" FontSize="36" PasswordChanged="S_Password_PasswordChanged"/>

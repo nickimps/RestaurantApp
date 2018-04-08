@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace AppProject
 {
@@ -64,7 +65,9 @@ namespace AppProject
                     {
                         associatedBIC.itemSent = true;
                         associatedBIC.CancelButton.Visibility = System.Windows.Visibility.Hidden;
-                        associatedBIC.BackgroundColor.Fill = System.Windows.Media.Brushes.Black;
+                        SolidColorBrush mySolidColorBrush = new SolidColorBrush();
+                        mySolidColorBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7F7F7F"));
+                        associatedBIC.BackgroundColor.Fill = mySolidColorBrush;
                     }
 
                     viewList.Add(associatedBIC);
