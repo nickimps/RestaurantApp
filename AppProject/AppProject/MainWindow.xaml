@@ -652,7 +652,7 @@
             </Grid>
             <Button x:Name="HelpButton" Content="Button" HorizontalAlignment="Right" VerticalAlignment="Top" Width="46" Template="{DynamicResource HelpButton}" Margin="0,917.165,1556.572,0" Height="46"/>
         </Grid>
-        <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" d:IsHidden="True">
+        <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -737,6 +737,7 @@
                 <UniformGrid x:Name="S_BillUniformGrid" VerticalAlignment="Top" Width="360" Columns="1" HorizontalAlignment="Left"/>
             </ScrollViewer>
         </Grid>
+        <Button x:Name="ResetStateButton" Content="-" HorizontalAlignment="Left" Margin="0,732,0,0" Style="{DynamicResource ButtonStyle14}" Width="342" Grid.ColumnSpan="2" Click="AssistedSuicideButton_Click" Visibility="Hidden"/>
     </Grid>
 
 </Window>
