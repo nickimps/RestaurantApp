@@ -774,6 +774,7 @@ namespace AppProject
 
         private void S_Dismiss_Click(object sender, RoutedEventArgs e)
         {
+            S_Password.Clear();
             this.ServerGrid.Visibility = Visibility.Hidden;
         }
 
