@@ -661,7 +661,7 @@
                 </TransformGroup>
             </Grid.RenderTransform>
             <TextBlock x:Name="R_ReviewTitle" HorizontalAlignment="Left" Height="93.285" Margin="19.428,14.5,0,0" TextWrapping="Wrap" Text="Review Bills" VerticalAlignment="Top" Width="1185.572" FontFamily="Century Gothic" FontSize="65" TextAlignment="Center" Foreground="White"/>
-            <Grid x:Name="R_SideGrid" Margin="1210,0,0,0">
+            <Grid x:Name="R_SideGrid" Margin="1210,0,0,0" d:IsHidden="True">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="0*"/>
@@ -694,7 +694,7 @@
                 <Button x:Name="R_DeleteBillButton" Content="-" HorizontalAlignment="Left" Margin="59,0,-15,0" Style="{DynamicResource ButtonStyle14}" Width="44" Click="R_DeleteBillButton_Click"/>
             </Grid>
         </Grid>
-        <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2">
+        <Grid x:Name="WelcomeScreen" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -772,6 +772,7 @@
         </Grid>
         <Grid x:Name="BillSelectionGrid" Grid.ColumnSpan="2" Margin="1210,0,0,0" Background="#FF34495E" d:IsHidden="True">
             <Grid x:Name="S_ButtonGrid" Margin="10,0,10,10" Height="211" VerticalAlignment="Bottom">
+                <Button x:Name="ResetStateButton" Content="-" HorizontalAlignment="Left" Margin="0,732,0,-769" Style="{DynamicResource ButtonStyle14}" Width="342" Click="ResetStateButton_Click" Visibility="Hidden"/>
                 <Button x:Name="S_CancelButton" Content="Cancel" Margin="15.526,0,15.526,10" Style="{DynamicResource ButtonStyle7}" Width="348.948" Height="94" VerticalAlignment="Bottom" Click="S_CancelButton_Click"/>
                 <Button x:Name="S_ConfirmButton" Content="Confirm" Height="94" Margin="15.526,-8,15.526,114" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Bottom" Width="348.948" Click="S_ConfirmButton_Click"/>
             </Grid>
@@ -779,7 +780,6 @@
                 <UniformGrid x:Name="S_BillUniformGrid" VerticalAlignment="Top" Width="360" Columns="1" HorizontalAlignment="Left"/>
             </ScrollViewer>
         </Grid>
-        <Button x:Name="ResetStateButton" Content="-" HorizontalAlignment="Left" Margin="0,732,0,0" Style="{DynamicResource ButtonStyle14}" Width="342" Grid.ColumnSpan="2" Click="ResetStateButton_Click" Visibility="Hidden"/>
     </Grid>
 
 </Window>

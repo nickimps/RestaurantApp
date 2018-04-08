@@ -26,6 +26,7 @@ namespace AppProject
         {
             InitializeComponent();
 
+
             this.FoodTitle.Text = imageName;
             this.ImageContent.BeginInit();
             this.ImageContent.Source = image.Source;
