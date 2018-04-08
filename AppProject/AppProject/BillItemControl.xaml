@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AppProject"
-             mc:Ignorable="d" Width="340" MinHeight="30" Focusable="True" MouseDown="UserControl_MouseDown" Foreground="{x:Null}" Height="41.821">
+             mc:Ignorable="d" Width="340" MinHeight="30" Focusable="True" MouseDown="UserControl_MouseDown" Foreground="{x:Null}">
     <UserControl.Resources>
         <ControlTemplate x:Key="CloseButton" TargetType="{x:Type Button}">
             <Grid x:Name="CloseGrid" Width="20" Height="20">
@@ -12,12 +12,12 @@
             </Grid>
         </ControlTemplate>
     </UserControl.Resources>
-    <Grid x:Name="BillItemGrid" Width="340" MinWidth="340" MinHeight="28" Focusable="True" Height="41.821">
+    <Grid x:Name="BillItemGrid" Width="340" MinWidth="340" MinHeight="28" Focusable="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Rectangle x:Name="BackgroundColor" Stroke="#FFECF0F1" StrokeThickness="2" RadiusX="15" RadiusY="20" Margin="0,0,0,0.959" Fill="#FFDC4712"/>
-        <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="0" Margin="77,0,0,0"/>
+        <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Margin="77,38,0,0" Width="263"/>
         <Grid x:Name="ItemTitleGrid" Height="41.821" VerticalAlignment="Top" Focusable="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="23*"/>

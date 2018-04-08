@@ -57,7 +57,8 @@
                 <RowDefinition Height="74*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="RemoveBillButton" Content="X&#xD;&#xA;" HorizontalAlignment="Right" Height="25" Margin="355,0,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="25" Click="RemoveBillButton_Click" FontSize="6" Visibility="Hidden"/>
+            <Button x:Name="RemoveBillButton" HorizontalAlignment="Right" Height="25" Margin="355,0,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="25" Click="RemoveBillButton_Click" FontSize="6" Visibility="Hidden"/>
+            <Button x:Name="PaidForButton" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="355,0,0,0" Height="25" Click="PaidForButton_Click" Visibility="Hidden"/>
             <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom" AllowDrop="False">
                 <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic" Foreground="#FFECF0F1"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
                 <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right" FontFamily="Century Gothic" Foreground="#FFECF0F1"/>

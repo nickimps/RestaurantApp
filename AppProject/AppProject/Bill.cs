@@ -10,7 +10,7 @@ namespace AppProject
     public class Bill
     {
         //private List<FoodItem> billItems;
-        private Boolean transactionCompleted { get; set; }
+        private Boolean transactionCompleted = false;
         public string billName { get; set; }
         public BillControl billView;
         public Menu_BillControl m_BillView;
@@ -95,6 +95,42 @@ namespace AppProject
         public void ToggleItemDragging()
         {
             billView.ToggleItemDraggability();
+        }
+
+        public void ToggleTransactionStatus()
+        {
+            if (transactionCompleted)
+            {
+                transactionCompleted = false;
+                //Enable Bill views
+                /*
+                
+                Entering Server Mode
+                foreach (Bill bill in bills)
+                {
+                    if (bill.transactionCompleted)
+                    {
+                        bill.s_BillView.Visibility = Visibility.Visible;
+                        bill.m_BillView.Visibility = Visibility.Visible;
+                        bill.billView.Visibility = Visibility.Visible;
+                    }
+                }
+
+                Exiting Server mode
+                foreach (Bill bill in bills)
+                {
+                    if (bill.transactionCompleted)
+                    {
+                        bill.s_BillView.Visibility = Visibility.Hidden;
+                        bill.m_BillView.Visibility = Visibility.Hidden;
+                        bill.billView.Visibility = Visibility.Hidden;
+                    }
+                }
+                */
+            } else
+            {
+                transactionCompleted = true;         
+            }
         }
         
         private void UpdateTotalsInViews()
