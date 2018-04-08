@@ -36,11 +36,13 @@ namespace AppProject
         private int billPosition;
  
         private Boolean addMode = false;
+        private Boolean serverMode = false;
         FoodItem selectedItem;
         BillItemControl selectedBIC;
         Grid selectedMenu = null;
         ScrollViewer selectedMenuItems = null;
         Rectangle selectedMenuCover;
+       
 
         public MainWindow()
         {
@@ -483,6 +485,7 @@ namespace AppProject
         /**********************************************************
         **************REVIEW SCREEN BUTTTON FUNCTIONS**************
         **********************************************************/
+
         private void R_MoveButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (Bill bill in bills)
@@ -505,11 +508,19 @@ namespace AppProject
                 bill.billView.ToggleItemDeletability();
             }
 
-            this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+            if (serverMode == false)
+            {
+                this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+                R_ReviewTitle.Text = "Review Bills";
+            }
+            else
+            {
+                this.R_ReviewTitle.Text = "Server View";
+            }
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
-            this.R_BillA_DGrid.Visibility = Visibility.Visible;
-            this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;
-            R_ReviewTitle.Text = "Review Bills";
+                this.R_BillA_DGrid.Visibility = Visibility.Visible;
+                this.R_MoveButtonsGrid.Visibility = Visibility.Hidden;
+                             
         }
 
         private void R_SplitButton_Click(object sender, RoutedEventArgs e)
@@ -534,11 +545,20 @@ namespace AppProject
                 bill.billView.ToggleSplitMode();
                 bill.billView.ToggleItemDeletability();
             }
-            this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+            if (serverMode == false)
+            {
+                this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+                R_ReviewTitle.Text = "Review Bills";
+            }
+            else
+            {
+                this.R_ReviewTitle.Text = "Server View";
+            }
+
             this.R_EditButtonsGrid.Visibility = Visibility.Visible;
             this.R_BillA_DGrid.Visibility = Visibility.Visible;
             this.R_SplitButtonsGrid.Visibility = Visibility.Hidden;
-            R_ReviewTitle.Text = "Review Bills";
+            
         }
 
         private void R_SendButton_Click(object sender, RoutedEventArgs e)
@@ -611,7 +631,6 @@ namespace AppProject
                 bill.billView.ToggleBillDeleteButton();
                 bill.billView.ToggleItemDeletability();
             }
-
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_BillA_DGrid.Visibility = Visibility.Hidden;
@@ -626,12 +645,19 @@ namespace AppProject
                 bill.billView.ToggleBillDeleteButton();
                 bill.billView.ToggleItemDeletability();
             }
-
-            this.R_EditButtonsGrid.Visibility = Visibility.Visible;
-            this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+            if (serverMode == false)
+            {
+                this.R_TransitionButtonGrid.Visibility = Visibility.Visible;
+                this.R_ReviewTitle.Text = "Review Bills";
+            }
+            else
+            {
+                this.R_ReviewTitle.Text = "Server View";
+            }
+            this.R_EditButtonsGrid.Visibility = Visibility.Visible;     
             this.R_BillA_DGrid.Visibility = Visibility.Visible;
             this.R_DButtonsGrid.Visibility = Visibility.Hidden;
-            this.R_ReviewTitle.Text = "Review Bills";
+            
         }
 
         //Add New Bill button
@@ -713,6 +739,53 @@ namespace AppProject
             this.M_ReviewOrderButton.Effect = myBlurEffect;
         }
 
+        private void S_enter_click(object sender, RoutedEventArgs e)
+        {
+            if (S_Password.Password != "1234")
+            {
+                statusText.Text = "Incorrect Password";
+            }
+            else if (S_Password.Password == "1234")
+            {
+                statusText.Text = string.Empty;
+                S_Password.Clear();
+                ServerGrid.Visibility = Visibility.Hidden;
+                enterServerMode();
+            }
+            else
+            {
+                statusText.Text = string.Empty;
+            }
+        }
+
+        private void S_Password_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            statusText.Text = string.Empty;
+        }
+
+        private void enterServerMode()
+        {
+            this.serverMode = true;
+            R_TransitionButtonGrid.Visibility = Visibility.Hidden;
+            this.R_ReviewTitle.Text = "Server View";
+            S_exit_server_mode.Visibility = Visibility.Visible;
+            S_clear_table_button.Visibility = Visibility.Visible;
+
+        }
+
+        private void s_exit_server_mode(object sender, RoutedEventArgs e)
+        {
+            this.serverMode = false;
+            R_TransitionButtonGrid.Visibility = Visibility.Visible;
+            this.R_ReviewTitle.Text = "Review Bills";
+            S_exit_server_mode.Visibility = Visibility.Hidden;
+            S_clear_table_button.Visibility = Visibility.Hidden;
+        }
+
+        private void S_clear_table(object sender, RoutedEventArgs e)
+        {
+            // add the kill code here
+        }
         /**********************************************************
         **************COMMUNICATION BUTTTON FUNCTIONS**************
         **********************************************************/
@@ -814,6 +887,10 @@ namespace AppProject
             this.S_BillUniformGrid.Children.Insert(billPosition, bills[billPosition].s_BillView);
             selectedBills.Clear();
         }
+<<<<<<< HEAD
+
+        
+=======
         
         // Used when manually scrolling.
         private Point scrollStartPoint;
@@ -937,5 +1014,6 @@ namespace AppProject
             nWindow.Show();
             nWindow.MurderAndReplace(this);
         }
+>>>>>>> 6b5d9d362ff3df06e68fd371c0040c195b669ec8
     }
 }
