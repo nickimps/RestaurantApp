@@ -54,72 +54,114 @@ namespace AppProject
 
         public void ToggleSplitMode()
         {
-            foreach (BillItemControl bic in this.ItemListGrid.Children)
+
+            if (billLogic.transactionCompleted)
             {
-                bic.ToggleSplitEnabled();
+
+            } else
+            {
+                foreach (BillItemControl bic in this.ItemListGrid.Children)
+                {
+                    bic.ToggleSplitEnabled();
+                }
             }
         }
 
         public void SendItems()
         {
-            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            if (billLogic.transactionCompleted)
             {
-                bic.SendItem();
+
+            } else
+            {
+                foreach (BillItemControl bic in this.ItemListGrid.Children)
+                {
+                    bic.SendItem();
+                }
             }
         }
 
 
         public void ToggleBillDeleteButton()
         {
-            if (this.RemoveBillButton.Visibility == Visibility.Visible)
+            if (billLogic.transactionCompleted)
             {
-                this.RemoveBillButton.Visibility = Visibility.Hidden;
-            } else
-            {
-                Boolean hasSentItem = false;
-                foreach (BillItemControl bic in this.ItemListGrid.Children)
-                {
-                    if (bic.itemSent)
-                    {
-                        hasSentItem = true;
-                        break;
-                    }
-                }
-                if (!hasSentItem)
-                {
-                    this.RemoveBillButton.Visibility = Visibility.Visible;
-                } 
 
+            }
+            else
+            {
+                if (this.RemoveBillButton.Visibility == Visibility.Visible)
+                {
+                    this.RemoveBillButton.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    Boolean hasSentItem = false;
+                    foreach (BillItemControl bic in this.ItemListGrid.Children)
+                    {
+                        if (bic.itemSent)
+                        {
+                            hasSentItem = true;
+                            break;
+                        }
+                    }
+                    if (!hasSentItem)
+                    {
+                        this.RemoveBillButton.Visibility = Visibility.Visible;
+                    }
+
+                }
             }
         }
 
         public void ToggleItemDraggability()
         {
-            foreach (BillItemControl bic in this.ItemListGrid.Children)
+
+            if (billLogic.transactionCompleted)
             {
-                bic.ToggleMovingEnabled();
+
+            }
+            else
+            {
+                foreach (BillItemControl bic in this.ItemListGrid.Children)
+                {
+                    bic.ToggleMovingEnabled();
+                }
             }
         }
 
         public void ToggleItemDeletability()
         {
-            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            if (billLogic.transactionCompleted)
             {
-                bic.ToggleCancelButtonVisibility();
+
+            }
+            else
+            {
+                foreach (BillItemControl bic in this.ItemListGrid.Children)
+                {
+                    bic.ToggleCancelButtonVisibility();
+                }
             }
         }
 
         private void ToggleDroppability(object sender, EventArgs e)
         {
-            if (this.ItemListGrid.AllowDrop)
+            if (billLogic.transactionCompleted)
             {
-                this.ItemListGrid.AllowDrop = false;
-            } else
-            {
-                this.ItemListGrid.AllowDrop = true;
-            }
 
-            Console.WriteLine("Droppability = " + this.ItemListGrid.AllowDrop);
+            }
+            else
+            {
+                if (this.ItemListGrid.AllowDrop)
+                {
+                    this.ItemListGrid.AllowDrop = false;
+                }
+                else
+                {
+                    this.ItemListGrid.AllowDrop = true;
+                }
+            }
         }
 
         private void ItemListGrid_DragLeave(object sender, DragEventArgs e)
