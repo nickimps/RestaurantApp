@@ -29,9 +29,10 @@ namespace AppProject
         public BillControl(Bill bill)
         {
             InitializeComponent();
+            billLogic = bill;
+            billLogic.billView = this;
             this.BillIdentifier.Text = bill.billName;
             this.TotalNumber.Text = bill.ReturnTotal().ToString();
-            billLogic = bill;
         }
 
         public void AddItem(BillItemControl item)
@@ -192,6 +193,12 @@ namespace AppProject
         private void RemoveBillButton_Click(object sender, RoutedEventArgs e)
         {
             this.Deleted.Invoke(this, new EventArgs());
+        }
+
+        private void BillIdentifier_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            billLogic.billName = BillIdentifier.Text;
+            billLogic.UpdateIdentifiersInViews();
         }
     }
 }
