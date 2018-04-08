@@ -77,6 +77,19 @@
             <TextBlock x:Name="FoodTitle" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="Food Title" VerticalAlignment="Top" Width="256" FontSize="24" TextAlignment="Center" Foreground="#FF363636" FontFamily="Century Gothic" Margin="0,5,0,0" FontWeight="Bold"/>
             <TextBlock x:Name="FoodPrice" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="192.967,5,0,0" Height="27" Width="47.166" FontSize="20" TextAlignment="Right" FontWeight="Bold" FontFamily="Century Gothic" Visibility="Hidden"/>
         </Grid>
+        <Canvas x:Name="Icons" Margin="2.792,78.249,248.279,110.372">
+            <Ellipse x:Name="GlutenFree_IconBacking" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="24.552" VerticalAlignment="Top" Width="24.552" Canvas.Left="0.083"/>
+            <Image x:Name="GlutenFree_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/GlutenFree_Icon.png" Canvas.Left="1.86" Canvas.Top="2.041"/>
+            <Ellipse x:Name="Peanut_IconBacking" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="24.552" VerticalAlignment="Top" Width="24.552" Canvas.Top="26.417"/>
+            <Image x:Name="Peanut_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Peanut_Icon.png" Canvas.Left="1.86" Canvas.Top="28.04"/>
+            <Ellipse x:Name="Spicy_IconBacking" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="24.552" VerticalAlignment="Top" Width="24.552" Canvas.Left="0.083" Canvas.Top="52.5"/>
+            <Image x:Name="Spicy_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Spicy_Icon.png" Canvas.Left="1.86" Canvas.Top="54.039"/>
+            <Ellipse x:Name="Special_IconBacking" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="24.552" VerticalAlignment="Top" Width="24.552" Canvas.Left="0.377" Canvas.Top="78.083"/>
+            <Image x:Name="Special_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Special_Icon.png" Canvas.Left="1.86" Canvas.Top="80.038"/>
+            <Ellipse x:Name="Vegan_IconBacking" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="24.552" VerticalAlignment="Top" Width="24.552" Canvas.Left="0.377" Canvas.Top="104.333"/>
+            <Image x:Name="Vegan_Icon" HorizontalAlignment="Left" Height="20.999" VerticalAlignment="Top" Width="22.4" Source="MenuIcons/Vegan_Icon.png" Canvas.Left="1.86" Canvas.Top="106.037"/>
+
+        </Canvas>
 
     </Grid>
 </UserControl>
