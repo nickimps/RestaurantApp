@@ -63,8 +63,9 @@
                 <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right" FontFamily="Century Gothic" Foreground="#FFECF0F1"/>
             </Grid>
             <UniformGrid x:Name="ItemListGrid" Margin="20,38,20,36" Columns="1" Width="340" Drop="ItemListGrid_Drop" DragEnter="ItemListGrid_DragEnter" MinHeight="30" Background="#FFEE712B" AllowDrop="True"/>
-            <Grid x:Name="BillInfoGrid" Margin="20,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" AllowDrop="False">
-                <TextBlock x:Name="BillIdentifier" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontSize="20" FontWeight="Bold" Foreground="#FFECF0F1" Margin="0,0,52.91,0"/>
+            <Grid x:Name="BillInfoGrid" Margin="20,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" AllowDrop="False" Width="185.944">
+                <TextBlock x:Name="BillIdentifier_OLD" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontSize="20" FontWeight="Bold" Foreground="#FFECF0F1" Margin="0,0,52.91,0" FontFamily="Century Gothic" d:IsHidden="True"/>
+                <TextBox x:Name="BillIdentifier" HorizontalAlignment="Left" Height="31.554" TextWrapping="Wrap" VerticalAlignment="Top" Width="185.944" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FFECF0F1" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Margin="0,-1.026,0,-2.528" BorderThickness="1" CaretBrush="#CCAEAEAE" SelectionBrush="#CCAEAEAE" LostKeyboardFocus="BillIdentifier_LostKeyboardFocus"/>
             </Grid>
         </Grid>
     </Grid>

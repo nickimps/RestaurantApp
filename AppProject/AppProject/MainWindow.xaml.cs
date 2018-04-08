@@ -596,9 +596,11 @@ namespace AppProject
                 Radius = 10,
                 KernelType = KernelType.Gaussian
             };
-            this.ReviewGrid.Effect = myBlurEffect;
+            this.R_BillScroller.Effect = myBlurEffect;
+            this.R_BillScroller.IsEnabled = false;
+            //this.ReviewGrid.Effect = myBlurEffect;
 
-            this.ReviewGrid.IsEnabled = false;
+           // this.ReviewGrid.IsEnabled = false;
 
             DropShadowEffect myDropShadow = new DropShadowEffect
             {
@@ -609,7 +611,7 @@ namespace AppProject
             };
             this.S_BillUniformGrid.Effect = myDropShadow;
             
-            this.R_ReviewTitle.Text = "Split " + selectedBIC.itemName +  " with which bills?";
+            this.R_ReviewTitle.Text = "Split " + selectedBIC.itemName +  " with...";
 
         }
 
@@ -765,9 +767,8 @@ namespace AppProject
                 Radius = 0,
                 KernelType = KernelType.Gaussian
             };
-            this.ReviewGrid.Effect = myDeBlurEffect;
-
-            this.ReviewGrid.IsEnabled = true;
+            this.R_BillScroller.Effect = myDeBlurEffect;
+            this.R_BillScroller.IsEnabled = true;
 
             DropShadowEffect myUnDropShadow = new DropShadowEffect
             {
@@ -796,9 +797,8 @@ namespace AppProject
                 Radius = 0,
                 KernelType = KernelType.Gaussian
             };
-            this.ReviewGrid.Effect = myDeBlurEffect;
-
-            this.ReviewGrid.IsEnabled = true;
+            this.R_BillScroller.Effect = myDeBlurEffect;
+            this.R_BillScroller.IsEnabled = true;
 
             DropShadowEffect myUnDropShadow = new DropShadowEffect
             {
@@ -823,21 +823,27 @@ namespace AppProject
             this.S_BillUniformGrid.Children.Insert(billPosition, bills[billPosition].s_BillView);
             selectedBills.Clear();
         }
-        
+
+
+        /**********************************************************
+        ********************Scrolling******************************
+        **********************************************************/
         // Used when manually scrolling.
         private Point scrollStartPoint;
         private Point scrollStartOffset;
         private Boolean MenuBillScroller = false;
-        private Boolean ReviewScroller = false;
+        //private Boolean ReviewScroller = false;
         private Boolean MenuScroller = false;
+        private Boolean SplitItemsScroller = false;
 
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
         {
             MenuBillScroller = false;
-            ReviewScroller = false;
+            //ReviewScroller = false;
             MenuScroller = false;
+            SplitItemsScroller = false;
 
-            if (R_BillScroller.IsMouseOver)
+            /*if (R_BillScroller.IsMouseOver)
             {
                 ReviewScroller = true;
                 // Save starting point, used later when determining how much to scroll.
@@ -852,7 +858,8 @@ namespace AppProject
 
                 this.CaptureMouse();
             }
-            else if (!ReviewGrid.IsVisible && selectedMenuItems.IsMouseDirectlyOver)
+            else if (!ReviewGrid.IsVisible && selectedMenuItems.IsMouseDirectlyOver)*/
+            if (!ReviewGrid.IsVisible && selectedMenuItems.IsMouseDirectlyOver)
             {
                 MenuScroller = true;
                 scrollStartPoint = e.GetPosition(this);
@@ -877,10 +884,22 @@ namespace AppProject
                     Cursors.ScrollAll : Cursors.Arrow;
 
                 this.CaptureMouse();
-                
+            }
+            else if (BillSelectionGrid.IsVisible && S_Scroller.IsMouseDirectlyOver)
+            {
+                SplitItemsScroller = true;
+                scrollStartPoint = e.GetPosition(this);
+                scrollStartOffset.X = S_Scroller.HorizontalOffset;
+                scrollStartOffset.Y = S_Scroller.VerticalOffset;
+
+                this.Cursor = (S_Scroller.ExtentWidth > S_Scroller.ViewportWidth) ||
+                    (S_Scroller.ExtentHeight > S_Scroller.ViewportHeight) ?
+                    Cursors.ScrollAll : Cursors.Arrow;
+
+                this.CaptureMouse();
             }
 
-            
+
             base.OnPreviewMouseDown(e);
         }
 
@@ -901,13 +920,14 @@ namespace AppProject
                         -(point.Y - this.scrollStartPoint.Y) :
                         (this.scrollStartPoint.Y - point.Y));
 
-                if (ReviewScroller)
+                /*if (ReviewScroller)
                 {
                     // Scroll to the new position.
                     R_BillScroller.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
                     R_BillScroller.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);
                 }
                 else if (MenuScroller)
+                */if (MenuScroller)
                 {
                     selectedMenuItems.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
                     selectedMenuItems.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);
@@ -916,6 +936,11 @@ namespace AppProject
                 {
                     M_BillScroller.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
                     M_BillScroller.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);
+                }
+                else if (SplitItemsScroller)
+                {
+                    S_Scroller.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
+                    S_Scroller.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);
                 }
 
             }
