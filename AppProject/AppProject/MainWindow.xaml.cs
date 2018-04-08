@@ -70,15 +70,6 @@ namespace AppProject
 
             HelpPromptGrid.Visibility = Visibility.Hidden;
 
-            //Creating Menu from local file
-            //string[] categories = System.IO.File.ReadAllLines(@"Menu\categories.txt");
-            //foreach (string category in categories)
-            //{
-            //   menu.Add(new FoodCategory(category));
-            //System.IO.File.ReadAllLines(@"Menu\"+category+)
-            //}
-
-
             //Menu Screen Setup
             List<string> imageFileNames = HelperMethods481.
             AssemblyManager.GetAllEmbeddedResourceFilesEndingWith(".png", ".jpg");
@@ -96,7 +87,7 @@ namespace AppProject
                 {
                     itemName = fileName.Replace(".png", "").Split('.').Last();
                 }
-                
+
                 MenuItemsControl menuItems = new MenuItemsControl(image, itemName);
 
                 menuItems.InformationRequest += new EventHandler<EventArgs>(M_DisplayMoreInfo);
