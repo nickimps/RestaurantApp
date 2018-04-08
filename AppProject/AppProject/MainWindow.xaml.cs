@@ -825,9 +825,6 @@ namespace AppProject
         }
 
 
-
-
-
         // Used when manually scrolling.
         private Point scrollStartPoint;
         private Point scrollStartOffset;
@@ -936,6 +933,19 @@ namespace AppProject
             }
 
             base.OnPreviewMouseUp(e);
+        }
+        
+        public void MurderAndReplace(MainWindow murdered)
+        {
+            murdered.Close();
+            murdered = null;
+        }
+
+        private void ResetStateButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow nWindow = new MainWindow();
+            nWindow.Show();
+            nWindow.MurderAndReplace(this);
         }
     }
 }
