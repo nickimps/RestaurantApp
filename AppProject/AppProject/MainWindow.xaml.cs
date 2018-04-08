@@ -891,6 +891,7 @@ namespace AppProject
         /**********************************************************
         ********************Scrolling******************************
         **********************************************************/
+
         // Used when manually scrolling.
         private Point scrollStartPoint;
         private Point scrollStartOffset;

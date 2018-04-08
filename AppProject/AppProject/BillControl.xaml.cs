@@ -195,10 +195,16 @@ namespace AppProject
             this.Deleted.Invoke(this, new EventArgs());
         }
 
+        private void PaidForButton_Click(object sender, RoutedEventArgs e)
+        {
+            billLogic.ToggleTransactionStatus();
+        }
+
         private void BillIdentifier_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             billLogic.billName = BillIdentifier.Text;
             billLogic.UpdateIdentifiersInViews();
+
         }
     }
 }
