@@ -130,10 +130,16 @@ namespace AppProject
         {
             BillItemControl itemC = (BillItemControl)e.Data.GetData("AppProject.BillItemControl");
             //Original Item is not in this current bill so add without issue
+
             BillItemControl bic = billLogic.GetRespectiveItem(itemC.originalItem);
             if (bic == null) {
                 itemC.Moved();
                 billLogic.AddExistingItem(itemC);
+            } 
+            //Checking if your dragging into the same bill.
+            else if (itemC.billControl.Equals(bic.billControl))
+            {
+                //Nothing needs to be done in this instance
             }
             //Item was found to be in the same bill need to combine them and delete one.
             else
