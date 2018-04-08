@@ -794,7 +794,7 @@ namespace AppProject
             R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_ReviewTitle.Text = "Server View";
             S_exit_server_mode.Visibility = Visibility.Visible;
-            S_clear_table_button.Visibility = Visibility.Visible;
+            //S_clear_table_button.Visibility = Visibility.Visible;
 
         }
 
@@ -804,7 +804,7 @@ namespace AppProject
             R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_ReviewTitle.Text = "Review Bills";
             S_exit_server_mode.Visibility = Visibility.Hidden;
-            S_clear_table_button.Visibility = Visibility.Hidden;
+            //S_clear_table_button.Visibility = Visibility.Hidden;
         }
 
         /**********************************************************
@@ -910,6 +910,7 @@ namespace AppProject
         /**********************************************************
         ********************Scrolling******************************
         **********************************************************/
+
         // Used when manually scrolling.
         private Point scrollStartPoint;
         private Point scrollStartOffset;
