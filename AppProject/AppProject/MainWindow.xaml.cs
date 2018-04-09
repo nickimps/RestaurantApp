@@ -413,6 +413,25 @@ namespace AppProject
                 //This is a temporary solution for Menu Bill interactive when one is clicked
                 this.M_BillUniformGrid.IsEnabled = false;
 
+                BlurEffect myBlurEffect = new BlurEffect
+                {
+                    Radius = 10,
+                    KernelType = KernelType.Gaussian
+                };
+                this.M_CategoryGrid.Effect = myBlurEffect;
+                this.DisplayMoreInfoGrid.Effect = myBlurEffect;
+                this.selectedMenu.Effect = myBlurEffect;
+                this.selectedMenuItems.Effect = myBlurEffect;
+                this.selectedMenuCover.Effect = myBlurEffect;
+                this.M_ReviewOrderButton.Effect = myBlurEffect;
+                this.M_BillViewerGrid.Effect = myBlurEffect;
+
+                this.M_ReviewOrderButton.IsEnabled = false;
+                this.M_CategoryGrid.IsEnabled = false;
+                this.selectedMenu.IsEnabled = false;
+                this.selectedMenuItems.IsEnabled = false;
+                this.selectedMenuCover.IsEnabled = false;
+                this.M_BillViewerGrid.IsEnabled = false;
             }
         }
 
@@ -420,6 +439,27 @@ namespace AppProject
         private void Close_BillDisplayGrid(object sender, RoutedEventArgs e)
         {
             this.BillDisplayGrid.Visibility = Visibility.Hidden;
+
+            BlurEffect myDeBlurEffect = new BlurEffect
+            {
+                Radius = 0,
+                KernelType = KernelType.Gaussian
+            };
+            this.M_CategoryGrid.Effect = myDeBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myDeBlurEffect;
+            this.selectedMenu.Effect = myDeBlurEffect;
+            this.selectedMenuItems.Effect = myDeBlurEffect;
+            this.selectedMenuCover.Effect = myDeBlurEffect;
+            this.M_ReviewOrderButton.Effect = myDeBlurEffect;
+            this.M_BillViewerGrid.Effect = myDeBlurEffect;
+
+            this.M_ReviewOrderButton.IsEnabled = true;
+            this.M_CategoryGrid.IsEnabled = true;
+            this.selectedMenu.IsEnabled = true;
+            this.selectedMenuItems.IsEnabled = true;
+            this.selectedMenuCover.IsEnabled = true;
+            this.M_BillViewerGrid.IsEnabled = true;
+
             BillControl bc = this.ContentGrid.Children[1] as BillControl;
             this.ContentGrid.Children.Remove(bc);
             if (billPosition == BillDisplayGrid.Children.Count)
@@ -670,6 +710,15 @@ namespace AppProject
         private void R_CheckoutButton_Click(object sender, RoutedEventArgs e)
         {
             this.ServerGrid.Visibility = Visibility.Visible;
+
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
+            this.ReviewGrid.Effect = myBlurEffect;
+
+            this.ReviewGrid.IsEnabled = false;
         }
 
         private void R_ReturnButton_Click(object sender, RoutedEventArgs e)
@@ -718,13 +767,14 @@ namespace AppProject
                 bill.billView.ToggleBillDeleteButton();
                 bill.billView.ToggleItemDeletability();
             }
+            
             this.R_EditButtonsGrid.Visibility = Visibility.Hidden;
             this.R_TransitionButtonGrid.Visibility = Visibility.Hidden;
             this.R_BillA_DGrid.Visibility = Visibility.Hidden;
             this.R_DButtonsGrid.Visibility = Visibility.Visible;
             this.S_clear_table_button.Visibility = Visibility.Hidden;
             this.S_exit_server_mode.Visibility = Visibility.Hidden;
-            this.R_ReviewTitle.Text = "Click the 'x' to delete bill(s)";
+            this.R_ReviewTitle.Text = "Click the 'Remove' Button to delete bill(s)";
         }
 
         private void R_DoneDeleting_Click(object sender, RoutedEventArgs e)
@@ -808,6 +858,15 @@ namespace AppProject
         {
             S_Password.Clear();
             this.ServerGrid.Visibility = Visibility.Hidden;
+
+            BlurEffect myDeBlurEffect = new BlurEffect
+            {
+                Radius = 0,
+                KernelType = KernelType.Gaussian
+            };
+            this.ReviewGrid.Effect = myDeBlurEffect;
+
+            this.ReviewGrid.IsEnabled = true;
         }
 
         private void CallServerButton_Click(object sender, RoutedEventArgs e)
@@ -847,6 +906,16 @@ namespace AppProject
                 statusText.Text = string.Empty;
                 S_Password.Clear();
                 ServerGrid.Visibility = Visibility.Hidden;
+
+                BlurEffect myDeBlurEffect = new BlurEffect
+                {
+                    Radius = 0,
+                    KernelType = KernelType.Gaussian
+                };
+                this.ReviewGrid.Effect = myDeBlurEffect;
+
+                this.ReviewGrid.IsEnabled = true;
+
                 enterServerMode();
             }
             else
@@ -1013,19 +1082,21 @@ namespace AppProject
         private Point scrollStartPoint;
         private Point scrollStartOffset;
         private Boolean MenuBillScroller = false;
-        //private Boolean ReviewScroller = false;
+        private Boolean ReviewScroller = false;
         private Boolean MenuScroller = false;
         private Boolean SplitItemsScroller = false;
 
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
         {
             MenuBillScroller = false;
-            //ReviewScroller = false;
+            ReviewScroller = false;
             MenuScroller = false;
             SplitItemsScroller = false;
+            
 
-            /*if (R_BillScroller.IsMouseOver)
+            if (R_BillScroller.IsMouseDirectlyOver)
             {
+                Console.WriteLine("0");
                 ReviewScroller = true;
                 // Save starting point, used later when determining how much to scroll.
                 scrollStartPoint = e.GetPosition(this);
@@ -1039,9 +1110,9 @@ namespace AppProject
 
                 this.CaptureMouse();
             }
-            else if (!ReviewGrid.IsVisible && selectedMenuItems.IsMouseDirectlyOver)*/
-            if (!ReviewGrid.IsVisible && selectedMenuItems.IsMouseDirectlyOver)
+            else if (!ReviewGrid.IsVisible && selectedMenuItems.IsMouseDirectlyOver)
             {
+                Console.WriteLine("1");
                 MenuScroller = true;
                 scrollStartPoint = e.GetPosition(this);
                 scrollStartOffset.X = selectedMenuItems.HorizontalOffset;
@@ -1055,6 +1126,7 @@ namespace AppProject
             }
             else if (!ReviewGrid.IsVisible && M_BillScroller.IsMouseDirectlyOver)
             {
+                Console.WriteLine("2");
                 MenuBillScroller = true;
                 scrollStartPoint = e.GetPosition(this);
                 scrollStartOffset.X = M_BillScroller.HorizontalOffset;
@@ -1066,8 +1138,9 @@ namespace AppProject
 
                 this.CaptureMouse();
             }
-            else if (BillSelectionGrid.IsVisible && S_Scroller.IsMouseDirectlyOver)
+            else if (S_Scroller.IsMouseDirectlyOver)
             {
+                Console.WriteLine("3");
                 SplitItemsScroller = true;
                 scrollStartPoint = e.GetPosition(this);
                 scrollStartOffset.X = S_Scroller.HorizontalOffset;
@@ -1101,14 +1174,13 @@ namespace AppProject
                         -(point.Y - this.scrollStartPoint.Y) :
                         (this.scrollStartPoint.Y - point.Y));
 
-                /*if (ReviewScroller)
+                if (ReviewScroller)
                 {
                     // Scroll to the new position.
                     R_BillScroller.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
                     R_BillScroller.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);
                 }
                 else if (MenuScroller)
-                */if (MenuScroller)
                 {
                     selectedMenuItems.ScrollToHorizontalOffset(this.scrollStartOffset.X + delta.X);
                     selectedMenuItems.ScrollToVerticalOffset(this.scrollStartOffset.Y + delta.Y);

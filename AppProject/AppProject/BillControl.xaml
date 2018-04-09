@@ -6,41 +6,14 @@
              xmlns:local="clr-namespace:AppProject"
              mc:Ignorable="d" Width="400" MinWidth="400" MinHeight="94" MaxWidth="400">
     <UserControl.Resources>
-        <Style x:Key="ButtonStyle6" TargetType="{x:Type Button}">
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <ControlTemplate.Resources>
-                            <Storyboard x:Key="FadeIn">
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FFEADFDF"/>
-                                </ColorAnimationUsingKeyFrames>
-                            </Storyboard>
-                            <Storyboard x:Key="FadeBack">
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-                                    <EasingColorKeyFrame KeyTime="0" Value="#FFEADFDF"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:0.4" Value="#FFEC150A"/>
-                                </ColorAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </ControlTemplate.Resources>
                         <Grid x:Name="grid">
-                            <Rectangle x:Name="rectangle" Fill="#FFEC150A" RadiusY="7" RadiusX="7" StrokeThickness="4" Stroke="#FF660202"/>
-                            <ContentPresenter HorizontalAlignment="Stretch" TextBlock.FontSize="14" TextBlock.FontWeight="Bold" TextBlock.Foreground="Black" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Stretch" Width="10" Height="14" Content="X" Margin="0,0,0,2"/>
+                            <Rectangle x:Name="rectangle" Fill="#FFDC2F2F" RadiusY="7" RadiusX="7" StrokeThickness="2" Stroke="#FFDC5858"/>
+                            <ContentPresenter HorizontalAlignment="Center" TextBlock.FontFamily="Century Gothic" TextBlock.FontSize="14" TextBlock.FontWeight="Bold" TextBlock.Foreground="#efefef" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="Auto" Height="14" Content="Remove" Margin="11.219,3.788,11.219,7.212"/>
                         </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsFocused" Value="True" SourceName="grid"/>
-                            <Trigger Property="IsDefaulted" Value="True"/>
-                            <Trigger Property="IsMouseOver" Value="True" SourceName="grid">
-                                <Trigger.ExitActions>
-                                    <BeginStoryboard x:Name="FadeBack_BeginStoryboard1" Storyboard="{StaticResource FadeBack}"/>
-                                </Trigger.ExitActions>
-                                <Trigger.EnterActions>
-                                    <BeginStoryboard x:Name="FadeIn_BeginStoryboard" Storyboard="{StaticResource FadeIn}"/>
-                                </Trigger.EnterActions>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True"/>
-                            <Trigger Property="IsEnabled" Value="False"/>
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -57,7 +30,6 @@
                 <RowDefinition Height="74*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="RemoveBillButton" Content="X&#xD;&#xA;" HorizontalAlignment="Right" Height="25" Margin="355,0,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="25" Click="RemoveBillButton_Click" FontSize="6" Visibility="Hidden"/>
             <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom" AllowDrop="False">
                 <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic" Foreground="#FFECF0F1"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
                 <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right" FontFamily="Century Gothic" Foreground="#FFECF0F1"/>
@@ -71,6 +43,11 @@
             </Canvas>
             <Button x:Name="PaidForButton" Content="Button" HorizontalAlignment="Left" Width="380" Height="Auto" Click="PaidForButton_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,0,0,-3.333" Grid.RowSpan="2" Visibility="Hidden"/>
             <UniformGrid x:Name="ItemListGrid" Margin="20,38,20,36" Columns="1" Width="340" Drop="ItemListGrid_Drop" DragEnter="ItemListGrid_DragEnter" MinHeight="30" Background="#FFEE712B" AllowDrop="True"/>
+            <Button x:Name="RemoveBillButton" Content="Remove&#xA;" HorizontalAlignment="Right" Height="36.99" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Top" Width="88" Click="RemoveBillButton_Click" FontSize="6" Margin="0,65.586,148.474,0" Visibility="Hidden">
+                <Button.Effect>
+                    <DropShadowEffect ShadowDepth="0"/>
+                </Button.Effect>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

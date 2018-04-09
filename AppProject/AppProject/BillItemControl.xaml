@@ -7,17 +7,17 @@
              mc:Ignorable="d" Width="340" MinHeight="30" Focusable="True" MouseDown="UserControl_MouseDown" Foreground="{x:Null}">
     <UserControl.Resources>
         <ControlTemplate x:Key="CloseButton" TargetType="{x:Type Button}">
-            <Grid x:Name="CloseGrid" Width="20" Height="20">
-                <TextBlock x:Name="X" HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="20" Height="20" Foreground="Black" FontSize="18" LineHeight="Auto"/>
+            <Grid x:Name="CloseGrid" Width="Auto" Height="Auto" Margin="0.373,1.102,0.934,1.383">
+                <TextBlock x:Name="X" HorizontalAlignment="Left" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" Width="35.693" Height="39.336" Foreground="Black" FontSize="24" LineHeight="Auto" Margin="0,1.47,0,-1.47"/>
             </Grid>
         </ControlTemplate>
     </UserControl.Resources>
-    <Grid x:Name="BillItemGrid" Width="340" MinWidth="340" MinHeight="28" Focusable="True">
+    <Grid x:Name="BillItemGrid" Width="340" MinWidth="340" MinHeight="28" Focusable="True" Height="41.821">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Rectangle x:Name="BackgroundColor" Stroke="#FFECF0F1" StrokeThickness="2" RadiusX="15" RadiusY="20" Margin="0,0,0,0.959" Fill="#FFDC4712"/>
-        <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Margin="77,38,0,0" Width="263"/>
+        <Rectangle x:Name="BackgroundColor" Stroke="#FFECF0F1" StrokeThickness="2" RadiusX="15" RadiusY="20" Margin="0,0,0,0.959" Fill="#FFDC4712" Height="40.862"/>
+        <UniformGrid x:Name="AdditionalInfoGrid" Columns="1" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Margin="77,38,0,0" Width="263" IsEnabled="False"/>
         <Grid x:Name="ItemTitleGrid" Height="41.821" VerticalAlignment="Top" Focusable="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="23*"/>
@@ -26,7 +26,7 @@
             <TextBlock x:Name="ItemName" TextWrapping="Wrap" Margin="32,7,0,6.82" Height="28" HorizontalAlignment="Left" FontSize="20" FontFamily="Century Gothic" Text="Test Test" Foreground="#FFECF0F1"/>
             <TextBlock x:Name="ItemPrice" TextWrapping="Wrap" Margin="0,7.577,37,6.243" FontSize="20" TextAlignment="Right" Height="28" HorizontalAlignment="Right" FontFamily="Century Gothic" Text="$99.99" Foreground="#FFECF0F1"/>
             <CheckBox x:Name="ItemCheckBox" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" Width="16" Height="16" IsEnabled="False" Opacity="0.75" Visibility="Hidden"/>
-            <Button x:Name="CancelButton" Content="Button" HorizontalAlignment="Right" Width="37" Height="Auto" Template="{DynamicResource CloseButton}" Click="CancelButton_Click" Margin="0,0,0,6"/>
+            <Button x:Name="CancelButton" Content="Button" HorizontalAlignment="Right" Width="37" Height="Auto" Template="{DynamicResource CloseButton}" Click="CancelButton_Click"/>
         </Grid>
     </Grid>
 </UserControl>
