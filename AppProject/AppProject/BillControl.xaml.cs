@@ -43,8 +43,7 @@ namespace AppProject
             item.Removed += new EventHandler<BICEventArgs>(RemoveItem);
             item.Clicked += new EventHandler<BICEventArgs>(SplitSelection);
             item.Deleted += new EventHandler<BICEventArgs>(DeleteItem);
-            //item.Released += new EventHandler<EventArgs>(ToggleDroppability);
-            // item.Dragged += new EventHandler<EventArgs>(ToggleDroppability);
+
         }
 
         public void ItemListChanged()
@@ -212,8 +211,7 @@ namespace AppProject
             e.bic.Removed -= new EventHandler<BICEventArgs>(RemoveItem);
             e.bic.Clicked -= new EventHandler<BICEventArgs>(SplitSelection);
             e.bic.Deleted -= new EventHandler<BICEventArgs>(DeleteItem);
-            //e.item.billItemView.Released -= new EventHandler<EventArgs>(ToggleDroppability);
-            //e.item.billItemView.Dragged -= new EventHandler<EventArgs>(ToggleDroppability);
+
         }
 
         private void DeleteItem(object sender, BICEventArgs e)
@@ -236,9 +234,32 @@ namespace AppProject
             this.Deleted.Invoke(this, new EventArgs());
         }
 
+        /*
+         * 
+         * HERE IS STUFF
+         * 
+         * 
+         * 
+         */
         private void PaidForButton_Click(object sender, RoutedEventArgs e)
         {
-            billLogic.ToggleTransactionStatus();
+            Boolean AllSent = true;
+
+            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            {
+                if (!bic.itemSent)
+                {
+                    AllSent = false;
+                }
+            }
+
+            if (AllSent)
+            {
+                billLogic.ToggleTransactionStatus();
+            } else
+            {
+               //Effect disable here if u can 
+            }
         }
 
         private void BillIdentifier_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)

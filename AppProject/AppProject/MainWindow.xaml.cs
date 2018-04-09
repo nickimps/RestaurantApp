@@ -868,7 +868,10 @@ namespace AppProject
             S_exit_server_mode.Visibility = Visibility.Visible;
             foreach (Bill bill in bills)
             {
+      
+                
                 bill.billView.PaidForButton.Visibility = Visibility.Visible;
+
                 if (bill.transactionCompleted)
                 {
                     R_BillUniformGrid.Children.Add(bill.billView);
