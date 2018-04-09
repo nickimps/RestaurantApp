@@ -104,14 +104,17 @@ namespace AppProject
             if (transactionCompleted)
             {
                 transactionCompleted = false;
-
                 billView.ServerCanvas.Visibility = Visibility.Hidden;
-            }
-            else
+                billView.ItemListGrid.IsEnabled = true;
+                s_BillView.IsEnabled = true;
+                s_BillView.Opacity = 1;
+            } else
             {
-                transactionCompleted = true;
-
                 billView.ServerCanvas.Visibility = Visibility.Visible;
+                transactionCompleted = true;
+                billView.ItemListGrid.IsEnabled = false;
+                s_BillView.IsEnabled = false;
+                s_BillView.Opacity = 0.5;
             }
         }
         
