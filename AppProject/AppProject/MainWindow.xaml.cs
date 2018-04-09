@@ -889,6 +889,7 @@ namespace AppProject
             R_TransitionButtonGrid.Visibility = Visibility.Visible;
             this.R_ReviewTitle.Text = "Review Bills";
             S_exit_server_mode.Visibility = Visibility.Hidden;
+            S_AreYouSure_button.Visibility = Visibility.Hidden;
 
             foreach (Bill bill in bills)
             {
