@@ -104,9 +104,14 @@ namespace AppProject
             if (transactionCompleted)
             {
                 transactionCompleted = false;
-            } else
+
+                billView.ServerCanvas.Visibility = Visibility.Hidden;
+            }
+            else
             {
-                transactionCompleted = true;         
+                transactionCompleted = true;
+
+                billView.ServerCanvas.Visibility = Visibility.Visible;
             }
         }
         

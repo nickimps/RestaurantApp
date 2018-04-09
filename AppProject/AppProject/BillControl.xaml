@@ -57,17 +57,20 @@
                 <RowDefinition Height="74*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="RemoveBillButton" HorizontalAlignment="Right" Height="25" Margin="355,0,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="25" Click="RemoveBillButton_Click" FontSize="6" Visibility="Hidden"/>
-            <Button x:Name="PaidForButton" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="25" Margin="355,0,0,0" Height="25" Click="PaidForButton_Click" Visibility="Hidden"/>
+            <Button x:Name="RemoveBillButton" Content="X&#xD;&#xA;" HorizontalAlignment="Right" Height="25" Margin="355,0,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="25" Click="RemoveBillButton_Click" FontSize="6" Visibility="Hidden"/>
             <Grid x:Name="TotalInfoGrid" Margin="236.526,0,20,10" Height="23" VerticalAlignment="Bottom" AllowDrop="False">
                 <TextBlock x:Name="TotalText" TextWrapping="Wrap" Margin="0,0,80.474,0" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic" Foreground="#FFECF0F1"><Run Text="Total"/><LineBreak/><Run/><LineBreak/></TextBlock>
                 <TextBlock x:Name="TotalNumber" TextWrapping="Wrap" Margin="43,0,0,0" FontSize="18" FontWeight="Bold" TextAlignment="Right" FontFamily="Century Gothic" Foreground="#FFECF0F1"/>
             </Grid>
             <UniformGrid x:Name="ItemListGrid" Margin="20,38,20,36" Columns="1" Width="340" Drop="ItemListGrid_Drop" DragEnter="ItemListGrid_DragEnter" MinHeight="30" Background="#FFEE712B" AllowDrop="True"/>
             <Grid x:Name="BillInfoGrid" Margin="20,10,0,0" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" AllowDrop="False" Width="185.944">
-                <TextBlock x:Name="BillIdentifier_OLD" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontSize="20" FontWeight="Bold" Foreground="#FFECF0F1" Margin="0,0,52.91,0" FontFamily="Century Gothic" d:IsHidden="True"/>
                 <TextBox x:Name="BillIdentifier" HorizontalAlignment="Left" Height="31.554" TextWrapping="Wrap" VerticalAlignment="Top" Width="185.944" FontFamily="Century Gothic" FontWeight="Bold" Foreground="#FFECF0F1" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Margin="0,-1.026,0,-2.528" BorderThickness="1" CaretBrush="#CCAEAEAE" SelectionBrush="#CCAEAEAE" LostKeyboardFocus="BillIdentifier_LostKeyboardFocus"/>
             </Grid>
+            <Canvas x:Name="ServerCanvas" Margin="210.703,2.052,44.403,86.948" Visibility="Hidden">
+                <Rectangle x:Name="ServerBackgroundOfText" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="34.162" Stroke="#FF005792" VerticalAlignment="Top" Width="156.22" RadiusX="3" RadiusY="3" Canvas.Left="10" Canvas.Top="2.052"/>
+                <TextBlock x:Name="ServerShowingTextBlock" HorizontalAlignment="Left" Height="16.79" TextWrapping="Wrap" VerticalAlignment="Top" Width="156.22" FontFamily="Century Gothic" Foreground="#FF005792" FontStyle="Italic" FontWeight="Bold" Canvas.Top="10" Canvas.Left="10" TextAlignment="Center"><Run Text="Not Visible - Paid For"/></TextBlock>
+            </Canvas>
+            <Button x:Name="PaidForButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="380" Height="107.333" Click="PaidForButton_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,0,0,-3.333" Grid.RowSpan="2"/>
         </Grid>
     </Grid>
 </UserControl>
