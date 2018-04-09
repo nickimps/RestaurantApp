@@ -70,7 +70,7 @@
                 <Rectangle x:Name="ServerBackgroundOfText" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="34.162" Stroke="#FF005792" VerticalAlignment="Top" Width="156.22" RadiusX="3" RadiusY="3" Canvas.Left="10" Canvas.Top="2.052"/>
                 <TextBlock x:Name="ServerShowingTextBlock" HorizontalAlignment="Left" Height="16.79" TextWrapping="Wrap" VerticalAlignment="Top" Width="156.22" FontFamily="Century Gothic" Foreground="#FF005792" FontStyle="Italic" FontWeight="Bold" Canvas.Top="10" Canvas.Left="10" TextAlignment="Center"><Run Text="Not Visible - Paid For"/></TextBlock>
             </Canvas>
-            <Button x:Name="PaidForButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="380" Height="107.333" Click="PaidForButton_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,0,0,-3.333" Grid.RowSpan="2"/>
+            <Button x:Name="PaidForButton" Content="Button" Height="107.333" Click="PaidForButton_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,0,0,-3.333" Grid.RowSpan="2"/>
         </Grid>
     </Grid>
 </UserControl>
