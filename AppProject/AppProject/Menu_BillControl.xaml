@@ -21,7 +21,8 @@
             <TextBlock x:Name="IdentifierText" HorizontalAlignment="Left" TextWrapping="Wrap" Width="189.29" FontSize="36" Margin="13.647,2.345,0,3.201" FontFamily="Century Gothic" Foreground="#FFEFEFEF"/>
             <TextBlock x:Name="TotalText" TextWrapping="Wrap" FontSize="36" HorizontalAlignment="Right" TextAlignment="Right" FontFamily="Century Gothic" Foreground="#FFEFEFEF" Margin="0,3.413,13.674,2.132" Height="49.454" FontWeight="Bold"/>
         </Grid>
-        <Button x:Name="InteractionButton" Content="Button" HorizontalAlignment="Left" Width="365" Background="#FFDF2222" Opacity="0" Height="Auto" Margin="10,0,0,0" d:IsHidden="True"/>
+        <Button x:Name="InteractionButton4" Content="Button" HorizontalAlignment="Left" Width="365" Background="#FFDF2222" Opacity="0" Height="Auto" Margin="10,0,0,0" d:IsHidden="True" IsEnabled="False" Visibility="Hidden"/>
+        <Button x:Name="InteractionButton" Content="Button" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="365" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="10,0,0,0"/>
 
     </Grid>
 </UserControl>
