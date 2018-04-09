@@ -31,7 +31,6 @@ namespace AppProject
 
         //This is for bill splitting. Will List all bills selected (does not include original bill that has BillItemControl to be split)
         List<Bill> selectedBills = new List<Bill>();
-
         private int numDinners = 0;
         private int billPosition;
  

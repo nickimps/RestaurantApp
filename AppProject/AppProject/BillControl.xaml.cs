@@ -32,15 +32,7 @@ namespace AppProject
             billLogic = bill;
             billLogic.billView = this;
             this.BillIdentifier.Text = bill.billName;
-            string price = String.Format("{0:0.00}", bill.ReturnTotal().ToString());
-            if (price.Equals("0"))
-            {
-                this.TotalNumber.Text = "$0.00";
-            }
-            else
-            {
-                this.TotalNumber.Text = "$" + price;
-            }
+            this.TotalNumber.Text = bill.ReturnTotal().ToString();
         }
 
         public void AddItem(BillItemControl item)
