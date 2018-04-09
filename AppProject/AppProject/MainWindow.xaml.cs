@@ -462,6 +462,7 @@ namespace AppProject
             this.selectedMenuItems.Effect = myDeBlurEffect;
             this.selectedMenuCover.Effect = myDeBlurEffect;
             this.M_ReviewOrderButton.Effect = myDeBlurEffect;
+            this.ReviewGrid.Effect = myDeBlurEffect;
 
             this.M_ReviewOrderButton.IsEnabled = true;
             this.M_CategoryGrid.IsEnabled = true;
@@ -469,6 +470,7 @@ namespace AppProject
             this.selectedMenu.IsEnabled = true;
             this.selectedMenuItems.IsEnabled = true;
             this.selectedMenuCover.IsEnabled = true;
+            this.ReviewGrid.IsEnabled = true;
         }
 
         private void AddItems_Click(object sender, RoutedEventArgs e)
@@ -818,6 +820,7 @@ namespace AppProject
             this.selectedMenuItems.IsEnabled = false;
             this.selectedMenuCover.IsEnabled = false;
             this.M_ReviewOrderButton.IsEnabled = false;
+            this.ReviewGrid.IsEnabled = false;
 
             BlurEffect myBlurEffect = new BlurEffect
             {
@@ -830,6 +833,7 @@ namespace AppProject
             this.selectedMenuItems.Effect = myBlurEffect;
             this.selectedMenuCover.Effect = myBlurEffect;
             this.M_ReviewOrderButton.Effect = myBlurEffect;
+            this.ReviewGrid.Effect = myBlurEffect;
         }
 
         private void S_enter_click(object sender, RoutedEventArgs e)
@@ -1149,6 +1153,32 @@ namespace AppProject
         private void ResetStateButton_Click_AYS(object sender, RoutedEventArgs e)
         {
             S_AreYouSure_button.Visibility = Visibility.Visible;
+        }
+
+        private void CallReviewServerButton_Click(object sender, RoutedEventArgs e)
+        {
+            HelpPromptGrid.Visibility = Visibility.Visible;
+
+            this.M_CategoryGrid.IsEnabled = false;
+            this.DisplayMoreInfoGrid.IsEnabled = false;
+            this.selectedMenu.IsEnabled = false;
+            this.selectedMenuItems.IsEnabled = false;
+            this.selectedMenuCover.IsEnabled = false;
+            this.M_ReviewOrderButton.IsEnabled = false;
+            this.ReviewGrid.IsEnabled = false;
+
+            BlurEffect myBlurEffect = new BlurEffect
+            {
+                Radius = 10,
+                KernelType = KernelType.Gaussian
+            };
+            this.M_CategoryGrid.Effect = myBlurEffect;
+            this.DisplayMoreInfoGrid.Effect = myBlurEffect;
+            this.selectedMenu.Effect = myBlurEffect;
+            this.selectedMenuItems.Effect = myBlurEffect;
+            this.selectedMenuCover.Effect = myBlurEffect;
+            this.M_ReviewOrderButton.Effect = myBlurEffect;
+            this.ReviewGrid.Effect = myBlurEffect;
         }
     }
 }
