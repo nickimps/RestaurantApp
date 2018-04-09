@@ -602,7 +602,7 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2">
+        <Grid x:Name="MenuGrid" Grid.ColumnSpan="2" d:IsHidden="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition/>
@@ -680,7 +680,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF34495E" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+        <Grid x:Name="ReviewGrid" Background="#FF34495E" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -696,7 +696,8 @@
                     <RowDefinition Height="0*"/>
                 </Grid.RowDefinitions>
                 <Button x:Name="S_exit_server_mode" Content="Logout" HorizontalAlignment="Left" Height="94" Margin="34.052,30,0,0" Style="{DynamicResource ButtonStyle7}" VerticalAlignment="Top" Width="348.948" Click="s_exit_server_mode"/>
-                <Button x:Name="S_clear_table_button" Content="Clear Table" HorizontalAlignment="Left" Height="94" Margin="34.052,861,0,0" Style="{DynamicResource ButtonStyle16}" VerticalAlignment="Top" Width="348.948" Click="ResetStateButton_Click"/>
+                <Button x:Name="S_clear_table_button" HorizontalAlignment="Left" Height="94" Margin="34.052,861,0,0" Style="{DynamicResource ButtonStyle16}" VerticalAlignment="Top" Width="348.948" Click="ResetStateButton_Click_AYS" Content="Clear Table"/>
+                <Button x:Name="S_AreYouSure_button" Content="Are you sure?" HorizontalAlignment="Left" Height="94" Style="{DynamicResource ButtonStyle16}" VerticalAlignment="Top" Width="348.948" Click="ResetStateButton_Click" Margin="34.052,861,0,0" Grid.RowSpan="2" Visibility="Hidden"/>
                 <Grid x:Name="R_TransitionButtonGrid" Margin="0,0,0,14" d:IsHidden="True">
                     <Button x:Name="R_CheckoutButton" Content="Pay for Meal" HorizontalAlignment="Left" Height="94" Margin="34.052,280.67,0,0" Style="{DynamicResource ButtonStyle6}" VerticalAlignment="Top" Width="348.948" Click="R_CheckoutButton_Click" Opacity="0.5" IsEnabled="False"/>
                     <Button x:Name="R_SendButton" Content="Send To Kitchen" HorizontalAlignment="Left" Height="94" Margin="34.052,155.3,0,0" Style="{DynamicResource ButtonStyle15}" VerticalAlignment="Top" Width="348.948" Click="R_SendButton_Click"/>

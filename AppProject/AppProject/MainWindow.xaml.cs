@@ -54,7 +54,8 @@ namespace AppProject
             HelpPromptGrid.Visibility = Visibility.Hidden;
             AddItemsPromptGrid.Visibility = Visibility.Hidden;
             BillSelectionGrid.Visibility = Visibility.Hidden;
-            
+            S_AreYouSure_button.Visibility = Visibility.Hidden;
+
 
 
             //Set the opening menu category to appetizers
@@ -1143,6 +1144,11 @@ namespace AppProject
             MainWindow nWindow = new MainWindow();
             nWindow.Show();
             nWindow.MurderAndReplace(this);
+        }
+
+        private void ResetStateButton_Click_AYS(object sender, RoutedEventArgs e)
+        {
+            S_AreYouSure_button.Visibility = Visibility.Visible;
         }
     }
 }
