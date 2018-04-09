@@ -104,9 +104,15 @@ namespace AppProject
             if (transactionCompleted)
             {
                 transactionCompleted = false;
+                billView.ItemListGrid.IsEnabled = true;
+                s_BillView.IsEnabled = true;
+                s_BillView.Opacity = 1;
             } else
             {
-                transactionCompleted = true;         
+                transactionCompleted = true;
+                billView.ItemListGrid.IsEnabled = false;
+                s_BillView.IsEnabled = false;
+                s_BillView.Opacity = 0.5;
             }
         }
         
