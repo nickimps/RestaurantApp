@@ -54,7 +54,8 @@ namespace AppProject
             HelpPromptGrid.Visibility = Visibility.Hidden;
             AddItemsPromptGrid.Visibility = Visibility.Hidden;
             BillSelectionGrid.Visibility = Visibility.Hidden;
-            
+            S_AreYouSure_button.Visibility = Visibility.Hidden;
+
 
 
             //Set the opening menu category to appetizers
@@ -863,21 +864,10 @@ namespace AppProject
             S_exit_server_mode.Visibility = Visibility.Visible;
             foreach (Bill bill in bills)
             {
-                Boolean AllSent = true;
+      
+                
+                bill.billView.PaidForButton.Visibility = Visibility.Visible;
 
-                foreach (BillItemControl bic in bill.billView.ItemListGrid.Children)
-                {
-                    if (!bic.itemSent)
-                    {
-                        AllSent = false;
-                    }
-                }
-
-                if (AllSent)
-                {
-                    bill.billView.PaidForButton.Visibility = Visibility.Visible;
-                }
-               
                 if (bill.transactionCompleted)
                 {
                     R_BillUniformGrid.Children.Add(bill.billView);
@@ -1157,6 +1147,11 @@ namespace AppProject
             MainWindow nWindow = new MainWindow();
             nWindow.Show();
             nWindow.MurderAndReplace(this);
+        }
+
+        private void ResetStateButton_Click_AYS(object sender, RoutedEventArgs e)
+        {
+            S_AreYouSure_button.Visibility = Visibility.Visible;
         }
     }
 }

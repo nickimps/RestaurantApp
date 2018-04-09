@@ -234,9 +234,32 @@ namespace AppProject
             this.Deleted.Invoke(this, new EventArgs());
         }
 
+        /*
+         * 
+         * HERE IS STUFF
+         * 
+         * 
+         * 
+         */
         private void PaidForButton_Click(object sender, RoutedEventArgs e)
         {
-            billLogic.ToggleTransactionStatus();
+            Boolean AllSent = true;
+
+            foreach (BillItemControl bic in this.ItemListGrid.Children)
+            {
+                if (!bic.itemSent)
+                {
+                    AllSent = false;
+                }
+            }
+
+            if (AllSent)
+            {
+                billLogic.ToggleTransactionStatus();
+            } else
+            {
+               //Effect disable here if u can 
+            }
         }
 
         private void BillIdentifier_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
