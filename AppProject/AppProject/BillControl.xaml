@@ -43,7 +43,7 @@
             </Canvas>
             <Button x:Name="PaidForButton" Content="Button" HorizontalAlignment="Left" Width="380" Height="Auto" Click="PaidForButton_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,0,0,-3.333" Grid.RowSpan="2" Visibility="Hidden"/>
             <UniformGrid x:Name="ItemListGrid" Margin="20,38,20,36" Columns="1" Width="340" Drop="ItemListGrid_Drop" DragEnter="ItemListGrid_DragEnter" MinHeight="30" Background="#FFEE712B" AllowDrop="True"/>
-            <Button x:Name="RemoveBillButton" Content="Remove&#xA;" HorizontalAlignment="Right" Height="36.99" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Top" Width="88" Click="RemoveBillButton_Click" FontSize="6" Margin="0,65.586,148.474,0" Visibility="Hidden">
+            <Button x:Name="RemoveBillButton" Content="Remove&#xA;" HorizontalAlignment="Right" Height="36.99" Style="{DynamicResource ButtonStyle1}" VerticalAlignment="Top" Width="88" Click="RemoveBillButton_Click" FontSize="6" Margin="0,2.052,2.052,0" Visibility="Hidden">
                 <Button.Effect>
                     <DropShadowEffect ShadowDepth="0"/>
                 </Button.Effect>
