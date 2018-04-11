@@ -401,7 +401,7 @@
                                 </Grid>
                             </AdornerDecorator>
                             <materialDesign:Ripple ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Focusable="False" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <ContentPresenter HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" TextBlock.FontFamily="Century Gothic" Width="40.642" Margin="179.017,0,0,0" Content="Close"/>
+                            <ContentPresenter HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" TextBlock.FontFamily="Century Gothic" Width="40.642" Margin="179.017,10.005,0,0" Content="Close"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -680,7 +680,7 @@
             </Canvas>
 
         </Grid>
-        <Grid x:Name="ReviewGrid" Background="#FF34495E" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="ReviewGrid" Background="#FF34495E" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -769,13 +769,13 @@
             <TextBlock x:Name="statusText" FontFamily="Century Gothic" FontSize="22px" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="56.182,211.4,0,0" Height="39.6" Width="205" TextAlignment="Center" Foreground="#FFF30D0D"/>
         </Grid>
         <Grid x:Name="DisplayMoreInfoGrid" Margin="310.8,116.6,449.2,138.4" Grid.ColumnSpan="2" Height="725" Width="860" d:IsHidden="True"/>
-        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" d:IsHidden="True">
+        <Grid x:Name="BillDisplayGrid" Width="400" Grid.ColumnSpan="2" VerticalAlignment="Center" MinHeight="132">
             <Grid x:Name="ToolBarGrid" Height="20" Width="400" VerticalAlignment="Top" Background="#FF858585">
-                <Button x:Name="CloseButton" Content="" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Top" Click="Close_BillDisplayGrid" Style="{DynamicResource ButtonStyle12}" Background="#FFDC2F2F" BorderBrush="#FFDC2F2F"/>
+                <Button x:Name="CloseButton" Content="" HorizontalAlignment="Right" Width="20" Height="40" VerticalAlignment="Top" Click="Close_BillDisplayGrid" Style="{DynamicResource ButtonStyle12}" Background="#FFDC2F2F" BorderBrush="#FFDC2F2F" Margin="0,0,0,-20.762"/>
 
             </Grid>
-            <Grid x:Name="ContentGrid" VerticalAlignment="Top" Width="400" Margin="0,20,0,0" d:IsHidden="True">
-                <Grid x:Name="BillMainGrid" Background="#FFA8A8A8" Margin="0" Width="400" MinHeight="94" d:IsHidden="True">
+            <Grid x:Name="ContentGrid" VerticalAlignment="Top" Width="400" Margin="0,40,0,0">
+                <Grid x:Name="BillMainGrid" Background="#FFA8A8A8" Margin="0" Width="400" MinHeight="94">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
